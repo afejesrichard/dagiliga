@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dagi Liga 2026 — Season Standings</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@300;400;600;700;900&display=swap');
+
+  :root {
+    --bg: #080810;
+    --card: #111122;
+    --card2: #161630;
+    --accent: #ff6b6b;
+    --accent2: #4ecdc4;
+    --accent3: #ffe66d;
+    --gold: #ffd700;
+    --silver: #c0c0c0;
+    --bronze: #cd7f32;
+    --text: #eaeaea;
+    --text-muted: #7a7a9a;
+    --border: #252550;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 30%, #302060 60%, #e94560 100%);
+    padding: 70px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '大相撲 2026';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 180px;
+    font-weight: 900;
+    opacity: 0.03;
+    font-family: 'Noto Sans JP', serif;
+    white-space: nowrap;
+  }
+  .hero h1 {
+    font-size: 3.2em;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-shadow: 2px 3px 12px rgba(0,0,0,0.6);
+  }
+  .hero h1 .gold { color: var(--gold); }
+  .hero h1 .teal { color: var(--accent2); }
+  .hero .subtitle {
+    font-size: 1.3em;
+    margin-top: 10px;
+    opacity: 0.8;
+  }
+  .hero .jp {
+    font-family: 'Noto Sans JP', serif;
+    font-size: 1.6em;
+    margin-top: 6px;
+    opacity: 0.4;
+  }
+  .hero .badges {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .hero .badge.active { background: rgba(78,205,196,0.25); border-color: var(--accent2); }
+  .hero .badge.upcoming { opacity: 0.5; }
+  .updated {
+    font-size: 0.8em;
+    margin-top: 15px;
+    opacity: 0.5;
+  }
+
+  .container { max-width: 1350px; margin: 0 auto; padding: 30px 20px; }
+
+  /* ===== NAV ===== */
+  .nav-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    padding: 10px 0;
+  }
+  .nav-tab {
+    padding: 10px 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.92em;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .nav-tab:hover { background: var(--card2); }
+  .nav-tab.active { background: var(--accent); border-color: var(--accent); font-weight: 700; color: #fff; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .section-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+  }
+
+  /* ===== TABLE ===== */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .data-table th {
+    background: #1a1a3e;
+    padding: 14px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .data-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .data-table tr:hover { background: var(--card2); }
+  .rank-cell { text-align: center; font-weight: 700; font-size: 1.2em; width: 50px; }
+  .rank-1 { color: var(--gold); }
+  .rank-2 { color: var(--silver); }
+  .rank-3 { color: var(--bronze); }
+  .basho-cell { text-align: center; font-size: 0.9em; min-width: 60px; }
+  .basho-miss { color: #555; font-style: italic; }
+  .total-cell { font-weight: 800; font-size: 1.15em; }
+  .power-cell { font-weight: 700; }
+  .trend-up { color: #4ecdc4; }
+  .trend-down { color: #ff6b6b; }
+  .trend-same { color: var(--text-muted); }
+
+  /* ===== CHART ===== */
+  .chart-container {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+  }
+  .chart-wrapper { position: relative; height: 450px; }
+
+  /* ===== CARDS ===== */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .insight-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .insight-card:hover { transform: translateY(-4px); }
+  .insight-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at top right, rgba(255,107,107,0.06), transparent 70%);
+    pointer-events: none;
+  }
+  .insight-card .ic-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: 16px 16px 0 0;
+  }
+  .insight-card .icon { font-size: 2.5em; margin-bottom: 12px; }
+  .insight-card .title { font-weight: 700; font-size: 1.1em; color: var(--accent3); margin-bottom: 6px; }
+  .insight-card .winner { font-size: 1.25em; font-weight: 700; color: var(--accent2); margin-bottom: 8px; }
+  .insight-card .body { color: var(--text-muted); line-height: 1.65; font-size: 0.93em; }
+  .insight-card .body b, .insight-card .body strong { color: var(--text); font-weight: 600; }
+
+  /* ===== POWER RANKING BARS ===== */
+  .power-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0;
+  }
+  .power-bar-name {
+    width: 170px;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .power-bar-track {
+    flex: 1;
+    height: 28px;
+    background: #1a1a2e;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .power-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-weight: 700;
+    font-size: 0.8em;
+    transition: width 0.6s ease;
+  }
+  .power-bar-meta {
+    width: 80px;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  /* ===== PLAYER PROFILES ===== */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .profile-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid var(--accent2);
+  }
+  .profile-card .pc-name { font-size: 1.2em; font-weight: 700; margin-bottom: 4px; }
+  .profile-card .pc-teams { font-size: 0.8em; color: var(--text-muted); margin-bottom: 12px; }
+  .profile-card .pc-stats { display: flex; gap: 15px; flex-wrap: wrap; }
+  .profile-card .pc-stat { text-align: center; }
+  .profile-card .pc-stat .val { font-size: 1.4em; font-weight: 700; }
+  .profile-card .pc-stat .label { font-size: 0.7em; color: var(--text-muted); text-transform: uppercase; }
+
+  .comeback-table { font-size: 0.9em; }
+  .comeback-table td { padding: 8px 12px; }
+  .easy { color: #4ecdc4; }
+  .medium { color: var(--accent3); }
+  .hard { color: var(--accent); }
+  .impossible { color: #f55; }
+
+  /* ===== INDIVIDUAL BASHO LINKS ===== */
+  .basho-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .basho-link {
+    padding: 12px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .basho-link:hover { background: var(--card2); border-color: var(--accent2); }
+  .basho-link .bl-city { font-size: 0.75em; color: var(--text-muted); display: block; }
+
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.85em;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  footer a { color: var(--accent2); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2em; }
+    .chart-wrapper { height: 300px; }
+    .data-table { font-size: 0.8em; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .power-bar-name { width: 100px; font-size: 0.8em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1><span class="gold">Dagi Liga</span> <span class="teal">2026</span></h1>
+  <div class="subtitle">Fantasy Basho — Cumulative Season Standings</div>
+  <div class="jp">大相撲ファンタジーリーグ 2026</div>
+  <div class="badges">
+    <div class="badge active">✅ Hatsu (Tokyo, Jan)</div>
+    <div class="badge active">✅ Haru (Osaka, Mar)</div>
+    <div class="badge upcoming">⏳ Natsu (Tokyo, May)</div>
+    <div class="badge upcoming">⏳ Nagoya (Jul)</div>
+    <div class="badge upcoming">⏳ Aki (Tokyo, Sep)</div>
+    <div class="badge upcoming">⏳ Kyūshū (Fukuoka, Nov)</div>
+  </div>
+  <div class="updated">Last updated: March 31, 2026 — After 2 of 6 bashos</div>
+</div>
+
+<div class="container">
+
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showTab('standings',this)">Season Standings</div>
+    <div class="nav-tab" onclick="showTab('power',this)">Power Rankings</div>
+    <div class="nav-tab" onclick="showTab('race',this)">The Race</div>
+    <div class="nav-tab" onclick="showTab('profiles',this)">Player Profiles</div>
+    <div class="nav-tab" onclick="showTab('comeback',this)">Comeback Calculator</div>
+    <div class="nav-tab" onclick="showTab('insights',this)">Fun Facts & Awards</div>
+    <div class="nav-tab" onclick="showTab('bashos',this)">Individual Bashos</div>
+  </div>
+
+  <!-- STANDINGS -->
+  <div id="tab-standings" class="tab-content active">
+    <div class="section-title">2026 Season Standings</div>
+    <p style="color:var(--text-muted);margin-bottom:15px">Raw cumulative points across all bashos played. Players who missed a basho show "—" for that tournament.</p>
+    <div id="standings-table-container"></div>
+  </div>
+
+  <!-- POWER RANKINGS -->
+  <div id="tab-power" class="tab-content">
+    <div class="section-title">Power Rankings</div>
+    <p style="color:var(--text-muted);margin-bottom:15px">
+      Normalized ratings that account for missed bashos. The <strong>Power Rating</strong> is based on average points per basho,
+      adjusted by a participation factor. Missing tournaments costs you, but not as much as a bad result would.<br>
+      <em>Formula: (Avg pts per basho) × (0.7 + 0.3 × participation rate) × league-difficulty adjustment</em>
+    </p>
+    <div id="power-bars-container"></div>
+    <div class="chart-container" style="margin-top:25px">
+      <div class="chart-wrapper"><canvas id="powerChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- THE RACE -->
+  <div id="tab-race" class="tab-content">
+    <div class="section-title">The Race — Cumulative Points</div>
+    <div class="chart-container">
+      <div class="chart-wrapper"><canvas id="raceChart"></canvas></div>
+    </div>
+    <p style="color:var(--text-muted);margin-top:10px">Points accumulate across bashos. Players who miss a basho stay flat while others climb.</p>
+  </div>
+
+  <!-- PLAYER PROFILES -->
+  <div id="tab-profiles" class="tab-content">
+    <div class="section-title">Player Profiles</div>
+    <div id="profiles-container" class="profile-grid"></div>
+  </div>
+
+  <!-- COMEBACK CALCULATOR -->
+  <div id="tab-comeback" class="tab-content">
+    <div class="section-title">Comeback Calculator</div>
+    <p style="color:var(--text-muted);margin-bottom:20px">With 4 bashos remaining, here's what each player needs to catch the current leader — and some creative ways to think about it.</p>
+    <div id="comeback-container"></div>
+  </div>
+
+  <!-- FUN FACTS -->
+  <div id="tab-insights" class="tab-content">
+    <div class="section-title">Fun Facts & Season Awards</div>
+    <div id="insights-container" class="cards-grid"></div>
+  </div>
+
+  <!-- INDIVIDUAL BASHOS -->
+  <div id="tab-bashos" class="tab-content">
+    <div class="section-title">Individual Basho Reports</div>
+    <p style="color:var(--text-muted);margin-bottom:15px">Click to open the detailed day-by-day analysis for each basho.</p>
+    <div class="basho-links">
+      <a href="dagi_liga_hatsu_2026.html" class="basho-link">
+        初場所 Hatsu 2026
+        <span class="bl-city">Tokyo — January</span>
+      </a>
+      <a href="dagi_liga_haru_2026.html" class="basho-link">
+        春場所 Haru 2026
+        <span class="bl-city">Osaka — March</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>Dagi Liga 2026</strong> — Fantasy Basho Season Tracker<br>
+  Curated by Richard Fejes | Powered by <a href="https://www.fantasizr.com" target="_blank">Fantasizr</a><br>
+  <span style="opacity:0.6;font-size:0.9em">大相撲を楽しもう!</span>
+</footer>
+
+<script>
+// ============================
+// DATA
+// ============================
+
+const bashos = [
+  { id: 'hatsu', name: 'Hatsu', nameJp: '初場所', city: 'Tokyo', month: 'Jan', completed: true },
+  { id: 'haru', name: 'Haru', nameJp: '春場所', city: 'Osaka', month: 'Mar', completed: true },
+  { id: 'natsu', name: 'Natsu', nameJp: '夏場所', city: 'Tokyo', month: 'May', completed: false },
+  { id: 'nagoya', name: 'Nagoya', nameJp: '名古屋場所', city: 'Nagoya', month: 'Jul', completed: false },
+  { id: 'aki', name: 'Aki', nameJp: '秋場所', city: 'Tokyo', month: 'Sep', completed: false },
+  { id: 'kyushu', name: 'Kyūshū', nameJp: '九州場所', city: 'Fukuoka', month: 'Nov', completed: false }
+];
+
+const completedBashos = bashos.filter(b => b.completed);
+const remainingBashos = bashos.filter(b => !b.completed);
+
+// Player data: name -> { teams: {bashoId: teamName}, scores: {bashoId: points} }
+const players = [
+  {
+    name: 'Márton Váradi',
+    color: '#e94560',
+    teams: { hatsu: 'Szentendre Szumo' },
+    scores: { hatsu: 87 }
+  },
+  {
+    name: 'Csilla Virág',
+    color: '#ff6b6b',
+    teams: { hatsu: 'greatest sumo team ever', haru: 'greatest sumo team ever' },
+    scores: { hatsu: 87, haru: 69 }
+  },
+  {
+    name: 'Sándor Szilágyi',
+    color: '#577590',
+    teams: { hatsu: 'DigiDagi', haru: 'DigiDagi' },
+    scores: { hatsu: 86, haru: 57 }
+  },
+  {
+    name: 'Tarján Teréz',
+    color: '#f15bb5',
+    teams: { hatsu: 'Szusizabálók', haru: 'Szusizabálók' },
+    scores: { hatsu: 86, haru: 55 }
+  },
+  {
+    name: 'Richard Fejes',
+    color: '#f9c74f',
+    teams: { hatsu: 'Tokazachi KSE', haru: 'Tokazachi KSE' },
+    scores: { hatsu: 83, haru: 69 }
+  },
+  {
+    name: 'Márk Vrabély',
+    color: '#f8961e',
+    teams: { hatsu: 'Sumo', haru: '相撲' },
+    scores: { hatsu: 82, haru: 67 }
+  },
+  {
+    name: 'Mátyás Fazakas',
+    color: '#4ecdc4',
+    teams: { hatsu: 'Tokyo Töpörtyűk', haru: 'Tokyo Töpörtyűk' },
+    scores: { hatsu: 78, haru: 73 }
+  },
+  {
+    name: 'Dorka FJ',
+    color: '#9b5de5',
+    teams: { hatsu: 'Tokások', haru: 'Tokások' },
+    scores: { hatsu: 70, haru: 72 }
+  },
+  {
+    name: 'DJ_Pongo_Pongo',
+    color: '#43aa8b',
+    teams: { hatsu: 'Kövér utcai Uszoda', haru: 'Kövér utcai Uszoda' },
+    scores: { hatsu: 70, haru: 69 }
+  },
+  {
+    name: 'Radish Master 888',
+    color: '#90be6d',
+    teams: { hatsu: 'Kalória defecit Defeaters' },
+    scores: { hatsu: 58 }
+  }
+];
+
+// ============================
+// DERIVED STATS
+// ============================
+
+players.forEach(p => {
+  p.bashosPlayed = Object.keys(p.scores).length;
+  p.totalPoints = Object.values(p.scores).reduce((a, b) => a + b, 0);
+  p.avgPerBasho = p.bashosPlayed > 0 ? p.totalPoints / p.bashosPlayed : 0;
+  p.participationRate = p.bashosPlayed / completedBashos.length;
+
+  // Power Rating: avg * participation factor * league-size factor
+  // Participation factor: 0.7 + 0.3 * rate (so missing half the bashos costs 15%, not 50%)
+  const partFactor = 0.7 + 0.3 * p.participationRate;
+  p.powerRating = p.avgPerBasho * partFactor;
+
+  // Best/worst basho
+  const scoreVals = Object.values(p.scores);
+  p.bestBasho = Math.max(...scoreVals);
+  p.worstBasho = Math.min(...scoreVals);
+
+  // Trend: compare last basho to first (if 2+)
+  const bashoIds = completedBashos.map(b => b.id);
+  const played = bashoIds.filter(id => p.scores[id] !== undefined);
+  if (played.length >= 2) {
+    const last = p.scores[played[played.length - 1]];
+    const prev = p.scores[played[played.length - 2]];
+    p.trend = last - prev;
+  } else {
+    p.trend = 0;
+  }
+
+  // Cumulative after each basho (for race chart)
+  p.cumulative = [];
+  let cum = 0;
+  completedBashos.forEach(b => {
+    if (p.scores[b.id] !== undefined) cum += p.scores[b.id];
+    p.cumulative.push(cum);
+  });
+
+  // Rank in each basho
+  p.bashoRanks = {};
+});
+
+// Calculate per-basho rankings
+completedBashos.forEach(b => {
+  const inBasho = players.filter(p => p.scores[b.id] !== undefined)
+    .sort((a, c) => c.scores[b.id] - a.scores[b.id]);
+  inBasho.forEach((p, i) => { p.bashoRanks[b.id] = i + 1; });
+});
+
+// League averages per basho
+const bashoAvgs = {};
+completedBashos.forEach(b => {
+  const scores = players.filter(p => p.scores[b.id] !== undefined).map(p => p.scores[b.id]);
+  bashoAvgs[b.id] = scores.reduce((a, c) => a + c, 0) / scores.length;
+});
+
+// Sort players
+const byTotal = [...players].sort((a, b) => b.totalPoints - a.totalPoints);
+const byPower = [...players].sort((a, b) => b.powerRating - a.powerRating);
+
+// ============================
+// TAB SWITCHING
+// ============================
+function showTab(tab, el) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  el.classList.add('active');
+}
+
+// ============================
+// STANDINGS TABLE
+// ============================
+function renderStandings() {
+  let html = '<table class="data-table"><thead><tr>';
+  html += '<th>#</th><th>Player</th>';
+  completedBashos.forEach(b => { html += `<th class="basho-cell">${b.nameJp}<br><span style="font-size:0.8em;opacity:0.6">${b.name}</span></th>`; });
+  html += '<th>Total</th><th>Avg/Basho</th><th>Played</th><th>Trend</th>';
+  html += '</tr></thead><tbody>';
+
+  byTotal.forEach((p, i) => {
+    const rc = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
+    html += `<tr>`;
+    html += `<td class="rank-cell ${rc}">${i + 1}</td>`;
+    html += `<td><strong style="color:${p.color}">${p.name}</strong></td>`;
+    completedBashos.forEach(b => {
+      if (p.scores[b.id] !== undefined) {
+        const rank = p.bashoRanks[b.id];
+        const rankLabel = rank <= 3 ? ['🥇','🥈','🥉'][rank-1] : `#${rank}`;
+        html += `<td class="basho-cell">${p.scores[b.id]} <span style="font-size:0.7em;color:var(--text-muted)">${rankLabel}</span></td>`;
+      } else {
+        html += `<td class="basho-cell basho-miss">—</td>`;
+      }
+    });
+    html += `<td class="total-cell">${p.totalPoints}</td>`;
+    html += `<td>${p.avgPerBasho.toFixed(1)}</td>`;
+    html += `<td>${p.bashosPlayed}/${completedBashos.length}</td>`;
+    const trendIcon = p.trend > 0 ? '↗' : p.trend < 0 ? '↘' : '→';
+    const trendClass = p.trend > 0 ? 'trend-up' : p.trend < 0 ? 'trend-down' : 'trend-same';
+    html += `<td class="${trendClass}">${trendIcon} ${p.trend > 0 ? '+' : ''}${p.trend !== 0 ? p.trend : '—'}</td>`;
+    html += '</tr>';
+  });
+
+  html += '</tbody></table>';
+  document.getElementById('standings-table-container').innerHTML = html;
+}
+
+// ============================
+// POWER RANKINGS
+// ============================
+function renderPower() {
+  const maxPR = Math.max(...players.map(p => p.powerRating));
+  let html = '';
+
+  byPower.forEach((p, i) => {
+    const pct = (p.powerRating / maxPR * 100).toFixed(1);
+    const medal = i === 0 ? '👑 ' : i === 1 ? '🥈 ' : i === 2 ? '🥉 ' : '';
+    html += `<div class="power-bar-row">
+      <div class="power-bar-name" style="color:${p.color}">${medal}${p.name}</div>
+      <div class="power-bar-track">
+        <div class="power-bar-fill" style="width:${pct}%;background:${p.color}">${p.powerRating.toFixed(1)}</div>
+      </div>
+      <div class="power-bar-meta">${p.bashosPlayed}/${completedBashos.length} bashos<br>Avg: ${p.avgPerBasho.toFixed(1)}</div>
+    </div>`;
+  });
+
+  document.getElementById('power-bars-container').innerHTML = html;
+
+  // Power chart: avg per basho vs participation
+  new Chart(document.getElementById('powerChart').getContext('2d'), {
+    type: 'bubble',
+    data: {
+      datasets: players.map(p => ({
+        label: p.name,
+        data: [{ x: p.bashosPlayed, y: p.avgPerBasho, r: p.powerRating / 4 }],
+        backgroundColor: p.color + 'aa',
+        borderColor: p.color,
+        borderWidth: 2
+      }))
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#eee', font: { size: 11 } } },
+        title: { display: true, text: 'Avg Points vs Participation (bubble size = Power Rating)', color: '#eee', font: { size: 15 } },
+        tooltip: { callbacks: { label: (ctx) => {
+          const p = players.find(pl => pl.name === ctx.dataset.label);
+          return `${p.name}: Avg ${p.avgPerBasho.toFixed(1)}, ${p.bashosPlayed} bashos, Power ${p.powerRating.toFixed(1)}`;
+        }}}
+      },
+      scales: {
+        x: { title: { display: true, text: 'Bashos Played', color: '#aaa' }, ticks: { color: '#aaa', stepSize: 1 }, grid: { color: '#2a2a4a' }, min: 0 },
+        y: { title: { display: true, text: 'Avg Points per Basho', color: '#aaa' }, ticks: { color: '#aaa' }, grid: { color: '#2a2a4a' } }
+      }
+    }
+  });
+}
+
+// ============================
+// RACE CHART
+// ============================
+function renderRace() {
+  const labels = completedBashos.map(b => b.name + ' ' + b.nameJp);
+  new Chart(document.getElementById('raceChart').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: byTotal.map(p => ({
+        label: `${p.name} (${p.totalPoints})`,
+        data: p.cumulative,
+        borderColor: p.color,
+        backgroundColor: p.color + '22',
+        fill: false,
+        tension: 0.3,
+        borderWidth: 3,
+        pointRadius: 8,
+        pointHoverRadius: 12,
+        pointBackgroundColor: p.color,
+        borderDash: p.bashosPlayed < completedBashos.length ? [5, 5] : []
+      }))
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#eee', font: { size: 11 } } },
+        title: { display: true, text: 'Cumulative Season Points Race', color: '#eee', font: { size: 16 } },
+        tooltip: { callbacks: { afterBody: (items) => {
+          const bi = items[0].dataIndex;
+          const ranks = byTotal.map(p => ({ name: p.name, pts: p.cumulative[bi] }))
+            .sort((a, b) => b.pts - a.pts);
+          return '\n' + ranks.map((r, i) => `${i + 1}. ${r.name}: ${r.pts}`).join('\n');
+        }}}
+      },
+      scales: {
+        x: { ticks: { color: '#aaa' }, grid: { color: '#2a2a4a' } },
+        y: { ticks: { color: '#aaa' }, grid: { color: '#2a2a4a' }, beginAtZero: true }
+      }
+    }
+  });
+}
+
+// ============================
+// PLAYER PROFILES
+// ============================
+function renderProfiles() {
+  let html = '';
+  byPower.forEach((p, i) => {
+    const teamList = Object.entries(p.teams).map(([bid, tname]) => {
+      const b = bashos.find(x => x.id === bid);
+      return `${b.name}: ${tname}`;
+    }).join(' | ');
+
+    const rankEmoji = i === 0 ? '👑' : i === 1 ? '🥈' : i === 2 ? '🥉' : `#${i + 1}`;
+
+    html += `<div class="profile-card" style="border-left-color:${p.color}">
+      <div class="pc-name" style="color:${p.color}">${rankEmoji} ${p.name}</div>
+      <div class="pc-teams">${teamList}</div>
+      <div class="pc-stats">
+        <div class="pc-stat"><div class="val">${p.totalPoints}</div><div class="label">Total Pts</div></div>
+        <div class="pc-stat"><div class="val">${p.powerRating.toFixed(1)}</div><div class="label">Power</div></div>
+        <div class="pc-stat"><div class="val">${p.avgPerBasho.toFixed(1)}</div><div class="label">Avg/Basho</div></div>
+        <div class="pc-stat"><div class="val">${p.bashosPlayed}/${completedBashos.length}</div><div class="label">Played</div></div>
+        <div class="pc-stat"><div class="val">${p.bestBasho}</div><div class="label">Best</div></div>
+        <div class="pc-stat"><div class="val">${p.trend > 0 ? '+' + p.trend : p.trend}</div><div class="label">Trend</div></div>
+      </div>
+    </div>`;
+  });
+  document.getElementById('profiles-container').innerHTML = html;
+}
+
+// ============================
+// COMEBACK CALCULATOR
+// ============================
+function renderComeback() {
+  const leader = byTotal[0];
+  const remaining = remainingBashos.length;
+
+  let html = `<div class="insight-card" style="margin-bottom:25px">
+    <div class="ic-border" style="background:var(--gold)"></div>
+    <div class="icon">🧮</div>
+    <div class="title">The Math</div>
+    <div class="body">
+      Current leader: <strong>${leader.name}</strong> with <strong>${leader.totalPoints} points</strong>.<br>
+      Remaining bashos: <strong>${remaining}</strong> (Natsu, Nagoya, Aki, Kyūshū).<br>
+      League average score per basho: <strong>${(Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length).toFixed(1)}</strong>.<br>
+      Theoretical max per basho (4 rikishi × 2pts × 15 days + kinboshi + prizes): ~<strong>130 pts</strong> (but realistically ~75-90).
+    </div>
+  </div>`;
+
+  // Table: what each player needs
+  html += `<table class="data-table comeback-table"><thead><tr>
+    <th>Player</th><th>Current</th><th>Gap to #1</th><th>Needed Avg/Basho</th><th>Difficulty</th><th>Creative Translation</th>
+  </tr></thead><tbody>`;
+
+  byTotal.forEach((p, i) => {
+    const gap = leader.totalPoints - p.totalPoints;
+    // Assume leader scores their avg in remaining bashos
+    const leaderProjected = leader.totalPoints + leader.avgPerBasho * remaining;
+    const neededTotal = leaderProjected - p.totalPoints;
+    const neededAvg = remaining > 0 ? neededTotal / remaining : 0;
+
+    let difficulty, diffClass, creative;
+    if (gap === 0) {
+      difficulty = 'YOU ARE THE TARGET';
+      diffClass = 'easy';
+      creative = 'Just keep doing your thing. Everyone else is calculating how to beat you.';
+    } else if (neededAvg <= 70) {
+      difficulty = 'Very Doable';
+      diffClass = 'easy';
+      creative = `That's like picking ${Math.ceil(neededAvg/2)} winning rikishi per basho. Easy peasy, pick better wrestlers!`;
+    } else if (neededAvg <= 80) {
+      difficulty = 'Challenging';
+      diffClass = 'medium';
+      creative = `You'd need to score ${neededAvg.toFixed(0)} per basho — top-3 finishes every time. Time to study the banzuke!`;
+    } else if (neededAvg <= 95) {
+      difficulty = 'Hero Mode';
+      diffClass = 'hard';
+      creative = `You need ${neededAvg.toFixed(0)}/basho. That's "predict every upset correctly" territory. Channel your inner Atamifuji!`;
+    } else {
+      difficulty = 'Need a Miracle';
+      diffClass = 'impossible';
+      creative = `${neededAvg.toFixed(0)} per basho? You'd need to pick 4 yūshō contenders every single day. Or pray the leader gets abducted by aliens.`;
+    }
+
+    if (!p.scores.haru && !p.scores.hatsu) {
+      creative = "Step 1: Actually show up to a basho. We believe in you!";
+    } else if (p.bashosPlayed < completedBashos.length && gap > 0) {
+      const missedAvg = (Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length).toFixed(0);
+      creative += ` (Missing a basho cost you ~${missedAvg} points in this race!)`;
+    }
+
+    html += `<tr>
+      <td><strong style="color:${p.color}">${p.name}</strong></td>
+      <td>${p.totalPoints}</td>
+      <td>${gap === 0 ? '—' : '-' + gap}</td>
+      <td>${gap === 0 ? '—' : neededAvg.toFixed(1)}</td>
+      <td class="${diffClass}">${difficulty}</td>
+      <td style="max-width:300px;white-space:normal;font-size:0.85em">${creative}</td>
+    </tr>`;
+  });
+
+  html += '</tbody></table>';
+
+  // Fun "what if" scenarios
+  html += `<div class="cards-grid" style="margin-top:30px">`;
+
+  html += `<div class="insight-card">
+    <div class="ic-border" style="background:var(--accent2)"></div>
+    <div class="icon">🎰</div>
+    <div class="title">What If: Perfect Basho?</div>
+    <div class="body">The highest score so far is <strong>${Math.max(...players.map(p => p.bestBasho))}</strong> (Hatsu Basho).
+    If someone scored <strong>90+</strong> in a single basho (insane), they'd gain ~${90 - Math.round(Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length)} points on the average player.
+    One legendary basho could flip the entire standings!</div>
+  </div>`;
+
+  html += `<div class="insight-card">
+    <div class="ic-border" style="background:var(--accent)"></div>
+    <div class="icon">😴</div>
+    <div class="title">What If: Leader Goes AFK?</div>
+    <div class="body">If <strong>${leader.name}</strong> misses the next basho, everyone playing scores ~${Math.round(Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length)} free points on them.
+    Miss two bashos? That's a ${Math.round(Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length) * 2}-point swing. The throne could absolutely change hands!</div>
+  </div>`;
+
+  html += `<div class="insight-card">
+    <div class="ic-border" style="background:var(--accent3)"></div>
+    <div class="icon">🆕</div>
+    <div class="title">What If: A New Player Joins?</div>
+    <div class="body">A new player starting in Natsu would need to average <strong>${(leader.totalPoints / remaining).toFixed(0)}+</strong> per basho across ${remaining} tournaments
+    to catch the leader. That's theoretically possible but they'd need to be absolutely dominant from day one.
+    The Power Rankings would treat them fairly though!</div>
+  </div>`;
+
+  html += `<div class="insight-card">
+    <div class="ic-border" style="background:#9b5de5"></div>
+    <div class="icon">📐</div>
+    <div class="title">The "Márton Equation"</div>
+    <div class="body"><strong>Márton Váradi</strong> leads with 87 pts but only played 1 basho. If he returns for all 4 remaining,
+    he needs just <strong>${Math.round((byTotal[0].totalPoints + byTotal[0].avgPerBasho * remaining - 87) / remaining)}</strong> per basho to stay competitive.
+    But if he stays away, the power ranking penalty will slowly eat his lead. Clock's ticking, Márton!</div>
+  </div>`;
+
+  html += '</div>';
+
+  document.getElementById('comeback-container').innerHTML = html;
+}
+
+// ============================
+// INSIGHTS & AWARDS
+// ============================
+function renderInsights() {
+  const insights = [];
+
+  // Season leader
+  insights.push({
+    icon: '👑', title: 'Season Leader at the Halfway Mark',
+    border: 'var(--gold)',
+    winner: `${byTotal[0].name} — ${byTotal[0].totalPoints} pts`,
+    body: `With <strong>${byTotal[0].totalPoints} points</strong> after ${completedBashos.length} bashos, <strong>${byTotal[0].name}</strong> leads the season standings.
+    But we're only 2/6 through — the marathon has barely started!`
+  });
+
+  // Power ranking leader
+  if (byPower[0].name !== byTotal[0].name) {
+    insights.push({
+      icon: '⚡', title: 'Power Rankings Tell a Different Story!',
+      border: 'var(--accent2)',
+      winner: `${byPower[0].name} — ${byPower[0].powerRating.toFixed(1)} PWR`,
+      body: `While <strong>${byTotal[0].name}</strong> leads on raw points, <strong>${byPower[0].name}</strong> tops the Power Rankings with a rating of
+      <strong>${byPower[0].powerRating.toFixed(1)}</strong>. Higher average, adjusted for participation. The "real" best player?`
+    });
+  }
+
+  // Most improved (Hatsu → Haru)
+  const withBoth = players.filter(p => p.scores.hatsu !== undefined && p.scores.haru !== undefined);
+  if (withBoth.length > 0) {
+    const improved = [...withBoth].sort((a, b) => b.trend - a.trend);
+    const declined = [...withBoth].sort((a, b) => a.trend - b.trend);
+
+    insights.push({
+      icon: '📈', title: 'Most Improved: Hatsu → Haru',
+      border: '#4ecdc4',
+      winner: improved[0].name,
+      body: `<strong>${improved[0].name}</strong> improved by <strong>${improved[0].trend > 0 ? '+' : ''}${improved[0].trend} points</strong> from Hatsu to Haru.
+      ${improved[0].trend > 0 ? 'Moving in the right direction!' : 'OK, nobody actually improved — Haru was tough!'}`
+    });
+
+    insights.push({
+      icon: '📉', title: 'Biggest Drop: Hatsu → Haru',
+      border: '#f55',
+      winner: declined[0].name,
+      body: `<strong>${declined[0].name}</strong> dropped <strong>${declined[0].trend} points</strong> from Hatsu to Haru.
+      ${Math.abs(declined[0].trend) > 25 ? "Ouch! That's a big fall. Was it bad rikishi picks or bad luck?" : "Not a huge drop, but every point matters in this race."}`
+    });
+  }
+
+  // Ghost players
+  const ghosts = players.filter(p => p.bashosPlayed < completedBashos.length);
+  if (ghosts.length > 0) {
+    insights.push({
+      icon: '👻', title: 'The Ghost Players',
+      border: '#888',
+      winner: ghosts.map(g => g.name).join(', '),
+      body: `${ghosts.map(g => `<strong>${g.name}</strong> (${g.bashosPlayed}/${completedBashos.length})`).join(', ')}
+      missed at least one basho. ${ghosts.find(g => g.name === 'Márton Váradi') ?
+      "Márton leads the raw standings but only played once — if he doesn't return, others will overtake him!" :
+      "Missing bashos is the fastest way to fall behind in the season race."}`
+    });
+  }
+
+  // Tightest race
+  const top5spread = byTotal[0].totalPoints - byTotal[Math.min(4, byTotal.length - 1)].totalPoints;
+  insights.push({
+    icon: '🏎️', title: 'The Title Race Is WIDE Open',
+    border: 'var(--accent)',
+    winner: `Only ${top5spread} points separate Top 5`,
+    body: `The top 5 players are within <strong>${top5spread} points</strong> of each other. With 4 bashos remaining (potentially ~280+ points up for grabs),
+    <strong>literally anyone in the top 5 can win this</strong>. And even lower-ranked players are just one monster basho away from relevance.`
+  });
+
+  // Consistency king
+  const consistent = [...withBoth].sort((a, b) => Math.abs(a.trend) - Math.abs(b.trend));
+  if (consistent.length > 0) {
+    insights.push({
+      icon: '🎯', title: 'Mr./Ms. Consistency',
+      border: 'var(--accent2)',
+      winner: consistent[0].name,
+      body: `<strong>${consistent[0].name}</strong> had the smallest gap between Hatsu (${consistent[0].scores.hatsu}) and Haru (${consistent[0].scores.haru})
+      — only <strong>${Math.abs(consistent[0].trend)}</strong> points difference. You know exactly what you're getting!`
+    });
+  }
+
+  // Haru was harder
+  insights.push({
+    icon: '📊', title: 'Haru Was Tougher Than Hatsu',
+    border: 'var(--accent3)',
+    winner: `Avg: ${bashoAvgs.hatsu?.toFixed(1)} → ${bashoAvgs.haru?.toFixed(1)}`,
+    body: `The league average dropped from <strong>${bashoAvgs.hatsu?.toFixed(1)}</strong> (Hatsu, 5 rikishi) to <strong>${bashoAvgs.haru?.toFixed(1)}</strong> (Haru, 4 rikishi).
+    Haru used 4-man rosters instead of 5, meaning every bad pick stung harder. Less margin for error = lower scores across the board.`
+  });
+
+  // The "Nice" award (69 points)
+  const niceClub = players.filter(p => Object.values(p.scores).includes(69));
+  if (niceClub.length > 0) {
+    insights.push({
+      icon: '😏', title: 'The Nice Club (69 pts)',
+      border: '#f093fb',
+      winner: niceClub.map(p => p.name).join(', '),
+      body: `${niceClub.length} players scored exactly <strong>69 points</strong> in Haru. <em>Nice.</em>
+      ${niceClub.length >= 3 ? " A THREE-WAY 69? The statistical improbability is... impressive." : ""}`
+    });
+  }
+
+  // F1-style points projection
+  const f1Points = { 1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4, 9: 2, 10: 1 };
+  const f1Totals = {};
+  players.forEach(p => { f1Totals[p.name] = 0; });
+  completedBashos.forEach(b => {
+    const ranked = players.filter(p => p.scores[b.id] !== undefined)
+      .sort((a, c) => c.scores[b.id] - a.scores[b.id]);
+    ranked.forEach((p, i) => { f1Totals[p.name] += f1Points[i + 1] || 0; });
+  });
+  const f1Sorted = Object.entries(f1Totals).sort((a, b) => b[1] - a[1]);
+  insights.push({
+    icon: '🏎️', title: 'If We Used F1 Scoring...',
+    border: 'var(--accent2)',
+    winner: `${f1Sorted[0][0]} would lead!`,
+    body: `Using F1-style points (25-18-15-12-10-8-6-4-2-1):<br>
+    ${f1Sorted.slice(0, 5).map((e, i) => `<strong>${i + 1}. ${e[0]}</strong>: ${e[1]} pts`).join(' | ')}<br>
+    ${f1Sorted[0][0] !== byTotal[0].name ? "Different scoring = different champion! Every system tells a different story." : "Same leader either way — they're just that good."}`
+  });
+
+  // "What if everyone had played all bashos?"
+  const projected = players.map(p => ({
+    name: p.name,
+    actual: p.totalPoints,
+    projected: Math.round(p.avgPerBasho * completedBashos.length),
+    missed: completedBashos.length - p.bashosPlayed
+  })).sort((a, b) => b.projected - a.projected);
+  insights.push({
+    icon: '🔮', title: 'What If Everyone Played Every Basho?',
+    border: 'var(--accent3)',
+    winner: `${projected[0].name} would lead with ~${projected[0].projected}`,
+    body: `Projecting missed bashos using each player's average:<br>
+    ${projected.slice(0, 5).map((p, i) => `<strong>${i + 1}. ${p.name}</strong>: ~${p.projected}${p.missed > 0 ? ' (+' + (p.projected - p.actual) + ' projected)' : ''}`).join(' | ')}<br>
+    ${projected[0].name !== byTotal[0].name ? "<strong>The standings would shuffle!</strong> Missed bashos matter a lot." : "Same leader — they earned it!"}`
+  });
+
+  // Dorka's revenge arc
+  const dorka = players.find(p => p.name === 'Dorka FJ');
+  if (dorka && dorka.scores.hatsu && dorka.scores.haru) {
+    insights.push({
+      icon: '⚔️', title: 'Dorka\'s Revenge Arc',
+      border: '#9b5de5',
+      winner: `Hatsu #${dorka.bashoRanks.hatsu} → Haru #${dorka.bashoRanks.haru}`,
+      body: `<strong>Dorka FJ</strong> went from <strong>#${dorka.bashoRanks.hatsu}</strong> in Hatsu (${dorka.scores.hatsu} pts) to <strong>#${dorka.bashoRanks.haru}</strong> in Haru (${dorka.scores.haru} pts)!
+      ${dorka.trend > 0 ? `A +${dorka.trend} point improvement. The Tokások are on the rise!` : "The climb continues — watch out for Dorka in Natsu!"}`
+    });
+  }
+
+  // Richard's consistency note
+  const richard = players.find(p => p.name === 'Richard Fejes');
+  if (richard) {
+    insights.push({
+      icon: '🏋️', title: 'Richard\'s Steady Season',
+      border: '#f9c74f',
+      winner: `${richard.totalPoints} pts (Avg: ${richard.avgPerBasho.toFixed(1)})`,
+      body: `<strong>Richard</strong> scored <strong>${richard.scores.hatsu}</strong> in Hatsu and <strong>${richard.scores.haru}</strong> in Haru.
+      Tied for 3rd in one basho, 5th in another — always in the mix but never quite the champion. The Tokazachi KSE grind continues. Natsu could be the breakout!`
+    });
+  }
+
+  // "The League Is Getting Tighter" or "Diverging"
+  insights.push({
+    icon: '🔬', title: 'League Entropy Report',
+    border: '#43aa8b',
+    winner: 'Analysis',
+    body: `In Hatsu, the spread was <strong>${87 - 58} points</strong> (1st to last). In Haru, it was <strong>${73 - 55} points</strong>.
+    The league is getting <strong>more competitive</strong> — the gap between best and worst is shrinking.
+    With 4 bashos left, the pack is bunching up. Expect a dramatic finish!`
+  });
+
+  let html = '';
+  insights.forEach(ins => {
+    html += `<div class="insight-card">
+      <div class="ic-border" style="background:${ins.border}"></div>
+      <div class="icon">${ins.icon}</div>
+      <div class="title">${ins.title}</div>
+      <div class="winner">${ins.winner}</div>
+      <div class="body">${ins.body}</div>
+    </div>`;
+  });
+  document.getElementById('insights-container').innerHTML = html;
+}
+
+// ============================
+// INIT
+// ============================
+renderStandings();
+renderPower();
+renderRace();
+renderProfiles();
+renderComeback();
+renderInsights();
+</script>
+
+</body>
+</html>
