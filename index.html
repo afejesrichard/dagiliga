@@ -89,6 +89,8 @@
     border: 1px solid rgba(255,255,255,0.15);
   }
   .hero .badge.active { background: rgba(78,205,196,0.25); border-color: var(--accent2); }
+  a.badge.active { text-decoration: none; color: var(--text); cursor: pointer; transition: all 0.2s; }
+  a.badge.active:hover { background: rgba(78,205,196,0.45); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(78,205,196,0.3); }
   .hero .badge.upcoming { opacity: 0.5; }
   .updated {
     font-size: 0.8em;
@@ -333,8 +335,8 @@
   <div class="subtitle">Fantasy Basho — Cumulative Season Standings</div>
   <div class="jp">大相撲ファンタジーリーグ 2026</div>
   <div class="badges">
-    <div class="badge active">✅ Hatsu (Tokyo, Jan)</div>
-    <div class="badge active">✅ Haru (Osaka, Mar)</div>
+    <a href="dagi_liga_hatsu_2026.html" class="badge active">✅ Hatsu (Tokyo, Jan)</a>
+    <a href="dagi_liga_haru_2026.html" class="badge active">✅ Haru (Osaka, Mar)</a>
     <div class="badge upcoming">⏳ Natsu (Tokyo, May)</div>
     <div class="badge upcoming">⏳ Nagoya (Jul)</div>
     <div class="badge upcoming">⏳ Aki (Tokyo, Sep)</div>
