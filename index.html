@@ -143,19 +143,22 @@
     gap: 18px;
     margin-top: 20px;
   }
-  .watch-card {
+  a.watch-card {
+    display: block;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 22px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    text-decoration: none;
+    color: var(--text);
+    cursor: pointer;
   }
-  .watch-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  a.watch-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); border-color: var(--accent2); }
   .watch-card .wc-icon { font-size: 1.8em; margin-bottom: 8px; }
   .watch-card .wc-title { font-size: 1.15em; font-weight: 700; margin-bottom: 6px; }
   .watch-card .wc-desc { font-size: 0.9em; color: var(--text-muted); line-height: 1.5; }
-  .watch-card a { color: var(--accent2); text-decoration: none; font-weight: 600; }
-  .watch-card a:hover { text-decoration: underline; }
+  .watch-card .wc-link { color: var(--accent2); font-weight: 600; font-size: 0.85em; }
   .watch-card .wc-tag {
     display: inline-block;
     background: rgba(78,205,196,0.15);
@@ -209,6 +212,32 @@
   }
   .nav-tab:hover { background: var(--card2); }
   .nav-tab.active { background: var(--accent); border-color: var(--accent); font-weight: 700; color: #fff; }
+  .nav-tab.nav-tab--watch {
+    background: linear-gradient(135deg, #4ecdc4 0%, #2ab7a9 100%);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1em;
+    padding: 10px 24px;
+    border: 2px solid rgba(78,205,196,0.6);
+    box-shadow: 0 0 14px rgba(78,205,196,0.25), inset 0 1px 0 rgba(255,255,255,0.2);
+    letter-spacing: 0.5px;
+    animation: watchPulse 3s ease-in-out infinite;
+  }
+  .nav-tab.nav-tab--watch:hover {
+    background: linear-gradient(135deg, #5de0d7 0%, #38cdbf 100%);
+    box-shadow: 0 0 22px rgba(78,205,196,0.45), inset 0 1px 0 rgba(255,255,255,0.25);
+    transform: translateY(-1px);
+  }
+  .nav-tab.nav-tab--watch.active {
+    background: linear-gradient(135deg, #4ecdc4 0%, #2ab7a9 100%);
+    border-color: rgba(78,205,196,0.8);
+    box-shadow: 0 0 20px rgba(78,205,196,0.4);
+    animation: none;
+  }
+  @keyframes watchPulse {
+    0%, 100% { box-shadow: 0 0 14px rgba(78,205,196,0.25), inset 0 1px 0 rgba(255,255,255,0.2); }
+    50% { box-shadow: 0 0 22px rgba(78,205,196,0.45), inset 0 1px 0 rgba(255,255,255,0.2); }
+  }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
@@ -439,7 +468,7 @@
 <div class="container">
 
   <div class="nav-tabs">
-    <div class="nav-tab" onclick="showTab('watch',this)">Where to Watch</div>
+    <div class="nav-tab nav-tab--watch" onclick="showTab('watch',this)">📡 Where to Watch</div>
     <div class="nav-tab active" onclick="showTab('standings',this)">Season Standings</div>
     <div class="nav-tab" onclick="showTab('power',this)">Power Rankings</div>
     <div class="nav-tab" onclick="showTab('race',this)">The Race</div>
@@ -520,74 +549,76 @@
     <p style="color:var(--text-muted);margin-bottom:5px">All the best ways to follow the basho action — recordings, live streams, and highlights.</p>
 
     <div class="watch-grid">
-      <div class="watch-card">
+      <a class="watch-card" href="http://www.theforevercove.com/" target="_blank">
         <div class="wc-icon">📼</div>
         <div class="wc-title">The Forever Cove</div>
         <div class="wc-desc">
           Full recordings of each day, typically uploaded in the evening (Hungarian time).<br>
-          <a href="http://www.theforevercove.com/" target="_blank">theforevercove.com</a><br>
           <span style="opacity:0.7; font-size:0.85em;">Fn: large &nbsp;|&nbsp; Pw: sushi</span>
         </div>
+        <div class="wc-link">theforevercove.com</div>
         <div class="wc-tag">Recordings</div>
-      </div>
+      </a>
 
-      <div class="watch-card">
+      <a class="watch-card" href="https://www3.nhk.or.jp/nhkworld/en/tv/sumo/" target="_blank">
         <div class="wc-icon">📺</div>
         <div class="wc-title">NHK World App</div>
         <div class="wc-desc">
           Official NHK coverage, also available on smart TVs. Both recordings and highlights go up in the evening.
         </div>
+        <div class="wc-link">nhk.or.jp/nhkworld</div>
         <div class="wc-tag">Official App</div>
-      </div>
+      </a>
 
-      <div class="watch-card">
+      <a class="watch-card" href="https://youtube.com/@knitamaya" target="_blank">
         <div class="wc-icon">🎬</div>
         <div class="wc-title">Knitamaya (YouTube)</div>
         <div class="wc-desc">
-          Same-day uploads with English commentary.<br>
-          <a href="https://youtube.com/@knitamaya" target="_blank">youtube.com/@knitamaya</a>
+          Same-day uploads with English commentary.
         </div>
+        <div class="wc-link">youtube.com/@knitamaya</div>
         <div class="wc-tag">Same-day · English</div>
-      </div>
+      </a>
 
-      <div class="watch-card">
+      <a class="watch-card" href="https://youtube.com/@nhkworldjapan" target="_blank">
         <div class="wc-icon">🏛️</div>
         <div class="wc-title">NHK World Japan (YouTube)</div>
         <div class="wc-desc">
-          Official NHK YouTube channel — usually uploaded with a one-day delay.<br>
-          <a href="https://youtube.com/@nhkworldjapan" target="_blank">youtube.com/@nhkworldjapan</a>
+          Official NHK YouTube channel — usually uploaded with a one-day delay.
         </div>
+        <div class="wc-link">youtube.com/@nhkworldjapan</div>
         <div class="wc-tag">Official · 1-day delay</div>
-      </div>
+      </a>
 
-      <div class="watch-card">
+      <a class="watch-card" href="https://www.twitch.tv/midnightsumo" target="_blank">
         <div class="wc-icon">🔴</div>
         <div class="wc-title">Midnight Sumo (Twitch)</div>
         <div class="wc-desc">
-          Live English-language stream of the tournament.<br>
-          <a href="https://www.twitch.tv/midnightsumo" target="_blank">twitch.tv/midnightsumo</a>
+          Live English-language stream of the tournament.
         </div>
+        <div class="wc-link">twitch.tv/midnightsumo</div>
         <div class="wc-tag">Live Stream · English</div>
-      </div>
+      </a>
 
-      <div class="watch-card">
+      <a class="watch-card" href="https://www.twitch.tv/queenbee" target="_blank">
         <div class="wc-icon">🔴</div>
         <div class="wc-title">QueenBee (Twitch)</div>
         <div class="wc-desc">
-          Another popular live Twitch stream for sumo fans.<br>
-          <a href="https://www.twitch.tv/queenbee" target="_blank">twitch.tv/queenbee</a>
+          Another popular live Twitch stream for sumo fans.
         </div>
+        <div class="wc-link">twitch.tv/queenbee</div>
         <div class="wc-tag">Live Stream</div>
-      </div>
+      </a>
 
-      <div class="watch-card">
+      <a class="watch-card" href="https://www.twitch.tv/leodicksonsumo" target="_blank">
         <div class="wc-icon">🎙️</div>
-        <div class="wc-title">LeoDicksonSumo</div>
+        <div class="wc-title">LeoDicksonSumo (Twitch)</div>
         <div class="wc-desc">
           A third option for live/recorded sumo commentary and coverage.
         </div>
-        <div class="wc-tag">Commentary</div>
-      </div>
+        <div class="wc-link">twitch.tv/leodicksonsumo</div>
+        <div class="wc-tag">Live Stream · Commentary</div>
+      </a>
     </div>
 
     <div class="watch-note">
