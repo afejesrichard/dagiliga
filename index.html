@@ -92,6 +92,91 @@
   a.badge.active { text-decoration: none; color: var(--text); cursor: pointer; transition: all 0.2s; }
   a.badge.active:hover { background: rgba(78,205,196,0.45); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(78,205,196,0.3); }
   .hero .badge.upcoming { opacity: 0.5; }
+  /* Countdown */
+  .countdown-wrapper {
+    margin: 20px auto 10px;
+    max-width: 600px;
+  }
+  .countdown-label {
+    font-size: 1em;
+    opacity: 0.7;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .countdown-label .basho-name { color: var(--accent2); font-weight: 700; }
+  .countdown-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  .countdown-box {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 14px 18px;
+    min-width: 80px;
+    text-align: center;
+  }
+  .countdown-box .num {
+    font-size: 2.2em;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .countdown-box .unit {
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin-top: 4px;
+  }
+  @media (max-width: 480px) {
+    .countdown-box { min-width: 60px; padding: 10px 12px; }
+    .countdown-box .num { font-size: 1.6em; }
+  }
+
+  /* Where to Watch */
+  .watch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+  }
+  .watch-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .watch-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .watch-card .wc-icon { font-size: 1.8em; margin-bottom: 8px; }
+  .watch-card .wc-title { font-size: 1.15em; font-weight: 700; margin-bottom: 6px; }
+  .watch-card .wc-desc { font-size: 0.9em; color: var(--text-muted); line-height: 1.5; }
+  .watch-card a { color: var(--accent2); text-decoration: none; font-weight: 600; }
+  .watch-card a:hover { text-decoration: underline; }
+  .watch-card .wc-tag {
+    display: inline-block;
+    background: rgba(78,205,196,0.15);
+    color: var(--accent2);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .watch-note {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: rgba(255,215,0,0.08);
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 12px;
+    font-size: 0.9em;
+    color: var(--accent3);
+    line-height: 1.6;
+  }
+
   .updated {
     font-size: 0.8em;
     margin-top: 15px;
@@ -335,6 +420,11 @@
   <div class="subtitle" style="font-size:1.5em; margin-top:8px; opacity:0.9; font-style:italic; letter-spacing:2px;">Road to Sake</div>
   <div class="subtitle" style="font-size:1.1em; margin-top:6px;">Fantasy Basho — Cumulative Season Standings</div>
   <div class="jp">大相撲ファンタジーリーグ 2026</div>
+  <div class="countdown-wrapper" id="countdown-wrapper">
+    <div class="countdown-label">Next basho: <span class="basho-name">夏場所 Natsu — Tokyo</span></div>
+    <div class="countdown-boxes" id="countdown-boxes"></div>
+  </div>
+
   <div class="badges">
     <a href="dagi_liga_hatsu_2026.html" class="badge active">✅ Hatsu (Tokyo, Jan)</a>
     <a href="dagi_liga_haru_2026.html" class="badge active">✅ Haru (Osaka, Mar)</a>
@@ -356,6 +446,7 @@
     <div class="nav-tab" onclick="showTab('comeback',this)">Comeback Calculator</div>
     <div class="nav-tab" onclick="showTab('insights',this)">Fun Facts & Awards</div>
     <div class="nav-tab" onclick="showTab('bashos',this)">Individual Bashos</div>
+    <div class="nav-tab" onclick="showTab('watch',this)">Where to Watch</div>
   </div>
 
   <!-- STANDINGS -->
@@ -420,6 +511,87 @@
         春場所 Haru 2026
         <span class="bl-city">Osaka — March</span>
       </a>
+    </div>
+  </div>
+
+  <!-- WHERE TO WATCH -->
+  <div id="tab-watch" class="tab-content">
+    <div class="section-title">Where to Watch</div>
+    <p style="color:var(--text-muted);margin-bottom:5px">All the best ways to follow the basho action — recordings, live streams, and highlights.</p>
+
+    <div class="watch-grid">
+      <div class="watch-card">
+        <div class="wc-icon">📼</div>
+        <div class="wc-title">The Forever Cove</div>
+        <div class="wc-desc">
+          Full recordings of each day, typically uploaded in the evening (Hungarian time).<br>
+          <a href="http://www.theforevercove.com/" target="_blank">theforevercove.com</a><br>
+          <span style="opacity:0.7; font-size:0.85em;">Fn: large &nbsp;|&nbsp; Pw: sushi</span>
+        </div>
+        <div class="wc-tag">Recordings</div>
+      </div>
+
+      <div class="watch-card">
+        <div class="wc-icon">📺</div>
+        <div class="wc-title">NHK World App</div>
+        <div class="wc-desc">
+          Official NHK coverage, also available on smart TVs. Both recordings and highlights go up in the evening.
+        </div>
+        <div class="wc-tag">Official App</div>
+      </div>
+
+      <div class="watch-card">
+        <div class="wc-icon">🎬</div>
+        <div class="wc-title">Knitamaya (YouTube)</div>
+        <div class="wc-desc">
+          Same-day uploads with English commentary.<br>
+          <a href="https://youtube.com/@knitamaya" target="_blank">youtube.com/@knitamaya</a>
+        </div>
+        <div class="wc-tag">Same-day · English</div>
+      </div>
+
+      <div class="watch-card">
+        <div class="wc-icon">🏛️</div>
+        <div class="wc-title">NHK World Japan (YouTube)</div>
+        <div class="wc-desc">
+          Official NHK YouTube channel — usually uploaded with a one-day delay.<br>
+          <a href="https://youtube.com/@nhkworldjapan" target="_blank">youtube.com/@nhkworldjapan</a>
+        </div>
+        <div class="wc-tag">Official · 1-day delay</div>
+      </div>
+
+      <div class="watch-card">
+        <div class="wc-icon">🔴</div>
+        <div class="wc-title">Midnight Sumo (Twitch)</div>
+        <div class="wc-desc">
+          Live English-language stream of the tournament.<br>
+          <a href="https://www.twitch.tv/midnightsumo" target="_blank">twitch.tv/midnightsumo</a>
+        </div>
+        <div class="wc-tag">Live Stream · English</div>
+      </div>
+
+      <div class="watch-card">
+        <div class="wc-icon">🔴</div>
+        <div class="wc-title">QueenBee (Twitch)</div>
+        <div class="wc-desc">
+          Another popular live Twitch stream for sumo fans.<br>
+          <a href="https://www.twitch.tv/queenbee" target="_blank">twitch.tv/queenbee</a>
+        </div>
+        <div class="wc-tag">Live Stream</div>
+      </div>
+
+      <div class="watch-card">
+        <div class="wc-icon">🎙️</div>
+        <div class="wc-title">LeoDicksonSumo</div>
+        <div class="wc-desc">
+          A third option for live/recorded sumo commentary and coverage.
+        </div>
+        <div class="wc-tag">Commentary</div>
+      </div>
+    </div>
+
+    <div class="watch-note">
+      ⚠️ Estig csak kevés spoilert, plz :D &nbsp; <strong>HAKKEYOI!</strong>
     </div>
   </div>
 
@@ -1058,6 +1230,36 @@ renderRace();
 renderProfiles();
 renderComeback();
 renderInsights();
+
+// ============================
+// COUNTDOWN TIMER
+// ============================
+(function() {
+  const natsuStart = new Date('2026-05-10T10:00:00+09:00'); // JST opening day
+  const container = document.getElementById('countdown-boxes');
+  const wrapper = document.getElementById('countdown-wrapper');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = natsuStart - now;
+    if (diff <= 0) {
+      wrapper.querySelector('.countdown-label').innerHTML = '<span class="basho-name">夏場所 Natsu is LIVE!</span> 🟢';
+      container.innerHTML = '';
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    container.innerHTML =
+      `<div class="countdown-box"><div class="num">${days}</div><div class="unit">Days</div></div>` +
+      `<div class="countdown-box"><div class="num">${String(hours).padStart(2,'0')}</div><div class="unit">Hours</div></div>` +
+      `<div class="countdown-box"><div class="num">${String(mins).padStart(2,'0')}</div><div class="unit">Min</div></div>` +
+      `<div class="countdown-box"><div class="num">${String(secs).padStart(2,'0')}</div><div class="unit">Sec</div></div>`;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
 </script>
 
 </body>
