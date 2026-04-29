@@ -279,6 +279,20 @@
   .banzuke-table th.east-h { text-align: right; padding-right: 20px; }
   .banzuke-table th.rank-h { text-align: center; width: 130px; }
   .banzuke-table th.west-h { text-align: left; padding-left: 20px; }
+  .rikishi-move {
+    display: inline-block;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 4px;
+    margin-left: 4px;
+    vertical-align: middle;
+    line-height: 1.4;
+  }
+  .rikishi-move.up { color: #2ecc71; background: rgba(46,204,113,0.12); }
+  .rikishi-move.down { color: #e74c3c; background: rgba(231,76,60,0.12); }
+  .rikishi-move.new { color: var(--accent2); background: rgba(78,205,196,0.12); }
+  .rikishi-move.same { color: var(--text-muted); opacity: 0.5; font-size: 0.6em; }
   .banzuke-row {
     background: var(--card);
     transition: background 0.2s;
@@ -1315,6 +1329,42 @@ const portraitMap = {
   '4279':'20240045.jpg','4336':'20250038.jpg'
 };
 Object.entries(portraitMap).forEach(([rid, file]) => { portraitToId[file] = rid; });
+
+// Banzuke movement vs Haru 2026 (positive = up, 'NEW' = promoted from juryo)
+const banzukeMove = {
+  'Hoshoryu':0,'Onosato':0,'Kotozakura':0,'Aonishiki':0,
+  'Kirishima':1,'Atamifuji':1,'Kotoshoho':6,'Wakatakakage':1,
+  'Takayasu':-1,'Fujinokawa':1,'Takanosho':3,'Yoshinofuji':-1,
+  'Ichiyamamoto':4,'Hiradoumi':0,'Oho':0,'Daieisho':0,
+  'Gonoyama':6,'Wakamotoharu':-5,'Shodai':3,'Churanoumi':-4,
+  'Fujiseiun':7,'Chiyoshoma':7,'Asakoryu':5,'Oshoma':-1,
+  'Asahakuryu':8,'Abi':-4,'Nishikifuji':5,'Asanoyama':2,
+  'Hakunofuji':-3,'Ura':-3,'Kinbozan':5,'Shishi':-1,
+  'Tokihayate':-3,'Kotoeiho':4,'Tamawashi':-4,'Mitakeumi':1,
+  'Roga':-4,'Tobizaru':-2,'Oshoumi':-4,
+  'Wakanosho':'NEW','Ryuden':'NEW','Fujiryoga':0
+};
+// Inject movement badges into banzuke
+document.querySelectorAll('.rikishi-name').forEach(function(el) {
+  const name = el.textContent.trim();
+  const mv = banzukeMove[name];
+  if (mv === undefined) return;
+  const span = document.createElement('span');
+  if (mv === 'NEW') {
+    span.className = 'rikishi-move new';
+    span.textContent = 'NEW';
+  } else if (mv > 0) {
+    span.className = 'rikishi-move up';
+    span.textContent = '▲' + mv;
+  } else if (mv < 0) {
+    span.className = 'rikishi-move down';
+    span.textContent = '▼' + Math.abs(mv);
+  } else {
+    span.className = 'rikishi-move same';
+    span.textContent = '—';
+  }
+  el.parentNode.insertBefore(span, el.nextSibling);
+});
 
 let lbCurrentPage = 0;
 
