@@ -180,6 +180,175 @@
     line-height: 1.6;
   }
 
+  /* CTA Buttons */
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 22px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.05em;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: 2px solid transparent;
+  }
+  .cta-btn--join {
+    background: linear-gradient(135deg, #e94560, #f15bb5);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(233,69,96,0.4);
+  }
+  .cta-btn--join:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 30px rgba(233,69,96,0.55);
+  }
+  .cta-btn--join .pulse {
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: #4ecdc4;
+    border-radius: 50%;
+    animation: pulse-glow 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 4px rgba(78,205,196,0.4); opacity: 1; }
+    50% { box-shadow: 0 0 12px rgba(78,205,196,0.8); opacity: 0.7; }
+  }
+  .cta-btn--banzuke {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    color: var(--text);
+    border-color: rgba(255,215,0,0.35);
+  }
+  .cta-btn--banzuke:hover {
+    background: rgba(255,215,0,0.15);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255,215,0,0.2);
+  }
+  .cta-btn--league {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    color: var(--text);
+    border-color: rgba(78,205,196,0.35);
+  }
+  .cta-btn--league:hover {
+    background: rgba(78,205,196,0.15);
+    border-color: var(--accent2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(78,205,196,0.2);
+  }
+
+  /* ===== BANZUKE TAB ===== */
+  .nav-tab--banzuke { color: var(--gold); }
+  .banzuke-header {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .banzuke-header h2 {
+    font-size: 2em;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), #fff5cc, var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+  }
+  .banzuke-header .banzuke-sub {
+    color: var(--text-muted);
+    font-size: 0.95em;
+  }
+  .banzuke-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 6px;
+  }
+  .banzuke-table th {
+    padding: 10px 8px;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border);
+  }
+  .banzuke-table th.east-h { text-align: right; padding-right: 20px; }
+  .banzuke-table th.rank-h { text-align: center; width: 130px; }
+  .banzuke-table th.west-h { text-align: left; padding-left: 20px; }
+  .banzuke-row {
+    background: var(--card);
+    transition: background 0.2s;
+  }
+  .banzuke-row:hover {
+    background: var(--card2);
+  }
+  .banzuke-row td {
+    padding: 10px 8px;
+    vertical-align: middle;
+  }
+  .banzuke-row.rank-yokozuna { border-left: 3px solid var(--gold); }
+  .banzuke-row.rank-ozeki { border-left: 3px solid var(--accent); }
+  .banzuke-row.rank-sekiwake { border-left: 3px solid var(--accent2); }
+  .banzuke-row.rank-komusubi { border-left: 3px solid var(--accent3); }
+  .banzuke-cell-east {
+    text-align: right;
+    padding-right: 12px !important;
+  }
+  .banzuke-cell-west {
+    text-align: left;
+    padding-left: 12px !important;
+  }
+  .banzuke-cell-rank {
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95em;
+    white-space: nowrap;
+    color: var(--accent2);
+  }
+  .banzuke-row.rank-yokozuna .banzuke-cell-rank { color: var(--gold); font-size: 1.05em; }
+  .banzuke-row.rank-ozeki .banzuke-cell-rank { color: var(--accent); }
+  .banzuke-row.rank-sekiwake .banzuke-cell-rank { color: var(--accent2); }
+  .banzuke-row.rank-komusubi .banzuke-cell-rank { color: var(--accent3); }
+  .rikishi {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .banzuke-cell-east .rikishi { flex-direction: row-reverse; }
+  .rikishi-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    background: var(--card2);
+  }
+  .banzuke-row.rank-yokozuna .rikishi-img { width: 62px; height: 62px; border-color: var(--gold); }
+  .banzuke-row.rank-ozeki .rikishi-img { border-color: var(--accent); }
+  .rikishi-info { display: flex; flex-direction: column; }
+  .banzuke-cell-east .rikishi-info { align-items: flex-end; }
+  .rikishi-name {
+    font-weight: 700;
+    font-size: 1em;
+    color: var(--text);
+  }
+  .banzuke-row.rank-yokozuna .rikishi-name { font-size: 1.15em; }
+  .rikishi-origin {
+    font-size: 0.78em;
+    color: var(--text-muted);
+  }
+  @media (max-width: 700px) {
+    .banzuke-table th, .banzuke-row td { padding: 6px 4px; font-size: 0.85em; }
+    .rikishi-img { width: 38px; height: 38px; }
+    .banzuke-row.rank-yokozuna .rikishi-img { width: 44px; height: 44px; }
+    .rikishi-name { font-size: 0.9em; }
+    .banzuke-cell-rank { font-size: 0.8em; }
+  }
+
   .updated {
     font-size: 0.8em;
     margin-top: 15px;
@@ -454,6 +623,18 @@
     <div class="countdown-boxes" id="countdown-boxes"></div>
   </div>
 
+  <div class="hero-cta">
+    <a href="https://www.fantasizr.com/joinleaguelink?league=5316496735076352&key=deAFb8DdaAFEdbFa9c21Cc90B46Aa4" target="_blank" class="cta-btn cta-btn--join">
+      <span class="pulse"></span> Join Natsu Basho
+    </a>
+    <a href="https://www.fantasizr.com/league/5316496735076352" target="_blank" class="cta-btn cta-btn--league">
+      🏟️ League Page
+    </a>
+    <a href="#" onclick="showTab('banzuke',document.querySelector('.nav-tab--banzuke'));document.querySelector('.nav-tabs').scrollIntoView({behavior:'smooth'});return false;" class="cta-btn cta-btn--banzuke">
+      📜 Banzuke
+    </a>
+  </div>
+
   <div class="badges">
     <a href="dagi_liga_hatsu_2026.html" class="badge active">✅ Hatsu (Tokyo, Jan)</a>
     <a href="dagi_liga_haru_2026.html" class="badge active">✅ Haru (Osaka, Mar)</a>
@@ -476,6 +657,7 @@
     <div class="nav-tab" onclick="showTab('comeback',this)">Comeback Calculator</div>
     <div class="nav-tab" onclick="showTab('insights',this)">Fun Facts & Awards</div>
     <div class="nav-tab" onclick="showTab('bashos',this)">Individual Bashos</div>
+    <div class="nav-tab nav-tab--banzuke" onclick="showTab('banzuke',this)">📜 Banzuke</div>
   </div>
 
   <!-- STANDINGS -->
@@ -624,6 +806,132 @@
     <div class="watch-note">
       ⚠️ Estig csak kevés spoilert, plz :D &nbsp; <strong>HAKKEYOI!</strong>
     </div>
+  </div>
+
+  <!-- BANZUKE -->
+  <div id="tab-banzuke" class="tab-content">
+    <div class="banzuke-header">
+      <h2>夏場所 Natsu 2026 — Makuuchi Banzuke</h2>
+      <div class="banzuke-sub">Official rankings for the May Grand Sumo Tournament, Tokyo · Source: sumo.or.jp</div>
+    </div>
+    <div style="overflow-x:auto;">
+    <table class="banzuke-table">
+      <thead><tr><th class="east-h">East</th><th class="rank-h">Rank</th><th class="west-h">West</th></tr></thead>
+      <tbody>
+        <tr class="banzuke-row rank-yokozuna">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3842.jpg" alt="Hoshoryu"><span class="rikishi-info"><span class="rikishi-name">Hoshoryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-rank">横綱 Yokozuna</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4227.jpg" alt="Onosato"><span class="rikishi-info"><span class="rikishi-name">Onosato</span><span class="rikishi-origin">Ishikawa</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row rank-ozeki">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3661.jpg" alt="Kotozakura"><span class="rikishi-info"><span class="rikishi-name">Kotozakura</span><span class="rikishi-origin">Chiba</span></span></span></td>
+          <td class="banzuke-cell-rank">大関 Ōzeki</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4230.jpg" alt="Aonishiki"><span class="rikishi-info"><span class="rikishi-name">Aonishiki</span><span class="rikishi-origin">Ukraine</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row rank-ozeki">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3622.jpg" alt="Kirishima"><span class="rikishi-info"><span class="rikishi-name">Kirishima</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-rank">大関 Ōzeki</td>
+          <td class="banzuke-cell-west"></td>
+        </tr>
+        <tr class="banzuke-row rank-sekiwake">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4055.jpg" alt="Atamifuji"><span class="rikishi-info"><span class="rikishi-name">Atamifuji</span><span class="rikishi-origin">Shizuoka</span></span></span></td>
+          <td class="banzuke-cell-rank">関脇 Sekiwake</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3840.jpg" alt="Kotoshoho"><span class="rikishi-info"><span class="rikishi-name">Kotoshoho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row rank-komusubi">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3761.jpg" alt="Wakatakakage"><span class="rikishi-info"><span class="rikishi-name">Wakatakakage</span><span class="rikishi-origin">Fukushima</span></span></span></td>
+          <td class="banzuke-cell-rank">小結 Komusubi</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/2775.jpg" alt="Takayasu"><span class="rikishi-info"><span class="rikishi-name">Takayasu</span><span class="rikishi-origin">Ibaraki</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4191.jpg" alt="Fujinokawa"><span class="rikishi-info"><span class="rikishi-name">Fujinokawa</span><span class="rikishi-origin">Kyoto</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M1</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3265.jpg" alt="Takanosho"><span class="rikishi-info"><span class="rikishi-name">Takanosho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4279.jpg" alt="Yoshinofuji"><span class="rikishi-info"><span class="rikishi-name">Yoshinofuji</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M2</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3753.jpg" alt="Ichiyamamoto"><span class="rikishi-info"><span class="rikishi-name">Ichiyamamoto</span><span class="rikishi-origin">Hokkaido</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3705.jpg" alt="Hiradoumi"><span class="rikishi-info"><span class="rikishi-name">Hiradoumi</span><span class="rikishi-origin">Nagasaki</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M3</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3844.jpg" alt="Oho"><span class="rikishi-info"><span class="rikishi-name">Oho</span><span class="rikishi-origin">Tokyo</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3376.jpg" alt="Daieisho"><span class="rikishi-info"><span class="rikishi-name">Daieisho</span><span class="rikishi-origin">Saitama</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M4</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4079.jpg" alt="Gonoyama"><span class="rikishi-info"><span class="rikishi-name">Gonoyama</span><span class="rikishi-origin">Osaka</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3371.jpg" alt="Wakamotoharu"><span class="rikishi-info"><span class="rikishi-name">Wakamotoharu</span><span class="rikishi-origin">Fukushima</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M5</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3521.jpg" alt="Shodai"><span class="rikishi-info"><span class="rikishi-name">Shodai</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3711.jpg" alt="Churanoumi"><span class="rikishi-info"><span class="rikishi-name">Churanoumi</span><span class="rikishi-origin">Okinawa</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M6</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4093.jpg" alt="Fujiseiun"><span class="rikishi-info"><span class="rikishi-name">Fujiseiun</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3207.jpg" alt="Chiyoshoma"><span class="rikishi-info"><span class="rikishi-name">Chiyoshoma</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M7</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4101.jpg" alt="Asakoryu"><span class="rikishi-info"><span class="rikishi-name">Asakoryu</span><span class="rikishi-origin">Osaka</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4108.jpg" alt="Oshoma"><span class="rikishi-info"><span class="rikishi-name">Oshoma</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M8</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4175.jpg" alt="Asahakuryu"><span class="rikishi-info"><span class="rikishi-name">Asahakuryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3485.jpg" alt="Abi"><span class="rikishi-info"><span class="rikishi-name">Abi</span><span class="rikishi-origin">Saitama</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M9</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3742.jpg" alt="Nishikifuji"><span class="rikishi-info"><span class="rikishi-name">Nishikifuji</span><span class="rikishi-origin">Aomori</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3682.jpg" alt="Asanoyama"><span class="rikishi-info"><span class="rikishi-name">Asanoyama</span><span class="rikishi-origin">Toyama</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M10</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4187.jpg" alt="Hakunofuji"><span class="rikishi-info"><span class="rikishi-name">Hakunofuji</span><span class="rikishi-origin">Tottori</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3616.jpg" alt="Ura"><span class="rikishi-info"><span class="rikishi-name">Ura</span><span class="rikishi-origin">Osaka</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M11</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4112.jpg" alt="Kinbozan"><span class="rikishi-info"><span class="rikishi-name">Kinbozan</span><span class="rikishi-origin">Kazakhstan</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3990.jpg" alt="Shishi"><span class="rikishi-info"><span class="rikishi-name">Shishi</span><span class="rikishi-origin">Ukraine</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M12</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3933.jpg" alt="Tokihayate"><span class="rikishi-info"><span class="rikishi-name">Tokihayate</span><span class="rikishi-origin">Miyagi</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4120.jpg" alt="Kotoeiho"><span class="rikishi-info"><span class="rikishi-name">Kotoeiho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M13</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/2629.jpg" alt="Tamawashi"><span class="rikishi-info"><span class="rikishi-name">Tamawashi</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3620.jpg" alt="Mitakeumi"><span class="rikishi-info"><span class="rikishi-name">Mitakeumi</span><span class="rikishi-origin">Nagano</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M14</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3907.jpg" alt="Roga"><span class="rikishi-info"><span class="rikishi-name">Roga</span><span class="rikishi-origin">Russia</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3594.jpg" alt="Tobizaru"><span class="rikishi-info"><span class="rikishi-name">Tobizaru</span><span class="rikishi-origin">Tokyo</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M15</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4025.jpg" alt="Oshoumi"><span class="rikishi-info"><span class="rikishi-name">Oshoumi</span><span class="rikishi-origin">Ishikawa</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4121.jpg" alt="Wakanosho"><span class="rikishi-info"><span class="rikishi-name">Wakanosho</span><span class="rikishi-origin">Tochigi</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M16</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/2890.jpg" alt="Ryuden"><span class="rikishi-info"><span class="rikishi-name">Ryuden</span><span class="rikishi-origin">Yamanashi</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4336.jpg" alt="Fujiryoga"><span class="rikishi-info"><span class="rikishi-name">Fujiryoga</span><span class="rikishi-origin">Aichi</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M17</td>
+          <td class="banzuke-cell-west"></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="text-align:center;color:var(--text-muted);margin-top:18px;font-size:0.85em;">Data sourced from <a href="https://www.sumo.or.jp/EnHonbashoBanzuke/index/" target="_blank" style="color:var(--accent2);">Japan Sumo Association</a> · Photos © JSA</p>
   </div>
 
 </div>
