@@ -515,6 +515,23 @@
     color: var(--text-muted);
     opacity: 0.7;
   }
+  .lb-swipe-arrow {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6em;
+    color: var(--accent2);
+    opacity: 0.8;
+    animation: lbBounceRight 1.2s ease-in-out infinite;
+    pointer-events: none;
+    text-shadow: 0 0 8px rgba(78,205,196,0.5);
+  }
+  .lb-swipe-arrow.hidden { display: none; }
+  @keyframes lbBounceRight {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(8px); }
+  }
   .lb-close {
     position: absolute;
     top: 20px;
@@ -569,6 +586,11 @@
     z-index: 100;
     background: var(--bg);
     padding: 10px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .nav-tabs.nav-hidden {
+    transform: translateY(-100%);
+    pointer-events: none;
   }
   .nav-tab {
     padding: 10px 20px;
@@ -809,6 +831,14 @@
     .data-table { font-size: 0.8em; }
     .cards-grid { grid-template-columns: 1fr; }
     .power-bar-name { width: 100px; font-size: 0.8em; }
+    /* Lightbox mobile fixes */
+    .lb-viewport { width: 92vw; max-height: 88vh; }
+    .lb-card { padding: 14px; }
+    .lb-card img { width: 200px; }
+    .lb-stats { max-height: 80vh; padding: 14px 16px; }
+    .lb-close { top: 8px; right: 12px; font-size: 1.6em; }
+    .lb-dots { margin-top: 8px; }
+    .lb-nav-hint { margin-top: 4px; }
   }
 </style>
 </head>
@@ -1159,6 +1189,7 @@
       <div class="lb-dot" onclick="goToLbPage(1)"></div>
     </div>
     <div class="lb-nav-hint" id="lb-nav-hint">Swipe or click dot for stats &rarr;</div>
+    <div class="lb-swipe-arrow" id="lb-swipe-arrow">&#8250;</div>
   </div>
 </div>
 
@@ -1397,6 +1428,7 @@ function goToLbPage(page) {
   document.getElementById('lb-slider').style.transform = 'translateX(-' + (page * 50) + '%)';
   document.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === page));
   document.getElementById('lb-nav-hint').textContent = page === 0 ? 'Swipe or click dot for stats →' : '← Back to photo';
+  document.getElementById('lb-swipe-arrow').classList.toggle('hidden', page !== 0);
 }
 
 function closeLightbox(e) {
@@ -2079,6 +2111,22 @@ renderInsights();
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
+})();
+
+// Hide nav-tabs on scroll down, show on scroll up
+(function() {
+  let lastY = 0;
+  const nav = document.querySelector('.nav-tabs');
+  if (!nav) return;
+  window.addEventListener('scroll', function() {
+    const y = window.scrollY;
+    if (y > lastY && y > 120) {
+      nav.classList.add('nav-hidden');
+    } else {
+      nav.classList.remove('nav-hidden');
+    }
+    lastY = y;
+  }, {passive: true});
 })();
 </script>
 
