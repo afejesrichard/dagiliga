@@ -354,17 +354,31 @@
   }
   .rikishi-lightbox.active { display: flex; }
   @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .lb-viewport {
+    width: 340px;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+    cursor: default;
+    animation: lbSlideUp 0.3s ease;
+  }
+  @keyframes lbSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .lb-slider {
+    display: flex;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 200%;
+  }
+  .lb-page {
+    width: 50%;
+    flex-shrink: 0;
+  }
   .lb-card {
     background: var(--card);
     border-radius: 16px;
     padding: 24px;
     text-align: center;
-    max-width: 340px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    cursor: default;
-    animation: lbSlideUp 0.3s ease;
   }
-  @keyframes lbSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   .lb-card img {
     width: 270px;
     height: auto;
@@ -388,6 +402,119 @@
     color: var(--text-muted);
     margin-top: 2px;
   }
+  /* Stats page */
+  .lb-stats {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 20px 22px;
+    text-align: left;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .lb-stats::-webkit-scrollbar { width: 4px; }
+  .lb-stats::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .lb-stats-header {
+    text-align: center;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .lb-stats-header .lb-name { font-size: 1.3em; font-weight: 900; }
+  .lb-stats-header .lb-rank { font-size: 0.9em; color: var(--accent2); }
+  .lb-stat-section {
+    margin-bottom: 14px;
+  }
+  .lb-stat-section-title {
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent2);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .lb-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 14px;
+  }
+  .lb-stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .lb-stat-label {
+    font-size: 0.7em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .lb-stat-value {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .lb-stat-full {
+    grid-column: 1 / -1;
+  }
+  .lb-stat-highlight {
+    background: rgba(78,205,196,0.08);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+  }
+  .lb-stat-highlight .lb-stat-value {
+    color: var(--accent2);
+    font-size: 1.05em;
+  }
+  .lb-milestones {
+    list-style: none;
+    padding: 0;
+  }
+  .lb-milestones li {
+    font-size: 0.85em;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    justify-content: space-between;
+  }
+  .lb-milestones li span:first-child { color: var(--text-muted); }
+  .lb-milestones li span:last-child { color: var(--text); font-weight: 600; }
+  /* Q&A styles */
+  .lb-qa-list { display: flex; flex-direction: column; gap: 10px; }
+  .lb-qa-item {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 8px 10px; border-radius: 8px;
+    background: rgba(255,255,255,0.04);
+  }
+  .lb-qa-q {
+    font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.5px; font-weight: 600;
+  }
+  .lb-qa-a {
+    font-size: 0.95rem; color: var(--text); line-height: 1.4;
+  }
+  /* Dots + nav arrow */
+  .lb-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .lb-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .lb-dot.active { background: var(--accent2); }
+  .lb-nav-hint {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 0.75em;
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
   .lb-close {
     position: absolute;
     top: 20px;
@@ -396,8 +523,13 @@
     color: var(--text-muted);
     cursor: pointer;
     transition: color 0.2s;
+    z-index: 10;
   }
   .lb-close:hover { color: var(--text); }
+  @media (max-width: 400px) {
+    .lb-viewport { width: 95vw; }
+    .lb-card img { width: 100%; }
+  }
   .rikishi-info { display: flex; flex-direction: column; }
   .banzuke-cell-east .rikishi-info { align-items: flex-end; }
   .rikishi-name {
@@ -888,112 +1020,112 @@
       <thead><tr><th class="east-h">East</th><th class="rank-h">Rank</th><th class="west-h">West</th></tr></thead>
       <tbody>
         <tr class="banzuke-row rank-yokozuna">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3842.jpg" alt="Hoshoryu"><span class="rikishi-info"><span class="rikishi-name">Hoshoryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170096.jpg" alt="Hoshoryu"><span class="rikishi-info"><span class="rikishi-name">Hoshoryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
           <td class="banzuke-cell-rank">横綱 Yokozuna</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4227.jpg" alt="Onosato"><span class="rikishi-info"><span class="rikishi-name">Onosato</span><span class="rikishi-origin">Ishikawa</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230048.jpg" alt="Onosato"><span class="rikishi-info"><span class="rikishi-name">Onosato</span><span class="rikishi-origin">Ishikawa</span></span></span></td>
         </tr>
         <tr class="banzuke-row rank-ozeki">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3661.jpg" alt="Kotozakura"><span class="rikishi-info"><span class="rikishi-name">Kotozakura</span><span class="rikishi-origin">Chiba</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150081.jpg" alt="Kotozakura"><span class="rikishi-info"><span class="rikishi-name">Kotozakura</span><span class="rikishi-origin">Chiba</span></span></span></td>
           <td class="banzuke-cell-rank">大関 Ōzeki</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4230.jpg" alt="Aonishiki"><span class="rikishi-info"><span class="rikishi-name">Aonishiki</span><span class="rikishi-origin">Ukraine</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230052.jpg" alt="Aonishiki"><span class="rikishi-info"><span class="rikishi-name">Aonishiki</span><span class="rikishi-origin">Ukraine</span></span></span></td>
         </tr>
         <tr class="banzuke-row rank-ozeki">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3622.jpg" alt="Kirishima"><span class="rikishi-info"><span class="rikishi-name">Kirishima</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150034.jpg" alt="Kirishima"><span class="rikishi-info"><span class="rikishi-name">Kirishima</span><span class="rikishi-origin">Mongolia</span></span></span></td>
           <td class="banzuke-cell-rank">大関 Ōzeki</td>
           <td class="banzuke-cell-west"></td>
         </tr>
         <tr class="banzuke-row rank-sekiwake">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4055.jpg" alt="Atamifuji"><span class="rikishi-info"><span class="rikishi-name">Atamifuji</span><span class="rikishi-origin">Shizuoka</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200074.jpg" alt="Atamifuji"><span class="rikishi-info"><span class="rikishi-name">Atamifuji</span><span class="rikishi-origin">Shizuoka</span></span></span></td>
           <td class="banzuke-cell-rank">関脇 Sekiwake</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3840.jpg" alt="Kotoshoho"><span class="rikishi-info"><span class="rikishi-name">Kotoshoho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170094.jpg" alt="Kotoshoho"><span class="rikishi-info"><span class="rikishi-name">Kotoshoho</span><span class="rikishi-origin">Chiba</span></span></span></td>
         </tr>
         <tr class="banzuke-row rank-komusubi">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3761.jpg" alt="Wakatakakage"><span class="rikishi-info"><span class="rikishi-name">Wakatakakage</span><span class="rikishi-origin">Fukushima</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170011.jpg" alt="Wakatakakage"><span class="rikishi-info"><span class="rikishi-name">Wakatakakage</span><span class="rikishi-origin">Fukushima</span></span></span></td>
           <td class="banzuke-cell-rank">小結 Komusubi</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/2775.jpg" alt="Takayasu"><span class="rikishi-info"><span class="rikishi-name">Takayasu</span><span class="rikishi-origin">Ibaraki</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20050022.jpg" alt="Takayasu"><span class="rikishi-info"><span class="rikishi-name">Takayasu</span><span class="rikishi-origin">Ibaraki</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4191.jpg" alt="Fujinokawa"><span class="rikishi-info"><span class="rikishi-name">Fujinokawa</span><span class="rikishi-origin">Kyoto</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230008.jpg" alt="Fujinokawa"><span class="rikishi-info"><span class="rikishi-name">Fujinokawa</span><span class="rikishi-origin">Kyoto</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M1</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3265.jpg" alt="Takanosho"><span class="rikishi-info"><span class="rikishi-name">Takanosho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20100039.jpg" alt="Takanosho"><span class="rikishi-info"><span class="rikishi-name">Takanosho</span><span class="rikishi-origin">Chiba</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4279.jpg" alt="Yoshinofuji"><span class="rikishi-info"><span class="rikishi-name">Yoshinofuji</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240045.jpg" alt="Yoshinofuji"><span class="rikishi-info"><span class="rikishi-name">Yoshinofuji</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M2</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3753.jpg" alt="Ichiyamamoto"><span class="rikishi-info"><span class="rikishi-name">Ichiyamamoto</span><span class="rikishi-origin">Hokkaido</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170002.jpg" alt="Ichiyamamoto"><span class="rikishi-info"><span class="rikishi-name">Ichiyamamoto</span><span class="rikishi-origin">Hokkaido</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3705.jpg" alt="Hiradoumi"><span class="rikishi-info"><span class="rikishi-name">Hiradoumi</span><span class="rikishi-origin">Nagasaki</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160042.jpg" alt="Hiradoumi"><span class="rikishi-info"><span class="rikishi-name">Hiradoumi</span><span class="rikishi-origin">Nagasaki</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M3</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3844.jpg" alt="Oho"><span class="rikishi-info"><span class="rikishi-name">Oho</span><span class="rikishi-origin">Tokyo</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180002.jpg" alt="Oho"><span class="rikishi-info"><span class="rikishi-name">Oho</span><span class="rikishi-origin">Tokyo</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3376.jpg" alt="Daieisho"><span class="rikishi-info"><span class="rikishi-name">Daieisho</span><span class="rikishi-origin">Saitama</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20120003.jpg" alt="Daieisho"><span class="rikishi-info"><span class="rikishi-name">Daieisho</span><span class="rikishi-origin">Saitama</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M4</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4079.jpg" alt="Gonoyama"><span class="rikishi-info"><span class="rikishi-name">Gonoyama</span><span class="rikishi-origin">Osaka</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210023.jpg" alt="Gonoyama"><span class="rikishi-info"><span class="rikishi-name">Gonoyama</span><span class="rikishi-origin">Osaka</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3371.jpg" alt="Wakamotoharu"><span class="rikishi-info"><span class="rikishi-name">Wakamotoharu</span><span class="rikishi-origin">Fukushima</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20110065.jpg" alt="Wakamotoharu"><span class="rikishi-info"><span class="rikishi-name">Wakamotoharu</span><span class="rikishi-origin">Fukushima</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M5</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3521.jpg" alt="Shodai"><span class="rikishi-info"><span class="rikishi-name">Shodai</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140019.jpg" alt="Shodai"><span class="rikishi-info"><span class="rikishi-name">Shodai</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3711.jpg" alt="Churanoumi"><span class="rikishi-info"><span class="rikishi-name">Churanoumi</span><span class="rikishi-origin">Okinawa</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160048.jpg" alt="Churanoumi"><span class="rikishi-info"><span class="rikishi-name">Churanoumi</span><span class="rikishi-origin">Okinawa</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M6</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4093.jpg" alt="Fujiseiun"><span class="rikishi-info"><span class="rikishi-name">Fujiseiun</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210037.jpg" alt="Fujiseiun"><span class="rikishi-info"><span class="rikishi-name">Fujiseiun</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3207.jpg" alt="Chiyoshoma"><span class="rikishi-info"><span class="rikishi-name">Chiyoshoma</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20090066.jpg" alt="Chiyoshoma"><span class="rikishi-info"><span class="rikishi-name">Chiyoshoma</span><span class="rikishi-origin">Mongolia</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M7</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4101.jpg" alt="Asakoryu"><span class="rikishi-info"><span class="rikishi-name">Asakoryu</span><span class="rikishi-origin">Osaka</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210046.jpg" alt="Asakoryu"><span class="rikishi-info"><span class="rikishi-name">Asakoryu</span><span class="rikishi-origin">Osaka</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4108.jpg" alt="Oshoma"><span class="rikishi-info"><span class="rikishi-name">Oshoma</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210053.jpg" alt="Oshoma"><span class="rikishi-info"><span class="rikishi-name">Oshoma</span><span class="rikishi-origin">Mongolia</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M8</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4175.jpg" alt="Asahakuryu"><span class="rikishi-info"><span class="rikishi-name">Asahakuryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220063.jpg" alt="Asahakuryu"><span class="rikishi-info"><span class="rikishi-name">Asahakuryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3485.jpg" alt="Abi"><span class="rikishi-info"><span class="rikishi-name">Abi</span><span class="rikishi-origin">Saitama</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20130059.jpg" alt="Abi"><span class="rikishi-info"><span class="rikishi-name">Abi</span><span class="rikishi-origin">Saitama</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M9</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3742.jpg" alt="Nishikifuji"><span class="rikishi-info"><span class="rikishi-name">Nishikifuji</span><span class="rikishi-origin">Aomori</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160081.jpg" alt="Nishikifuji"><span class="rikishi-info"><span class="rikishi-name">Nishikifuji</span><span class="rikishi-origin">Aomori</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3682.jpg" alt="Asanoyama"><span class="rikishi-info"><span class="rikishi-name">Asanoyama</span><span class="rikishi-origin">Toyama</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160019.jpg" alt="Asanoyama"><span class="rikishi-info"><span class="rikishi-name">Asanoyama</span><span class="rikishi-origin">Toyama</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M10</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4187.jpg" alt="Hakunofuji"><span class="rikishi-info"><span class="rikishi-name">Hakunofuji</span><span class="rikishi-origin">Tottori</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230004.jpg" alt="Hakunofuji"><span class="rikishi-info"><span class="rikishi-name">Hakunofuji</span><span class="rikishi-origin">Tottori</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3616.jpg" alt="Ura"><span class="rikishi-info"><span class="rikishi-name">Ura</span><span class="rikishi-origin">Osaka</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150028.jpg" alt="Ura"><span class="rikishi-info"><span class="rikishi-name">Ura</span><span class="rikishi-origin">Osaka</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M11</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4112.jpg" alt="Kinbozan"><span class="rikishi-info"><span class="rikishi-name">Kinbozan</span><span class="rikishi-origin">Kazakhstan</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210057.jpg" alt="Kinbozan"><span class="rikishi-info"><span class="rikishi-name">Kinbozan</span><span class="rikishi-origin">Kazakhstan</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3990.jpg" alt="Shishi"><span class="rikishi-info"><span class="rikishi-name">Shishi</span><span class="rikishi-origin">Ukraine</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200005.jpg" alt="Shishi"><span class="rikishi-info"><span class="rikishi-name">Shishi</span><span class="rikishi-origin">Ukraine</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M12</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3933.jpg" alt="Tokihayate"><span class="rikishi-info"><span class="rikishi-name">Tokihayate</span><span class="rikishi-origin">Miyagi</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190020.jpg" alt="Tokihayate"><span class="rikishi-info"><span class="rikishi-name">Tokihayate</span><span class="rikishi-origin">Miyagi</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4120.jpg" alt="Kotoeiho"><span class="rikishi-info"><span class="rikishi-name">Kotoeiho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220003.jpg" alt="Kotoeiho"><span class="rikishi-info"><span class="rikishi-name">Kotoeiho</span><span class="rikishi-origin">Chiba</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M13</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/2629.jpg" alt="Tamawashi"><span class="rikishi-info"><span class="rikishi-name">Tamawashi</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20040005.jpg" alt="Tamawashi"><span class="rikishi-info"><span class="rikishi-name">Tamawashi</span><span class="rikishi-origin">Mongolia</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3620.jpg" alt="Mitakeumi"><span class="rikishi-info"><span class="rikishi-name">Mitakeumi</span><span class="rikishi-origin">Nagano</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150032.jpg" alt="Mitakeumi"><span class="rikishi-info"><span class="rikishi-name">Mitakeumi</span><span class="rikishi-origin">Nagano</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M14</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3907.jpg" alt="Roga"><span class="rikishi-info"><span class="rikishi-name">Roga</span><span class="rikishi-origin">Russia</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180068.jpg" alt="Roga"><span class="rikishi-info"><span class="rikishi-name">Roga</span><span class="rikishi-origin">Russia</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/3594.jpg" alt="Tobizaru"><span class="rikishi-info"><span class="rikishi-name">Tobizaru</span><span class="rikishi-origin">Tokyo</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150005.jpg" alt="Tobizaru"><span class="rikishi-info"><span class="rikishi-name">Tobizaru</span><span class="rikishi-origin">Tokyo</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M15</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4025.jpg" alt="Oshoumi"><span class="rikishi-info"><span class="rikishi-name">Oshoumi</span><span class="rikishi-origin">Ishikawa</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200042.jpg" alt="Oshoumi"><span class="rikishi-info"><span class="rikishi-name">Oshoumi</span><span class="rikishi-origin">Ishikawa</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4121.jpg" alt="Wakanosho"><span class="rikishi-info"><span class="rikishi-name">Wakanosho</span><span class="rikishi-origin">Tochigi</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220004.jpg" alt="Wakanosho"><span class="rikishi-info"><span class="rikishi-name">Wakanosho</span><span class="rikishi-origin">Tochigi</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M16</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/2890.jpg" alt="Ryuden"><span class="rikishi-info"><span class="rikishi-name">Ryuden</span><span class="rikishi-origin">Yamanashi</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20060023.jpg" alt="Ryuden"><span class="rikishi-info"><span class="rikishi-name">Ryuden</span><span class="rikishi-origin">Yamanashi</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/120x120/4336.jpg" alt="Fujiryoga"><span class="rikishi-info"><span class="rikishi-name">Fujiryoga</span><span class="rikishi-origin">Aichi</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20250038.jpg" alt="Fujiryoga"><span class="rikishi-info"><span class="rikishi-name">Fujiryoga</span><span class="rikishi-origin">Aichi</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M17</td>
           <td class="banzuke-cell-west"></td>
         </tr>
@@ -1008,11 +1140,25 @@
 <!-- Rikishi Lightbox -->
 <div class="rikishi-lightbox" id="rikishi-lightbox" onclick="closeLightbox(event)">
   <span class="lb-close" onclick="closeLightbox(event)">&times;</span>
-  <div class="lb-card" onclick="event.stopPropagation()">
-    <img id="lb-img" src="" alt="">
-    <div class="lb-name" id="lb-name"></div>
-    <div class="lb-rank" id="lb-rank"></div>
-    <div class="lb-origin" id="lb-origin"></div>
+  <div class="lb-viewport" onclick="event.stopPropagation()">
+    <div class="lb-slider" id="lb-slider">
+      <div class="lb-page">
+        <div class="lb-card">
+          <img id="lb-img" src="" alt="">
+          <div class="lb-name" id="lb-name"></div>
+          <div class="lb-rank" id="lb-rank"></div>
+          <div class="lb-origin" id="lb-origin"></div>
+        </div>
+      </div>
+      <div class="lb-page">
+        <div class="lb-stats" id="lb-stats"></div>
+      </div>
+    </div>
+    <div class="lb-dots">
+      <div class="lb-dot active" onclick="goToLbPage(0)"></div>
+      <div class="lb-dot" onclick="goToLbPage(1)"></div>
+    </div>
+    <div class="lb-nav-hint" id="lb-nav-hint">Swipe or click dot for stats &rarr;</div>
   </div>
 </div>
 
@@ -1024,8 +1170,106 @@
 
 <script>
 // ============================
-// RIKISHI PORTRAIT MAP & LIGHTBOX
+// RIKISHI DATA & LIGHTBOX
 // ============================
+const rikishiData = {
+  '2629':{nm:'Ichiro Tamawashi',rn:'Tamawashi',st:'Kataonami',bd:'Nov 16, 1984',bp:'Mongolia',ht:'189cm',wt:'179kg',rk:'Maegashira #13',sm:'oshi',cr:'895-884-2',mr:'712-771-2',db:'Jan 2004',hr:'Sekiwake',op:'',yp:'',sd:'Mar 2015',md:'Sep 2008',jd:'Jan 2008'},
+  '2775':{nm:'Akira Takayasu',rn:'Takayasu',st:'Tagonoura',bd:'Feb 28, 1990',bp:'Ibaraki',ht:'188cm',wt:'173kg',rk:'Komusubi',sm:'tsuki, oshi',cr:'817-623-156',mr:'657-507-156',db:'Mar 2005',hr:'Ozeki',op:'Jul 2017',yp:'',sd:'Sep 2013',md:'Jul 2011',jd:'Nov 2010'},
+  '2890':{nm:'Yuki Watanabe',rn:'Ryuden',st:'Takadagawa',bd:'Nov 10, 1990',bp:'Yamanashi',ht:'189cm',wt:'161kg',rk:'Maegashira #16',sm:'moro-zashi, yori',cr:'622-537-99',mr:'265-305-15',db:'Mar 2006',hr:'Komusubi',op:'',yp:'',sd:'Jul 2019',md:'Jan 2018',jd:'Nov 2012'},
+  '3207':{nm:'Shoma Ishibashi',rn:'Chiyoshoma',st:'Kokonoe',bd:'Jul 20, 1991',bp:'Mongolia',ht:'184cm',wt:'140kg',rk:'Maegashira #7',sm:'oshi, hidari-yotsu, yori',cr:'585-569-20',mr:'292-348-20',db:'Jul 2009',hr:'Maegashira #2',op:'',yp:'',sd:'',md:'Sep 2016',jd:'Jan 2016'},
+  '3265':{nm:'Nobuaki Ishii',rn:'Takanosho',st:'Minatogawa',bd:'Nov 14, 1994',bp:'Chiba',ht:'184cm',wt:'173kg',rk:'Maegashira #1',sm:'oshi',cr:'559-478-21',mr:'300-288-12',db:'Mar 2010',hr:'Sekiwake',op:'',yp:'',sd:'Nov 2020',md:'Sep 2018',jd:'Nov 2017'},
+  '3371':{nm:'Minato Onami',rn:'Wakamotoharu',st:'Arashio',bd:'Oct 5, 1993',bp:'Fukushima',ht:'187cm',wt:'143kg',rk:'Maegashira #5',sm:'hidari-yotsu, yori',cr:'485-386-28',mr:'213-174-3',db:'Nov 2011',hr:'Sekiwake',op:'',yp:'',sd:'Jan 2023',md:'Jan 2022',jd:'Mar 2019'},
+  '3376':{nm:'Hayato Takanishi',rn:'Daieisho',st:'Oitekaze',bd:'Nov 10, 1993',bp:'Saitama',ht:'183cm',wt:'160kg',rk:'Maegashira #4',sm:'tsuki, oshi',cr:'624-507-17',mr:'473-410-17',db:'Jan 2012',hr:'Sekiwake',op:'',yp:'',sd:'Jan 2020',md:'Sep 2015',jd:'Jul 2014'},
+  '3485':{nm:'Kosuke Horikiri',rn:'Abi',st:'Shikoroyama',bd:'May 4, 1994',bp:'Saitama',ht:'188cm',wt:'167kg',rk:'Maegashira #9',sm:'tsuki, oshi',cr:'505-386-65',mr:'321-281-43',db:'May 2013',hr:'Sekiwake',op:'',yp:'',sd:'Jul 2019',md:'Jan 2018',jd:'Mar 2015'},
+  '3521':{nm:'Naoya Shodai',rn:'Shodai',st:'Tokitsukaze',bd:'Nov 5, 1991',bp:'Kumamoto',ht:'184cm',wt:'168kg',rk:'Maegashira #5',sm:'migi-yotsu, yori',cr:'528-463-10',mr:'460-445-10',db:'Mar 2014',hr:'Ozeki',op:'Nov 2020',yp:'',sd:'Jan 2017',md:'Mar 2015',jd:'Jan 2015'},
+  '3594':{nm:'Masaya Iwasaki',rn:'Tobizaru',st:'Oitekaze',bd:'Apr 24, 1992',bp:'Tokyo',ht:'173cm',wt:'135kg',rk:'Maegashira #15',sm:'oshi',cr:'439-411-4',mr:'242-264-4',db:'Jan 2015',hr:'Komusubi',op:'',yp:'',sd:'Nov 2022',md:'Sep 2020',jd:'Jul 2017'},
+  '3616':{nm:'Kazuki Ura',rn:'Ura',st:'Kise',bd:'Jun 22, 1992',bp:'Osaka',ht:'176cm',wt:'139kg',rk:'Maegashira #11',sm:'oshi, ashitori',cr:'406-305-96',mr:'234-247-29',db:'Mar 2015',hr:'Komusubi',op:'',yp:'',sd:'Jan 2024',md:'Mar 2017',jd:'May 2016'},
+  '3620':{nm:'Hisashi Omichi',rn:'Mitakeumi',st:'Dewanoumi',bd:'Dec 25, 1992',bp:'Nagano',ht:'182cm',wt:'175kg',rk:'Maegashira #14',sm:'tsuki, oshi',cr:'524-437-13',mr:'481-421-13',db:'Mar 2015',hr:'Ozeki',op:'Mar 2022',yp:'',sd:'Nov 2016',md:'Nov 2015',jd:'Jul 2015'},
+  '3622':{nm:'Byambachuluun Lkhagvasuren',rn:'Kirishima',st:'Otowayama',bd:'Apr 24, 1996',bp:'Mongolia',ht:'186cm',wt:'150kg',rk:'Ozeki',sm:'hidari-yotsu, yori, nage',cr:'456-303-25',mr:'317-226-12',db:'May 2015',hr:'Ozeki',op:'Jul 2023',yp:'',sd:'Nov 2021',md:'Jan 2020',jd:'Mar 2019'},
+  '3661':{nm:'Masakatsu Kamatani',rn:'Kotozakura',st:'Sadogatake',bd:'Nov 19, 1997',bp:'Chiba',ht:'189cm',wt:'178kg',rk:'Ozeki',sm:'migi-yotsu, yori, oshi',cr:'439-293-15',mr:'305-205-15',db:'Nov 2015',hr:'Ozeki',op:'Mar 2024',yp:'',sd:'Jan 2023',md:'Mar 2020',jd:'Jul 2019'},
+  '3682':{nm:'Hiroki Ishibashi',rn:'Asanoyama',st:'Takasago',bd:'Mar 1, 1994',bp:'Toyama',ht:'188cm',wt:'175kg',rk:'Maegashira #10',sm:'oshi, migi-yotsu, yori',cr:'413-203-156',mr:'261-166-98',db:'Mar 2016',hr:'Ozeki',op:'Jul 2020',yp:'',sd:'Nov 2019',md:'Sep 2017',jd:'Mar 2017'},
+  '3705':{nm:'Yuki Sakaguchi',rn:'Hiradoumi',st:'Sakaigawa',bd:'Apr 20, 2000',bp:'Nagasaki',ht:'178cm',wt:'141kg',rk:'Maegashira #3',sm:'tsuki, oshi, migi-yotsu, yori',cr:'334-287-8',mr:'166-164',db:'Mar 2016',hr:'Komusubi',op:'',yp:'',sd:'Jul 2024',md:'Sep 2022',jd:'Jul 2021'},
+  '3711':{nm:'Shoki Yamashiro',rn:'Churanoumi',st:'Kise',bd:'Jun 27, 1998',bp:'Okinawa',ht:'178cm',wt:'131kg',rk:'Maegashira #6',sm:'hidari-yotsu, yori',cr:'263-234-7',mr:'108-117',db:'Mar 2016',hr:'Maegashira #2',op:'',yp:'',sd:'',md:'Jul 2022',jd:'Jan 2021'},
+  '3742':{nm:'Takeshi Fujishima',rn:'Nishikifuji',st:'Isegahama',bd:'Jul 6, 1999',bp:'Aomori',ht:'183cm',wt:'143kg',rk:'Maegashira #9',sm:'migi-yotsu, yori',cr:'225-174-9',mr:'113-120-9',db:'Mar 2017',hr:'Maegashira #3',op:'',yp:'',sd:'',md:'Sep 2022',jd:'Mar 2022'},
+  '3753':{nm:'Ichi Yamamoto',rn:'Ichiyamamoto',st:'Nishonoseki',bd:'Oct 2, 1999',bp:'Hokkaido',ht:'175cm',wt:'125kg',rk:'Maegashira #2',sm:'oshi',cr:'210-189-3',mr:'127-128',db:'Mar 2017',hr:'Maegashira #2',op:'',yp:'',sd:'',md:'Nov 2021',jd:'Nov 2020'},
+  '3761':{nm:'Shonosuke Onami',rn:'Wakatakakage',st:'Arashio',bd:'Mar 22, 1994',bp:'Fukushima',ht:'180cm',wt:'130kg',rk:'Komusubi',sm:'oshi, migi-yotsu, yori',cr:'441-357-64',mr:'235-218-19',db:'Mar 2017',hr:'Sekiwake',op:'',yp:'',sd:'Jan 2022',md:'Nov 2019',jd:'Mar 2019'},
+  '3840':{nm:'Toshiki Tebakari',rn:'Kotoshoho',st:'Sadogatake',bd:'Aug 26, 1999',bp:'Chiba',ht:'191cm',wt:'172kg',rk:'Sekiwake',sm:'migi-yotsu, yori',cr:'335-291-21',mr:'199-215-21',db:'Nov 2017',hr:'Sekiwake',op:'',yp:'',sd:'May 2026',md:'Jul 2020',jd:'Nov 2019'},
+  '3842':{nm:'Sugarragchaa Byambasuren',rn:'Hoshoryu',st:'Tatsunami',bd:'May 22, 1999',bp:'Mongolia',ht:'188cm',wt:'150kg',rk:'Yokozuna',sm:'migi-yotsu, yori, nage',cr:'394-226-20',mr:'312-178-20',db:'Jan 2018',hr:'Yokozuna',op:'Sep 2023',yp:'Mar 2025',sd:'Mar 2022',md:'Sep 2020',jd:'Nov 2019'},
+  '3844':{nm:'Konosuke Naya',rn:'Oho',st:'Otake',bd:'Feb 14, 2000',bp:'Tokyo',ht:'192cm',wt:'185kg',rk:'Maegashira #3',sm:'tsuki, oshi',cr:'316-268',mr:'186-189',db:'Jan 2018',hr:'Sekiwake',op:'',yp:'',sd:'Mar 2025',md:'Jan 2022',jd:'Jul 2021'},
+  '3907':{nm:'Amartuvshin Amarsanaa',rn:'Roga',st:'Futagoyama',bd:'Mar 2, 1999',bp:'Russia',ht:'184cm',wt:'160kg',rk:'Maegashira #14',sm:'migi-yotsu, yori',cr:'254-203-12',mr:'86-97-12',db:'Nov 2018',hr:'Maegashira #8',op:'',yp:'',sd:'',md:'Nov 2023',jd:'Nov 2022'},
+  '3933':{nm:'Hideki Tomie',rn:'Tokihayate',st:'Tokitsukaze',bd:'Aug 25, 1996',bp:'Miyagi',ht:'179cm',wt:'136kg',rk:'Maegashira #12',sm:'hidari-yotsu, yori, uwatenage',cr:'235-185-3',mr:'72-78',db:'Mar 2019',hr:'Maegashira #9',op:'',yp:'',sd:'',md:'May 2024',jd:'May 2023'},
+  '3990':{nm:'Sokolovskyi Serhii',rn:'Shishi',st:'Ikazuchi',bd:'Jan 16, 1997',bp:'Ukraine',ht:'192cm',wt:'177kg',rk:'Maegashira #12',sm:'oshi',cr:'215-164-2',mr:'56-64',db:'Mar 2020',hr:'Maegashira #11',op:'',yp:'',sd:'',md:'Nov 2024',jd:'Jul 2023'},
+  '4025':{nm:'Seiya Fukasawa',rn:'Oshoumi',st:'Naruto',bd:'May 12, 2001',bp:'Ishikawa',ht:'184cm',wt:'148kg',rk:'Maegashira #15',sm:'hidari-yotsu, yori',cr:'188-127-34',mr:'22-23',db:'Mar 2020',hr:'Maegashira #11',op:'',yp:'',sd:'',md:'Nov 2025',jd:'Jan 2024'},
+  '4055':{nm:'Kenta Atsumi',rn:'Atamifuji',st:'Isegahama',bd:'Sep 25, 2002',bp:'Shizuoka',ht:'193cm',wt:'176kg',rk:'Sekiwake',sm:'tsuki, oshi',cr:'212-127-9',mr:'152-101-9',db:'Mar 2021',hr:'Sekiwake',op:'',yp:'',sd:'Mar 2025',md:'Jul 2023',jd:'Nov 2022'},
+  '4079':{nm:'Shoma Takano',rn:'Gonoyama',st:'Onoe',bd:'Jun 6, 2000',bp:'Osaka',ht:'186cm',wt:'164kg',rk:'Maegashira #4',sm:'tsuki, oshi',cr:'192-135-3',mr:'112-103-3',db:'May 2021',hr:'Sekiwake',op:'',yp:'',sd:'Nov 2023',md:'Jul 2023',jd:'Jul 2022'},
+  '4093':{nm:'Kazuma Miyazaki',rn:'Fujiseiun',st:'Isegahama',bd:'Jun 27, 2001',bp:'Kumamoto',ht:'179cm',wt:'145kg',rk:'Maegashira #6',sm:'hidari-yotsu, yori',cr:'173-130-5',mr:'47-43',db:'Jul 2021',hr:'Maegashira #3',op:'',yp:'',sd:'',md:'Jan 2025',jd:'Jan 2024'},
+  '4101':{nm:'Takuma Ishizaki',rn:'Asakoryu',st:'Takasago',bd:'Sep 24, 1998',bp:'Osaka',ht:'178cm',wt:'125kg',rk:'Maegashira #7',sm:'oshi, migi-yotsu, yori',cr:'187-148-3',mr:'60-60',db:'May 2021',hr:'Maegashira #7',op:'',yp:'',sd:'',md:'Nov 2024',jd:'Sep 2023'},
+  '4108':{nm:'Purevsuren Delgerbayar',rn:'Oshoma',st:'Naruto',bd:'Apr 9, 1997',bp:'Mongolia',ht:'190cm',wt:'166kg',rk:'Maegashira #8',sm:'oshi, inashi',cr:'192-174-7',mr:'87-93',db:'Nov 2021',hr:'Komusubi',op:'',yp:'',sd:'Jul 2025',md:'May 2024',jd:'Jul 2022'},
+  '4112':{nm:'Baltagul Yersin',rn:'Kinbozan',st:'Kise',bd:'Jun 24, 1997',bp:'Kazakhstan',ht:'195cm',wt:'179kg',rk:'Maegashira #11',sm:'tsuki, oshi',cr:'198-165-2',mr:'127-141-2',db:'Nov 2021',hr:'Maegashira #3',op:'',yp:'',sd:'',md:'Mar 2023',jd:'Sep 2022'},
+  '4120':{nm:'Taiki Tebakari',rn:'Kotoeiho',st:'Sadogatake',bd:'Oct 30, 2001',bp:'Chiba',ht:'175cm',wt:'140kg',rk:'Maegashira #13',sm:'oshi',cr:'167-139-2',mr:'49-56',db:'Jan 2022',hr:'Maegashira #7',op:'',yp:'',sd:'',md:'Jan 2025',jd:'Jul 2023'},
+  '4121':{nm:'Shoichiro Takeda',rn:'Wakanosho',st:'Minatogawa',bd:'Aug 22, 2003',bp:'Tochigi',ht:'178cm',wt:'145kg',rk:'Maegashira #16',sm:'tsuki, oshi',cr:'130-73-12',mr:'0-0',db:'Jan 2022',hr:'Maegashira #16',op:'',yp:'',sd:'',md:'May 2026',jd:'Mar 2025'},
+  '4175':{nm:'Ragchaa Jamiyantogtokh',rn:'Asahakuryu',st:'Takasago',bd:'Jan 8, 1999',bp:'Mongolia',ht:'185cm',wt:'152kg',rk:'Maegashira #8',sm:'migi-yotsu, yori',cr:'114-51',mr:'18-12',db:'Jan 2023',hr:'Maegashira #8',op:'',yp:'',sd:'',md:'Jan 2026',jd:'Sep 2025'},
+  '4187':{nm:'Tetsuya Ochiai',rn:'Hakunofuji',st:'Isegahama',bd:'Aug 22, 2003',bp:'Tottori',ht:'181cm',wt:'159kg',rk:'Maegashira #10',sm:'tsuki, oshi, hidari-yotsu, yori',cr:'149-95-40',mr:'70-59-21',db:'Jan 2023',hr:'Maegashira #1',op:'',yp:'',sd:'',md:'Jul 2023',jd:'Mar 2023'},
+  '4191':{nm:'Seigo Saito',rn:'Fujinokawa',st:'Isenoumi',bd:'Feb 22, 2005',bp:'Kyoto',ht:'177cm',wt:'123kg',rk:'Maegashira #1',sm:'oshi',cr:'128-74-3',mr:'43-32',db:'Jan 2023',hr:'Maegashira #1',op:'',yp:'',sd:'',md:'Jul 2025',jd:'Nov 2024'},
+  '4227':{nm:'Daiki Nakamura',rn:'Onosato',st:'Nishonoseki',bd:'Jun 7, 2000',bp:'Ishikawa',ht:'192cm',wt:'189kg',rk:'Yokozuna',sm:'tsuki, oshi, migi-yotsu, yori',cr:'180-63-11',mr:'146-53-11',db:'May 2023',hr:'Yokozuna',op:'Nov 2024',yp:'Jul 2025',sd:'May 2024',md:'Jan 2024',jd:'Sep 2023'},
+  '4230':{nm:'Yavhusishyn Danylo',rn:'Aonishiki',st:'Ajigawa',bd:'Mar 23, 2004',bp:'Ukraine',ht:'182cm',wt:'142kg',rk:'Ozeki',sm:'migi-yotsu, yori',cr:'135-42',mr:'75-30',db:'Sep 2023',hr:'Ozeki',op:'Jan 2026',yp:'',sd:'Sep 2025',md:'Mar 2025',jd:'Nov 2024'},
+  '4279':{nm:'Naoya Kusano',rn:'Yoshinofuji',st:'Isegahama',bd:'Jun 25, 2001',bp:'Kumamoto',ht:'185cm',wt:'157kg',rk:'Maegashira #2',sm:'migi-yotsu, yori',cr:'94-46',mr:'43-32',db:'May 2024',hr:'Maegashira #1',op:'',yp:'',sd:'',md:'Jul 2025',jd:'Mar 2025'},
+  '4336':{nm:'Masaharu Goshima',rn:'Fujiryoga',st:'Fujishima',bd:'Feb 27, 2003',bp:'Aichi',ht:'180cm',wt:'181kg',rk:'Maegashira #17',sm:'oshi',cr:'51-22',mr:'7-8',db:'Mar 2025',hr:'Maegashira #17',op:'',yp:'',sd:'',md:'Mar 2026',jd:'Nov 2025'}
+};
+
+// Interview Q&A (translated from Japanese JSA profiles)
+const qaLabels = [
+  'Started Sumo At Age','Favorite Food','Hobbies','Favorite Music',
+  'Favorite Manga/Anime/Movies','Favorite TV/YouTube','Sports Teams & Athletes They Root For',
+  'Motto / Favorite Saying','#1 Thing About Themselves in Sumo'
+];
+const rikishiQA = {
+  '2629':['20','Eating with lots of people','Crafting small items (recently making a doormat)','High-energy songs','—','Wednesday Downtown','—','—','Power'],
+  '2775':['15','Tonkatsu (pork cutlet)','Karaoke','Tori Konomi','ONE PIECE','Uta-Kon / Shin BS Nihon no Uta','Pro wrestling — Taichi','Hyakusetsu Futou (Persevere no matter what)','How hairy I am!'],
+  '2890':['—','Fish','Eating delicious food','Uru','Hajime no Ippo (Fighting Spirit)','Egashira Channel','—','An unbreakable heart','Never giving up'],
+  '3207':['17','Meat & fish','Sightseeing','Tsuyoshi Nagabuchi','Dragon Ball','Ariyoshi Zemi','Team Japan (baseball)','Good things come to those who try!','Speed'],
+  '3265':['9','Hitsumabushi (grilled eel) & fugu','Anime movies / PokePoke / block games','ONE OK ROCK / Vaundy','Haikyu!! / My Hero Academia','SUSURU / TV Chidori / Aiseki Shokudo','Kashiwa Reysol','Laughter brings good fortune','My smile'],
+  '3371':['7','Sushi','Pro wrestling & golf','Ed Sheeran / aiko','Harry Potter / Fullmetal Alchemist / CLAMP','Ariyoshi no Kabe','NJPW / STARDOM / NOAH','Taizen Jijaku (Calm and composed)','My left-hand grip'],
+  '3376':['7','Yakiniku (grilled meat)','Golf','Tsuyoshi Nagabuchi','My Hero Academia / ONE PIECE','Sumo shows','Wrestling — Nao Kusaka','Gratitude and compassion','No idea'],
+  '3485':['9','Bananas','PC gaming','Mrs. GREEN APPLE','ONE PIECE / Crows','Oyakata Channel','Tokyo Great Bears / Avispa Fukuoka','You only live once','Chatting'],
+  '3521':['7','Omurice (omelette rice)','Cars','Macaroni Enpitsu','Dandadan','Dandadan','Baseball — Koki Yoshida','Compassion','Being negative'],
+  '3594':['7','Fruit','Photography & card games','Koji Tamaki / Takajin Yashiki','Zatch Bell!!','Ai no Hyena','Tokyo Yakult Swallows','Gratitude and compassion','Skincare / My weird laugh'],
+  '3616':['4','Steak (filet)','Otamatone','Kariyushi 58','Kaiji','Shogi Hourouki (chess channel)','Kickboxing — Osaki brothers, Kaito Kozawa','I know what is enough (Ware Tada Taru wo Shiru)','Spending alone time meaningfully'],
+  '3620':['7','Sushi','Walking with my tsukebito (attendant)','Mrs. GREEN APPLE','Harry Potter','Oyakata Channel','Yokohama DeNA BayStars','One good deed a day','Being playful'],
+  '3622':['18','Meat','Gaming & weight training','Tsuyoshi Nagabuchi','—','Oyakata Channel','Basketball','Isshoukenmei (Give it your all)','—'],
+  '3661':['2','Yakiniku (grilled meat)','Sleeping','Sukima Switch / EXILE / ET-KING','ONE PIECE','—','Baseball — Yuu Tatematsu / Wrestling — Nao Kusaka','Gratitude and compassion','I don\'t know — please tell me!'],
+  '3682':['10','Yellowtail & chawanmushi (egg custard)','Eating','Nothing special','Sakamoto / The Fable','IPPON Grand Prix','Athletes from my hometown','Isshoukenmei / Fukutsu (Never give up)','You tell me!!'],
+  '3705':['6','Omurice (omelette rice)','Watching movies','EXILE','—','Shabekuri 007','—','—','My lucky earlobes'],
+  '3711':['5','Ramen','Sauna','Western music','ONE PIECE','TV Chidori','—','Nanakorobi Yaoki (Fall seven times, get up eight)','My left-hand belt grip'],
+  '3742':['9','Sushi','Soccer & baseball','AK-69','Detective Conan','Wednesday Downtown','Inter Milan / Yomiuri Giants','Tomorrow\'s procrastinator is a fool','Headbutt strength'],
+  '3753':['8','Edamame','Collecting Wakatakakage merch','Jenny High','Space Brothers','Zakkuri YouTube','Wakatakakage','Support your favorites while you can','Amount of Wakatakakage merchandise'],
+  '3761':['7','Sushi','—','—','ONE PIECE — nothing else','Sake no Tsumami ni Naru Hanashi','—','Ichii Senshin (Wholehearted focus)','My arm push (ottsuke)'],
+  '3840':['3','Yakiniku & sushi','Gaming','Lots of stuff','Kingdom','Kame Sento (YouTube)','Kashiwa Reysol','Sleep','—'],
+  '3842':['17','Meat','Music','Mongolian music','Harry Potter / BLEACH','—','—','Practice never lies','—'],
+  '3844':['6','Karaage (fried chicken) / fruit / stuffed peppers','Gaming','—','Dragon Ball / Pokemon / ONE PIECE','Mokou\'s gameplay / Oowada Shinya\'s Hideout','—','—','—'],
+  '3907':['15','Meat & fish','—','—','Kingdom','—','—','—','—'],
+  '3933':['8','Rice','Watching anime','Sambomaster','Haikyu!!','Itte Q!','—','Futou Fukutsu (Indomitable spirit)','How pale my skin is'],
+  '3990':['21','Sushi (especially sweet shrimp)','Sleeping','—','Marvel','Funny stuff','Wrestling','—','—'],
+  '4025':['6','Crab','Hot spring hopping','Nothing special','Cooking dramas','Ariyoshi Zemi','Nothing special','Effort','Amount of athletic tape I use'],
+  '4055':['12','Sushi / ochazuke / pudding','Listening to music','back number / Saucy Dog / Creep Hyp','Eyeshield 21','Sanma\'s Comedy School / Tokai On Air','—','Kennin Fubatsu (Unwavering perseverance)','Energy'],
+  '4079':['6','Harami (skirt steak)','Taking walks','Den-en (Tamaki Koji)','ONE PIECE','Wednesday Downtown','Cycling — Keigo Higashiya','Gratitude and compassion','Fighting spirit'],
+  '4093':['6','Steak','Training','Keisuke Kuwata','ONE PIECE','Tokyo 03','LA Dodgers','Isshin Ittai (One step forward, one step back)','—'],
+  '4101':['8','Hamburger steak','Training','AMEFURASSHI / King Gnu / WILYWNKA','Baki','Wednesday Downtown','Myself','It\'ll work out somehow','My biceps'],
+  '4108':['18','Lamb','—','—','Korean dramas','—','—','If you try, you can do it','—'],
+  '4112':['19','Sushi','Sauna','—','Fast & Furious','Cooking shows','UFC','Maa maa ne (Yeah, I\'m alright)','—'],
+  '4120':['6','Korean food','Visiting public baths','Not really','Dragon Ball','Wednesday Downtown','—','Gratitude and compassion','—'],
+  '4121':['10','Yakiniku & beef tongue','Fishing','Elephant Kashimashi','Attack on Titan','Getsuyou kara Yofukashi / Junk SPORTS','Utsunomiya Brex','Gratitude and compassion','—'],
+  '4175':['16','Meat','Gaming','—','Dragon Ball','HikakinTV','—','Power','English'],
+  '4187':['10','Meat','Sauna','Enka (traditional ballads)','Crayon Shin-chan','Shabekuri 007','Soccer','Make up your mind (Hara wo Kimeru)','—'],
+  '4191':['5','Unagi (eel)','Sauna','THE BLUE HEARTS','Dandadan','Wednesday Downtown','—','No success without a dream','—'],
+  '4227':['5','Meat','Sauna / gaming','Hip-hop','ONE PIECE / Hajime no Ippo','Sumo shows','Boxing — Naoya Inoue','Flowers for effort, laughter for results','Sumo sense'],
+  '4230':['7','Meat','Sauna','Eigo Kawashima','Hajime no Ippo (Fighting Spirit)','Junk SPORTS','Boxing — Oleksandr Usyk','Thank you (Arigatou gozaimasu)','—'],
+  '4279':['6','Sushi','Sauna','Shogo Hamada','Detective Conan','Wednesday Downtown','—','Gratitude','—'],
+  '4336':['9','Sashimi','Visiting public baths (no sauna!)','ONE OK ROCK','Saiki Kusuo no Psi-nan','Wednesday Downtown','Takushoku Univ. sumo team — Minoshima','Momentum','Being blessed to join a great stable']
+};
+
+// Map portrait file names to extract rikishi ID from thumbnail src
+const portraitToId = {};
 const portraitMap = {
   '2629':'20040005.jpg','2775':'20050022.jpg','2890':'20060023.jpg','3207':'20090066.jpg',
   '3265':'20100039.jpg','3371':'20110065.jpg','3376':'20120003.jpg','3485':'20130059.jpg',
@@ -1039,6 +1283,15 @@ const portraitMap = {
   '4187':'20230004.jpg','4191':'20230008.jpg','4227':'20230048.jpg','4230':'20230052.jpg',
   '4279':'20240045.jpg','4336':'20250038.jpg'
 };
+Object.entries(portraitMap).forEach(([rid, file]) => { portraitToId[file] = rid; });
+
+let lbCurrentPage = 0;
+
+function getRikishiIdFromSrc(src) {
+  const fileMatch = src.match(/\/([^\/]+\.jpg)/);
+  if (!fileMatch) return '';
+  return portraitToId[fileMatch[1]] || '';
+}
 
 function openLightbox(imgEl) {
   const row = imgEl.closest('.banzuke-row');
@@ -1047,18 +1300,103 @@ function openLightbox(imgEl) {
   const origin = cell.querySelector('.rikishi-origin').textContent;
   const rank = row.querySelector('.banzuke-cell-rank').textContent;
   const side = cell.classList.contains('banzuke-cell-east') ? 'East' : 'West';
-  const idMatch = imgEl.src.match(/\/(\d+)\.jpg/);
-  const rid = idMatch ? idMatch[1] : '';
-  const portraitFile = portraitMap[rid];
-  const portraitUrl = portraitFile
-    ? 'https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/' + portraitFile
-    : imgEl.src;
-  document.getElementById('lb-img').src = portraitUrl;
+  const rid = getRikishiIdFromSrc(imgEl.src);
+
+  document.getElementById('lb-img').src = imgEl.src;
   document.getElementById('lb-name').textContent = name;
   document.getElementById('lb-rank').textContent = rank + ' · ' + side;
   document.getElementById('lb-origin').textContent = origin;
+
+  // Build stats page
+  const data = rikishiData[rid];
+  const statsEl = document.getElementById('lb-stats');
+  if (data) {
+    let age = '';
+    if (data.bd) {
+      const bdate = new Date(data.bd.replace(',', ''));
+      age = Math.floor((new Date() - bdate) / 31557600000);
+    }
+    let html = '<div class="lb-stats-header">';
+    html += '<div class="lb-name">' + name + '</div>';
+    html += '<div class="lb-rank">' + rank + ' · ' + side + '</div>';
+    html += '</div>';
+
+    // Physical & Personal
+    html += '<div class="lb-stat-section"><div class="lb-stat-section-title">Profile</div>';
+    html += '<div class="lb-stat-grid">';
+    html += '<div class="lb-stat"><span class="lb-stat-label">Real Name</span><span class="lb-stat-value">' + data.nm + '</span></div>';
+    if (data.rn && data.rn !== name) html += '<div class="lb-stat"><span class="lb-stat-label">Ring Name History</span><span class="lb-stat-value">' + data.rn + '</span></div>';
+    html += '<div class="lb-stat"><span class="lb-stat-label">Stable</span><span class="lb-stat-value">' + data.st + '</span></div>';
+    html += '<div class="lb-stat"><span class="lb-stat-label">Age</span><span class="lb-stat-value">' + age + '</span></div>';
+    html += '<div class="lb-stat"><span class="lb-stat-label">Height</span><span class="lb-stat-value">' + data.ht + '</span></div>';
+    html += '<div class="lb-stat"><span class="lb-stat-label">Weight</span><span class="lb-stat-value">' + data.wt + '</span></div>';
+    html += '</div></div>';
+
+    // Fighting style
+    html += '<div class="lb-stat-section"><div class="lb-stat-section-title">Fighting Style</div>';
+    html += '<div class="lb-stat-highlight"><span class="lb-stat-label">Signature Moves (tokui-waza)</span><span class="lb-stat-value">' + data.sm + '</span></div>';
+    html += '</div>';
+
+    // Career records
+    html += '<div class="lb-stat-section"><div class="lb-stat-section-title">Career Records</div>';
+    html += '<div class="lb-stat-grid">';
+    if (data.cr) {
+      const parts = data.cr.split('-');
+      const w = parseInt(parts[0])||0, l = parseInt(parts[1])||0;
+      const pct = w+l > 0 ? ((w/(w+l))*100).toFixed(1) : '—';
+      html += '<div class="lb-stat"><span class="lb-stat-label">Career W-L</span><span class="lb-stat-value">' + data.cr + '</span></div>';
+      html += '<div class="lb-stat"><span class="lb-stat-label">Win Rate</span><span class="lb-stat-value">' + pct + '%</span></div>';
+    }
+    if (data.mr) {
+      const parts = data.mr.split('-');
+      const w = parseInt(parts[0])||0, l = parseInt(parts[1])||0;
+      const pct = w+l > 0 ? ((w/(w+l))*100).toFixed(1) : '—';
+      html += '<div class="lb-stat"><span class="lb-stat-label">Makuuchi W-L</span><span class="lb-stat-value">' + data.mr + '</span></div>';
+      html += '<div class="lb-stat"><span class="lb-stat-label">Makuuchi Win %</span><span class="lb-stat-value">' + pct + '%</span></div>';
+    }
+    html += '</div></div>';
+
+    // Career milestones
+    html += '<div class="lb-stat-section"><div class="lb-stat-section-title">Career Milestones</div>';
+    html += '<ul class="lb-milestones">';
+    html += '<li><span>Highest Rank</span><span>' + (data.hr||'—') + '</span></li>';
+    if (data.yp) html += '<li><span>Yokozuna Promotion</span><span>' + data.yp + '</span></li>';
+    if (data.op) html += '<li><span>Ozeki Promotion</span><span>' + data.op + '</span></li>';
+    if (data.sd) html += '<li><span>San\'yaku Debut</span><span>' + data.sd + '</span></li>';
+    html += '<li><span>Makuuchi Debut</span><span>' + (data.md||'—') + '</span></li>';
+    if (data.jd) html += '<li><span>Juryo Debut</span><span>' + data.jd + '</span></li>';
+    html += '<li><span>Pro Debut</span><span>' + (data.db||'—') + '</span></li>';
+    html += '</ul></div>';
+
+    // Fun Facts & Interview Q&A
+    const qa = rikishiQA[rid];
+    if (qa) {
+      html += '<div class="lb-stat-section"><div class="lb-stat-section-title">Fun Facts &amp; Interview</div>';
+      html += '<div class="lb-qa-list">';
+      for (let i = 0; i < qaLabels.length; i++) {
+        if (qa[i] && qa[i] !== '—' && qa[i] !== '-') {
+          html += '<div class="lb-qa-item"><span class="lb-qa-q">' + qaLabels[i] + '</span><span class="lb-qa-a">' + qa[i] + '</span></div>';
+        }
+      }
+      html += '</div></div>';
+    }
+
+    statsEl.innerHTML = html;
+  } else {
+    statsEl.innerHTML = '<div class="lb-stats-header"><div class="lb-name">' + name + '</div></div><p style="color:var(--text-muted);text-align:center;padding:20px;">No detailed stats available.</p>';
+  }
+
+  // Reset to page 1
+  goToLbPage(0);
   document.getElementById('rikishi-lightbox').classList.add('active');
   document.body.style.overflow = 'hidden';
+}
+
+function goToLbPage(page) {
+  lbCurrentPage = page;
+  document.getElementById('lb-slider').style.transform = 'translateX(-' + (page * 50) + '%)';
+  document.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === page));
+  document.getElementById('lb-nav-hint').textContent = page === 0 ? 'Swipe or click dot for stats →' : '← Back to photo';
 }
 
 function closeLightbox(e) {
@@ -1066,9 +1404,25 @@ function closeLightbox(e) {
   document.body.style.overflow = '';
 }
 
+// Keyboard & swipe support
 document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('rikishi-lightbox').classList.contains('active')) return;
   if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') goToLbPage(1);
+  if (e.key === 'ArrowLeft') goToLbPage(0);
 });
+
+(function() {
+  let touchStartX = 0;
+  const lb = document.getElementById('rikishi-lightbox');
+  lb.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, {passive: true});
+  lb.addEventListener('touchend', function(e) {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      goToLbPage(diff > 0 ? 1 : 0);
+    }
+  }, {passive: true});
+})();
 
 // ============================
 // DATA
