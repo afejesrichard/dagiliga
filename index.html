@@ -337,8 +337,8 @@
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    object-fit: cover;
-    object-position: center 8%;
+    object-fit: none;
+    object-position: center 14%;
     border: 2px solid var(--border);
     background: var(--card2);
     cursor: pointer;
@@ -369,7 +369,7 @@
   .rikishi-lightbox.active { display: flex; }
   @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
   .lb-viewport {
-    width: 340px;
+    width: min(400px, 92vw);
     max-height: 90vh;
     overflow: hidden;
     position: relative;
@@ -394,7 +394,7 @@
     box-shadow: 0 20px 60px rgba(0,0,0,0.6);
   }
   .lb-card img {
-    width: 270px;
+    width: min(270px, 75vw);
     height: auto;
     border-radius: 12px;
     border: 3px solid var(--border);
@@ -515,13 +515,14 @@
     margin-top: 14px;
   }
   .lb-dot {
-    width: 8px; height: 8px;
+    width: 12px; height: 12px;
     border-radius: 50%;
     background: var(--border);
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s;
   }
-  .lb-dot.active { background: var(--accent2); }
+  .lb-dot:hover { transform: scale(1.3); }
+  .lb-dot.active { background: var(--accent2); transform: scale(1.15); }
   .lb-nav-hint {
     text-align: center;
     margin-top: 8px;
@@ -546,31 +547,32 @@
     0%, 100% { transform: translateY(-50%) translateX(0); }
     50% { transform: translateY(-50%) translateX(8px); }
   }
-  /* Desktop lightbox arrows */
+  /* Desktop lightbox arrows — positioned on the overlay, not inside viewport */
   .lb-arrow {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
     color: var(--accent2);
-    font-size: 1.5em;
+    font-size: 1.8em;
     cursor: pointer;
-    z-index: 10;
+    z-index: 10000;
     transition: background 0.2s, transform 0.2s;
-    line-height: 48px;
+    line-height: 52px;
     text-align: center;
   }
-  .lb-arrow:hover { background: rgba(78,205,196,0.2); transform: translateY(-50%) scale(1.1); }
-  .lb-arrow--left { left: -64px; }
-  .lb-arrow--right { right: -64px; }
+  .lb-arrow:hover { background: rgba(78,205,196,0.25); transform: translateY(-50%) scale(1.1); }
+  .lb-arrow--left { left: max(20px, calc(50% - 260px)); }
+  .lb-arrow--right { right: max(20px, calc(50% - 260px)); }
   .lb-arrow.hidden { visibility: hidden; }
+  .rikishi-lightbox:not(.active) .lb-arrow { display: none !important; }
   @media (min-width: 769px) {
-    .lb-arrow { display: block; }
+    .rikishi-lightbox.active .lb-arrow { display: block; }
     .lb-swipe-arrow { display: none; }
   }
   .lb-close {
@@ -584,10 +586,6 @@
     z-index: 10;
   }
   .lb-close:hover { color: var(--text); }
-  @media (max-width: 400px) {
-    .lb-viewport { width: 95vw; }
-    .lb-card img { width: 100%; }
-  }
   .rikishi-info { display: flex; flex-direction: column; }
   .banzuke-cell-east .rikishi-info { align-items: flex-end; }
   .rikishi-name {
@@ -602,8 +600,8 @@
   }
   @media (max-width: 700px) {
     .banzuke-table th, .banzuke-row td { padding: 5px 3px; font-size: 0.78em; }
-    .rikishi-img { width: 34px; height: 34px; border-width: 1.5px; }
-    .banzuke-row.rank-yokozuna .rikishi-img { width: 40px; height: 40px; }
+    .rikishi-img { width: 36px; height: 36px; border-width: 1.5px; }
+    .banzuke-row.rank-yokozuna .rikishi-img { width: 42px; height: 42px; }
     .rikishi-name { font-size: 0.82em; }
     .rikishi-origin { font-size: 0.68em; }
     .rikishi-move { font-size: 0.6em; padding: 0 3px; }
@@ -880,13 +878,18 @@
     .cards-grid { grid-template-columns: 1fr; }
     .power-bar-name { width: 100px; font-size: 0.8em; }
     /* Lightbox mobile fixes */
-    .lb-viewport { width: 92vw; max-height: 88vh; }
-    .lb-card { padding: 14px; }
-    .lb-card img { width: 200px; }
+    .lb-card { padding: 16px; }
     .lb-stats { max-height: 80vh; padding: 14px 16px; }
-    .lb-close { top: 8px; right: 12px; font-size: 1.6em; }
-    .lb-dots { margin-top: 8px; }
+    .lb-close { top: 10px; right: 14px; font-size: 1.6em; }
+    .lb-dots { margin-top: 10px; }
     .lb-nav-hint { margin-top: 4px; }
+  }
+  @media (max-width: 420px) {
+    .lb-viewport { max-height: 85vh; }
+    .lb-card { padding: 12px; }
+    .lb-card .lb-name { font-size: 1.2em; }
+    .lb-card .lb-rank { font-size: 0.85em; }
+    .lb-stats { max-height: 78vh; padding: 12px 14px; font-size: 0.9em; }
   }
 </style>
 </head>
@@ -1238,9 +1241,9 @@
     </div>
     <div class="lb-nav-hint" id="lb-nav-hint">Swipe or click dot for stats &rarr;</div>
     <div class="lb-swipe-arrow" id="lb-swipe-arrow">&#8250;</div>
-    <div class="lb-arrow lb-arrow--left hidden" id="lb-arrow-left" onclick="goToLbPage(0)">&#8249;</div>
-    <div class="lb-arrow lb-arrow--right" id="lb-arrow-right" onclick="goToLbPage(1)">&#8250;</div>
   </div>
+  <div class="lb-arrow lb-arrow--left hidden" id="lb-arrow-left" onclick="event.stopPropagation();goToLbPage(0)">&#8249;</div>
+  <div class="lb-arrow lb-arrow--right" id="lb-arrow-right" onclick="event.stopPropagation();goToLbPage(1)">&#8250;</div>
 </div>
 
 <footer>
