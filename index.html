@@ -338,7 +338,7 @@
     height: 52px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: top;
+    object-position: center 8%;
     border: 2px solid var(--border);
     background: var(--card2);
     cursor: pointer;
@@ -546,6 +546,33 @@
     0%, 100% { transform: translateY(-50%) translateX(0); }
     50% { transform: translateY(-50%) translateX(8px); }
   }
+  /* Desktop lightbox arrows */
+  .lb-arrow {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--accent2);
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s, transform 0.2s;
+    line-height: 48px;
+    text-align: center;
+  }
+  .lb-arrow:hover { background: rgba(78,205,196,0.2); transform: translateY(-50%) scale(1.1); }
+  .lb-arrow--left { left: -64px; }
+  .lb-arrow--right { right: -64px; }
+  .lb-arrow.hidden { visibility: hidden; }
+  @media (min-width: 769px) {
+    .lb-arrow { display: block; }
+    .lb-swipe-arrow { display: none; }
+  }
   .lb-close {
     position: absolute;
     top: 20px;
@@ -574,11 +601,18 @@
     color: var(--text-muted);
   }
   @media (max-width: 700px) {
-    .banzuke-table th, .banzuke-row td { padding: 6px 4px; font-size: 0.85em; }
-    .rikishi-img { width: 38px; height: 38px; }
-    .banzuke-row.rank-yokozuna .rikishi-img { width: 44px; height: 44px; }
-    .rikishi-name { font-size: 0.9em; }
-    .banzuke-cell-rank { font-size: 0.8em; }
+    .banzuke-table th, .banzuke-row td { padding: 5px 3px; font-size: 0.78em; }
+    .rikishi-img { width: 34px; height: 34px; border-width: 1.5px; }
+    .banzuke-row.rank-yokozuna .rikishi-img { width: 40px; height: 40px; }
+    .rikishi-name { font-size: 0.82em; }
+    .rikishi-origin { font-size: 0.68em; }
+    .rikishi-move { font-size: 0.6em; padding: 0 3px; }
+    .banzuke-cell-rank { font-size: 0.72em; min-width: 70px; }
+    .banzuke-cell-east { padding-right: 6px !important; }
+    .banzuke-cell-west { padding-left: 6px !important; }
+    .rikishi { gap: 5px; }
+    .banzuke-header h2 { font-size: 1.3em; }
+    .banzuke-sub { font-size: 0.75em; }
   }
 
   .updated {
@@ -1204,6 +1238,8 @@
     </div>
     <div class="lb-nav-hint" id="lb-nav-hint">Swipe or click dot for stats &rarr;</div>
     <div class="lb-swipe-arrow" id="lb-swipe-arrow">&#8250;</div>
+    <div class="lb-arrow lb-arrow--left hidden" id="lb-arrow-left" onclick="goToLbPage(0)">&#8249;</div>
+    <div class="lb-arrow lb-arrow--right" id="lb-arrow-right" onclick="goToLbPage(1)">&#8250;</div>
   </div>
 </div>
 
@@ -1479,6 +1515,8 @@ function goToLbPage(page) {
   document.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === page));
   document.getElementById('lb-nav-hint').textContent = page === 0 ? 'Swipe or click dot for stats →' : '← Back to photo';
   document.getElementById('lb-swipe-arrow').classList.toggle('hidden', page !== 0);
+  document.getElementById('lb-arrow-left').classList.toggle('hidden', page === 0);
+  document.getElementById('lb-arrow-right').classList.toggle('hidden', page === 1);
 }
 
 function closeLightbox(e) {
