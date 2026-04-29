@@ -333,25 +333,36 @@
     gap: 10px;
   }
   .banzuke-cell-east .rikishi { flex-direction: row-reverse; }
-  .rikishi-img {
+  /* Face-crop wrapper: clips the scaled-up image to a circle */
+  .rikishi-img-wrap {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    object-fit: cover;
-    object-position: center top;
+    overflow: hidden;
     border: 2px solid var(--border);
     background: var(--card2);
+    flex-shrink: 0;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .rikishi-img:hover {
+  .rikishi-img-wrap:hover {
     transform: scale(1.15);
     box-shadow: 0 0 12px rgba(78,205,196,0.4);
   }
-  .banzuke-row.rank-yokozuna .rikishi-img { width: 62px; height: 62px; border-color: var(--gold); }
-  .banzuke-row.rank-yokozuna .rikishi-img:hover { box-shadow: 0 0 16px rgba(255,215,0,0.5); }
-  .banzuke-row.rank-ozeki .rikishi-img { border-color: var(--accent); }
-  .banzuke-row.rank-ozeki .rikishi-img:hover { box-shadow: 0 0 14px rgba(255,107,107,0.4); }
+  .rikishi-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: none;
+    border-radius: 0;
+    /* Scale up 1.6× centered on face area (~18% from top) to zoom in on face */
+    transform: scale(1.6);
+    transform-origin: center 18%;
+  }
+  .banzuke-row.rank-yokozuna .rikishi-img-wrap { width: 62px; height: 62px; border-color: var(--gold); }
+  .banzuke-row.rank-yokozuna .rikishi-img-wrap:hover { box-shadow: 0 0 16px rgba(255,215,0,0.5); }
+  .banzuke-row.rank-ozeki .rikishi-img-wrap { border-color: var(--accent); }
+  .banzuke-row.rank-ozeki .rikishi-img-wrap:hover { box-shadow: 0 0 14px rgba(255,107,107,0.4); }
 
   /* Lightbox overlay */
   .rikishi-lightbox {
@@ -600,8 +611,8 @@
   }
   @media (max-width: 700px) {
     .banzuke-table th, .banzuke-row td { padding: 5px 3px; font-size: 0.78em; }
-    .rikishi-img { width: 36px; height: 36px; border-width: 1.5px; }
-    .banzuke-row.rank-yokozuna .rikishi-img { width: 42px; height: 42px; }
+    .rikishi-img-wrap { width: 36px; height: 36px; border-width: 1.5px; }
+    .banzuke-row.rank-yokozuna .rikishi-img-wrap { width: 42px; height: 42px; }
     .rikishi-name { font-size: 0.82em; }
     .rikishi-origin { font-size: 0.68em; }
     .rikishi-move { font-size: 0.6em; padding: 0 3px; }
@@ -1524,6 +1535,17 @@ const banzukeMove = {
   'Roga':-4,'Tobizaru':-2,'Oshoumi':-4,
   'Wakanosho':'NEW','Ryuden':'NEW','Fujiryoga':0
 };
+// Wrap rikishi images in face-crop containers
+document.querySelectorAll('.rikishi-img').forEach(function(img) {
+  var wrap = document.createElement('div');
+  wrap.className = 'rikishi-img-wrap';
+  // Move onclick from img to wrapper
+  wrap.onclick = function(e) { e.stopPropagation(); openLightbox(img); };
+  img.removeAttribute('onclick');
+  img.parentNode.insertBefore(wrap, img);
+  wrap.appendChild(img);
+});
+
 // Inject movement badges into banzuke
 document.querySelectorAll('.rikishi-name').forEach(function(el) {
   const name = el.textContent.trim();
