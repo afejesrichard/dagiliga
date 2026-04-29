@@ -39,7 +39,7 @@
     padding: 70px 20px 50px;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow: clip;
   }
   .hero::before {
     content: '大相撲 2026';
@@ -355,9 +355,9 @@
     display: block;
     border: none;
     border-radius: 0;
-    /* Scale up 2× centered on face area (~15% from top) to zoom tight on face */
-    transform: scale(2.0);
-    transform-origin: center 15%;
+    /* Scale up 2.3× centered on face area (~12% from top) for tight headshot */
+    transform: scale(2.3);
+    transform-origin: center 12%;
   }
   .banzuke-row.rank-yokozuna .rikishi-img-wrap { width: 62px; height: 62px; border-color: var(--gold); }
   .banzuke-row.rank-yokozuna .rikishi-img-wrap:hover { box-shadow: 0 0 16px rgba(255,215,0,0.5); }
