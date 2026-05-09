@@ -412,6 +412,165 @@
   .banzuke-row.rank-ozeki .rikishi-img-wrap { border-color: var(--accent); }
   .banzuke-row.rank-ozeki .rikishi-img-wrap:hover { box-shadow: 0 0 14px rgba(255,107,107,0.4); }
 
+  /* ===== DAILY MATCHUPS TAB ===== */
+  .nav-tab--matchups { color: var(--accent2); }
+  .sidebar-nav .sidebar-item--matchups { color: var(--accent2); }
+  .sidebar-nav .sidebar-item--matchups.active { color: var(--accent2); background: rgba(78,205,196,0.1); }
+  .matchup-day-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 0 22px;
+  }
+  .matchup-day-tab {
+    padding: 8px 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.85em;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text);
+    transition: all 0.2s;
+    user-select: none;
+    min-width: 56px;
+    text-align: center;
+  }
+  .matchup-day-tab:hover { background: var(--card2); border-color: var(--accent2); }
+  .matchup-day-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .matchup-day-tab.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    color: var(--text-muted);
+  }
+  .matchup-day-tab.disabled:hover { background: var(--card); border-color: var(--border); }
+  .matchup-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .matchup-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 14px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .matchup-card:hover { background: var(--card2); }
+  .matchup-card.rank-yokozuna { border-left: 3px solid var(--gold); }
+  .matchup-card.rank-ozeki { border-left: 3px solid var(--accent); }
+  .matchup-card.rank-sekiwake { border-left: 3px solid var(--accent2); }
+  .matchup-card.rank-komusubi { border-left: 3px solid var(--accent3); }
+  .matchup-side {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+  .matchup-side.east { justify-content: flex-end; flex-direction: row-reverse; text-align: right; }
+  .matchup-side.west { justify-content: flex-start; text-align: left; }
+  .matchup-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .matchup-rank {
+    font-size: 0.7em;
+    color: var(--accent2);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .matchup-card.rank-yokozuna .matchup-rank { color: var(--gold); }
+  .matchup-card.rank-ozeki .matchup-rank { color: var(--accent); }
+  .matchup-card.rank-sekiwake .matchup-rank { color: var(--accent2); }
+  .matchup-card.rank-komusubi .matchup-rank { color: var(--accent3); }
+  .matchup-name {
+    font-size: 1.05em;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .matchup-record {
+    font-size: 0.78em;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .matchup-vs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 70px;
+  }
+  .matchup-vs-label {
+    font-size: 0.7em;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .matchup-h2h {
+    font-size: 0.8em;
+    color: var(--text);
+    background: rgba(255,215,0,0.10);
+    border: 1px solid rgba(255,215,0,0.25);
+    color: var(--accent3);
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .matchup-h2h.h2h-zero { color: var(--text-muted); background: rgba(255,255,255,0.04); border-color: var(--border); }
+  /* Ricsi's Selection inside matchup */
+  .matchup-side.ricsi-pick {
+    background: linear-gradient(90deg, rgba(168,85,247,0.20), rgba(168,85,247,0.06));
+    box-shadow: inset 3px 0 0 #a855f7;
+    border-radius: 10px;
+    padding: 6px 10px;
+    margin: -6px -4px;
+  }
+  .matchup-side.east.ricsi-pick {
+    background: linear-gradient(270deg, rgba(168,85,247,0.20), rgba(168,85,247,0.06));
+    box-shadow: inset -3px 0 0 #a855f7;
+  }
+  .matchup-side.ricsi-pick .rikishi-img-wrap {
+    border-color: #a855f7 !important;
+    box-shadow: 0 0 10px rgba(168,85,247,0.45);
+  }
+  .matchup-side.ricsi-pick .matchup-name::after {
+    content: "★ Ricsi's Selection";
+    display: block;
+    font-size: 0.6em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #c084fc;
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
+  @media (max-width: 480px) {
+    .matchup-card { padding: 10px 12px; gap: 8px; }
+    .matchup-name { font-size: 0.92em; }
+    .matchup-rank { font-size: 0.62em; }
+    .matchup-record { font-size: 0.7em; }
+    .matchup-vs { min-width: 54px; }
+    .matchup-h2h { font-size: 0.72em; padding: 2px 7px; }
+    .matchup-day-tab { padding: 6px 10px; font-size: 0.78em; min-width: 44px; }
+    .matchup-side { gap: 8px; }
+  }
+
   /* Lightbox overlay */
   .rikishi-lightbox {
     display: none;
@@ -1146,6 +1305,7 @@
     <div class="sidebar-item" onclick="sidebarNav('comeback',this)">Comeback Calculator</div>
     <div class="sidebar-item" onclick="sidebarNav('insights',this)">Fun Facts & Awards</div>
     <div class="sidebar-item" onclick="sidebarNav('bashos',this)">Individual Bashos</div>
+    <div class="sidebar-item sidebar-item--matchups" onclick="sidebarNav('matchups',this)">⚔️ Daily Matchups</div>
     <div class="sidebar-item sidebar-item--banzuke" onclick="sidebarNav('banzuke',this)">📜 Banzuke</div>
   </div>
 
@@ -1158,6 +1318,7 @@
     <div class="nav-tab" onclick="showTab('comeback',this)">Comeback Calculator</div>
     <div class="nav-tab" onclick="showTab('insights',this)">Fun Facts & Awards</div>
     <div class="nav-tab" onclick="showTab('bashos',this)">Individual Bashos</div>
+    <div class="nav-tab nav-tab--matchups" onclick="showTab('matchups',this)">⚔️ Daily Matchups</div>
     <div class="nav-tab nav-tab--banzuke" onclick="showTab('banzuke',this)">📜 Banzuke</div>
   </div>
 
@@ -1307,6 +1468,20 @@
     <div class="watch-note">
       ⚠️ Estig csak kevés spoilert, plz :D &nbsp; <strong>HAKKEYOI!</strong>
     </div>
+  </div>
+
+  <!-- DAILY MATCHUPS -->
+  <div id="tab-matchups" class="tab-content">
+    <div class="banzuke-header">
+      <h2>夏場所 Natsu 2026 — Daily Matchups</h2>
+      <div class="banzuke-sub">Day-by-day Makuuchi torikumi · Click any face to open the rikishi card</div>
+      <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection — Day One Lineup</div>
+    </div>
+    <div class="matchup-day-tabs" id="matchup-day-tabs"></div>
+    <div id="matchup-list"></div>
+    <p style="text-align:center;color:var(--text-muted);margin-top:18px;font-size:0.85em;">
+      Records show pre-tournament W–L · Numbers between rikishi are the career head-to-head.
+    </p>
   </div>
 
   <!-- BANZUKE -->
@@ -1634,12 +1809,22 @@ function getRikishiIdFromSrc(src) {
 }
 
 function openLightbox(imgEl) {
-  const row = imgEl.closest('.banzuke-row');
-  const cell = imgEl.closest('td');
-  const name = cell.querySelector('.rikishi-name').textContent;
-  const origin = cell.querySelector('.rikishi-origin').textContent;
-  const rank = row.querySelector('.banzuke-cell-rank').textContent;
-  const side = cell.classList.contains('banzuke-cell-east') ? 'East' : 'West';
+  // Prefer data-attributes if present (used by matchup cards & other contexts);
+  // fall back to walking the banzuke DOM.
+  let name, origin, rank, side;
+  if (imgEl.dataset && imgEl.dataset.name) {
+    name = imgEl.dataset.name;
+    origin = imgEl.dataset.origin || '';
+    rank = imgEl.dataset.rank || '';
+    side = imgEl.dataset.side || '';
+  } else {
+    const row = imgEl.closest('.banzuke-row');
+    const cell = imgEl.closest('td');
+    name = cell.querySelector('.rikishi-name').textContent;
+    origin = cell.querySelector('.rikishi-origin').textContent;
+    rank = row.querySelector('.banzuke-cell-rank').textContent;
+    side = cell.classList.contains('banzuke-cell-east') ? 'East' : 'West';
+  }
   const rid = getRikishiIdFromSrc(imgEl.src);
 
   document.getElementById('lb-img').src = imgEl.src;
@@ -1919,7 +2104,7 @@ function showTab(tab, el) {
   if (el) el.classList.add('active');
   // Sync sidebar active state
   document.querySelectorAll('.sidebar-item').forEach(function(s) {
-    var tabMap = {'watch':'watch','standings':'standings','power':'power','race':'race','profiles':'profiles','comeback':'comeback','insights':'insights','bashos':'bashos','banzuke':'banzuke'};
+    var tabMap = {'watch':'watch','standings':'standings','power':'power','race':'race','profiles':'profiles','comeback':'comeback','insights':'insights','bashos':'bashos','matchups':'matchups','banzuke':'banzuke'};
     for (var k in tabMap) {
       if (k === tab && s.getAttribute('onclick') && s.getAttribute('onclick').indexOf("'" + k + "'") !== -1) {
         s.classList.add('active');
@@ -2469,6 +2654,154 @@ function sidebarNav(tab, el) {
   toggleSidebar();
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
+
+// ============================
+// DAILY MATCHUPS — Natsu 2026
+// ============================
+// Shikona -> JSA image id (reused for face headshots & lightbox)
+const matchupRikishiImg = {
+  'Hoshoryu':'20170096','Takayasu':'20050022',
+  'Kotozakura':'20150081','Fujinokawa':'20230008',
+  'Kirishima':'20150034','Takanosho':'20100039',
+  'Atamifuji':'20200074','Ichiyamamoto':'20170002',
+  'Yoshinofuji':'20240045','Kotoshoho':'20170094',
+  'Wakatakakage':'20170011','Hiradoumi':'20160042',
+  'Daieisho':'20120003','Oho':'20180002',
+  'Wakamotoharu':'20110065','Gonoyama':'20210023',
+  'Churanoumi':'20160048','Shodai':'20140019',
+  'Chiyoshoma':'20090066','Fujiseiun':'20210037',
+  'Oshoma':'20210053','Asakoryu':'20210046',
+  'Abi':'20130059','Asahakuryu':'20220063',
+  'Asanoyama':'20160019','Nishikifuji':'20160081',
+  'Ura':'20150028','Hakunofuji':'20230004',
+  'Shishi':'20200005','Kinbozan':'20210057',
+  'Kotoeiho':'20220003','Tokihayate':'20190020',
+  'Mitakeumi':'20150032','Tamawashi':'20040005',
+  'Tobizaru':'20150005','Roga':'20180068',
+  'Wakanosho':'20220004','Oshoumi':'20200042',
+  'Fujiryoga':'20250038','Ryuden':'20060023'
+};
+// Origins for the lightbox header
+const matchupOrigin = {
+  'Hoshoryu':'Mongolia','Takayasu':'Ibaraki',
+  'Kotozakura':'Chiba','Fujinokawa':'Kyoto',
+  'Kirishima':'Mongolia','Takanosho':'Chiba',
+  'Atamifuji':'Shizuoka','Ichiyamamoto':'Hokkaido',
+  'Yoshinofuji':'Kumamoto','Kotoshoho':'Chiba',
+  'Wakatakakage':'Fukushima','Hiradoumi':'Nagasaki',
+  'Daieisho':'Saitama','Oho':'Tokyo',
+  'Wakamotoharu':'Fukushima','Gonoyama':'Osaka',
+  'Churanoumi':'Okinawa','Shodai':'Kumamoto',
+  'Chiyoshoma':'Mongolia','Fujiseiun':'Kumamoto',
+  'Oshoma':'Mongolia','Asakoryu':'Osaka',
+  'Abi':'Saitama','Asahakuryu':'Mongolia',
+  'Asanoyama':'Toyama','Nishikifuji':'Aomori',
+  'Ura':'Osaka','Hakunofuji':'Tottori',
+  'Shishi':'Ukraine','Kinbozan':'Kazakhstan',
+  'Kotoeiho':'Chiba','Tokihayate':'Miyagi',
+  'Mitakeumi':'Nagano','Tamawashi':'Mongolia',
+  'Tobizaru':'Tokyo','Roga':'Russia',
+  'Wakanosho':'Tochigi','Oshoumi':'Ishikawa',
+  'Fujiryoga':'Aichi','Ryuden':'Yamanashi'
+};
+// Same purple-highlight set as the banzuke
+const ricsiPicks = new Set(['Wakatakakage','Fujinokawa','Kotoeiho','Fujiryoga']);
+// rankClass for the colored left-border accent
+function matchupRankClass(rank) {
+  if (/Yokozuna|横綱/.test(rank)) return 'rank-yokozuna';
+  if (/Ōzeki|Ozeki|大関/.test(rank)) return 'rank-ozeki';
+  if (/Sekiwake|関脇/.test(rank)) return 'rank-sekiwake';
+  if (/Komusubi|小結/.test(rank)) return 'rank-komusubi';
+  return '';
+}
+// Day 1 — May 11, 2026 (Natsu 2026)
+const natsuMatchups = {
+  1: [
+    { east:{name:'Hoshoryu',     rank:'横綱 Y1e', record:'0-0'}, west:{name:'Takayasu',    rank:'小結 K1w', record:'0-0'}, h2h:'7-10' },
+    { east:{name:'Kotozakura',   rank:'大関 O1e', record:'0-0'}, west:{name:'Fujinokawa',  rank:'前頭 M1e', record:'0-0'}, h2h:'1-0' },
+    { east:{name:'Kirishima',    rank:'大関 O2e', record:'0-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'0-0'}, h2h:'7-17' },
+    { east:{name:'Atamifuji',    rank:'関脇 S1e', record:'0-0'}, west:{name:'Ichiyamamoto',rank:'前頭 M2w', record:'0-0'}, h2h:'3-2' },
+    { east:{name:'Yoshinofuji',  rank:'前頭 M2e', record:'0-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'0-0'}, h2h:'1-2' },
+    { east:{name:'Wakatakakage', rank:'小結 K1e', record:'0-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'0-0'}, h2h:'7-2' },
+    { east:{name:'Daieisho',     rank:'前頭 M4e', record:'0-0'}, west:{name:'Oho',         rank:'前頭 M3w', record:'0-0'}, h2h:'4-5' },
+    { east:{name:'Wakamotoharu', rank:'前頭 M5e', record:'0-0'}, west:{name:'Gonoyama',    rank:'前頭 M4w', record:'0-0'}, h2h:'6-3' },
+    { east:{name:'Churanoumi',   rank:'前頭 M6e', record:'0-0'}, west:{name:'Shodai',      rank:'前頭 M5w', record:'0-0'}, h2h:'4-3' },
+    { east:{name:'Chiyoshoma',   rank:'前頭 M7e', record:'0-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'0-0'}, h2h:'2-1' },
+    { east:{name:'Oshoma',       rank:'前頭 M8e', record:'0-0'}, west:{name:'Asakoryu',    rank:'前頭 M7w', record:'0-0'}, h2h:'1-1' },
+    { east:{name:'Abi',          rank:'前頭 M9e', record:'0-0'}, west:{name:'Asahakuryu',  rank:'前頭 M8w', record:'0-0'}, h2h:'0-0' },
+    { east:{name:'Asanoyama',    rank:'前頭 M10e',record:'0-0'}, west:{name:'Nishikifuji', rank:'前頭 M9w', record:'0-0'}, h2h:'1-2' },
+    { east:{name:'Ura',          rank:'前頭 M11e',record:'0-0'}, west:{name:'Hakunofuji',  rank:'前頭 M10w',record:'0-0'}, h2h:'2-3' },
+    { east:{name:'Shishi',       rank:'前頭 M12e',record:'0-0'}, west:{name:'Kinbozan',    rank:'前頭 M11w',record:'0-0'}, h2h:'1-2' },
+    { east:{name:'Kotoeiho',     rank:'前頭 M13e',record:'0-0'}, west:{name:'Tokihayate',  rank:'前頭 M12w',record:'0-0'}, h2h:'0-1' },
+    { east:{name:'Mitakeumi',    rank:'前頭 M14e',record:'0-0'}, west:{name:'Tamawashi',   rank:'前頭 M13w',record:'0-0'}, h2h:'29-9' },
+    { east:{name:'Tobizaru',     rank:'前頭 M15e',record:'0-0'}, west:{name:'Roga',        rank:'前頭 M14w',record:'0-0'}, h2h:'3-3' },
+    { east:{name:'Wakanosho',    rank:'前頭 M16e',record:'0-0'}, west:{name:'Oshoumi',     rank:'前頭 M15w',record:'0-0'}, h2h:'1-1' },
+    { east:{name:'Fujiryoga',    rank:'前頭 M17e',record:'0-0'}, west:{name:'Ryuden',      rank:'前頭 M16w',record:'0-0'}, h2h:'0-1' }
+  ]
+};
+let activeMatchupDay = 1;
+function renderMatchupDayTabs() {
+  const wrap = document.getElementById('matchup-day-tabs');
+  if (!wrap) return;
+  let html = '';
+  for (let d = 1; d <= 15; d++) {
+    const has = !!natsuMatchups[d];
+    const cls = 'matchup-day-tab' + (d === activeMatchupDay ? ' active' : '') + (has ? '' : ' disabled');
+    const handler = has ? `onclick="setMatchupDay(${d})"` : '';
+    html += `<div class="${cls}" ${handler}>Day ${d}</div>`;
+  }
+  wrap.innerHTML = html;
+}
+function rikishiBlock(side, r) {
+  const id = matchupRikishiImg[r.name] || '';
+  const origin = matchupOrigin[r.name] || '';
+  const isPick = ricsiPicks.has(r.name);
+  const sideClass = 'matchup-side ' + side + (isPick ? ' ricsi-pick' : '');
+  const sideLabel = side === 'east' ? 'East' : 'West';
+  const img = id
+    ? `<div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/${id}.jpg" alt="${r.name}" data-name="${r.name}" data-rank="${r.rank}" data-side="${sideLabel}" data-origin="${origin}"></div>`
+    : `<div class="rikishi-img-wrap"></div>`;
+  return `<div class="${sideClass}">
+    ${img}
+    <div class="matchup-info">
+      <span class="matchup-rank">${r.rank}</span>
+      <span class="matchup-name">${r.name}</span>
+      <span class="matchup-record">${r.record}</span>
+    </div>
+  </div>`;
+}
+function renderMatchupList() {
+  const wrap = document.getElementById('matchup-list');
+  if (!wrap) return;
+  const matches = natsuMatchups[activeMatchupDay];
+  if (!matches) {
+    wrap.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:30px;">Torikumi for this day has not been announced yet.</p>';
+    return;
+  }
+  let html = '<div class="matchup-list">';
+  matches.forEach(m => {
+    const cls = 'matchup-card ' + matchupRankClass(m.east.rank + ' ' + m.west.rank);
+    const h2hClass = (m.h2h === '0-0') ? 'matchup-h2h h2h-zero' : 'matchup-h2h';
+    html += `<div class="${cls}">
+      ${rikishiBlock('east', m.east)}
+      <div class="matchup-vs">
+        <span class="matchup-vs-label">vs</span>
+        <span class="${h2hClass}" title="Career head-to-head">${m.h2h}</span>
+      </div>
+      ${rikishiBlock('west', m.west)}
+    </div>`;
+  });
+  html += '</div>';
+  wrap.innerHTML = html;
+}
+function setMatchupDay(d) {
+  if (!natsuMatchups[d]) return;
+  activeMatchupDay = d;
+  renderMatchupDayTabs();
+  renderMatchupList();
+}
+renderMatchupDayTabs();
+renderMatchupList();
 
 // Hide nav on scroll down, show on scroll up (both desktop tabs and mobile hamburger)
 (function() {
