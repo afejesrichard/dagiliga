@@ -2410,21 +2410,34 @@ renderInsights();
 // ============================
 (function() {
   const natsuStart = new Date('2026-05-10T10:00:00+09:00'); // JST opening day
+  const natsuEnd = new Date('2026-05-25T00:00:00+09:00'); // JST, end of senshuraku (Day 15: May 24)
   const container = document.getElementById('countdown-boxes');
   const wrapper = document.getElementById('countdown-wrapper');
+  const label = wrapper.querySelector('.countdown-label');
 
   function updateCountdown() {
     const now = new Date();
-    const diff = natsuStart - now;
-    if (diff <= 0) {
-      wrapper.querySelector('.countdown-label').innerHTML = '<span class="basho-name">夏場所 Natsu is LIVE!</span> 🟢';
+    const toStart = natsuStart - now;
+    const toEnd = natsuEnd - now;
+
+    if (toEnd <= 0) {
+      label.innerHTML = '<span class="basho-name">夏場所 Natsu has ended</span>';
       container.innerHTML = '';
       return;
     }
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const mins = Math.floor((diff % 3600000) / 60000);
-    const secs = Math.floor((diff % 60000) / 1000);
+
+    if (toStart <= 0) {
+      const daysLeft = Math.ceil(toEnd / 86400000);
+      label.innerHTML = '<span class="basho-name">夏場所 Natsu is LIVE!</span> 🟢';
+      container.innerHTML =
+        `<div class="countdown-box"><div class="num">${daysLeft}</div><div class="unit">Day${daysLeft === 1 ? '' : 's'} left</div></div>`;
+      return;
+    }
+
+    const days = Math.floor(toStart / 86400000);
+    const hours = Math.floor((toStart % 86400000) / 3600000);
+    const mins = Math.floor((toStart % 3600000) / 60000);
+    const secs = Math.floor((toStart % 60000) / 1000);
     container.innerHTML =
       `<div class="countdown-box"><div class="num">${days}</div><div class="unit">Days</div></div>` +
       `<div class="countdown-box"><div class="num">${String(hours).padStart(2,'0')}</div><div class="unit">Hours</div></div>` +
