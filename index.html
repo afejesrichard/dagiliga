@@ -412,6 +412,85 @@
   .banzuke-row.rank-ozeki .rikishi-img-wrap { border-color: var(--accent); }
   .banzuke-row.rank-ozeki .rikishi-img-wrap:hover { box-shadow: 0 0 14px rgba(255,107,107,0.4); }
 
+  /* ===== DAY JUMP (expanding "Jump to Daily Matchup") ===== */
+  .day-jump {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 22px;
+    gap: 10px;
+  }
+  .day-jump-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(78,205,196,0.18), rgba(78,205,196,0.06));
+    border: 1px solid rgba(78,205,196,0.45);
+    color: var(--text);
+    border-radius: 10px;
+    font-size: 0.95em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .day-jump-btn:hover {
+    background: linear-gradient(135deg, rgba(78,205,196,0.28), rgba(78,205,196,0.10));
+    border-color: var(--accent2);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(78,205,196,0.18);
+  }
+  .day-jump-chev { transition: transform 0.25s; font-size: 0.9em; color: var(--accent2); }
+  .day-jump-btn[aria-expanded="true"] .day-jump-chev { transform: rotate(180deg); }
+  .day-jump-panel {
+    width: 100%;
+    max-width: 640px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    animation: dayJumpFade 0.22s ease;
+  }
+  @keyframes dayJumpFade {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .day-jump-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+  .day-jump-pill {
+    padding: 10px 8px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--card2);
+    border-radius: 8px;
+    font-size: 0.85em;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--text);
+    transition: all 0.15s;
+  }
+  .day-jump-pill:hover { background: rgba(78,205,196,0.12); border-color: var(--accent2); }
+  .day-jump-pill.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    color: var(--text-muted);
+  }
+  .day-jump-pill.disabled:hover { background: var(--card2); border-color: var(--border); }
+  .day-jump-hint {
+    margin-top: 10px;
+    font-size: 0.78em;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  @media (max-width: 480px) {
+    .day-jump-grid { grid-template-columns: repeat(5, 1fr); gap: 5px; }
+    .day-jump-pill { padding: 8px 4px; font-size: 0.78em; }
+    .day-jump-btn { font-size: 0.88em; padding: 9px 16px; }
+  }
+
   /* ===== DAILY MATCHUPS TAB ===== */
   .nav-tab--matchups { color: var(--accent2); }
   .sidebar-nav .sidebar-item--matchups { color: var(--accent2); }
@@ -1490,6 +1569,15 @@
       <h2>夏場所 Natsu 2026 — Makuuchi Banzuke</h2>
       <div class="banzuke-sub">Official rankings for the May Grand Sumo Tournament, Tokyo · Source: sumo.or.jp</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection — Day One Lineup</div>
+    </div>
+    <div class="day-jump">
+      <button class="day-jump-btn" onclick="toggleDayJump(this)" aria-expanded="false">
+        <span>⚔️ Jump to Daily Matchup</span><span class="day-jump-chev">▾</span>
+      </button>
+      <div class="day-jump-panel" id="day-jump-panel" hidden>
+        <div class="day-jump-grid" id="day-jump-grid"></div>
+        <div class="day-jump-hint">Tap a day to open the torikumi for that day.</div>
+      </div>
     </div>
     <div style="overflow-x:auto;">
     <table class="banzuke-table">
@@ -2800,8 +2888,41 @@ function setMatchupDay(d) {
   renderMatchupDayTabs();
   renderMatchupList();
 }
+function renderDayJumpGrid() {
+  const grid = document.getElementById('day-jump-grid');
+  if (!grid) return;
+  let html = '';
+  for (let d = 1; d <= 15; d++) {
+    const has = !!natsuMatchups[d];
+    const cls = 'day-jump-pill' + (has ? '' : ' disabled');
+    const handler = has ? `onclick="jumpToMatchupDay(${d})"` : '';
+    html += `<div class="${cls}" ${handler}>Day ${d}</div>`;
+  }
+  grid.innerHTML = html;
+}
+function toggleDayJump(btn) {
+  const panel = document.getElementById('day-jump-panel');
+  if (!panel) return;
+  const open = !panel.hidden;
+  panel.hidden = open;
+  if (btn) btn.setAttribute('aria-expanded', String(!open));
+}
+function jumpToMatchupDay(d) {
+  if (!natsuMatchups[d]) return;
+  // Switch to the Daily Matchups tab and select the requested day
+  const tab = document.querySelector('.nav-tab--matchups');
+  if (tab) showTab('matchups', tab);
+  setMatchupDay(d);
+  // Collapse the jump panel after navigating
+  const panel = document.getElementById('day-jump-panel');
+  const btn = document.querySelector('.day-jump-btn');
+  if (panel) panel.hidden = true;
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 renderMatchupDayTabs();
 renderMatchupList();
+renderDayJumpGrid();
 
 // Hide nav on scroll down, show on scroll up (both desktop tabs and mobile hamburger)
 (function() {
