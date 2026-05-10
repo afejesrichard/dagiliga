@@ -1111,33 +1111,77 @@
   }
   .tab-content { display: none; }
 
-  /* ===== HAMBURGER MENU (mobile) ===== */
-  .hamburger-btn {
+  /* ===== TOP APP BAR / HAMBURGER (mobile) ===== */
+  .app-bar {
     display: none;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 200;
-    background: var(--bg);
+    height: 56px;
+    padding: 0 12px 0 6px;
+    align-items: center;
+    gap: 8px;
+    background: rgba(10, 10, 24, 0.72);
+    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  }
+  .app-bar-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 12px;
     border: none;
+    background: transparent;
     color: var(--text);
-    font-size: 1.5em;
-    padding: 14px 16px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+  }
+  .app-bar-btn:hover,
+  .app-bar-btn:focus-visible,
+  .app-bar-btn:active {
+    background: rgba(255, 255, 255, 0.08);
+    outline: none;
+  }
+  .app-bar-icon {
+    position: relative;
+    width: 22px;
+    height: 16px;
+    display: block;
+  }
+  .app-bar-icon span {
+    position: absolute;
+    left: 0;
     width: 100%;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-    min-height: 48px;
-    transition: transform 0.3s ease;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.2s ease, top 0.3s ease;
   }
-  .hamburger-btn.nav-hidden {
-    transform: translateY(-100%);
-    pointer-events: none;
-  }
-  .hamburger-btn .hamburger-label {
-    font-size: 0.6em;
-    margin-left: 10px;
-    color: var(--text-muted);
-    vertical-align: middle;
+  .app-bar-icon span:nth-child(1) { top: 0; }
+  .app-bar-icon span:nth-child(2) { top: 7px; }
+  .app-bar-icon span:nth-child(3) { top: 14px; }
+  .app-bar.open .app-bar-icon span:nth-child(1) { top: 7px; transform: rotate(45deg); }
+  .app-bar.open .app-bar-icon span:nth-child(2) { opacity: 0; }
+  .app-bar.open .app-bar-icon span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+  .app-bar-label {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    min-width: 0;
   }
   .sidebar-overlay {
     display: none;
@@ -1390,7 +1434,7 @@
 
   /* ===== RESPONSIVE: TABLET (≤768px) ===== */
   @media (max-width: 768px) {
-    .hero { padding: 40px 16px 30px; }
+    .hero { padding: 96px 16px 30px; }
     .hero h1 { font-size: 2em; letter-spacing: 1px; }
     .hero .subtitle { font-size: 1em; }
     .hero .jp { font-size: 1.1em; }
@@ -1400,7 +1444,7 @@
     .cta-btn { padding: 10px 18px; font-size: 0.9em; }
     .container { padding: 16px 12px; }
     .nav-tabs { display: none !important; }
-    .hamburger-btn { display: block; }
+    .app-bar { display: flex; }
     .section-title { font-size: 1.3em; margin-bottom: 12px; }
     .data-table th { padding: 10px 8px; font-size: 0.72em; }
     .data-table td { padding: 8px 8px; font-size: 0.8em; }
@@ -1426,7 +1470,7 @@
 
   /* ===== RESPONSIVE: PHONE (≤480px) ===== */
   @media (max-width: 480px) {
-    .hero { padding: 28px 12px 20px; }
+    .hero { padding: 84px 12px 20px; }
     .hero h1 { font-size: 1.6em; }
     .hero .subtitle { font-size: 0.85em; }
     .hero .jp { font-size: 0.9em; }
@@ -1493,8 +1537,13 @@
 
 <div class="container">
 
-  <!-- Hamburger menu (mobile) -->
-  <button class="hamburger-btn" onclick="toggleSidebar()">☰<span class="hamburger-label" id="hamburger-label">Season Standings</span></button>
+  <!-- Top app bar (mobile) -->
+  <header class="app-bar" id="app-bar" role="banner">
+    <button type="button" class="app-bar-btn" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Open navigation menu" aria-controls="sidebar-nav" aria-expanded="false">
+      <span class="app-bar-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <span class="app-bar-label" id="hamburger-label">Season Standings</span>
+  </header>
   <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
   <div class="sidebar-nav" id="sidebar-nav">
     <div class="sidebar-title">Navigation</div>
@@ -2847,9 +2896,25 @@ renderInsights();
 
 // Sidebar hamburger menu
 function toggleSidebar() {
-  document.getElementById('sidebar-overlay').classList.toggle('open');
-  document.getElementById('sidebar-nav').classList.toggle('open');
+  var overlay = document.getElementById('sidebar-overlay');
+  var nav = document.getElementById('sidebar-nav');
+  var bar = document.getElementById('app-bar');
+  var btn = document.getElementById('hamburger-btn');
+  var willOpen = !nav.classList.contains('open');
+  overlay.classList.toggle('open', willOpen);
+  nav.classList.toggle('open', willOpen);
+  if (bar) bar.classList.toggle('open', willOpen);
+  if (btn) {
+    btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    btn.setAttribute('aria-label', willOpen ? 'Close navigation menu' : 'Open navigation menu');
+  }
+  document.body.style.overflow = willOpen ? 'hidden' : '';
 }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && document.getElementById('sidebar-nav').classList.contains('open')) {
+    toggleSidebar();
+  }
+});
 function sidebarNav(tab, el) {
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
@@ -3051,19 +3116,18 @@ renderMatchupDayTabs();
 renderMatchupList();
 renderDayJumpGrid();
 
-// Hide nav on scroll down, show on scroll up (both desktop tabs and mobile hamburger)
+// Hide desktop nav-tabs on scroll down, show on scroll up.
+// The mobile app-bar stays visible at all times (modern UX, always reachable).
 (function() {
   let lastY = 0;
   const nav = document.querySelector('.nav-tabs');
-  const hamburger = document.querySelector('.hamburger-btn');
+  if (!nav) return;
   window.addEventListener('scroll', function() {
     const y = window.scrollY;
     if (y > lastY && y > 120) {
-      if (nav) nav.classList.add('nav-hidden');
-      if (hamburger) hamburger.classList.add('nav-hidden');
+      nav.classList.add('nav-hidden');
     } else {
-      if (nav) nav.classList.remove('nav-hidden');
-      if (hamburger) hamburger.classList.remove('nav-hidden');
+      nav.classList.remove('nav-hidden');
     }
     lastY = y;
   }, {passive: true});
