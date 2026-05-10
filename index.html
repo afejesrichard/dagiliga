@@ -375,6 +375,77 @@
     background: linear-gradient(135deg, #a855f7, #7c3aed);
     box-shadow: 0 0 6px rgba(168,85,247,0.5);
   }
+  /* Dorka's Selection — pink highlight on individual rikishi cells */
+  .dorka-pick {
+    background: linear-gradient(90deg, rgba(236,72,153,0.28), rgba(236,72,153,0.14)) !important;
+    box-shadow: inset 3px 0 0 #ec4899;
+    position: relative;
+  }
+  .banzuke-cell-west.dorka-pick {
+    background: linear-gradient(270deg, rgba(236,72,153,0.28), rgba(236,72,153,0.14)) !important;
+    box-shadow: inset -3px 0 0 #ec4899;
+  }
+  .dorka-pick .rikishi-img-wrap {
+    border-color: #ec4899 !important;
+    box-shadow: 0 0 10px rgba(236,72,153,0.45);
+  }
+  .dorka-pick .rikishi-name::after {
+    content: "★ Dorka's Selection";
+    display: block;
+    font-size: 0.65em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #f9a8d4;
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
+  /* Overlap — both Ricsi's and Dorka's selection: half-half split */
+  .ricsi-pick.dorka-pick {
+    background: linear-gradient(90deg,
+      rgba(168,85,247,0.28) 0%,
+      rgba(168,85,247,0.14) 50%,
+      rgba(236,72,153,0.14) 50%,
+      rgba(236,72,153,0.28) 100%) !important;
+    box-shadow: inset 3px 0 0 #a855f7, inset -3px 0 0 #ec4899;
+  }
+  .banzuke-cell-west.ricsi-pick.dorka-pick {
+    background: linear-gradient(90deg,
+      rgba(236,72,153,0.28) 0%,
+      rgba(236,72,153,0.14) 50%,
+      rgba(168,85,247,0.14) 50%,
+      rgba(168,85,247,0.28) 100%) !important;
+    box-shadow: inset 3px 0 0 #ec4899, inset -3px 0 0 #a855f7;
+  }
+  .ricsi-pick.dorka-pick .rikishi-img-wrap {
+    border-color: #d8b4fe !important;
+    box-shadow: 0 0 10px rgba(168,85,247,0.45), 0 0 10px rgba(236,72,153,0.45);
+  }
+  .ricsi-pick.dorka-pick .rikishi-name::after {
+    content: "★ Ricsi's & Dorka's Selection";
+    color: #e9c5fb;
+  }
+  .dorka-legend {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    margin-left: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(236,72,153,0.12);
+    border: 1px solid rgba(236,72,153,0.5);
+    color: #f9a8d4;
+    font-size: 0.82em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .dorka-legend .dorka-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    box-shadow: 0 0 6px rgba(236,72,153,0.5);
+  }
   .rikishi {
     display: inline-flex;
     align-items: center;
@@ -638,6 +709,57 @@
     color: #c084fc;
     margin-top: 2px;
     text-transform: uppercase;
+  }
+  /* Dorka's Selection inside matchup */
+  .matchup-side.dorka-pick {
+    background: linear-gradient(90deg, rgba(236,72,153,0.20), rgba(236,72,153,0.06));
+    box-shadow: inset 3px 0 0 #ec4899;
+    border-radius: 10px;
+    padding: 6px 10px;
+    margin: -6px -4px;
+  }
+  .matchup-side.east.dorka-pick {
+    background: linear-gradient(270deg, rgba(236,72,153,0.20), rgba(236,72,153,0.06));
+    box-shadow: inset -3px 0 0 #ec4899;
+  }
+  .matchup-side.dorka-pick .rikishi-img-wrap {
+    border-color: #ec4899 !important;
+    box-shadow: 0 0 10px rgba(236,72,153,0.45);
+  }
+  .matchup-side.dorka-pick .matchup-name::after {
+    content: "★ Dorka's Selection";
+    display: block;
+    font-size: 0.6em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #f9a8d4;
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
+  /* Overlap inside matchup — both selections: half-half */
+  .matchup-side.ricsi-pick.dorka-pick {
+    background: linear-gradient(90deg,
+      rgba(168,85,247,0.20) 0%,
+      rgba(168,85,247,0.06) 50%,
+      rgba(236,72,153,0.06) 50%,
+      rgba(236,72,153,0.20) 100%);
+    box-shadow: inset 3px 0 0 #a855f7, inset -3px 0 0 #ec4899;
+  }
+  .matchup-side.east.ricsi-pick.dorka-pick {
+    background: linear-gradient(90deg,
+      rgba(236,72,153,0.20) 0%,
+      rgba(236,72,153,0.06) 50%,
+      rgba(168,85,247,0.06) 50%,
+      rgba(168,85,247,0.20) 100%);
+    box-shadow: inset 3px 0 0 #ec4899, inset -3px 0 0 #a855f7;
+  }
+  .matchup-side.ricsi-pick.dorka-pick .rikishi-img-wrap {
+    border-color: #d8b4fe !important;
+    box-shadow: 0 0 10px rgba(168,85,247,0.45), 0 0 10px rgba(236,72,153,0.45);
+  }
+  .matchup-side.ricsi-pick.dorka-pick .matchup-name::after {
+    content: "★ Ricsi's & Dorka's";
+    color: #e9c5fb;
   }
   @media (max-width: 480px) {
     .matchup-card { padding: 10px 12px; gap: 8px; }
@@ -1555,6 +1677,7 @@
       <h2>夏場所 Natsu 2026 — Daily Matchups</h2>
       <div class="banzuke-sub">Day-by-day Makuuchi torikumi · Click any face to open the rikishi card</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection — Day One Lineup</div>
+      <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection — Day One Lineup</div>
     </div>
     <div class="matchup-day-tabs" id="matchup-day-tabs"></div>
     <div id="matchup-list"></div>
@@ -1569,6 +1692,7 @@
       <h2>夏場所 Natsu 2026 — Makuuchi Banzuke</h2>
       <div class="banzuke-sub">Official rankings for the May Grand Sumo Tournament, Tokyo · Source: sumo.or.jp</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection — Day One Lineup</div>
+      <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection — Day One Lineup</div>
     </div>
     <div class="day-jump">
       <button class="day-jump-btn" onclick="toggleDayJump(this)" aria-expanded="false">
@@ -1599,7 +1723,7 @@
           <td class="banzuke-cell-west"></td>
         </tr>
         <tr class="banzuke-row rank-sekiwake">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200074.jpg" alt="Atamifuji"></div><span class="rikishi-info"><span class="rikishi-name">Atamifuji</span><span class="rikishi-origin">Shizuoka</span></span></span></td>
+          <td class="banzuke-cell-east dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200074.jpg" alt="Atamifuji"></div><span class="rikishi-info"><span class="rikishi-name">Atamifuji</span><span class="rikishi-origin">Shizuoka</span></span></span></td>
           <td class="banzuke-cell-rank">関脇 Sekiwake</td>
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170094.jpg" alt="Kotoshoho"></div><span class="rikishi-info"><span class="rikishi-name">Kotoshoho</span><span class="rikishi-origin">Chiba</span></span></span></td>
         </tr>
@@ -1611,7 +1735,7 @@
         <tr class="banzuke-row">
           <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230008.jpg" alt="Fujinokawa"></div><span class="rikishi-info"><span class="rikishi-name">Fujinokawa</span><span class="rikishi-origin">Kyoto</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M1</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20100039.jpg" alt="Takanosho"></div><span class="rikishi-info"><span class="rikishi-name">Takanosho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+          <td class="banzuke-cell-west dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20100039.jpg" alt="Takanosho"></div><span class="rikishi-info"><span class="rikishi-name">Takanosho</span><span class="rikishi-origin">Chiba</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
           <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240045.jpg" alt="Yoshinofuji"></div><span class="rikishi-info"><span class="rikishi-name">Yoshinofuji</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
@@ -1669,12 +1793,12 @@
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190020.jpg" alt="Tokihayate"></div><span class="rikishi-info"><span class="rikishi-name">Tokihayate</span><span class="rikishi-origin">Miyagi</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220003.jpg" alt="Kotoeiho"></div><span class="rikishi-info"><span class="rikishi-name">Kotoeiho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+          <td class="banzuke-cell-east ricsi-pick dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220003.jpg" alt="Kotoeiho"></div><span class="rikishi-info"><span class="rikishi-name">Kotoeiho</span><span class="rikishi-origin">Chiba</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M13</td>
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20040005.jpg" alt="Tamawashi"></div><span class="rikishi-info"><span class="rikishi-name">Tamawashi</span><span class="rikishi-origin">Mongolia</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150032.jpg" alt="Mitakeumi"></div><span class="rikishi-info"><span class="rikishi-name">Mitakeumi</span><span class="rikishi-origin">Nagano</span></span></span></td>
+          <td class="banzuke-cell-east dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150032.jpg" alt="Mitakeumi"></div><span class="rikishi-info"><span class="rikishi-name">Mitakeumi</span><span class="rikishi-origin">Nagano</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M14</td>
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180068.jpg" alt="Roga"></div><span class="rikishi-info"><span class="rikishi-name">Roga</span><span class="rikishi-origin">Russia</span></span></span></td>
         </tr>
@@ -2794,6 +2918,8 @@ const matchupOrigin = {
 };
 // Same purple-highlight set as the banzuke
 const ricsiPicks = new Set(['Wakatakakage','Fujinokawa','Kotoeiho','Fujiryoga']);
+// Pink-highlight set — Dorka's selection
+const dorkaPicks = new Set(['Atamifuji','Takanosho','Kotoeiho','Mitakeumi']);
 // rankClass for the colored left-border accent
 function matchupRankClass(rank) {
   if (/Yokozuna|横綱/.test(rank)) return 'rank-yokozuna';
@@ -2843,8 +2969,9 @@ function renderMatchupDayTabs() {
 function rikishiBlock(side, r) {
   const id = matchupRikishiImg[r.name] || '';
   const origin = matchupOrigin[r.name] || '';
-  const isPick = ricsiPicks.has(r.name);
-  const sideClass = 'matchup-side ' + side + (isPick ? ' ricsi-pick' : '');
+  const isRicsi = ricsiPicks.has(r.name);
+  const isDorka = dorkaPicks.has(r.name);
+  const sideClass = 'matchup-side ' + side + (isRicsi ? ' ricsi-pick' : '') + (isDorka ? ' dorka-pick' : '');
   const sideLabel = side === 'east' ? 'East' : 'West';
   const img = id
     ? `<div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/${id}.jpg" alt="${r.name}" data-name="${r.name}" data-rank="${r.rank}" data-side="${sideLabel}" data-origin="${origin}"></div>`
