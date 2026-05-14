@@ -3001,8 +3001,12 @@ const matchupOrigin = {
 };
 // Same purple-highlight set as the banzuke
 const ricsiPicks = new Set(['Wakatakakage','Fujinokawa','Kotoeiho','Fujiryoga']);
-// Pink-highlight set — Dorka's selection
-const dorkaPicks = new Set(['Atamifuji','Takanosho','Kotoeiho','Mitakeumi']);
+// Pink-highlight set — Dorka's selection (day-dependent from Day 4 onwards)
+const dorkaPicksDay1to3 = new Set(['Atamifuji','Takanosho','Kotoeiho','Mitakeumi']);
+const dorkaPicksDay4plus = new Set(['Fujiryoga','Takanosho','Kotoeiho','Kotozakura']);
+function dorkaPicksFor(day) {
+  return day >= 4 ? dorkaPicksDay4plus : dorkaPicksDay1to3;
+}
 // rankClass for the colored left-border accent
 function matchupRankClass(rank) {
   if (/Yokozuna|横綱/.test(rank)) return 'rank-yokozuna';
@@ -3106,25 +3110,47 @@ const natsuMatchups = {
   ],
   // Day 5 — May 14, 2026
   5: [
-    { east:{name:'Kotozakura',   rank:'大関 O1e', record:'1-3-0'}, west:{name:'Ichiyamamoto',rank:'前頭 M2w', record:'1-3-0'}, h2h:'5-4' },
-    { east:{name:'Kirishima',    rank:'大関 O2e', record:'4-0-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'2-2-0'}, h2h:'6-3' },
-    { east:{name:'Atamifuji',    rank:'関脇 S1e', record:'1-3-0'}, west:{name:'Fujinokawa',  rank:'前頭 M1e', record:'3-1-0'}, h2h:'1-2' },
-    { east:{name:'Oho',          rank:'前頭 M3w', record:'2-2-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'1-3-0'}, h2h:'8-6' },
-    { east:{name:'Wakatakakage', rank:'小結 K1e', record:'4-0-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'3-1-0'}, h2h:'11-9' },
-    { east:{name:'Yoshinofuji',  rank:'前頭 M2e', record:'1-3-0'}, west:{name:'Daieisho',    rank:'前頭 M4e', record:'2-2-0'}, h2h:'0-2' },
-    { east:{name:'Shodai',       rank:'前頭 M5w', record:'1-3-0'}, west:{name:'Gonoyama',    rank:'前頭 M4w', record:'3-1-0'}, h2h:'2-5' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M5e', record:'1-3-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'3-1-0'}, h2h:'0-0' },
-    { east:{name:'Churanoumi',   rank:'前頭 M6e', record:'3-1-0'}, west:{name:'Asakoryu',    rank:'前頭 M7w', record:'2-2-0'}, h2h:'2-0' },
-    { east:{name:'Chiyoshoma',   rank:'前頭 M7e', record:'2-2-0'}, west:{name:'Oshoma',      rank:'前頭 M8e', record:'2-2-0'}, h2h:'1-1' },
-    { east:{name:'Ura',          rank:'前頭 M11e',record:'2-2-0'}, west:{name:'Asahakuryu',  rank:'前頭 M8w', record:'2-2-0'}, h2h:'1-0' },
-    { east:{name:'Abi',          rank:'前頭 M9e', record:'2-2-0'}, west:{name:'Nishikifuji', rank:'前頭 M9w', record:'1-3-0'}, h2h:'4-2' },
-    { east:{name:'Asanoyama',    rank:'前頭 M10e',record:'2-2-0'}, west:{name:'Kinbozan',    rank:'前頭 M11w',record:'2-2-0'}, h2h:'3-1' },
-    { east:{name:'Shishi',       rank:'前頭 M12e',record:'1-3-0'}, west:{name:'Hakunofuji',  rank:'前頭 M10w',record:'3-1-0'}, h2h:'0-5' },
-    { east:{name:'Mitakeumi',    rank:'前頭 M14e',record:'1-3-0'}, west:{name:'Tokihayate',  rank:'前頭 M12w',record:'1-3-0'}, h2h:'3-3' },
-    { east:{name:'Kotoeiho',     rank:'前頭 M13e',record:'4-0-0'}, west:{name:'Roga',        rank:'前頭 M14w',record:'3-1-0'}, h2h:'0-1' },
-    { east:{name:'Wakanosho',    rank:'前頭 M16e',record:'3-1-0'}, west:{name:'Tamawashi',   rank:'前頭 M13w',record:'0-4-0'}, h2h:'0-0' },
-    { east:{name:'Tobizaru',     rank:'前頭 M15e',record:'3-1-0'}, west:{name:'Ryuden',      rank:'前頭 M16w',record:'0-4-0'}, h2h:'6-2' },
-    { east:{name:'Fujiryoga',    rank:'前頭 M17e',record:'3-1-0'}, west:{name:'Oshoumi',     rank:'前頭 M15w',record:'1-3-0'}, h2h:'0-1' }
+    { east:{name:'Kotozakura',   rank:'大関 O1e', record:'1-3-0'}, west:{name:'Ichiyamamoto',rank:'前頭 M2w', record:'1-3-0'}, h2h:'5-4',  winner:'west' },
+    { east:{name:'Kirishima',    rank:'大関 O2e', record:'4-0-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'2-2-0'}, h2h:'6-3',  winner:'east' },
+    { east:{name:'Atamifuji',    rank:'関脇 S1e', record:'1-3-0'}, west:{name:'Fujinokawa',  rank:'前頭 M1e', record:'3-1-0'}, h2h:'1-2',  winner:'east' },
+    { east:{name:'Oho',          rank:'前頭 M3w', record:'2-2-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'1-3-0'}, h2h:'8-6',  winner:'east' },
+    { east:{name:'Wakatakakage', rank:'小結 K1e', record:'4-0-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'3-1-0'}, h2h:'11-9', winner:'west' },
+    { east:{name:'Yoshinofuji',  rank:'前頭 M2e', record:'1-3-0'}, west:{name:'Daieisho',    rank:'前頭 M4e', record:'2-2-0'}, h2h:'0-2',  winner:'east' },
+    { east:{name:'Shodai',       rank:'前頭 M5w', record:'1-3-0'}, west:{name:'Gonoyama',    rank:'前頭 M4w', record:'3-1-0'}, h2h:'2-5',  winner:'west' },
+    { east:{name:'Wakamotoharu', rank:'前頭 M5e', record:'1-3-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'3-1-0'}, h2h:'0-0',  winner:'west' },
+    { east:{name:'Churanoumi',   rank:'前頭 M6e', record:'3-1-0'}, west:{name:'Asakoryu',    rank:'前頭 M7w', record:'2-2-0'}, h2h:'2-0',  winner:'west' },
+    { east:{name:'Chiyoshoma',   rank:'前頭 M7e', record:'2-2-0'}, west:{name:'Oshoma',      rank:'前頭 M8e', record:'2-2-0'}, h2h:'1-1',  winner:'west' },
+    { east:{name:'Ura',          rank:'前頭 M11e',record:'2-2-0'}, west:{name:'Asahakuryu',  rank:'前頭 M8w', record:'2-2-0'}, h2h:'1-0',  winner:'east' },
+    { east:{name:'Abi',          rank:'前頭 M9e', record:'2-2-0'}, west:{name:'Nishikifuji', rank:'前頭 M9w', record:'1-3-0'}, h2h:'4-2',  winner:'east' },
+    { east:{name:'Asanoyama',    rank:'前頭 M10e',record:'2-2-0'}, west:{name:'Kinbozan',    rank:'前頭 M11w',record:'2-2-0'}, h2h:'3-1',  winner:'east' },
+    { east:{name:'Shishi',       rank:'前頭 M12e',record:'1-3-0'}, west:{name:'Hakunofuji',  rank:'前頭 M10w',record:'3-1-0'}, h2h:'0-5',  winner:'east' },
+    { east:{name:'Mitakeumi',    rank:'前頭 M14e',record:'1-3-0'}, west:{name:'Tokihayate',  rank:'前頭 M12w',record:'1-3-0'}, h2h:'3-3',  winner:'east' },
+    { east:{name:'Kotoeiho',     rank:'前頭 M13e',record:'4-0-0'}, west:{name:'Roga',        rank:'前頭 M14w',record:'3-1-0'}, h2h:'0-1',  winner:'east' },
+    { east:{name:'Wakanosho',    rank:'前頭 M16e',record:'3-1-0'}, west:{name:'Tamawashi',   rank:'前頭 M13w',record:'0-4-0'}, h2h:'0-0',  winner:'east' },
+    { east:{name:'Tobizaru',     rank:'前頭 M15e',record:'3-1-0'}, west:{name:'Ryuden',      rank:'前頭 M16w',record:'0-4-0'}, h2h:'6-2',  winner:'east' },
+    { east:{name:'Fujiryoga',    rank:'前頭 M17e',record:'3-1-0'}, west:{name:'Oshoumi',     rank:'前頭 M15w',record:'1-3-0'}, h2h:'0-1',  winner:'east' }
+  ],
+  // Day 6 — May 15, 2026
+  6: [
+    { east:{name:'Kirishima',    rank:'大関 O2e', record:'5-0-0'}, west:{name:'Oho',         rank:'前頭 M3w', record:'3-2-0'}, h2h:'5-3' },
+    { east:{name:'Kotozakura',   rank:'大関 O1e', record:'1-4-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'2-3-0'}, h2h:'6-4' },
+    { east:{name:'Daieisho',     rank:'前頭 M4e', record:'2-3-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'1-4-0'}, h2h:'7-3' },
+    { east:{name:'Atamifuji',    rank:'関脇 S1e', record:'2-3-0'}, west:{name:'Gonoyama',    rank:'前頭 M4w', record:'4-1-0'}, h2h:'3-3' },
+    { east:{name:'Wakatakakage', rank:'小結 K1e', record:'4-1-0'}, west:{name:'Fujinokawa',  rank:'前頭 M1e', record:'3-2-0'}, h2h:'1-0' },
+    { east:{name:'Yoshinofuji',  rank:'前頭 M2e', record:'2-3-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'4-1-0'}, h2h:'2-3' },
+    { east:{name:'Wakamotoharu', rank:'前頭 M5e', record:'1-4-0'}, west:{name:'Ichiyamamoto',rank:'前頭 M2w', record:'2-3-0'}, h2h:'4-5' },
+    { east:{name:'Asakoryu',     rank:'前頭 M7w', record:'3-2-0'}, west:{name:'Shodai',      rank:'前頭 M5w', record:'1-4-0'}, h2h:'2-3' },
+    { east:{name:'Oshoma',       rank:'前頭 M8e', record:'3-2-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'4-1-0'}, h2h:'1-1' },
+    { east:{name:'Churanoumi',   rank:'前頭 M6e', record:'3-2-0'}, west:{name:'Asahakuryu',  rank:'前頭 M8w', record:'2-3-0'}, h2h:'2-2' },
+    { east:{name:'Chiyoshoma',   rank:'前頭 M7e', record:'2-3-0'}, west:{name:'Abi',         rank:'前頭 M9e', record:'3-2-0'}, h2h:'2-4' },
+    { east:{name:'Kinbozan',     rank:'前頭 M11w',record:'2-3-0'}, west:{name:'Nishikifuji', rank:'前頭 M9w', record:'1-4-0'}, h2h:'2-1' },
+    { east:{name:'Tokihayate',   rank:'前頭 M12w',record:'1-4-0'}, west:{name:'Hakunofuji',  rank:'前頭 M10w',record:'3-2-0'}, h2h:'1-1' },
+    { east:{name:'Asanoyama',    rank:'前頭 M10e',record:'3-2-0'}, west:{name:'Shishi',      rank:'前頭 M12e',record:'2-3-0'}, h2h:'1-1' },
+    { east:{name:'Ura',          rank:'前頭 M11e',record:'3-2-0'}, west:{name:'Kotoeiho',    rank:'前頭 M13e',record:'5-0-0'}, h2h:'1-0' },
+    { east:{name:'Fujiryoga',    rank:'前頭 M17e',record:'4-1-0'}, west:{name:'Tamawashi',   rank:'前頭 M13w',record:'0-5-0'}, h2h:'0-0' },
+    { east:{name:'Ryuden',       rank:'前頭 M16w',record:'0-5-0'}, west:{name:'Roga',        rank:'前頭 M14w',record:'3-2-0'}, h2h:'2-3' },
+    { east:{name:'Mitakeumi',    rank:'前頭 M14e',record:'2-3-0'}, west:{name:'Oshoumi',     rank:'前頭 M15w',record:'1-4-0'}, h2h:'1-0' },
+    { east:{name:'Tobizaru',     rank:'前頭 M15e',record:'4-1-0'}, west:{name:'Wakanosho',   rank:'前頭 M16e',record:'4-1-0'}, h2h:'0-0' }
   ]
 };
 let activeMatchupDay = 1;
@@ -3144,7 +3170,7 @@ function rikishiBlock(side, r, opts) {
   const id = matchupRikishiImg[r.name] || '';
   const origin = matchupOrigin[r.name] || '';
   const isRicsi = ricsiPicks.has(r.name);
-  const isDorka = dorkaPicks.has(r.name);
+  const isDorka = dorkaPicksFor(activeMatchupDay).has(r.name);
   const isWinner = opts && opts.winner === side;
   const isLoser = opts && opts.winner && opts.winner !== side;
   const sideClass = 'matchup-side ' + side
