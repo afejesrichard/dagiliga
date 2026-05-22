@@ -3018,8 +3018,12 @@ const matchupOrigin = {
   'Hatsuyama':'Tokyo','Kyokukaiyu':'Mongolia',
   'Daiseizan':'China'
 };
-// Same purple-highlight set as the banzuke
-const ricsiPicks = new Set(['Wakatakakage','Fujinokawa','Kotoeiho','Fujiryoga']);
+// Purple-highlight set — Richard's selection (changes across the basho)
+const ricsiPicksDay1to13 = new Set(['Wakatakakage','Fujinokawa','Kotoeiho','Fujiryoga']);
+const ricsiPicksDay14plus = new Set(['Wakatakakage','Fujinokawa','Wakanosho','Fujiryoga']);
+function ricsiPicksFor(day) {
+  return day >= 14 ? ricsiPicksDay14plus : ricsiPicksDay1to13;
+}
 // Pink-highlight set — Dorka's selection (changes across the basho)
 const dorkaPicksDay1to3  = new Set(['Atamifuji','Takanosho','Kotoeiho','Mitakeumi']);
 const dorkaPicksDay4to8  = new Set(['Fujiryoga','Takanosho','Kotoeiho','Kotozakura']);
@@ -3364,7 +3368,7 @@ function renderMatchupDayTabs() {
 function rikishiBlock(side, r, opts) {
   const id = matchupRikishiImg[r.name] || '';
   const origin = matchupOrigin[r.name] || '';
-  const isRicsi = ricsiPicks.has(r.name);
+  const isRicsi = ricsiPicksFor(activeMatchupDay).has(r.name);
   const isDorka = dorkaPicksFor(activeMatchupDay).has(r.name);
   const isWinner = opts && opts.winner === side;
   const isLoser = opts && opts.winner && opts.winner !== side;
