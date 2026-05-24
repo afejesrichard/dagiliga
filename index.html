@@ -2803,11 +2803,10 @@ function renderInsights() {
 
   // League scoring drift across three bashos
   insights.push({
-    icon: '📊', title: 'Scoring Keeps Cooling',
+    icon: '📊', title: 'The Roster-Size Cliff',
     border: 'var(--accent3)',
     winner: `Avg: ${bashoAvgs.hatsu?.toFixed(1)} → ${bashoAvgs.haru?.toFixed(1)} → ${bashoAvgs.natsu?.toFixed(1)}`,
-    body: `League average per team has slid every basho: Hatsu <strong>${bashoAvgs.hatsu?.toFixed(1)}</strong> (5-man rosters), Haru <strong>${bashoAvgs.haru?.toFixed(1)}</strong> (4-man rosters), Natsu <strong>${bashoAvgs.natsu?.toFixed(1)}</strong>.
-    Natsu was uniquely brutal — <strong>both yokozuna kyujo</strong> and new ozeki Aonishiki absent, so three top-of-banzuke picks were guaranteed zeros. The 83-point Natsu yusho would have finished 5th in Hatsu. Same number, different league.`
+    body: `Per-team average fell off a cliff when rosters shrank from 5 picks to 4: Hatsu <strong>${bashoAvgs.hatsu?.toFixed(1)}</strong> (5-man) → Haru <strong>${bashoAvgs.haru?.toFixed(1)}</strong> (4-man), then it held roughly level at <strong>${bashoAvgs.natsu?.toFixed(1)}</strong> in Natsu — even with <strong>both yokozuna kyujo</strong> and new ozeki Aonishiki absent, three top-of-banzuke picks that were guaranteed zeros. The kicker: the 83-point Natsu yusho would have finished only <strong>5th</strong> in Hatsu. Same number, different league.`
   });
 
   // Richard's symmetry — 83 pts in both Hatsu and Natsu
@@ -2876,8 +2875,8 @@ function renderInsights() {
       icon: '⚔️', title: 'Dorka\'s Three-Basho Arc',
       border: '#9b5de5',
       winner: `Hatsu #${dorka.bashoRanks.hatsu} → Haru #${dorka.bashoRanks.haru} → Natsu #${dorka.bashoRanks.natsu}`,
-      body: `<strong>Dorka FJ</strong>: ${dorka.scores.hatsu} → ${dorka.scores.haru} → ${dorka.scores.natsu}. Climbed two spots in Haru, slid to 5th in Natsu.
-      The Tokások missed the breakthrough Natsu picks (only had Takanosho and Atamifuji scoring on senshuraku) but stayed mid-pack. The total of ${dorka.totalPoints} is still very much in the season conversation.`
+      body: `<strong>Dorka FJ</strong>: ${dorka.scores.hatsu} → ${dorka.scores.haru} → ${dorka.scores.natsu}. A six-place leap from #${dorka.bashoRanks.hatsu} in Hatsu to #${dorka.bashoRanks.haru} in Haru, then a slide back to #${dorka.bashoRanks.natsu} in Natsu.
+      The Tokások missed the breakthrough Natsu picks (only Takanosho and Atamifuji scored on senshuraku) but stayed mid-pack. The total of ${dorka.totalPoints} is still very much in the season conversation.`
     });
   }
 
@@ -2900,6 +2899,22 @@ function renderInsights() {
     winner: 'Field is compressing',
     body: `Spread between 1st and last per basho: Hatsu <strong>${87 - 58} pts</strong>, Haru <strong>${73 - 55} pts</strong>, Natsu <strong>${83 - 54} pts</strong>.
     The gap widened slightly in Natsu (Csilla's slide accounts for most of it), but the <strong>middle of the table is closer than ever</strong> — players 2 through 6 in the season standings are bunched within a narrow band. Nagoya is anyone's basho.`
+  });
+
+  // Three different basho champions
+  insights.push({
+    icon: '🔄', title: 'Three Bashos, Three Champions',
+    border: 'var(--accent3)',
+    winner: 'No repeat winner yet',
+    body: `Every basho has crowned someone new: <strong>Hatsu</strong> went to Csilla &amp; Márton (tied at 87), <strong>Haru</strong> to Mátyás's Tokyo Töpörtyűk (73 — the lowest winning score of the season), and <strong>Natsu</strong> to Richard's Tokazachi KSE (83). Nobody has defended a title, and the number it takes to win keeps moving around.`
+  });
+
+  // DigiDagi's volatility arc
+  insights.push({
+    icon: '🎢', title: 'DigiDagi\'s Whiplash',
+    border: '#577590',
+    winner: 'Sándor: 86 → 57 → 70',
+    body: `<strong>Sándor Szilágyi</strong> has the season's most violent ride: 3rd in Hatsu (86), then a <strong>29-point faceplant</strong> to a league-worst 57 in Haru — the steepest basho-to-basho drop of any ever-present player — before bouncing back to 70 (T-3rd) in Natsu. Maximum variance, fully recovered.`
   });
 
   let html = '';
