@@ -650,7 +650,7 @@ function renderAwards() {
   teams.forEach(t => t.daily.forEach((d,i) => { if(d > bestDay.pts) bestDay = {team:t.name,day:i+1,pts:d,short:t.short,owner:t.owner}; }));
   awards.push({ icon:'🔥', title:'Best Single Day', cls:'red-border',
     winner: `${bestDay.short} — Day ${bestDay.day}`,
-    body: `<span class="award-stat">${bestDay.team}</span> erupted for <span class="award-stat">${bestDay.pts} points</span> on Day ${bestDay.day}. The 8-point ceiling was hit nine times across the basho — by six different teams. Even Csilla, who finished last, briefly tasted the top with an 8-point Day 12 (her only daily win all basho).`
+    body: `<span class="award-stat">${bestDay.team}</span> erupted for <span class="award-stat">${bestDay.pts} points</span> on Day ${bestDay.day} — a perfect 4-for-4 lineup. The 8-point ceiling was reached <strong>12 times</strong> across the basho, and remarkably <strong>all seven teams</strong> hit a perfect day at least once (Richard's four was the most). Even Csilla, who finished last, briefly tasted the top with an 8-point Day 12 (her only daily win all basho).`
   });
 
   // Most consistent
@@ -751,7 +751,7 @@ function renderAwards() {
   });
   awards.push({ icon:'📈', title:'Biggest Day-to-Day Swing', cls:'pink-border',
     winner: `${bigSwing.team} — Day ${bigSwing.fromDay}→${bigSwing.toDay}`,
-    body: `<span class="award-stat">${bigSwing.owner}</span> went from <span class="award-stat">${bigSwing.from} pts</span> on Day ${bigSwing.fromDay} to <span class="award-stat">${bigSwing.to} pts</span> on Day ${bigSwing.toDay} — a +${bigSwing.diff} swing. The 0→4 bounceback from DigiDagi after their senshuraku-eve goose egg was the most dramatic recovery of the basho.`
+    body: `<span class="award-stat">${bigSwing.owner}</span> went from <span class="award-stat">${bigSwing.from} pts</span> on Day ${bigSwing.fromDay} to <span class="award-stat">${bigSwing.to} pts</span> on Day ${bigSwing.toDay} — a +${bigSwing.diff} swing, the biggest single-day jump of the basho. The harshest crash went the other way: DigiDagi's senshuraku-eve goose egg (0 points on Day 14, all four picks losing) — the only complete shutout of Natsu.`
   });
 
   // Csilla's slide
@@ -804,6 +804,24 @@ function renderAwards() {
   awards.push({ icon:'🗓️', title:'Three-Basho Tracker', cls:'teal-border',
     winner: 'Hatsu → Haru → Natsu',
     body: trio
+  });
+
+  // Most-picked rikishi of the basho (from full daily-pick data)
+  awards.push({ icon:'🧸', title:'The Kotoeiho Security Blanket', cls:'teal-border',
+    winner: 'Kotoeiho — 69 of 420 pick-slots',
+    body: `Maegashira #13 <span class="award-stat">Kotoeiho</span> was the most-picked rikishi of the entire basho, filling <span class="award-stat">69 of the 420 lineup slots</span> — roughly <strong>1 in 6 of every pick</strong> made across all teams and all 15 days. He repaid the loyalty with a <span class="award-stat">10-5 record (20 fantasy points)</span>, 4th-most in the field. The league's comfort pick.`
+  });
+
+  // Half-by-half symmetry
+  awards.push({ icon:'⚖️', title:'Perfectly Balanced', cls:'teal-border',
+    winner: 'Σούμο — 40 + 40',
+    body: `Runner-up <span class="award-stat">Σούμο</span> scored <span class="award-stat">exactly 40 points in each half</span> of the basho — 40 across Days 1-7, 40 across Days 8-15. Flawless symmetry. Richard's title run was nearly as even at 42/41, while the bottom three (Dorka, Mátyás, Csilla) all did their best work in the second week.`
+  });
+
+  // Márk backed the playoff loser
+  awards.push({ icon:'🎭', title:'Backed the Runner-Up', cls:'pink-border',
+    winner: 'Σούμο rode Kirishima all 15 days',
+    body: `<span class="award-stat">Márk Vrabély</span> picked ozeki <span class="award-stat">Kirishima</span> on every single day — a 12-3 run worth <span class="award-stat">24 fantasy points</span>, the 2nd-highest rikishi haul of the basho. The cruel twist: Kirishima lost the yusho-kettei-sen playoff to <strong>Wakatakakage</strong> — the very rikishi anchoring champion Tokazachi KSE. Márk backed the runner-up in every sense.`
   });
 
   let html = '';
