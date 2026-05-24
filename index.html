@@ -1540,13 +1540,13 @@
   <div class="subtitle" style="font-size:1.1em; margin-top:6px;">Fantasy Basho — Cumulative Season Standings</div>
   <div class="jp">大相撲ファンタジーリーグ 2026</div>
   <div class="countdown-wrapper" id="countdown-wrapper">
-    <div class="countdown-label">Next basho: <span class="basho-name">夏場所 Natsu — Tokyo</span></div>
+    <div class="countdown-label">Next basho: <span class="basho-name">名古屋場所 Nagoya — IG Arena</span></div>
     <div class="countdown-boxes" id="countdown-boxes"></div>
   </div>
 
   <div class="hero-cta">
     <a href="https://www.fantasizr.com/joinleaguelink?league=5316496735076352&key=deAFb8DdaAFEdbFa9c21Cc90B46Aa4" target="_blank" class="cta-btn cta-btn--join">
-      <span class="pulse"></span> Join Natsu Basho
+      <span class="pulse"></span> Join Nagoya Basho
     </a>
     <a href="https://www.fantasizr.com/league/5316496735076352" target="_blank" class="cta-btn cta-btn--league">
       🏟️ League Page
@@ -1559,12 +1559,12 @@
   <div class="badges">
     <a href="dagi_liga_hatsu_2026.html" class="badge active">✅ Hatsu (Tokyo, Jan)</a>
     <a href="dagi_liga_haru_2026.html" class="badge active">✅ Haru (Osaka, Mar)</a>
-    <div class="badge upcoming">⏳ Natsu (Tokyo, May)</div>
+    <a href="dagi_liga_natsu_2026.html" class="badge active">✅ Natsu (Tokyo, May)</a>
     <div class="badge upcoming">⏳ Nagoya (Jul)</div>
     <div class="badge upcoming">⏳ Aki (Tokyo, Sep)</div>
     <div class="badge upcoming">⏳ Kyūshū (Fukuoka, Nov)</div>
   </div>
-  <div class="updated">Last updated: March 31, 2026 — After 2 of 6 bashos</div>
+  <div class="updated">Last updated: May 24, 2026 — After 3 of 6 bashos · Natsu yusho: Wakatakakage (12-3 playoff)</div>
 </div>
 
 <div class="container">
@@ -1665,6 +1665,10 @@
       <a href="dagi_liga_haru_2026.html" class="basho-link">
         春場所 Haru 2026
         <span class="bl-city">Osaka — March</span>
+      </a>
+      <a href="dagi_liga_natsu_2026.html" class="basho-link">
+        夏場所 Natsu 2026
+        <span class="bl-city">Tokyo — May</span>
       </a>
     </div>
   </div>
@@ -1770,8 +1774,8 @@
   <!-- BANZUKE -->
   <div id="tab-banzuke" class="tab-content">
     <div class="banzuke-header">
-      <h2>夏場所 Natsu 2026 — Makuuchi Banzuke</h2>
-      <div class="banzuke-sub">Official rankings for the May Grand Sumo Tournament, Tokyo · Source: sumo.or.jp</div>
+      <h2>夏場所 Natsu 2026 — Makuuchi Banzuke (Final)</h2>
+      <div class="banzuke-sub">Yusho: <strong style="color:var(--gold)">Wakatakakage</strong> (Komusubi East, 12-3, won playoff over Kirishima) · Ginosho: Wakatakakage · Kantosho: Yoshinofuji &amp; Hakunofuji · Shukunsho: not awarded · Source: sumo.or.jp</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection — Day One Lineup</div>
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection — Day One Lineup</div>
     </div>
@@ -1902,6 +1906,15 @@
     </table>
     </div>
     <p style="text-align:center;color:var(--text-muted);margin-top:18px;font-size:0.85em;">Data sourced from <a href="https://www.sumo.or.jp/EnHonbashoBanzuke/index/" target="_blank" style="color:var(--accent2);">Japan Sumo Association</a> · Photos © JSA</p>
+
+    <!-- Natsu basho concluded -->
+    <div class="basho-section" style="text-align:center;background:linear-gradient(135deg,#1a1a2e 0%,#2a1a3e 100%);border-radius:14px;padding:32px 20px;margin-top:25px;border:1px solid var(--border)">
+      <div style="font-size:1.4em;font-weight:700;color:var(--gold);margin-bottom:8px">🏆 Basho Concluded — May 24, 2026</div>
+      <div style="color:var(--text-muted);max-width:560px;margin:0 auto 18px;line-height:1.6">
+        15 days of Makuuchi action wrapped up with a yusho-kettei-sen playoff. Wakatakakage beat Kirishima head-to-head after both finished regulation at 12-3, taking his second top-division title in a tournament where both yokozuna sat out from start to finish.
+      </div>
+      <a href="dagi_liga_natsu_2026.html" style="display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">📊 Open the full Natsu 2026 analysis →</a>
+    </div>
   </div>
 
 </div>
@@ -2265,7 +2278,7 @@ document.addEventListener('keydown', function(e) {
 const bashos = [
   { id: 'hatsu', name: 'Hatsu', nameJp: '初場所', city: 'Tokyo', month: 'Jan', completed: true },
   { id: 'haru', name: 'Haru', nameJp: '春場所', city: 'Osaka', month: 'Mar', completed: true },
-  { id: 'natsu', name: 'Natsu', nameJp: '夏場所', city: 'Tokyo', month: 'May', completed: false },
+  { id: 'natsu', name: 'Natsu', nameJp: '夏場所', city: 'Tokyo', month: 'May', completed: true },
   { id: 'nagoya', name: 'Nagoya', nameJp: '名古屋場所', city: 'Nagoya', month: 'Jul', completed: false },
   { id: 'aki', name: 'Aki', nameJp: '秋場所', city: 'Tokyo', month: 'Sep', completed: false },
   { id: 'kyushu', name: 'Kyūshū', nameJp: '九州場所', city: 'Fukuoka', month: 'Nov', completed: false }
@@ -2285,14 +2298,14 @@ const players = [
   {
     name: 'Csilla Virág',
     color: '#ff6b6b',
-    teams: { hatsu: 'greatest sumo team ever', haru: 'greatest sumo team ever' },
-    scores: { hatsu: 87, haru: 69 }
+    teams: { hatsu: 'greatest sumo team ever', haru: 'greatest sumo team ever', natsu: 'best sumo team ever' },
+    scores: { hatsu: 87, haru: 69, natsu: 54 }
   },
   {
     name: 'Sándor Szilágyi',
     color: '#577590',
-    teams: { hatsu: 'DigiDagi', haru: 'DigiDagi' },
-    scores: { hatsu: 86, haru: 57 }
+    teams: { hatsu: 'DigiDagi', haru: 'DigiDagi', natsu: 'DigiDagi' },
+    scores: { hatsu: 86, haru: 57, natsu: 70 }
   },
   {
     name: 'Tarján Teréz',
@@ -2303,32 +2316,32 @@ const players = [
   {
     name: 'Richard Fejes',
     color: '#f9c74f',
-    teams: { hatsu: 'Tokazachi KSE', haru: 'Tokazachi KSE' },
-    scores: { hatsu: 83, haru: 69 }
+    teams: { hatsu: 'Tokazachi KSE', haru: 'Tokazachi KSE', natsu: 'Tokazachi KSE' },
+    scores: { hatsu: 83, haru: 69, natsu: 83 }
   },
   {
     name: 'Márk Vrabély',
     color: '#f8961e',
-    teams: { hatsu: 'Sumo', haru: '相撲' },
-    scores: { hatsu: 82, haru: 67 }
+    teams: { hatsu: 'Sumo', haru: '相撲', natsu: 'Σούμο' },
+    scores: { hatsu: 82, haru: 67, natsu: 80 }
   },
   {
     name: 'Mátyás Fazakas',
     color: '#4ecdc4',
-    teams: { hatsu: 'Tokyo Töpörtyűk', haru: 'Tokyo Töpörtyűk' },
-    scores: { hatsu: 78, haru: 73 }
+    teams: { hatsu: 'Tokyo Töpörtyűk', haru: 'Tokyo Töpörtyűk', natsu: 'Tokyo Töpörtyűk' },
+    scores: { hatsu: 78, haru: 73, natsu: 58 }
   },
   {
     name: 'Dorka FJ',
     color: '#9b5de5',
-    teams: { hatsu: 'Tokások', haru: 'Tokások' },
-    scores: { hatsu: 70, haru: 72 }
+    teams: { hatsu: 'Tokások', haru: 'Tokások', natsu: 'Tokások' },
+    scores: { hatsu: 70, haru: 72, natsu: 64 }
   },
   {
     name: 'DJ_Pongo_Pongo',
     color: '#43aa8b',
-    teams: { hatsu: 'Kövér utcai Uszoda', haru: 'Kövér utcai Uszoda' },
-    scores: { hatsu: 70, haru: 69 }
+    teams: { hatsu: 'Kövér utcai Uszoda', haru: 'Kövér utcai Uszoda', natsu: 'Kövér utcai Uszoda (szakvezető: Ferenczy Dzsákomó)' },
+    scores: { hatsu: 70, haru: 69, natsu: 70 }
   },
   {
     name: 'Radish Master 888',
@@ -2595,7 +2608,7 @@ function renderComeback() {
     <div class="title">The Math</div>
     <div class="body">
       Current leader: <strong>${leader.name}</strong> with <strong>${leader.totalPoints} points</strong>.<br>
-      Remaining bashos: <strong>${remaining}</strong> (Natsu, Nagoya, Aki, Kyūshū).<br>
+      Remaining bashos: <strong>${remaining}</strong> (Nagoya, Aki, Kyūshū).<br>
       League average score per basho: <strong>${(Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length).toFixed(1)}</strong>.<br>
       Theoretical max per basho (4 rikishi × 2pts × 15 days + kinboshi + prizes): ~<strong>130 pts</strong> (but realistically ~75-90).
     </div>
@@ -2679,18 +2692,18 @@ function renderComeback() {
     <div class="ic-border" style="background:var(--accent3)"></div>
     <div class="icon">🆕</div>
     <div class="title">What If: A New Player Joins?</div>
-    <div class="body">A new player starting in Natsu would need to average <strong>${(leader.totalPoints / remaining).toFixed(0)}+</strong> per basho across ${remaining} tournaments
-    to catch the leader. That's theoretically possible but they'd need to be absolutely dominant from day one.
-    The Power Rankings would treat them fairly though!</div>
+    <div class="body">A new player starting in Nagoya would need to average <strong>${(leader.totalPoints / remaining).toFixed(0)}+</strong> per basho across ${remaining} tournaments
+    to catch the leader. Tough — but not impossible if they're picking like Richard did in Natsu.
+    The Power Rankings would still treat them fairly.</div>
   </div>`;
 
   html += `<div class="insight-card">
     <div class="ic-border" style="background:#9b5de5"></div>
     <div class="icon">📐</div>
     <div class="title">The "Márton Equation"</div>
-    <div class="body"><strong>Márton Váradi</strong> leads with 87 pts but only played 1 basho. If he returns for all 4 remaining,
-    he needs just <strong>${Math.round((byTotal[0].totalPoints + byTotal[0].avgPerBasho * remaining - 87) / remaining)}</strong> per basho to stay competitive.
-    But if he stays away, the power ranking penalty will slowly eat his lead. Clock's ticking, Márton!</div>
+    <div class="body"><strong>Márton Váradi</strong> still sits at 87 pts from his one Hatsu appearance. With 3 bashos still to play, he'd need just
+    <strong>${Math.round((byTotal[0].totalPoints + byTotal[0].avgPerBasho * remaining - 87) / remaining)}</strong> per basho to keep pace with the projected leader.
+    Every basho he stays away, the power-ranking penalty grows. Three chances left.</div>
   </div>`;
 
   html += '</div>';
@@ -2706,11 +2719,11 @@ function renderInsights() {
 
   // Season leader
   insights.push({
-    icon: '👑', title: 'Season Leader at the Halfway Mark',
+    icon: '👑', title: 'Season Leader After 3 of 6',
     border: 'var(--gold)',
     winner: `${byTotal[0].name} — ${byTotal[0].totalPoints} pts`,
     body: `With <strong>${byTotal[0].totalPoints} points</strong> after ${completedBashos.length} bashos, <strong>${byTotal[0].name}</strong> leads the season standings.
-    But we're only 2/6 through — the marathon has barely started!`
+    We're at the halfway mark — 3 down, 3 to go. The back half (Nagoya, Aki, Kyūshū) decides everything.`
   });
 
   // Power ranking leader
@@ -2724,26 +2737,26 @@ function renderInsights() {
     });
   }
 
-  // Most improved (Hatsu → Haru)
-  const withBoth = players.filter(p => p.scores.hatsu !== undefined && p.scores.haru !== undefined);
-  if (withBoth.length > 0) {
-    const improved = [...withBoth].sort((a, b) => b.trend - a.trend);
-    const declined = [...withBoth].sort((a, b) => a.trend - b.trend);
+  // Most improved Haru → Natsu (uses p.trend which already compares the last two played bashos)
+  const withTrend = players.filter(p => p.scores.haru !== undefined && p.scores.natsu !== undefined);
+  if (withTrend.length > 0) {
+    const improved = [...withTrend].sort((a, b) => b.trend - a.trend);
+    const declined = [...withTrend].sort((a, b) => a.trend - b.trend);
 
     insights.push({
-      icon: '📈', title: 'Most Improved: Hatsu → Haru',
+      icon: '📈', title: 'Most Improved: Haru → Natsu',
       border: '#4ecdc4',
-      winner: improved[0].name,
-      body: `<strong>${improved[0].name}</strong> improved by <strong>${improved[0].trend > 0 ? '+' : ''}${improved[0].trend} points</strong> from Hatsu to Haru.
-      ${improved[0].trend > 0 ? 'Moving in the right direction!' : 'OK, nobody actually improved — Haru was tough!'}`
+      winner: `${improved[0].name} (${improved[0].trend > 0 ? '+' : ''}${improved[0].trend})`,
+      body: `<strong>${improved[0].name}</strong> jumped <strong>${improved[0].trend > 0 ? '+' : ''}${improved[0].trend} points</strong> from Haru to Natsu (${improved[0].scores.haru} → ${improved[0].scores.natsu}).
+      ${improved[0].trend >= 10 ? "Huge step forward heading into the second half of the season." : improved[0].trend > 0 ? "Quiet upward trend — the kind that compounds." : "Everyone trended down — Natsu was the lowest-scoring basho yet."}`
     });
 
     insights.push({
-      icon: '📉', title: 'Biggest Drop: Hatsu → Haru',
+      icon: '📉', title: 'Biggest Drop: Haru → Natsu',
       border: '#f55',
-      winner: declined[0].name,
-      body: `<strong>${declined[0].name}</strong> dropped <strong>${declined[0].trend} points</strong> from Hatsu to Haru.
-      ${Math.abs(declined[0].trend) > 25 ? "Ouch! That's a big fall. Was it bad rikishi picks or bad luck?" : "Not a huge drop, but every point matters in this race."}`
+      winner: `${declined[0].name} (${declined[0].trend})`,
+      body: `<strong>${declined[0].name}</strong> dropped <strong>${declined[0].trend} points</strong> from Haru to Natsu (${declined[0].scores.haru} → ${declined[0].scores.natsu}).
+      ${Math.abs(declined[0].trend) > 15 ? "Painful regression. Time to rethink the picks before Nagoya." : "Soft slide rather than a collapse, but every point matters now."}`
     });
   }
 
@@ -2755,54 +2768,71 @@ function renderInsights() {
       border: '#888',
       winner: ghosts.map(g => g.name).join(', '),
       body: `${ghosts.map(g => `<strong>${g.name}</strong> (${g.bashosPlayed}/${completedBashos.length})`).join(', ')}
-      missed at least one basho. ${ghosts.find(g => g.name === 'Márton Váradi') ?
-      "Márton leads the raw standings but only played once — if he doesn't return, others will overtake him!" :
-      "Missing bashos is the fastest way to fall behind in the season race."}`
+      missed at least one basho. Márton hasn't returned since his one-and-done 87 in Hatsu, and Tarján skipped Natsu after solid 4th-place runs in Hatsu and Haru. Radish Master 888 played only Hatsu. Missed bashos are the single biggest drag in the season race.`
     });
   }
 
   // Tightest race
   const top5spread = byTotal[0].totalPoints - byTotal[Math.min(4, byTotal.length - 1)].totalPoints;
   insights.push({
-    icon: '🏎️', title: 'The Title Race Is WIDE Open',
+    icon: '🏎️', title: 'The Title Race Is Still Wide Open',
     border: 'var(--accent)',
     winner: `Only ${top5spread} points separate Top 5`,
-    body: `The top 5 players are within <strong>${top5spread} points</strong> of each other. With 4 bashos remaining (potentially ~280+ points up for grabs),
-    <strong>literally anyone in the top 5 can win this</strong>. And even lower-ranked players are just one monster basho away from relevance.`
+    body: `The top 5 are within <strong>${top5spread} points</strong> of each other after 3 bashos. With 3 left (potentially ~210+ points up for grabs),
+    <strong>literally anyone in the top 5 can still win this</strong>. The pack at 220-235 pts is one strong Nagoya basho away from grabbing the season lead.`
   });
 
-  // Consistency king
-  const consistent = [...withBoth].sort((a, b) => Math.abs(a.trend) - Math.abs(b.trend));
-  if (consistent.length > 0) {
+  // Consistency king — across all three played bashos
+  const allThree = players.filter(p => p.scores.hatsu !== undefined && p.scores.haru !== undefined && p.scores.natsu !== undefined);
+  if (allThree.length > 0) {
+    const withStd = allThree.map(p => {
+      const vals = [p.scores.hatsu, p.scores.haru, p.scores.natsu];
+      const mean = vals.reduce((a,b)=>a+b,0) / vals.length;
+      const variance = vals.reduce((a,v)=>a + Math.pow(v - mean, 2), 0) / vals.length;
+      return { p, stdev: Math.sqrt(variance) };
+    }).sort((a,b) => a.stdev - b.stdev);
+    const c = withStd[0];
     insights.push({
-      icon: '🎯', title: 'Mr./Ms. Consistency',
+      icon: '🎯', title: 'Mr./Ms. Consistency — All Three Bashos',
       border: 'var(--accent2)',
-      winner: consistent[0].name,
-      body: `<strong>${consistent[0].name}</strong> had the smallest gap between Hatsu (${consistent[0].scores.hatsu}) and Haru (${consistent[0].scores.haru})
-      — only <strong>${Math.abs(consistent[0].trend)}</strong> points difference. You know exactly what you're getting!`
+      winner: c.p.name,
+      body: `<strong>${c.p.name}</strong> has the smallest spread across three bashos (σ = <strong>${c.stdev.toFixed(1)}</strong>): ${c.p.scores.hatsu} / ${c.p.scores.haru} / ${c.p.scores.natsu}.
+      Whatever the basho throws at them, the score lands in the same neighborhood. The reliable engine of Dagi Liga.`
     });
   }
 
-  // Haru was harder
+  // League scoring drift across three bashos
   insights.push({
-    icon: '📊', title: 'Haru Was Tougher Than Hatsu',
+    icon: '📊', title: 'Scoring Keeps Cooling',
     border: 'var(--accent3)',
-    winner: `Avg: ${bashoAvgs.hatsu?.toFixed(1)} → ${bashoAvgs.haru?.toFixed(1)}`,
-    body: `The league average dropped from <strong>${bashoAvgs.hatsu?.toFixed(1)}</strong> (Hatsu, 5 rikishi) to <strong>${bashoAvgs.haru?.toFixed(1)}</strong> (Haru, 4 rikishi).
-    Haru used 4-man rosters instead of 5, meaning every bad pick stung harder. Less margin for error = lower scores across the board.`
+    winner: `Avg: ${bashoAvgs.hatsu?.toFixed(1)} → ${bashoAvgs.haru?.toFixed(1)} → ${bashoAvgs.natsu?.toFixed(1)}`,
+    body: `League average per team has slid every basho: Hatsu <strong>${bashoAvgs.hatsu?.toFixed(1)}</strong> (5-man rosters), Haru <strong>${bashoAvgs.haru?.toFixed(1)}</strong> (4-man rosters), Natsu <strong>${bashoAvgs.natsu?.toFixed(1)}</strong>.
+    Natsu was uniquely brutal — <strong>both yokozuna kyujo</strong> and new ozeki Aonishiki absent, so three top-of-banzuke picks were guaranteed zeros. The 83-point Natsu yusho would have finished 5th in Hatsu. Same number, different league.`
   });
 
-  // The "Nice" award (69 points)
-  const niceClub = players.filter(p => Object.values(p.scores).includes(69));
-  if (niceClub.length > 0) {
-    insights.push({
-      icon: '😏', title: 'The Nice Club (69 pts)',
-      border: '#f093fb',
-      winner: niceClub.map(p => p.name).join(', '),
-      body: `${niceClub.length} players scored exactly <strong>69 points</strong> in Haru. <em>Nice.</em>
-      ${niceClub.length >= 3 ? " A THREE-WAY 69? The statistical improbability is... impressive." : ""}`
-    });
-  }
+  // Richard's symmetry — 83 pts in both Hatsu and Natsu
+  insights.push({
+    icon: '🎴', title: 'Richard\'s 83-Point Twin',
+    border: 'var(--gold)',
+    winner: 'Hatsu 83 (5th) = Natsu 83 (1st)',
+    body: `<strong>Richard Fejes</strong> scored <strong>exactly 83 points</strong> in both Hatsu and Natsu. In Hatsu it finished <strong>5th</strong>. In Natsu it took the <strong>yusho</strong>. Same effort, completely different result — a perfect snapshot of how much the league's scoring environment has cooled.`
+  });
+
+  // Yokozuna wipeout note
+  insights.push({
+    icon: '😵', title: 'Both Yokozuna Sat Out Natsu',
+    border: '#f55',
+    winner: 'Hoshoryu 0-1-14 · Onosato 0-0-15',
+    body: `For the entire Natsu basho, <strong>neither yokozuna was on the dohyo</strong>. Hoshoryu pulled out after losing his Day 1 bout (hamstring). Onosato never started. Add in new ozeki Aonishiki (also absent the whole tournament) and the entire top three of the banzuke contributed zero fantasy points to anyone who picked them.`
+  });
+
+  // Yusho playoff
+  insights.push({
+    icon: '⚔️', title: 'A Yusho Playoff Decided Natsu',
+    border: 'var(--gold)',
+    winner: 'Wakatakakage def. Kirishima',
+    body: `<strong>Wakatakakage (Komusubi East)</strong> and <strong>Kirishima (Ozeki East)</strong> both finished regulation at 12-3, forcing a yusho-kettei-sen playoff. Wakatakakage won the head-to-head bout — his second top-division title, completing his comeback from 2023 ACL reconstruction. He also took the Ginosho (Technique Prize), his 6th career.`
+  });
 
   // F1-style points projection
   const f1Points = { 1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4, 9: 2, 10: 1 };
@@ -2839,38 +2869,37 @@ function renderInsights() {
     ${projected[0].name !== byTotal[0].name ? "<strong>The standings would shuffle!</strong> Missed bashos matter a lot." : "Same leader — they earned it!"}`
   });
 
-  // Dorka's revenge arc
+  // Dorka's arc — three bashos
   const dorka = players.find(p => p.name === 'Dorka FJ');
-  if (dorka && dorka.scores.hatsu && dorka.scores.haru) {
+  if (dorka && dorka.scores.natsu) {
     insights.push({
-      icon: '⚔️', title: 'Dorka\'s Revenge Arc',
+      icon: '⚔️', title: 'Dorka\'s Three-Basho Arc',
       border: '#9b5de5',
-      winner: `Hatsu #${dorka.bashoRanks.hatsu} → Haru #${dorka.bashoRanks.haru}`,
-      body: `<strong>Dorka FJ</strong> went from <strong>#${dorka.bashoRanks.hatsu}</strong> in Hatsu (${dorka.scores.hatsu} pts) to <strong>#${dorka.bashoRanks.haru}</strong> in Haru (${dorka.scores.haru} pts)!
-      ${dorka.trend > 0 ? `A +${dorka.trend} point improvement. The Tokások are on the rise!` : "The climb continues — watch out for Dorka in Natsu!"}`
+      winner: `Hatsu #${dorka.bashoRanks.hatsu} → Haru #${dorka.bashoRanks.haru} → Natsu #${dorka.bashoRanks.natsu}`,
+      body: `<strong>Dorka FJ</strong>: ${dorka.scores.hatsu} → ${dorka.scores.haru} → ${dorka.scores.natsu}. Climbed two spots in Haru, slid to 5th in Natsu.
+      The Tokások missed the breakthrough Natsu picks (only had Takanosho and Atamifuji scoring on senshuraku) but stayed mid-pack. The total of ${dorka.totalPoints} is still very much in the season conversation.`
     });
   }
 
-  // Richard's consistency note
+  // Richard's championship moment
   const richard = players.find(p => p.name === 'Richard Fejes');
   if (richard) {
     insights.push({
-      icon: '🏋️', title: 'Richard\'s Steady Season',
+      icon: '🏋️', title: 'Richard\'s Breakthrough',
       border: '#f9c74f',
-      winner: `${richard.totalPoints} pts (Avg: ${richard.avgPerBasho.toFixed(1)})`,
-      body: `<strong>Richard</strong> scored <strong>${richard.scores.hatsu}</strong> in Hatsu and <strong>${richard.scores.haru}</strong> in Haru.
-      Tied for 3rd in one basho, 5th in another — always in the mix but never quite the champion. The Tokazachi KSE grind continues. Natsu could be the breakout!`
+      winner: `Natsu Yusho · ${richard.totalPoints} pts (Avg: ${richard.avgPerBasho.toFixed(1)})`,
+      body: `<strong>Richard</strong> climbed every basho: 5th in Hatsu (83), T-3rd in Haru (69), <strong>1st in Natsu (83)</strong>.
+      Tokazachi KSE finally cashed in with a wire-to-wire run — never out of the daily top-3 cumulative ranking from Day 1 onward. The Wakatakakage + Wakanosho call on senshuraku sealed it.`
     });
   }
 
-  // "The League Is Getting Tighter" or "Diverging"
+  // League entropy across three bashos
   insights.push({
     icon: '🔬', title: 'League Entropy Report',
     border: '#43aa8b',
-    winner: 'Analysis',
-    body: `In Hatsu, the spread was <strong>${87 - 58} points</strong> (1st to last). In Haru, it was <strong>${73 - 55} points</strong>.
-    The league is getting <strong>more competitive</strong> — the gap between best and worst is shrinking.
-    With 4 bashos left, the pack is bunching up. Expect a dramatic finish!`
+    winner: 'Field is compressing',
+    body: `Spread between 1st and last per basho: Hatsu <strong>${87 - 58} pts</strong>, Haru <strong>${73 - 55} pts</strong>, Natsu <strong>${83 - 54} pts</strong>.
+    The gap widened slightly in Natsu (Csilla's slide accounts for most of it), but the <strong>middle of the table is closer than ever</strong> — players 2 through 6 in the season standings are bunched within a narrow band. Nagoya is anyone's basho.`
   });
 
   let html = '';
@@ -2900,35 +2929,22 @@ renderInsights();
 // COUNTDOWN TIMER
 // ============================
 (function() {
-  const natsuStart = new Date('2026-05-10T10:00:00+09:00'); // JST opening day
-  const natsuEnd = new Date('2026-05-25T00:00:00+09:00'); // JST, end of senshuraku (Day 15: May 24)
+  const nagoyaStart = new Date('2026-07-12T10:00:00+09:00'); // JST opening day, Nagoya
   const container = document.getElementById('countdown-boxes');
   const wrapper = document.getElementById('countdown-wrapper');
-  const label = wrapper.querySelector('.countdown-label');
 
   function updateCountdown() {
     const now = new Date();
-    const toStart = natsuStart - now;
-    const toEnd = natsuEnd - now;
-
-    if (toEnd <= 0) {
-      label.innerHTML = '<span class="basho-name">夏場所 Natsu has ended</span>';
+    const diff = nagoyaStart - now;
+    if (diff <= 0) {
+      wrapper.querySelector('.countdown-label').innerHTML = '<span class="basho-name">名古屋場所 Nagoya is LIVE!</span> 🟢';
       container.innerHTML = '';
       return;
     }
-
-    if (toStart <= 0) {
-      const daysLeft = Math.ceil(toEnd / 86400000);
-      label.innerHTML = '<span class="basho-name">夏場所 Natsu is LIVE!</span> 🟢';
-      container.innerHTML =
-        `<div class="countdown-box"><div class="num">${daysLeft}</div><div class="unit">Day${daysLeft === 1 ? '' : 's'} left</div></div>`;
-      return;
-    }
-
-    const days = Math.floor(toStart / 86400000);
-    const hours = Math.floor((toStart % 86400000) / 3600000);
-    const mins = Math.floor((toStart % 3600000) / 60000);
-    const secs = Math.floor((toStart % 60000) / 1000);
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
     container.innerHTML =
       `<div class="countdown-box"><div class="num">${days}</div><div class="unit">Days</div></div>` +
       `<div class="countdown-box"><div class="num">${String(hours).padStart(2,'0')}</div><div class="unit">Hours</div></div>` +
