@@ -3060,9 +3060,10 @@ const matchupOrigin = {
   'Aonishiki':'Ukraine','Onokatsu':'Mongolia',
   'Kazuma':'Osaka','Asasuiryu':'Osaka'
 };
-// Purple-highlight set — Richard's (Ricsi) Nagoya Day One Lineup
-const ricsiPicks = new Set(['Takerufuji','Yoshinofuji','Fujinokawa','Fujiryoga']);
-function ricsiPicksFor(day) { return ricsiPicks; }
+// Purple-highlight set — Richard's (Ricsi) Nagoya selection (Day 3: swapped Fujiryoga → Wakanosho)
+const ricsiPicksDay1to2  = new Set(['Takerufuji','Yoshinofuji','Fujinokawa','Fujiryoga']);
+const ricsiPicksDay3plus = new Set(['Takerufuji','Yoshinofuji','Fujinokawa','Wakanosho']);
+function ricsiPicksFor(day) { return day >= 3 ? ricsiPicksDay3plus : ricsiPicksDay1to2; }
 // Pink-highlight set — Dorka's Nagoya Day One Lineup
 const dorkaPicks = new Set(['Ura','Atamifuji','Kotoeiho','Mitakeumi']);
 function dorkaPicksFor(day) { return dorkaPicks; }
