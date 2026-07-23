@@ -3070,8 +3070,9 @@ const matchupOrigin = {
 // Purple-highlight set — Richard's (Ricsi) Nagoya selection (Day 3: swapped Fujiryoga → Wakanosho)
 const ricsiPicksDay1to2  = new Set(['Takerufuji','Yoshinofuji','Fujinokawa','Fujiryoga']);
 const ricsiPicksDay3to7  = new Set(['Takerufuji','Yoshinofuji','Fujinokawa','Wakanosho']);
-const ricsiPicksDay8plus = new Set(['Takerufuji','Yoshinofuji','Fujinokawa','Kotoeiho']); // Wakanosho kyūjo → Kotoeiho
-function ricsiPicksFor(day) { return day >= 8 ? ricsiPicksDay8plus : day >= 3 ? ricsiPicksDay3to7 : ricsiPicksDay1to2; }
+const ricsiPicksDay8to12 = new Set(['Takerufuji','Yoshinofuji','Fujinokawa','Kotoeiho']); // Wakanosho kyūjo → Kotoeiho
+const ricsiPicksDay13plus = new Set(['Takerufuji','Asahakuryu','Fujinokawa','Kotoeiho']); // Yoshinofuji → Asahakuryu
+function ricsiPicksFor(day) { return day >= 13 ? ricsiPicksDay13plus : day >= 8 ? ricsiPicksDay8to12 : day >= 3 ? ricsiPicksDay3to7 : ricsiPicksDay1to2; }
 // Pink-highlight set — Dorka's Nagoya selection (Day 4: swapped Ura & Mitakeumi → Takayasu & Kazuma)
 const dorkaPicksDay1to3 = new Set(['Ura','Atamifuji','Kotoeiho','Mitakeumi']);
 const dorkaPicksDay4to7 = new Set(['Atamifuji','Kotoeiho','Takayasu','Kazuma']);
