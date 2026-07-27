@@ -1611,7 +1611,7 @@
     <div class="badge upcoming">⏳ Aki (Tokyo, Sep)</div>
     <div class="badge upcoming">⏳ Kyūshū (Fukuoka, Nov)</div>
   </div>
-  <div class="updated">Last updated: July 25, 2026 — Nagoya Days 1–14 results in, Day 15 senshūraku prepared · Aonishiki (12–2) leads by one · Wakatakakage, Wakanosho &amp; Hoshoryu kyūjo · Season standings after 3 of 6 bashos</div>
+  <div class="updated">Last updated: July 26, 2026 — Nagoya basho complete · Yūshō: Aonishiki (12–3, won the three-way playoff) · Fantasy scores being finalized · Season standings after 3 of 6 bashos</div>
 </div>
 
 <div class="container">
@@ -1812,22 +1812,22 @@
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection</div>
     </div>
 
-    <!-- YŪSHŌ WATCH -->
-    <div class="yusho-watch">
-      <div class="yw-title">🏆 Yūshō Watch <span class="yw-day">· Senshūraku (Day 15)</span></div>
+    <!-- YŪSHŌ RESULT -->
+    <div class="yusho-watch yusho-decided">
+      <div class="yw-title">🏆 Yūshō · Nagoya 2026 <span class="yw-day">· Final</span></div>
       <div class="yw-leader">
-        <span class="yw-crown">👑</span>
+        <span class="yw-crown">🏆</span>
         <span class="yw-name">Aonishiki</span>
-        <span class="yw-rec">12–2</span>
-        <span class="yw-tag">Sekiwake 2W · one win from a maiden top-division yūshō</span>
+        <span class="yw-rec">12–3</span>
+        <span class="yw-tag">Sekiwake 2W · maiden top-division yūshō — won the three-way playoff</span>
       </div>
-      <div class="yw-chasers"><span class="yw-label">Chasing (−1)</span> <b>Atamifuji</b> 11–3 · <b>Kirishima</b> 11–3 &nbsp;—&nbsp; everyone else (10–4) is out.</div>
-      <div class="yw-decider">🔥 The decider: <span class="yw-vs">Aonishiki vs Atamifuji</span> — leader meets chaser head-to-head on the final day (career h2h: Aonishiki leads 4–1).</div>
+      <div class="yw-chasers"><span class="yw-label">Playoff</span> Aonishiki def. <b>Atamifuji</b> &amp; <b>Kirishima</b> — all three tied at 12–3, settled in a three-way kettei-sen.</div>
+      <div class="yw-decider">🎌 Special prizes — <span class="yw-vs">Shukun-shō:</span> Fujinokawa &nbsp;·&nbsp; <span class="yw-vs">Ginō-shō:</span> Aonishiki &nbsp;·&nbsp; <span class="yw-vs">Kantō-shō:</span> Atamifuji, Kotoeiho, Takayasu</div>
       <ul class="yw-scenarios">
-        <li class="win" data-ico="🏆"><b>Aonishiki beats Atamifuji</b> → 13–2, <span class="hl-gold">outright yūshō</span>. Nothing else matters.</li>
-        <li data-ico="⚔️"><b>Atamifuji beats Aonishiki</b> → both 12–3 → <span class="hl-teal">playoff</span>. Kirishima joins the playoff too if he beats Kotozakura (→ 12–3); if Kirishima loses, it's a straight Aonishiki–Atamifuji decider.</li>
+        <li class="win" data-ico="🏆"><b>Aonishiki</b> — <span class="hl-gold">champion</span>. Beaten by Atamifuji on senshūraku (12–3), he answered by taking the playoff for his first Emperor's Cup.</li>
+        <li data-ico="🥈"><b>Atamifuji &amp; Kirishima</b> — 12–3, <span class="hl-teal">fell in the playoff</span>. Atamifuji's win over the leader forced it; Kirishima beat Kotozakura to make it three.</li>
       </ul>
-      <div class="yw-note">Kirishima can only reach 12–3, so he needs Aonishiki to slip to have any shot — and even then only a playoff. Yokozuna Hoshoryu withdrew (kyūjo) after Day 14.</div>
+      <div class="yw-note">Fantasy note: <b>Fujinokawa</b> (Ricsi's pick) earned the Outstanding Performance prize, and <b>Atamifuji</b> (Dorka's pick) took a Fighting Spirit prize. Yokozuna Hoshoryu sat out the final two days (kyūjo).</div>
     </div>
 
     <div class="matchup-day-tabs" id="matchup-day-tabs"></div>
@@ -3486,28 +3486,28 @@ const nagoyaMatchups = {
     { east:{name:'Kazuma',      rank:'前頭 M15w', record:'3-10-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'5-8-0'}, h2h:'0-0', winner:'east' },
     { east:{name:'Daiseizan',   rank:'前頭 M16e', record:'6-7-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'4-9-0'}, h2h:'0-1', winner:'west' }
   ],
-  // Day 15 — July 26, 2026 · Senshūraku (torikumi prepared) · Hoshoryu kyūjo
+  // Day 15 — July 26, 2026 · Senshūraku (results) · Hoshoryu kyūjo
   15: [
-    { east:{name:'Kotoshoho',   rank:'関脇 S1w', record:'6-8-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'8-6-0'}, h2h:'3-3' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'11-3-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'8-6-0'}, h2h:'16-9' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'11-3-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'12-2-0'}, h2h:'1-4' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'6-8-0'}, west:{name:'Daieisho',    rank:'前頭 M4e', record:'9-5-0'}, h2h:'1-2' },
-    { east:{name:'Hakunofuji',  rank:'前頭 M3w', record:'8-6-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'2-12-0'}, h2h:'1-4' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'7-7-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'7-7-0'}, h2h:'1-2' },
-    { east:{name:'Churanoumi',  rank:'前頭 M2w', record:'6-8-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'6-8-0'}, h2h:'1-3' },
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'6-8-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'4-10-0'}, h2h:'3-7' },
-    { east:{name:'Tobizaru',    rank:'前頭 M9w', record:'5-9-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'5-9-0'}, h2h:'6-3' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'5-9-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'6-8-0'}, h2h:'5-11' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'4-10-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'6-8-0'}, h2h:'3-4' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'4-10-0'}, west:{name:'Daiseizan',   rank:'前頭 M16e', record:'6-8-0'}, h2h:'0-0' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'10-4-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'10-4-0'}, h2h:'0-2' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'9-5-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'10-4-0'}, h2h:'2-4' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'6-8-0'}, west:{name:'Asahakuryu',  rank:'前頭 M12e', record:'6-8-0'}, h2h:'0-0' },
-    { east:{name:'Shishi',      rank:'前頭 M14w', record:'10-4-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'8-6-0'}, h2h:'1-5' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'10-4-0'}, west:{name:'Asakoryu',    rank:'前頭 M16w', record:'8-6-0'}, h2h:'0-1' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'9-5-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'5-9-0'}, h2h:'8-6' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'8-6-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'2-12-0'}, h2h:'6-4' },
-    { east:{name:'Sadanoumi',   rank:'十両 J2w', record:'5-9-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'4-10-0'}, h2h:'0-1' }
+    { east:{name:'Kotoshoho',   rank:'関脇 S1w', record:'6-8-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'8-6-0'}, h2h:'3-3', winner:'west' },
+    { east:{name:'Kirishima',   rank:'大関 O1e', record:'11-3-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'8-6-0'}, h2h:'16-9', winner:'east' },
+    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'11-3-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'12-2-0'}, h2h:'1-4', winner:'east' },
+    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'6-8-0'}, west:{name:'Daieisho',    rank:'前頭 M4e', record:'9-5-0'}, h2h:'1-2', winner:'west' },
+    { east:{name:'Hakunofuji',  rank:'前頭 M3w', record:'8-6-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'2-12-0'}, h2h:'1-4', winner:'east' },
+    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'7-7-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'7-7-0'}, h2h:'1-2', winner:'east' },
+    { east:{name:'Churanoumi',  rank:'前頭 M2w', record:'6-8-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'6-8-0'}, h2h:'1-3', winner:'east' },
+    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'6-8-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'4-10-0'}, h2h:'3-7', winner:'east' },
+    { east:{name:'Tobizaru',    rank:'前頭 M9w', record:'5-9-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'5-9-0'}, h2h:'6-3', winner:'west' },
+    { east:{name:'Ura',         rank:'前頭 M5e', record:'5-9-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'6-8-0'}, h2h:'5-11', winner:'west' },
+    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'4-10-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'6-8-0'}, h2h:'3-4', winner:'west' },
+    { east:{name:'Shodai',      rank:'前頭 M6e', record:'4-10-0'}, west:{name:'Daiseizan',   rank:'前頭 M16e', record:'6-8-0'}, h2h:'0-0', winner:'east' },
+    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'10-4-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'10-4-0'}, h2h:'0-2', winner:'east' },
+    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'9-5-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'10-4-0'}, h2h:'2-4', winner:'west' },
+    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'6-8-0'}, west:{name:'Asahakuryu',  rank:'前頭 M12e', record:'6-8-0'}, h2h:'0-0', winner:'west' },
+    { east:{name:'Shishi',      rank:'前頭 M14w', record:'10-4-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'8-6-0'}, h2h:'1-5', winner:'west' },
+    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'10-4-0'}, west:{name:'Asakoryu',    rank:'前頭 M16w', record:'8-6-0'}, h2h:'0-1', winner:'west' },
+    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'9-5-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'5-9-0'}, h2h:'8-6', winner:'east' },
+    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'8-6-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'2-12-0'}, h2h:'6-4', winner:'east' },
+    { east:{name:'Sadanoumi',   rank:'十両 J2w', record:'5-9-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'4-10-0'}, h2h:'0-1', winner:'west' }
   ]
 };
 let activeMatchupDay = 1;
