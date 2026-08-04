@@ -1360,6 +1360,14 @@
   .basho-cell { text-align: center; font-size: 0.9em; min-width: 60px; }
   .basho-miss { color: #555; font-style: italic; }
   .total-cell { font-weight: 800; font-size: 1.15em; }
+  .adj-star { color: var(--gold); font-weight: 800; cursor: help; }
+  .adj-note {
+    margin-top: 14px; padding: 14px 16px;
+    background: rgba(249,199,79,0.07);
+    border: 1px solid rgba(249,199,79,0.3);
+    border-radius: 10px;
+    color: var(--text-muted); font-size: 0.85em; line-height: 1.6;
+  }
   .power-cell { font-weight: 700; }
   .trend-up { color: #4ecdc4; }
   .trend-down { color: #ff6b6b; }
@@ -1587,13 +1595,13 @@
   <div class="subtitle" style="font-size:1.1em; margin-top:6px;">Fantasy Basho — Cumulative Season Standings</div>
   <div class="jp">大相撲ファンタジーリーグ 2026</div>
   <div class="countdown-wrapper" id="countdown-wrapper">
-    <div class="countdown-label">Next basho: <span class="basho-name">名古屋場所 Nagoya — IG Arena</span></div>
+    <div class="countdown-label">Next basho: <span class="basho-name">秋場所 Aki — Ryōgoku Kokugikan</span></div>
     <div class="countdown-boxes" id="countdown-boxes"></div>
   </div>
 
   <div class="hero-cta">
     <a href="https://www.fantasizr.com/joinleaguelink?league=5301998695481344&key=7E4dcFdCDFC4a7E6De4aCcb3aaeF1F" target="_blank" class="cta-btn cta-btn--join">
-      <span class="pulse"></span> Join Nagoya Basho
+      <span class="pulse"></span> Join Aki Basho
     </a>
     <a href="https://www.fantasizr.com/league/5301998695481344" target="_blank" class="cta-btn cta-btn--league">
       🏟️ League Page
@@ -1607,11 +1615,11 @@
     <a href="dagi_liga_hatsu_2026.html" class="badge active">✅ Hatsu (Tokyo, Jan)</a>
     <a href="dagi_liga_haru_2026.html" class="badge active">✅ Haru (Osaka, Mar)</a>
     <a href="dagi_liga_natsu_2026.html" class="badge active">✅ Natsu (Tokyo, May)</a>
-    <a href="#" onclick="showTab('matchups',document.querySelector('.nav-tab--matchups'));document.querySelector('.nav-tabs').scrollIntoView({behavior:'smooth'});return false;" class="badge active" title="Go to Nagoya daily matchups">🟢 Nagoya (Jul)</a>
+    <a href="dagi_liga_nagoya_2026.html" class="badge active">✅ Nagoya (Jul)</a>
     <div class="badge upcoming">⏳ Aki (Tokyo, Sep)</div>
     <div class="badge upcoming">⏳ Kyūshū (Fukuoka, Nov)</div>
   </div>
-  <div class="updated">Last updated: July 26, 2026 — Nagoya basho complete · Yūshō: Aonishiki (12–3, won the three-way playoff) · Fantasy scores being finalized · Season standings after 3 of 6 bashos</div>
+  <div class="updated">Last updated: August 4, 2026 — <strong>Nagoya basho closed &amp; finalized</strong> · Fantasy yūshō: <strong>Márk Vrabély (ᠪᠥᠬᠡ) — 86 pts</strong>, by 2 over DigiDagi on senshūraku · Makuuchi yūshō: Aonishiki (12–3, three-way playoff) · Season standings after 4 of 6 bashos</div>
 </div>
 
 <div class="container">
@@ -1690,7 +1698,7 @@
   <!-- COMEBACK CALCULATOR -->
   <div id="tab-comeback" class="tab-content">
     <div class="section-title">Comeback Calculator</div>
-    <p style="color:var(--text-muted);margin-bottom:20px">With 4 bashos remaining, here's what each player needs to catch the current leader — and some creative ways to think about it.</p>
+    <p style="color:var(--text-muted);margin-bottom:20px">With 2 bashos remaining, here's what each player needs to catch the current leader — and some creative ways to think about it.</p>
     <div id="comeback-container"></div>
   </div>
 
@@ -1716,6 +1724,10 @@
       <a href="dagi_liga_natsu_2026.html" class="basho-link">
         夏場所 Natsu 2026
         <span class="bl-city">Tokyo — May</span>
+      </a>
+      <a href="dagi_liga_nagoya_2026.html" class="basho-link">
+        名古屋場所 Nagoya 2026
+        <span class="bl-city">Nagoya — July</span>
       </a>
     </div>
   </div>
@@ -1807,7 +1819,7 @@
   <div id="tab-matchups" class="tab-content">
     <div class="banzuke-header">
       <h2>名古屋場所 Nagoya 2026 — Daily Matchups</h2>
-      <div class="banzuke-sub">Day-by-day Makuuchi torikumi · Click any face to open the rikishi card · Wakatakakage &amp; Wakanosho kyūjo (withdrawn)</div>
+      <div class="banzuke-sub">Day-by-day Makuuchi torikumi · Click any face to open the rikishi card · Wakatakakage &amp; Wakanosho kyūjo (withdrawn) · <strong>Basho complete</strong> — <a href="dagi_liga_nagoya_2026.html" style="color:var(--accent2)">full Nagoya report →</a></div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection</div>
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection</div>
     </div>
@@ -1959,13 +1971,15 @@
     </div>
     <p style="text-align:center;color:var(--text-muted);margin-top:18px;font-size:0.85em;">Data sourced from <a href="https://www.sumo.or.jp/EnHonbashoBanzuke/index/" target="_blank" style="color:var(--accent2);">Japan Sumo Association</a> · Photos © JSA</p>
 
-    <!-- Nagoya basho upcoming -->
+    <!-- Nagoya basho closed -->
     <div class="basho-section" style="text-align:center;background:linear-gradient(135deg,#1a1a2e 0%,#2a1a3e 100%);border-radius:14px;padding:32px 20px;margin-top:25px;border:1px solid var(--border)">
-      <div style="font-size:1.4em;font-weight:700;color:var(--accent2);margin-bottom:8px">⏳ Basho Opens July 12, 2026</div>
-      <div style="color:var(--text-muted);max-width:560px;margin:0 auto 18px;line-height:1.6">
-        15 days of Makuuchi action get underway at Nagoya's IG Arena. Both yokozuna — Hoshoryu and Onosato — sit atop the banzuke, ahead of a loaded four-man sekiwake rank led by Natsu champion Wakatakakage and rejoined by Aonishiki. Lock in your Fantasizr picks before Day 1.
+      <div style="font-size:1.4em;font-weight:700;color:var(--gold);margin-bottom:8px">✅ Nagoya Basho Complete — July 12–26, 2026</div>
+      <div style="color:var(--text-muted);max-width:600px;margin:0 auto 18px;line-height:1.6">
+        Fifteen days at IG Arena ended in a three-way kettei-sen, with <strong>Aonishiki</strong> lifting his first Emperor's Cup at 12–3.
+        In Dagi Liga, <strong>Márk Vrabély (ᠪᠥᠬᠡ)</strong> took the fantasy yūshō with <strong>86 points</strong> — two clear of DigiDagi
+        after the two of them went into senshūraku dead level on 74. Next stop: 秋場所 Aki, Tokyo, September 13.
       </div>
-      <a href="https://www.fantasizr.com/joinleaguelink?league=5301998695481344&key=7E4dcFdCDFC4a7E6De4aCcb3aaeF1F" target="_blank" style="display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">⛩️ Join the Nagoya league →</a>
+      <a href="dagi_liga_nagoya_2026.html" style="display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">📊 Full Nagoya report →</a>
     </div>
   </div>
 
@@ -2343,7 +2357,7 @@ const bashos = [
   { id: 'hatsu', name: 'Hatsu', nameJp: '初場所', city: 'Tokyo', month: 'Jan', completed: true },
   { id: 'haru', name: 'Haru', nameJp: '春場所', city: 'Osaka', month: 'Mar', completed: true },
   { id: 'natsu', name: 'Natsu', nameJp: '夏場所', city: 'Tokyo', month: 'May', completed: true },
-  { id: 'nagoya', name: 'Nagoya', nameJp: '名古屋場所', city: 'Nagoya', month: 'Jul', completed: false },
+  { id: 'nagoya', name: 'Nagoya', nameJp: '名古屋場所', city: 'Nagoya', month: 'Jul', completed: true },
   { id: 'aki', name: 'Aki', nameJp: '秋場所', city: 'Tokyo', month: 'Sep', completed: false },
   { id: 'kyushu', name: 'Kyūshū', nameJp: '九州場所', city: 'Fukuoka', month: 'Nov', completed: false }
 ];
@@ -2352,6 +2366,7 @@ const completedBashos = bashos.filter(b => b.completed);
 const remainingBashos = bashos.filter(b => !b.completed);
 
 // Player data: name -> { teams: {bashoId: teamName}, scores: {bashoId: points} }
+// `adjusted` marks a score that is not purely as-played — see the footnote under the standings table.
 const players = [
   {
     name: 'Márton Váradi',
@@ -2362,50 +2377,59 @@ const players = [
   {
     name: 'Csilla Virág',
     color: '#ff6b6b',
-    teams: { hatsu: 'greatest sumo team ever', haru: 'greatest sumo team ever', natsu: 'best sumo team ever' },
-    scores: { hatsu: 87, haru: 69, natsu: 54 }
+    teams: { hatsu: 'greatest sumo team ever', haru: 'greatest sumo team ever', natsu: 'best sumo team ever', nagoya: 'greatest sumo team ever' },
+    scores: { hatsu: 87, haru: 69, natsu: 54, nagoya: 56 },
+    adjusted: {
+      nagoya: {
+        raw: 36, added: 20,
+        note: 'Csilla registered no lineup for Days 1–5 of Nagoya and banked a hard 0 on each. ' +
+              'Her Day 6–15 roster (Yoshinofuji · Churanoumi · Shodai · Takerufuji) never changed once she set it, ' +
+              'so we replayed exactly that four-man lineup through the missing five days using the real Fantasizr box scores: ' +
+              '4 + 0 + 6 + 4 + 6 = 20 points. Credited so the season race stays honest.'
+      }
+    }
   },
   {
     name: 'Sándor Szilágyi',
     color: '#577590',
-    teams: { hatsu: 'DigiDagi', haru: 'DigiDagi', natsu: 'DigiDagi' },
-    scores: { hatsu: 86, haru: 57, natsu: 70 }
+    teams: { hatsu: 'DigiDagi', haru: 'DigiDagi', natsu: 'DigiDagi', nagoya: 'DigiDagi' },
+    scores: { hatsu: 86, haru: 57, natsu: 70, nagoya: 84 }
   },
   {
     name: 'Tarján Teréz',
     color: '#f15bb5',
-    teams: { hatsu: 'Szusizabálók', haru: 'Szusizabálók' },
-    scores: { hatsu: 86, haru: 55 }
+    teams: { hatsu: 'Szusizabálók', haru: 'Szusizabálók', nagoya: 'Boby' },
+    scores: { hatsu: 86, haru: 55, nagoya: 57 }
   },
   {
     name: 'Richard Fejes',
     color: '#f9c74f',
-    teams: { hatsu: 'Tokazachi KSE', haru: 'Tokazachi KSE', natsu: 'Tokazachi KSE' },
-    scores: { hatsu: 83, haru: 69, natsu: 83 }
+    teams: { hatsu: 'Tokazachi KSE', haru: 'Tokazachi KSE', natsu: 'Tokazachi KSE', nagoya: 'Tokazachi Kövér Sportegyesület (TKS)' },
+    scores: { hatsu: 83, haru: 69, natsu: 83, nagoya: 71 }
   },
   {
     name: 'Márk Vrabély',
     color: '#f8961e',
-    teams: { hatsu: 'Sumo', haru: '相撲', natsu: 'Σούμο' },
-    scores: { hatsu: 82, haru: 67, natsu: 80 }
+    teams: { hatsu: 'Sumo', haru: '相撲', natsu: 'Σούμο', nagoya: 'ᠪᠥᠬᠡ' },
+    scores: { hatsu: 82, haru: 67, natsu: 80, nagoya: 86 }
   },
   {
     name: 'Mátyás Fazakas',
     color: '#4ecdc4',
-    teams: { hatsu: 'Tokyo Töpörtyűk', haru: 'Tokyo Töpörtyűk', natsu: 'Tokyo Töpörtyűk' },
-    scores: { hatsu: 78, haru: 73, natsu: 58 }
+    teams: { hatsu: 'Tokyo Töpörtyűk', haru: 'Tokyo Töpörtyűk', natsu: 'Tokyo Töpörtyűk', nagoya: 'Tokyo Töpörtyűk' },
+    scores: { hatsu: 78, haru: 73, natsu: 58, nagoya: 72 }
   },
   {
     name: 'Dorka FJ',
     color: '#9b5de5',
-    teams: { hatsu: 'Tokások', haru: 'Tokások', natsu: 'Tokások' },
-    scores: { hatsu: 70, haru: 72, natsu: 64 }
+    teams: { hatsu: 'Tokások', haru: 'Tokások', natsu: 'Tokások', nagoya: 'Tokások' },
+    scores: { hatsu: 70, haru: 72, natsu: 64, nagoya: 73 }
   },
   {
     name: 'DJ_Pongo_Pongo',
     color: '#43aa8b',
-    teams: { hatsu: 'Kövér utcai Uszoda', haru: 'Kövér utcai Uszoda', natsu: 'Kövér utcai Uszoda (szakvezető: Ferenczy Dzsákomó)' },
-    scores: { hatsu: 70, haru: 69, natsu: 70 }
+    teams: { hatsu: 'Kövér utcai Uszoda', haru: 'Kövér utcai Uszoda', natsu: 'Kövér utcai Uszoda (szakvezető: Ferenczy Dzsákomó)', nagoya: 'Kövér utcai Uszoda' },
+    scores: { hatsu: 70, haru: 69, natsu: 70, nagoya: 69 }
   },
   {
     name: 'Radish Master 888',
@@ -2516,7 +2540,9 @@ function renderStandings() {
       if (p.scores[b.id] !== undefined) {
         const rank = p.bashoRanks[b.id];
         const rankLabel = rank <= 3 ? ['🥇','🥈','🥉'][rank-1] : `#${rank}`;
-        html += `<td class="basho-cell">${p.scores[b.id]} <span style="font-size:0.7em;color:var(--text-muted)">${rankLabel}</span></td>`;
+        const adj = p.adjusted && p.adjusted[b.id];
+        const star = adj ? `<span class="adj-star" title="${adj.raw} scored + ${adj.added} estimated">*</span>` : '';
+        html += `<td class="basho-cell">${p.scores[b.id]}${star} <span style="font-size:0.7em;color:var(--text-muted)">${rankLabel}</span></td>`;
       } else {
         html += `<td class="basho-cell basho-miss">—</td>`;
       }
@@ -2531,6 +2557,24 @@ function renderStandings() {
   });
 
   html += '</tbody></table></div>';
+
+  // Footnote for any score that isn't purely as-played
+  const adjustedNotes = [];
+  players.forEach(p => {
+    if (!p.adjusted) return;
+    Object.entries(p.adjusted).forEach(([bid, a]) => {
+      const b = bashos.find(x => x.id === bid);
+      adjustedNotes.push(`<strong style="color:${p.color}">${p.name} — ${b.name} ${b.nameJp}:</strong>
+        <strong>${a.raw} scored + ${a.added} estimated = ${a.raw + a.added}</strong>. ${a.note}`);
+    });
+  });
+  if (adjustedNotes.length) {
+    html += `<div class="adj-note">
+      <span class="adj-star">*</span> <strong>Adjusted score</strong><br>
+      ${adjustedNotes.join('<br><br>')}
+    </div>`;
+  }
+
   document.getElementById('standings-table-container').innerHTML = html;
 }
 
@@ -2672,7 +2716,7 @@ function renderComeback() {
     <div class="title">The Math</div>
     <div class="body">
       Current leader: <strong>${leader.name}</strong> with <strong>${leader.totalPoints} points</strong>.<br>
-      Remaining bashos: <strong>${remaining}</strong> (Nagoya, Aki, Kyūshū).<br>
+      Remaining bashos: <strong>${remaining}</strong> (${remainingBashos.map(b => b.name).join(', ')}).<br>
       League average score per basho: <strong>${(Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length).toFixed(1)}</strong>.<br>
       Theoretical max per basho (4 rikishi × 2pts × 15 days + kinboshi + prizes): ~<strong>130 pts</strong> (but realistically ~75-90).
     </div>
@@ -2756,8 +2800,8 @@ function renderComeback() {
     <div class="ic-border" style="background:var(--accent3)"></div>
     <div class="icon">🆕</div>
     <div class="title">What If: A New Player Joins?</div>
-    <div class="body">A new player starting in Nagoya would need to average <strong>${(leader.totalPoints / remaining).toFixed(0)}+</strong> per basho across ${remaining} tournaments
-    to catch the leader. Tough — but not impossible if they're picking like Richard did in Natsu.
+    <div class="body">A new player starting in Aki would need to average <strong>${(leader.totalPoints / remaining).toFixed(0)}+</strong> per basho across ${remaining} tournaments
+    to catch the leader. That is above the all-time single-basho record in this league — so realistically, a newcomer is playing for pride and spoiler duty.
     The Power Rankings would still treat them fairly.</div>
   </div>`;
 
@@ -2765,9 +2809,9 @@ function renderComeback() {
     <div class="ic-border" style="background:#9b5de5"></div>
     <div class="icon">📐</div>
     <div class="title">The "Márton Equation"</div>
-    <div class="body"><strong>Márton Váradi</strong> still sits at 87 pts from his one Hatsu appearance. With 3 bashos still to play, he'd need just
-    <strong>${Math.round((byTotal[0].totalPoints + byTotal[0].avgPerBasho * remaining - 87) / remaining)}</strong> per basho to keep pace with the projected leader.
-    Every basho he stays away, the power-ranking penalty grows. Three chances left.</div>
+    <div class="body"><strong>Márton Váradi</strong> still sits at 87 pts from his one Hatsu appearance — a score that would have <em>won</em> Nagoya.
+    With ${remaining} bashos still to play, he'd need <strong>${Math.round((byTotal[0].totalPoints + byTotal[0].avgPerBasho * remaining - 87) / remaining)}</strong> per basho to keep pace with the projected leader,
+    which is comfortably impossible. Every basho he stays away, the power-ranking penalty grows. ${remaining === 1 ? 'One chance' : remaining + ' chances'} left.</div>
   </div>`;
 
   html += '</div>';
@@ -2783,11 +2827,44 @@ function renderInsights() {
 
   // Season leader
   insights.push({
-    icon: '👑', title: 'Season Leader After 3 of 6',
+    icon: '👑', title: `Season Leader After ${completedBashos.length} of ${bashos.length}`,
     border: 'var(--gold)',
     winner: `${byTotal[0].name} — ${byTotal[0].totalPoints} pts`,
-    body: `With <strong>${byTotal[0].totalPoints} points</strong> after ${completedBashos.length} bashos, <strong>${byTotal[0].name}</strong> leads the season standings.
-    We're at the halfway mark — 3 down, 3 to go. The back half (Nagoya, Aki, Kyūshū) decides everything.`
+    body: `With <strong>${byTotal[0].totalPoints} points</strong> after ${completedBashos.length} bashos, <strong>${byTotal[0].name}</strong> leads the season standings
+    by <strong>${byTotal[0].totalPoints - byTotal[1].totalPoints}</strong> over ${byTotal[1].name}. Two tournaments left — Aki and Kyūshū — and roughly 140 points still on the table.
+    A single bad basho flips this.`
+  });
+
+  // Nagoya fantasy champion
+  const nagoyaWinner = [...players].filter(p => p.scores.nagoya !== undefined).sort((a,b) => b.scores.nagoya - a.scores.nagoya)[0];
+  insights.push({
+    icon: '🏆', title: 'Nagoya Fantasy Yūshō',
+    border: 'var(--gold)',
+    winner: `${nagoyaWinner.name} — ${nagoyaWinner.scores.nagoya} pts`,
+    body: `<strong>ᠪᠥᠬᠡ</strong> — Márk's team name is now the Mongolian script for <em>böke</em>, "wrestler" — took Nagoya with <strong>86 points</strong>,
+    his best score in any basho and the second-highest of the entire 2026 season. He and DigiDagi went into senshūraku <strong>tied on 74</strong>;
+    Márk closed with a basho-best 12-point day. Four bashos, four different fantasy champions.`
+  });
+
+  // The Maegashira 15 tiebreak — the single best fact of the basho
+  insights.push({
+    icon: '⚖️', title: 'The Basho Was Decided by One Rank, Two Sides',
+    border: 'var(--accent2)',
+    winner: 'Kazuma (M15W) 10 · Onokatsu (M15E) 8',
+    body: `<strong>Márk</strong> and <strong>Sándor</strong> fielded <em>three identical picks</em> — Aonishiki, Atamifuji, Takerufuji — on all fifteen days.
+    Their entire basho differed by a single slot: Márk took <strong>Kazuma, Maegashira 15 West</strong>; Sándor took <strong>Onokatsu, Maegashira 15 East</strong>.
+    Kazuma scored <strong>10</strong>, Onokatsu <strong>8</strong>. Final margin: <strong>86–84</strong>. The season lead currently rests on which side of the
+    banzuke's second-to-last rank you happened to point at in July.`
+  });
+
+  // Set and forget
+  insights.push({
+    icon: '🪑', title: 'The Set-and-Forget Championship',
+    border: '#43aa8b',
+    winner: '4 of 8 teams never touched their lineup',
+    body: `Márk, Sándor, DJ_Pongo and Tarján registered a four-man roster on Day 1 and <strong>never changed a single pick for 15 days</strong>.
+    They finished <strong>1st, 2nd, 6th and 7th</strong>. Meanwhile the two busiest managers — Richard (4 swaps) and Dorka (3) — came 5th and 3rd.
+    Conclusion: micro-management is emotionally satisfying and statistically inconclusive.`
   });
 
   // Power ranking leader
@@ -2801,26 +2878,29 @@ function renderInsights() {
     });
   }
 
-  // Most improved Haru → Natsu (uses p.trend which already compares the last two played bashos)
-  const withTrend = players.filter(p => p.scores.haru !== undefined && p.scores.natsu !== undefined);
+  // Most improved Natsu → Nagoya (uses p.trend which already compares the last two played bashos)
+  const withTrend = players.filter(p => p.scores.natsu !== undefined && p.scores.nagoya !== undefined);
   if (withTrend.length > 0) {
     const improved = [...withTrend].sort((a, b) => b.trend - a.trend);
     const declined = [...withTrend].sort((a, b) => a.trend - b.trend);
+    const topTrend = improved[0].trend;
+    const tiedImproved = improved.filter(p => p.trend === topTrend);
 
     insights.push({
-      icon: '📈', title: 'Most Improved: Haru → Natsu',
+      icon: '📈', title: 'Most Improved: Natsu → Nagoya',
       border: '#4ecdc4',
-      winner: `${improved[0].name} (${improved[0].trend > 0 ? '+' : ''}${improved[0].trend})`,
-      body: `<strong>${improved[0].name}</strong> jumped <strong>${improved[0].trend > 0 ? '+' : ''}${improved[0].trend} points</strong> from Haru to Natsu (${improved[0].scores.haru} → ${improved[0].scores.natsu}).
-      ${improved[0].trend >= 10 ? "Huge step forward heading into the second half of the season." : improved[0].trend > 0 ? "Quiet upward trend — the kind that compounds." : "Everyone trended down — Natsu was the lowest-scoring basho yet."}`
+      winner: `${tiedImproved.map(p => p.name).join(' & ')} (${topTrend > 0 ? '+' : ''}${topTrend})`,
+      body: `${tiedImproved.map(p => `<strong>${p.name}</strong> (${p.scores.natsu} → ${p.scores.nagoya})`).join(' and ')}
+      both climbed <strong>${topTrend > 0 ? '+' : ''}${topTrend} points</strong> from Natsu to Nagoya — an exact tie for the biggest jump of the basho.
+      Sándor turned his into a runner-up finish; Mátyás turned his into 4th. Same gain, different neighbourhood.`
     });
 
     insights.push({
-      icon: '📉', title: 'Biggest Drop: Haru → Natsu',
+      icon: '📉', title: 'Biggest Drop: Natsu → Nagoya',
       border: '#f55',
       winner: `${declined[0].name} (${declined[0].trend})`,
-      body: `<strong>${declined[0].name}</strong> dropped <strong>${declined[0].trend} points</strong> from Haru to Natsu (${declined[0].scores.haru} → ${declined[0].scores.natsu}).
-      ${Math.abs(declined[0].trend) > 15 ? "Painful regression. Time to rethink the picks before Nagoya." : "Soft slide rather than a collapse, but every point matters now."}`
+      body: `<strong>${declined[0].name}</strong> dropped <strong>${declined[0].trend} points</strong> from Natsu to Nagoya (${declined[0].scores.natsu} → ${declined[0].scores.nagoya}).
+      The defending basho champion came back to the field — and lost the season lead he had carried out of May. ${Math.abs(declined[0].trend) > 15 ? 'Painful regression.' : 'Not a collapse, but enough to hand over the throne.'}`
     });
   }
 
@@ -2832,69 +2912,110 @@ function renderInsights() {
       border: '#888',
       winner: ghosts.map(g => g.name).join(', '),
       body: `${ghosts.map(g => `<strong>${g.name}</strong> (${g.bashosPlayed}/${completedBashos.length})`).join(', ')}
-      missed at least one basho. Márton hasn't returned since his one-and-done 87 in Hatsu, and Tarján skipped Natsu after solid 4th-place runs in Hatsu and Haru. Radish Master 888 played only Hatsu. Missed bashos are the single biggest drag in the season race.`
+      missed at least one basho. Márton hasn't returned since his one-and-done 87 in Hatsu, Radish Master 888 also played Hatsu only, and Tarján skipped Natsu before reappearing in Nagoya under the delightfully unexplained team name <strong>"Boby"</strong>. Missed bashos are the single biggest drag in the season race.`
     });
   }
 
   // Tightest race
   const top5spread = byTotal[0].totalPoints - byTotal[Math.min(4, byTotal.length - 1)].totalPoints;
   insights.push({
-    icon: '🏎️', title: 'The Title Race Is Still Wide Open',
+    icon: '🏎️', title: 'Still Anyone\'s Season — Just About',
     border: 'var(--accent)',
-    winner: `Only ${top5spread} points separate Top 5`,
-    body: `The top 5 are within <strong>${top5spread} points</strong> of each other after 3 bashos. With 3 left (potentially ~210+ points up for grabs),
-    <strong>literally anyone in the top 5 can still win this</strong>. The pack at 220-235 pts is one strong Nagoya basho away from grabbing the season lead.`
+    winner: `${top5spread} points separate the Top 5`,
+    body: `The top 5 are within <strong>${top5spread} points</strong> of each other after ${completedBashos.length} bashos, with ${remainingBashos.length} left and roughly
+    <strong>140 points</strong> still to be handed out. Even the bottom of that group needs only one Nagoya-sized basho plus one ordinary one.
+    The gap between 2nd and 6th is <strong>${byTotal[1].totalPoints - byTotal[5].totalPoints} points</strong> — less than half a basho.`
   });
 
-  // Consistency king — across all three played bashos
-  const allThree = players.filter(p => p.scores.hatsu !== undefined && p.scores.haru !== undefined && p.scores.natsu !== undefined);
-  if (allThree.length > 0) {
-    const withStd = allThree.map(p => {
-      const vals = [p.scores.hatsu, p.scores.haru, p.scores.natsu];
+  // Consistency king — across all four played bashos
+  const allFour = players.filter(p => completedBashos.every(b => p.scores[b.id] !== undefined));
+  if (allFour.length > 0) {
+    const withStd = allFour.map(p => {
+      const vals = completedBashos.map(b => p.scores[b.id]);
       const mean = vals.reduce((a,b)=>a+b,0) / vals.length;
       const variance = vals.reduce((a,v)=>a + Math.pow(v - mean, 2), 0) / vals.length;
-      return { p, stdev: Math.sqrt(variance) };
+      return { p, stdev: Math.sqrt(variance), vals };
     }).sort((a,b) => a.stdev - b.stdev);
     const c = withStd[0];
+    const wild = withStd[withStd.length - 1];
     insights.push({
-      icon: '🎯', title: 'Mr./Ms. Consistency — All Three Bashos',
+      icon: '🎯', title: 'The Flattest Line in Dagi Liga',
       border: 'var(--accent2)',
-      winner: c.p.name,
-      body: `<strong>${c.p.name}</strong> has the smallest spread across three bashos (σ = <strong>${c.stdev.toFixed(1)}</strong>): ${c.p.scores.hatsu} / ${c.p.scores.haru} / ${c.p.scores.natsu}.
-      Whatever the basho throws at them, the score lands in the same neighborhood. The reliable engine of Dagi Liga.`
+      winner: `${c.p.name} — σ ${c.stdev.toFixed(1)}`,
+      body: `<strong>${c.p.name}</strong>: ${c.vals.join(' / ')}. Four bashos, a total spread of <strong>${Math.max(...c.vals) - Math.min(...c.vals)} points</strong>.
+      DJ_Pongo has now scored 70, 69, 70, 69 — he is less a fantasy manager than a metronome with a swimming pool.
+      At the other end, <strong>${wild.p.name}</strong> swings by σ ${wild.stdev.toFixed(1)} (${wild.vals.join(' / ')}).`
     });
   }
 
-  // League scoring drift across three bashos
+  // League scoring drift across four bashos
   insights.push({
-    icon: '📊', title: 'The Roster-Size Cliff',
+    icon: '📊', title: 'The League Woke Back Up',
     border: 'var(--accent3)',
-    winner: `Avg: ${bashoAvgs.hatsu?.toFixed(1)} → ${bashoAvgs.haru?.toFixed(1)} → ${bashoAvgs.natsu?.toFixed(1)}`,
-    body: `Per-team average fell off a cliff when rosters shrank from 5 picks to 4: Hatsu <strong>${bashoAvgs.hatsu?.toFixed(1)}</strong> (5-man) → Haru <strong>${bashoAvgs.haru?.toFixed(1)}</strong> (4-man), then it held roughly level at <strong>${bashoAvgs.natsu?.toFixed(1)}</strong> in Natsu — even with <strong>both yokozuna kyujo</strong> and new ozeki Aonishiki absent, three top-of-banzuke picks that were guaranteed zeros. The kicker: the 83-point Natsu yusho would have finished only <strong>5th</strong> in Hatsu. Same number, different league.`
+    winner: `Avg: ${bashoAvgs.hatsu?.toFixed(1)} → ${bashoAvgs.haru?.toFixed(1)} → ${bashoAvgs.natsu?.toFixed(1)} → ${bashoAvgs.nagoya?.toFixed(1)}`,
+    body: `Per-team average fell off a cliff when rosters shrank from 5 picks to 4 (Hatsu <strong>${bashoAvgs.hatsu?.toFixed(1)}</strong> → Haru <strong>${bashoAvgs.haru?.toFixed(1)}</strong>), sat flat through Natsu,
+    then jumped to <strong>${bashoAvgs.nagoya?.toFixed(1)}</strong> in Nagoya — the best 4-man-roster basho yet. The reason is simple: for the first time since January there were
+    <strong>actual healthy stars to pick</strong>. Hoshoryu, Onosato, Kirishima and Kotozakura all scored, where Natsu's entire top three of the banzuke had produced a combined zero.`
   });
 
-  // Richard's symmetry — 83 pts in both Hatsu and Natsu
+  // Yokozuna finally showed up
   insights.push({
-    icon: '🎴', title: 'Richard\'s 83-Point Twin',
+    icon: '⛩️', title: 'The Yokozuna Came Back (Mostly)',
+    border: 'var(--accent2)',
+    winner: 'Hoshoryu 14 pts · Onosato 18 pts',
+    body: `After a Natsu in which <strong>both yokozuna produced literally nothing</strong>, Nagoya's pair combined for <strong>32 fantasy points</strong>. And still —
+    <em>not a single Dagi Liga manager picked either of them, on any of the fifteen days</em>. The league got so used to the top of the banzuke being radioactive that
+    it kept avoiding it even after the radiation stopped. Onosato's 18 points went entirely unclaimed.`
+  });
+
+  // The Fujinokawa private stash
+  insights.push({
+    icon: '🕵️', title: 'The Private Stash',
+    border: '#f9c74f',
+    winner: 'Fujinokawa — owned by exactly one manager, all 15 days',
+    body: `Maegashira 1 East <strong>Fujinokawa</strong> collected <strong>two kinbōshi</strong> — beating a yokozuna on Day 2 <em>and</em> Day 3 — and walked off with the
+    <strong>Shukun-shō</strong> (Outstanding Performance). Total haul: <strong>19 fantasy points</strong>. Number of managers who owned him: <strong>one</strong>.
+    Richard rode him from Day 1 to senshūraku while seven other teams watched. Best contrarian call of the basho — it just wasn't enough to defend the title.`
+  });
+
+  // Yusho playoff — Nagoya
+  insights.push({
+    icon: '⚔️', title: 'A Three-Way Playoff Decided Nagoya',
     border: 'var(--gold)',
-    winner: 'Hatsu 83 (5th) = Natsu 83 (1st)',
-    body: `<strong>Richard Fejes</strong> scored <strong>exactly 83 points</strong> in both Hatsu and Natsu. In Hatsu it finished <strong>5th</strong>. In Natsu it took the <strong>yusho</strong>. Same effort, completely different result — a perfect snapshot of how much the league's scoring environment has cooled.`
+    winner: 'Aonishiki def. Atamifuji & Kirishima',
+    body: `Three men finished regulation at <strong>12–3</strong>, forcing a rare three-way kettei-sen. <strong>Aonishiki</strong> — sekiwake, 22 years old, from Ukraine — came through it
+    for his <strong>first Emperor's Cup</strong>, having been beaten by Atamifuji in the last regulation bout of the day. He was also the basho's top fantasy scorer at <strong>29 points</strong>,
+    and both of Dagi Liga's top two teams owned him.`
   });
 
-  // Yokozuna wipeout note
+  // The senshuraku bonanza
   insights.push({
-    icon: '😵', title: 'Both Yokozuna Sat Out Natsu',
-    border: '#f55',
-    winner: 'Hoshoryu 0-1-14 · Onosato 0-0-15',
-    body: `For the entire Natsu basho, <strong>neither yokozuna was on the dohyo</strong>. Hoshoryu pulled out after losing his Day 1 bout (hamstring). Onosato never started. Add in new ozeki Aonishiki (also absent the whole tournament) and the entire top three of the banzuke contributed zero fantasy points to anyone who picked them.`
+    icon: '💰', title: 'Senshūraku Paid Rent for the Whole Basho',
+    border: 'var(--accent)',
+    winner: 'Day 15: 61 league points — Day 13: 26',
+    body: `A normal Nagoya day paid the league about <strong>38 points</strong>. Senshūraku paid <strong>61</strong> — more than Days 12 and 13 <em>combined</em> —
+    because the playoff bouts counted as extra wins and five sanshō bonuses landed at once. Half the league — including the entire podium — posted its best day of the basho on senshūraku.
+    Fifteen days of careful management, and the tournament still resolved itself in one afternoon.`
   });
 
-  // Yusho playoff
+  // Dorka's sansho harvest
   insights.push({
-    icon: '⚔️', title: 'A Yusho Playoff Decided Natsu',
-    border: 'var(--gold)',
-    winner: 'Wakatakakage def. Kirishima',
-    body: `<strong>Wakatakakage (Komusubi East)</strong> and <strong>Kirishima (Ozeki East)</strong> both finished regulation at 12-3, forcing a yusho-kettei-sen playoff. Wakatakakage won the head-to-head bout — his second top-division title, completing his comeback from 2023 ACL reconstruction. He also took the Ginosho (Technique Prize), his 6th career.`
+    icon: '🎖️', title: 'Dorka Bought Three-Fifths of the Sanshō',
+    border: '#9b5de5',
+    winner: 'Atamifuji + Takayasu + Kotoeiho on senshūraku',
+    body: `Five special prizes were handed out in Nagoya. <strong>Dorka</strong> had <strong>three of the winners</strong> in her four-man Day 15 lineup, which is how the Tokások
+    posted <strong>11 points</strong> — the second-best single day of the entire basho — and vaulted from 5th to <strong>3rd</strong> on the final afternoon.
+    Nobody else had more than two prize-winners on the day.`
+  });
+
+  // The day the league agreed
+  insights.push({
+    icon: '🤝', title: 'Day 12: The Day Everyone Agreed',
+    border: '#43aa8b',
+    winner: 'Six of eight teams scored exactly 4',
+    body: `On Thursday, July 23, the entire league's spread was <strong>two points wide</strong>: six teams on 4, two on 2 — a six-way tie for the daily win and the
+    lowest-variance day of the season. The only thing that moved in the whole standings was Richard edging past Kövér utcai Uszoda for 5th.
+    A full day of professional sumo, and the table barely noticed.`
   });
 
   // F1-style points projection
@@ -2932,54 +3053,114 @@ function renderInsights() {
     ${projected[0].name !== byTotal[0].name ? "<strong>The standings would shuffle!</strong> Missed bashos matter a lot." : "Same leader — they earned it!"}`
   });
 
-  // Dorka's arc — three bashos
-  const dorka = players.find(p => p.name === 'Dorka FJ');
-  if (dorka && dorka.scores.natsu) {
+  // Csilla's estimated points — explained openly
+  const csilla = players.find(p => p.name === 'Csilla Virág');
+  if (csilla && csilla.adjusted && csilla.adjusted.nagoya) {
+    const a = csilla.adjusted.nagoya;
     insights.push({
-      icon: '⚔️', title: 'Dorka\'s Three-Basho Arc',
-      border: '#9b5de5',
-      winner: `Hatsu #${dorka.bashoRanks.hatsu} → Haru #${dorka.bashoRanks.haru} → Natsu #${dorka.bashoRanks.natsu}`,
-      body: `<strong>Dorka FJ</strong>: ${dorka.scores.hatsu} → ${dorka.scores.haru} → ${dorka.scores.natsu}. A six-place leap from #${dorka.bashoRanks.hatsu} in Hatsu to #${dorka.bashoRanks.haru} in Haru, then a slide back to #${dorka.bashoRanks.natsu} in Natsu.
-      The Tokások missed the breakthrough Natsu picks (only Takanosho and Atamifuji scored on senshuraku) but stayed mid-pack. The total of ${dorka.totalPoints} is still very much in the season conversation.`
+      icon: '🫥', title: 'The Twenty-Point Ghost',
+      border: '#ff6b6b',
+      winner: `Csilla: ${a.raw} scored + ${a.added} estimated = ${a.raw + a.added}`,
+      body: `<strong>Csilla</strong> didn't register a lineup until Day 6 and banked five consecutive zeros to start Nagoya. From Day 6 on she never changed a pick, so we ran that
+      exact roster — <em>Yoshinofuji · Churanoumi · Shodai · Takerufuji</em> — back through the missing days at the real box scores: <strong>4 + 0 + 6 + 4 + 6 = 20</strong>.
+      Credited as an adjustment (marked <span class="adj-star">*</span> in the standings) so the season race stays a race.
+      The punchline: her ghost roster would have scored <strong>${a.added}</strong> in five days, while her real one managed ${a.raw} in ten.`
     });
   }
 
-  // Richard's championship moment
+  // Dorka's four-basho arc
+  const dorka = players.find(p => p.name === 'Dorka FJ');
+  if (dorka && dorka.scores.nagoya) {
+    insights.push({
+      icon: '⚔️', title: 'Dorka Keeps Quietly Climbing',
+      border: '#9b5de5',
+      winner: `${dorka.scores.hatsu} → ${dorka.scores.haru} → ${dorka.scores.natsu} → ${dorka.scores.nagoya}`,
+      body: `<strong>Dorka FJ</strong> has never won a basho, never finished last, and never scored below 64. Nagoya was her personal best (<strong>${dorka.scores.nagoya}</strong>, 3rd place)
+      and she got there the hard way: <strong>6th place with two days to go</strong>, then a 6 and an 11 to jump three teams on the final weekend.
+      The Tokások are now ${byTotal[0].totalPoints - dorka.totalPoints} points off the season lead with two bashos to play — the definition of lurking.`
+    });
+  }
+
+  // Richard's title defence
   const richard = players.find(p => p.name === 'Richard Fejes');
   if (richard) {
     insights.push({
-      icon: '🏋️', title: 'Richard\'s Breakthrough',
+      icon: '👑', title: 'The Crown Weighs Something After All',
       border: '#f9c74f',
-      winner: `Natsu Yusho · ${richard.totalPoints} pts (Avg: ${richard.avgPerBasho.toFixed(1)})`,
-      body: `<strong>Richard</strong> climbed every basho: 5th in Hatsu (83), T-3rd in Haru (69), <strong>1st in Natsu (83)</strong>.
-      Tokazachi KSE finally cashed in with a wire-to-wire run — never out of the daily top-3 cumulative ranking from Day 1 onward. The Wakatakakage + Wakanosho call on senshuraku sealed it.`
+      winner: `Richard: Natsu 1st (83) → Nagoya 5th (71)`,
+      body: `<strong>Richard</strong> went into Nagoya as defending champion and season leader, made <strong>more lineup changes than anyone</strong> (four),
+      owned the Shukun-shō winner outright — and still slid to <strong>5th</strong> and lost the season lead. He also owned the basho's cruellest coincidence:
+      his one blank day (Day 13) was the single lowest-scoring day of the tournament for the whole league. When Richard has nothing, nobody has much.`
     });
   }
 
-  // League entropy across three bashos
+  // League entropy across four bashos
   insights.push({
     icon: '🔬', title: 'League Entropy Report',
     border: '#43aa8b',
-    winner: 'Field is compressing',
-    body: `Spread between 1st and last per basho: Hatsu <strong>${87 - 58} pts</strong>, Haru <strong>${73 - 55} pts</strong>, Natsu <strong>${83 - 54} pts</strong>.
-    The gap widened slightly in Natsu (Csilla's slide accounts for most of it), but the <strong>middle of the table is closer than ever</strong> — players 2 through 6 in the season standings are bunched within a narrow band. Nagoya is anyone's basho.`
+    winner: 'Top-heavy, and getting more so',
+    body: `Spread between 1st and last per basho: Hatsu <strong>29 pts</strong>, Haru <strong>18</strong>, Natsu <strong>29</strong>, Nagoya <strong>30</strong>.
+    Nagoya is the widest basho of the year — but only because of its floor, not its ceiling: strip out Csilla's late start and the other seven teams fit inside <strong>29 points</strong>.
+    In the season table, 4th through 6th are separated by <strong>${byTotal[3].totalPoints - byTotal[5].totalPoints} points</strong> — three managers, three bashos of accumulated effort,
+    and less than a single good day between them.`
   });
 
-  // Three different basho champions
+  // Four bashos, four champions
   insights.push({
-    icon: '🔄', title: 'Three Bashos, Three Champions',
+    icon: '🔄', title: 'Four Bashos, Four Different Champions',
     border: 'var(--accent3)',
-    winner: 'No repeat winner yet',
-    body: `Every basho has crowned someone new: <strong>Hatsu</strong> went to Csilla &amp; Márton (tied at 87), <strong>Haru</strong> to Mátyás's Tokyo Töpörtyűk (73 — the lowest winning score of the season), and <strong>Natsu</strong> to Richard's Tokazachi KSE (83). Nobody has defended a title, and the number it takes to win keeps moving around.`
+    winner: 'Still nobody has defended a title',
+    body: `<strong>Hatsu</strong> → Csilla &amp; Márton (tied, 87). <strong>Haru</strong> → Mátyás (73, the lowest winning score of the season).
+    <strong>Natsu</strong> → Richard (83). <strong>Nagoya</strong> → Márk (86). Four tournaments, four names on the trophy, and the winning number has bounced
+    87 → 73 → 83 → 86. Better still, no champion has followed up: Haru's winner Mátyás came <strong>6th</strong> in Natsu, and Natsu's winner Richard came <strong>5th</strong> in Nagoya.
+    <strong>The Dagi Liga curse is real.</strong> Márk has been warned.`
   });
 
   // DigiDagi's volatility arc
   insights.push({
-    icon: '🎢', title: 'DigiDagi\'s Whiplash',
+    icon: '🎢', title: 'DigiDagi\'s Whiplash, Part IV',
     border: '#577590',
-    winner: 'Sándor: 86 → 57 → 70',
-    body: `<strong>Sándor Szilágyi</strong> has the season's most violent ride: 3rd in Hatsu (86), then a <strong>29-point faceplant</strong> to a league-worst 57 in Haru — the steepest basho-to-basho drop of any ever-present player — before bouncing back to 70 (T-3rd) in Natsu. Maximum variance, fully recovered.`
+    winner: 'Sándor: 86 → 57 → 70 → 84',
+    body: `<strong>Sándor Szilágyi</strong> owns both the steepest fall (−29, Hatsu to Haru) and now the joint-steepest rise (+14, Natsu to Nagoya) in league history.
+    His four scores have a standard deviation of about <strong>12</strong> — roughly triple DJ_Pongo's entire four-basho range. And he did it in Nagoya while making
+    <strong>zero lineup changes</strong>, finishing two points short with a roster he last touched before Day 1.`
   });
+
+  // Team names
+  insights.push({
+    icon: '✍️', title: 'The Team-Name Situation Has Escalated',
+    border: 'var(--accent2)',
+    winner: 'Sumo → 相撲 → Σούμο → ᠪᠥᠬᠡ',
+    body: `<strong>Márk</strong> has now cycled his team through Latin, Japanese, Greek and — for his championship basho — <strong>Mongolian vertical script</strong>
+    (ᠪᠥᠬᠡ, <em>böke</em>, "wrestler"). Nobody in the league can type it. Elsewhere: Tarján returned from a basho off as <strong>"Boby"</strong>, with no explanation offered
+    or apparently required; Richard expanded to the full <em>Tokazachi Kövér Sportegyesület (TKS)</em>; and DJ_Pongo quietly dismissed his head coach, dropping
+    "(szakvezető: Ferenczy Dzsákomó)" after one basho in charge.`
+  });
+
+  // The security blanket
+  insights.push({
+    icon: '🧸', title: 'The League Security Blanket',
+    border: 'var(--accent)',
+    winner: 'Takerufuji — 55 of 460 lineup slots',
+    body: `Maegashira 13 West <strong>Takerufuji</strong> appeared in <strong>12% of every pick made in Nagoya</strong>, across <strong>four different teams</strong>, and there was not a single
+    day of the basho on which nobody owned him. He repaid it with a flat 10–5 and <strong>20 points</strong> — decent, unspectacular, exactly what a comfort blanket is for.
+    The genuinely undervalued man: <strong>Shishi</strong> also scored 20 and was picked by <strong>nobody, ever</strong>.`
+  });
+
+  // The Power Rankings joke
+  const marton = players.find(p => p.name === 'Márton Váradi');
+  if (marton) {
+    const outranked = byPower.filter(p => p.powerRating < marton.powerRating && p.scores.nagoya !== undefined);
+    insights.push({
+      icon: '🃏', title: 'The Power Rankings\' Cruellest Joke',
+      border: '#888',
+      winner: `Márton (1 basho) still out-rates ${outranked.length} people who played Nagoya`,
+      body: `<strong>Márton Váradi</strong> has not been seen since January. He has one score on record — <strong>87</strong>, still the highest single basho of 2026 —
+      and even after the participation penalty chews it down to a power rating of <strong>${marton.powerRating.toFixed(1)}</strong>, that is enough to sit above
+      ${outranked.map(p => `<strong>${p.name}</strong>`).join(' and ')}, both of whom actually turned up in July.
+      Showing up is important. Showing up <em>well</em>, apparently, is more important.`
+    });
+  }
 
   let html = '';
   insights.forEach(ins => {
@@ -3008,15 +3189,15 @@ renderInsights();
 // COUNTDOWN TIMER
 // ============================
 (function() {
-  const nagoyaStart = new Date('2026-07-12T10:00:00+09:00'); // JST opening day, Nagoya
+  const akiStart = new Date('2026-09-13T10:00:00+09:00'); // JST opening day, Aki
   const container = document.getElementById('countdown-boxes');
   const wrapper = document.getElementById('countdown-wrapper');
 
   function updateCountdown() {
     const now = new Date();
-    const diff = nagoyaStart - now;
+    const diff = akiStart - now;
     if (diff <= 0) {
-      wrapper.querySelector('.countdown-label').innerHTML = '<span class="basho-name">名古屋場所 Nagoya is LIVE!</span> 🟢';
+      wrapper.querySelector('.countdown-label').innerHTML = '<span class="basho-name">秋場所 Aki is LIVE!</span> 🟢';
       container.innerHTML = '';
       return;
     }
