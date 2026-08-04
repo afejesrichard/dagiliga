@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dagi Liga - Nagoya Basho 2026 Analysis</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;600;700&display=swap');
+
+  :root {
+    --bg: #0a0a12;
+    --card: #14142a;
+    --card-hover: #1e1e3a;
+    --accent: #ff6b6b;
+    --accent2: #4ecdc4;
+    --accent3: #ffe66d;
+    --gold: #ffd700;
+    --silver: #c0c0c0;
+    --bronze: #cd7f32;
+    --text: #eee;
+    --text-muted: #888;
+    --border: #2a2a4a;
+    --gradient1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #e94560 100%);
+    padding: 60px 20px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '名古屋';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 220px;
+    font-weight: 900;
+    opacity: 0.04;
+    font-family: 'Noto Sans JP', serif;
+    white-space: nowrap;
+  }
+  .hero h1 { font-size: 3em; font-weight: 900; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+  .hero h1 span { color: var(--accent3); }
+  .hero p { font-size: 1.2em; margin-top: 10px; opacity: 0.85; }
+  .hero .subtitle { font-family: 'Noto Sans JP', serif; font-size: 1.5em; margin-top: 5px; opacity: 0.6; }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-top: 15px;
+    font-size: 0.9em;
+    backdrop-filter: blur(10px);
+  }
+
+  .container { max-width: 1300px; margin: 0 auto; padding: 30px 20px; }
+
+  .section-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+  }
+
+  /* Podium */
+  .podium-section { text-align: center; margin-bottom: 50px; }
+  .podium { display: flex; justify-content: center; align-items: flex-end; gap: 20px; margin: 30px auto; max-width: 700px; }
+  .podium-place { display: flex; flex-direction: column; align-items: center; flex: 1; }
+  .podium-bar {
+    width: 100%; border-radius: 10px 10px 0 0;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 20px 10px; font-weight: 700;
+  }
+  .podium-bar .rank { font-size: 2em; }
+  .podium-bar .pts { font-size: 1.3em; opacity: 0.85; margin-top: 5px; }
+  .podium-name { margin-top: 10px; font-size: 0.95em; text-align: center; }
+  .podium-owner { font-size: 0.8em; color: var(--text-muted); }
+  .p1 .podium-bar { background: linear-gradient(180deg, #ffd700, #b8860b); height: 200px; }
+  .p2 .podium-bar { background: linear-gradient(180deg, #c0c0c0, #808080); height: 160px; }
+  .p3 .podium-bar { background: linear-gradient(180deg, #cd7f32, #8b4513); height: 130px; }
+
+  /* Tables */
+  .standings-table {
+    width: 100%; border-collapse: collapse; margin: 20px 0;
+    background: var(--card); border-radius: 12px; overflow: hidden;
+  }
+  .standings-table th {
+    background: #1a1a3e; padding: 14px 16px; text-align: left;
+    font-weight: 700; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .standings-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .standings-table tr:hover { background: var(--card-hover); }
+  .standings-table .rank-cell { font-weight: 700; font-size: 1.2em; width: 50px; text-align: center; }
+  .rank-1 { color: var(--gold); }
+  .rank-3 { color: var(--bronze); }
+
+  .day-cells { font-size: 0.85em; text-align: center; min-width: 38px; }
+  .day-best { background: rgba(78, 205, 196, 0.3); font-weight: 700; color: var(--accent2); border-radius: 4px; }
+  .day-worst { background: rgba(100, 100, 100, 0.2); color: var(--text-muted); }
+  .day-zero { background: rgba(255, 0, 0, 0.2); color: #f55; font-weight: 700; }
+
+  /* Charts */
+  .chart-container { background: var(--card); border-radius: 12px; padding: 25px; margin: 20px 0; }
+  .chart-wrapper { position: relative; height: 450px; }
+
+  /* Awards */
+  .awards-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px; margin: 20px 0;
+  }
+  .award-card {
+    background: var(--card); border-radius: 16px; padding: 25px;
+    border-top: 4px solid var(--accent); transition: transform 0.2s; position: relative; overflow: hidden;
+  }
+  .award-card:hover { transform: translateY(-4px); }
+  .award-card::after {
+    content: ''; position: absolute; top: 0; right: 0; width: 100px; height: 100px;
+    background: radial-gradient(circle at top right, rgba(255,107,107,0.08), transparent 70%);
+  }
+  .award-card .award-icon { font-size: 2.5em; margin-bottom: 12px; }
+  .award-card .award-title { font-weight: 700; font-size: 1.15em; margin-bottom: 8px; color: var(--accent3); }
+  .award-card .award-winner { font-size: 1.3em; font-weight: 700; color: var(--accent2); margin-bottom: 8px; }
+  .award-card .award-body { color: var(--text-muted); line-height: 1.6; font-size: 0.95em; }
+  .award-card .award-stat { color: var(--text); font-weight: 600; }
+  .award-card.gold-border { border-top-color: var(--gold); }
+  .award-card.teal-border { border-top-color: var(--accent2); }
+  .award-card.pink-border { border-top-color: #f093fb; }
+  .award-card.red-border { border-top-color: #f5576c; }
+
+  /* Momentum sparklines */
+  .momentum-row { display: flex; gap: 3px; margin-top: 8px; flex-wrap: wrap; }
+  .momentum-block {
+    width: 22px; height: 22px; border-radius: 4px; display: flex; align-items: center;
+    justify-content: center; font-size: 0.65em; font-weight: 700;
+  }
+
+  /* H2H */
+  .h2h-controls { display: flex; gap: 15px; flex-wrap: wrap; margin: 20px 0; align-items: center; }
+  .h2h-controls select {
+    background: var(--card); color: var(--text); border: 1px solid var(--border);
+    padding: 10px 15px; border-radius: 8px; font-size: 1em; cursor: pointer;
+  }
+  .h2h-controls span { font-size: 1.2em; font-weight: 700; }
+
+  /* Rikishi */
+  /* Daily lineups */
+  .lu-team { background: var(--card); border-radius: 12px; padding: 18px; margin: 14px 0; border-left: 4px solid var(--accent2); }
+  .lu-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .lu-name { font-weight: 700; font-size: 1.05em; }
+  .lu-meta { font-size: 0.82em; color: var(--text-muted); }
+  .lu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+  .lu-day { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 8px 10px; }
+  .lu-day-head { display: flex; justify-content: space-between; font-size: 0.75em; color: var(--text-muted); margin-bottom: 5px; letter-spacing: 0.5px; }
+  .lu-day-pts { font-weight: 800; color: var(--accent3); }
+  .lu-pick { font-size: 0.8em; padding: 2px 5px; border-radius: 4px; margin-bottom: 2px; display: flex; justify-content: space-between; gap: 6px; }
+  .lu-win { background: rgba(78,205,196,0.16); color: #7fe6df; }
+  .lu-loss { background: rgba(255,107,107,0.12); color: #ff9b9b; }
+  .lu-bonus { box-shadow: inset 0 0 0 1px var(--gold); }
+  .lu-empty { font-size: 0.78em; color: #666; font-style: italic; padding: 8px 2px; }
+  .lu-swap { font-size: 0.65em; background: var(--gold); color: #111; border-radius: 3px; padding: 1px 4px; font-weight: 800; letter-spacing: 0.5px; }
+  .rikishi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin: 20px 0; }
+  .rikishi-card {
+    background: var(--card); border-radius: 8px; padding: 15px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .rikishi-card .name { font-weight: 600; font-size: 0.9em; }
+  .rikishi-card .rank-label { font-size: 0.75em; color: var(--text-muted); }
+  .rikishi-card .total { font-weight: 700; font-size: 1.3em; color: var(--accent); }
+
+  /* Yusho banner */
+  .yusho-banner {
+    background: linear-gradient(135deg, #4a0e0e 0%, #8b0000 35%, #d4af37 100%);
+    border-radius: 16px; padding: 30px; margin: 20px 0 35px;
+    border: 2px solid var(--gold); position: relative; overflow: hidden;
+  }
+  .yusho-banner::before {
+    content: '優勝'; position: absolute; top: -20px; right: -10px;
+    font-size: 140px; opacity: 0.12; font-family: 'Noto Sans JP', serif;
+    font-weight: 900;
+  }
+  .yusho-banner h2 { font-size: 1.6em; margin-bottom: 8px; color: var(--gold); }
+  .yusho-banner .winner-name { font-size: 2.2em; font-weight: 900; margin: 5px 0; }
+  .yusho-banner .winner-detail { font-size: 1em; opacity: 0.9; line-height: 1.7; margin-top: 10px; }
+  .yusho-banner .winner-detail strong { color: var(--accent3); }
+
+  /* Tabs */
+  .nav-tabs { display: flex; gap: 5px; margin-bottom: 25px; flex-wrap: wrap; }
+  .nav-tab {
+    padding: 10px 20px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; cursor: pointer; font-size: 0.95em; transition: all 0.2s;
+  }
+  .nav-tab:hover { background: var(--card-hover); }
+  .nav-tab.active { background: var(--accent); border-color: var(--accent); font-weight: 700; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .mini-bar {
+    display: inline-block; height: 18px; background: var(--accent);
+    border-radius: 3px; vertical-align: middle; margin-left: 5px; transition: width 0.3s;
+  }
+
+  .streak-badge {
+    display: inline-block; padding: 2px 8px; border-radius: 10px;
+    font-size: 0.75em; font-weight: 700; margin: 2px;
+  }
+  .streak-hot { background: rgba(255,107,107,0.2); color: #ff6b6b; }
+  .streak-cold { background: rgba(100,150,255,0.2); color: #6b9bff; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.8em; }
+    .podium { gap: 10px; }
+    .chart-wrapper { height: 300px; }
+    .standings-table { font-size: 0.78em; }
+    .awards-grid { grid-template-columns: 1fr; }
+    .yusho-banner .winner-name { font-size: 1.6em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="index.html" style="display:inline-flex; align-items:center; gap:6px; color:#eee; text-decoration:none; font-size:0.95em; opacity:0.7; transition:opacity 0.2s; margin-bottom:12px;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">← Back to Season Overview</a>
+  <h1><span>Dagi Liga</span></h1>
+  <p>Fantasy Basho - Nagoya 2026 Complete Analysis</p>
+  <div class="subtitle">名古屋場所 2026 - Nagoya · IG Arena</div>
+  <div class="badge">8 Teams | 15 Days | 42 Rikishi | 1 Champion | Three-Way Yusho Playoff</div>
+</div>
+
+<div class="container">
+
+  <!-- YUSHO BANNER -->
+  <div class="yusho-banner">
+    <h2>🏆 Makuuchi Yusho — Aonishiki (12-3)</h2>
+    <div class="winner-name">安青錦 Aonishiki</div>
+    <div class="winner-detail">
+      West Sekiwake · Ajigawa Stable · <strong>maiden top-division championship</strong>, taken out of a rare <strong>three-way yusho-kettei-sen</strong> against sekiwake <strong>Atamifuji</strong> and ozeki <strong>Kirishima</strong> — all three finished regulation at 12-3. The 22-year-old from Vinnytsia, Ukraine lost his final regulation bout to Atamifuji and then beat him in the playoff to take the Emperor's Cup anyway. He also collected the <strong>Ginosho (Technique Prize)</strong>.
+      <br><br>
+      <span style="opacity:0.85">Sansho special prizes: Shukunsho to <strong>Fujinokawa (M1E)</strong>, who took two kinboshi off the yokozuna · Kantosho shared by <strong>Atamifuji</strong>, <strong>Kotoeiho</strong> and <strong>Takayasu</strong> · Ginosho to Aonishiki. Yokozuna Hoshoryu went kyujo after Day 13.</span>
+    </div>
+  </div>
+
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showTab('overview',this)">Overview</div>
+    <div class="nav-tab" onclick="showTab('daily',this)">Day-by-Day</div>
+    <div class="nav-tab" onclick="showTab('cumulative',this)">The Race</div>
+    <div class="nav-tab" onclick="showTab('h2h',this)">Head-to-Head</div>
+    <div class="nav-tab" onclick="showTab('momentum',this)">Momentum</div>
+    <div class="nav-tab" onclick="showTab('lineups',this)">Daily Lineups</div>
+    <div class="nav-tab" onclick="showTab('rikishi',this)">Rikishi Stats</div>
+    <div class="nav-tab" onclick="showTab('awards',this)">Awards & Fun Facts</div>
+  </div>
+
+  <div id="tab-overview" class="tab-content active">
+    <div class="podium-section">
+      <div class="section-title">Final Standings</div>
+      <div class="podium">
+        <div class="podium-place p2">
+          <div class="podium-bar"><div class="rank">2</div><div class="pts">84 pts</div></div>
+          <div class="podium-name">DigiDagi</div>
+          <div class="podium-owner">Sándor Szilágyi</div>
+        </div>
+        <div class="podium-place p1">
+          <div class="podium-bar"><div class="rank">1</div><div class="pts">86 pts</div></div>
+          <div class="podium-name">ᠪᠥᠬᠡ <span style="font-size:0.65em;opacity:0.75">(böke)</span></div>
+          <div class="podium-owner">Márk Vrabély</div>
+        </div>
+        <div class="podium-place p3">
+          <div class="podium-bar"><div class="rank">3</div><div class="pts">73 pts</div></div>
+          <div class="podium-name">Tokások</div>
+          <div class="podium-owner">Dorka FJ</div>
+        </div>
+      </div>
+      <p style="color:var(--accent3);margin-top:10px;font-weight:600">First yusho for Márk — level with DigiDagi on 74 going into senshuraku, and settled by a single Maegashira 15.</p>
+    </div>
+    <div id="standings-container"></div>
+    <div style="margin-top:16px;padding:14px 16px;background:rgba(255,214,0,0.07);border:1px solid rgba(255,215,0,0.3);border-radius:10px;color:var(--text-muted);font-size:0.88em;line-height:1.6">
+      <strong style="color:var(--gold)">A note on Csilla's 36.</strong> Every number on this page is <strong>as played</strong>, straight from the Fantasizr box scores.
+      Csilla registered no lineup until Day 6 and took five zeros to start. On the
+      <a href="index.html" style="color:var(--accent2)">season standings</a> she is credited with <strong>56</strong> — the 36 she scored plus the
+      <strong>20</strong> her eventual (and never-changed) roster would have scored on those five days — so that the title race stays a race.
+      See <em>The Twenty-Point Ghost</em> under Awards &amp; Fun Facts.
+    </div>
+  </div>
+
+  <div id="tab-daily" class="tab-content">
+    <div class="section-title">Daily Scores</div>
+    <div class="chart-container"><div class="chart-wrapper"><canvas id="dailyChart"></canvas></div></div>
+    <div id="daily-table-container"></div>
+  </div>
+
+  <div id="tab-cumulative" class="tab-content">
+    <div class="section-title">The Race - Cumulative Points</div>
+    <div class="chart-container"><div class="chart-wrapper"><canvas id="cumulativeChart"></canvas></div></div>
+  </div>
+
+  <div id="tab-h2h" class="tab-content">
+    <div class="section-title">Head-to-Head Comparison</div>
+    <div class="h2h-controls">
+      <select id="h2h-team1"></select><span>vs</span><select id="h2h-team2"></select>
+    </div>
+    <div class="chart-container"><div class="chart-wrapper"><canvas id="h2hChart"></canvas></div></div>
+    <div id="h2h-stats"></div>
+  </div>
+
+  <div id="tab-momentum" class="tab-content">
+    <div class="section-title">Momentum Tracker</div>
+    <p style="color:var(--text-muted);margin-bottom:20px">Each block shows a day's score. Green = above team average, red = below, dark = zero. Hover for details.</p>
+    <div id="momentum-container"></div>
+    <div class="chart-container" style="margin-top:25px"><div class="chart-wrapper"><canvas id="momentumChart"></canvas></div></div>
+  </div>
+
+  <div id="tab-lineups" class="tab-content">
+    <div class="section-title">Daily Lineups — Who Picked Whom, Every Day</div>
+    <p style="color:var(--text-muted);margin-bottom:20px">
+      The complete pick history of the basho: all four rikishi each team fielded on each of the 15 days.
+      <span class="lu-win">Green</span> = the rikishi won that day, <span class="lu-loss">red</span> = lost.
+      A <span class="lu-bonus">gold outline</span> marks a bonus day — a kinbōshi (yokozuna upset) or a sanshō prize.
+      <strong>Swap</strong> tags show where a manager changed their roster from the previous day.
+    </p>
+    <div id="lineups-container"></div>
+  </div>
+
+  <div id="tab-rikishi" class="tab-content">
+    <div class="section-title">Rikishi Performance Rankings</div>
+    <div id="rikishi-container"></div>
+  </div>
+
+  <div id="tab-awards" class="tab-content">
+    <div class="section-title">Awards & Fun Facts</div>
+    <div id="awards-container" class="awards-grid"></div>
+  </div>
+</div>
+
+<script>
+// ========== DATA ==========
+// Daily scores and rosters taken straight from the Fantasizr league box scores (league 5301998695481344).
+// `picks` lists the four-man lineup fielded on each of the 15 days.
+const teams = [
+  { name: "ᠪᠥᠬᠡ", short: "ᠪᠥᠬᠡ (Márk)", owner: "Márk Vrabély", daily: [6,6,8,2,4,6,6,4,6,6,6,4,4,6,12], color: "#f8961e",
+    core: ["Aonishiki","Atamifuji","Takerufuji","Kazuma"], swaps: 0,
+    d15picks: ["Aonishiki","Atamifuji","Takerufuji","Kazuma"] },
+  { name: "DigiDagi", short: "DigiDagi", owner: "Sándor Szilágyi", daily: [6,4,6,2,4,8,6,2,8,6,6,4,6,6,10], color: "#577590",
+    core: ["Aonishiki","Atamifuji","Takerufuji","Onokatsu"], swaps: 0,
+    d15picks: ["Aonishiki","Atamifuji","Takerufuji","Onokatsu"] },
+  { name: "Tokások", short: "Tokások", owner: "Dorka FJ", daily: [2,4,4,2,4,6,6,4,6,8,4,2,4,6,11], color: "#9b5de5",
+    core: ["Atamifuji","Kotoeiho","+2 rotating"], swaps: 3,
+    d15picks: ["Atamifuji","Takayasu","Kotoeiho","Asanoyama"] },
+  { name: "Tokyo Töpörtyűk", short: "Töpörtyűk", owner: "Mátyás Fazakas", daily: [4,6,6,4,4,5,6,4,4,6,6,4,0,6,7], color: "#4ecdc4",
+    core: ["Kirishima","Hakunofuji","+2 rotating"], swaps: 1,
+    d15picks: ["Kirishima","Hakunofuji","Takayasu","Daiseizan"] },
+  { name: "Tokazachi Kövér Sportegyesület (TKS)", short: "Tokazachi TKS", owner: "Richard Fejes", daily: [6,3,7,6,8,2,2,4,8,4,4,4,0,6,7], color: "#f9c74f",
+    core: ["Fujinokawa","Takerufuji","+2 rotating"], swaps: 4,
+    d15picks: ["Fujinokawa","Asahakuryu","Takerufuji","Hakunofuji"] },
+  { name: "Kövér utcai Uszoda", short: "Kövér Uszoda", owner: "DJ_Pongo_Pongo", daily: [4,6,6,9,4,6,6,2,2,6,4,2,4,2,6], color: "#43aa8b",
+    core: ["Kirishima","Gonoyama","Wakanosho","Nishikifuji"], swaps: 0,
+    d15picks: ["Kirishima","Gonoyama","Wakanosho","Nishikifuji"] },
+  { name: "Boby", short: "Boby (Tarján)", owner: "Tarján Teréz", daily: [6,8,2,4,4,3,4,4,4,2,2,4,4,2,4], color: "#f15bb5",
+    core: ["Kotoshoho","Hakunofuji","Wakamotoharu","Abi"], swaps: 0,
+    d15picks: ["Kotoshoho","Hakunofuji","Wakamotoharu","Abi"] },
+  { name: "greatest sumo team ever", short: "GSTE (Csilla)", owner: "Csilla Virág", daily: [0,0,0,0,0,4,2,6,6,2,4,4,4,0,4], color: "#ff6b6b",
+    core: ["no lineup until Day 6"], swaps: 1,
+    d15picks: ["Yoshinofuji","Churanoumi","Shodai","Takerufuji"] }
+];
+
+// What Csilla's eventual (Day 6-15, never changed) roster would have scored on the five days she left empty.
+const csillaGhost = { days: [4,0,6,4,6], total: 20, roster: ["Yoshinofuji","Churanoumi","Shodai","Takerufuji"] };
+
+// Every four-man lineup fielded on every day, straight from the Fantasizr team box scores.
+// Shape: owner -> [day1..day15], each day a list of [rikishi, points]. 0 = lost, 2 = won,
+// 3 = win + kinboshi/prize bonus, 5 = two wins (playoff) + prize. Empty array = no lineup registered.
+const lineups = {
+  "Márk Vrabély": [
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 0], ["Kazuma", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 2]],
+    [["Aonishiki", 0], ["Atamifuji", 0], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 0], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 0], ["Takerufuji", 0], ["Kazuma", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 0], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 0], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 0], ["Kazuma", 2]],
+    [["Aonishiki", 5], ["Atamifuji", 5], ["Takerufuji", 0], ["Kazuma", 2]]
+  ],
+  "Sándor Szilágyi": [
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 0], ["Atamifuji", 0], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 0], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 2], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 0], ["Onokatsu", 0], ["Takerufuji", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 2], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 0], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 2], ["Takerufuji", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 2], ["Takerufuji", 0]],
+    [["Aonishiki", 5], ["Atamifuji", 5], ["Onokatsu", 0], ["Takerufuji", 0]]
+  ],
+  "Dorka FJ": [
+    [["Atamifuji", 2], ["Kotoeiho", 0], ["Mitakeumi", 0], ["Ura", 0]],
+    [["Atamifuji", 2], ["Kotoeiho", 2], ["Mitakeumi", 0], ["Ura", 0]],
+    [["Atamifuji", 2], ["Kotoeiho", 2], ["Mitakeumi", 0], ["Ura", 0]],
+    [["Atamifuji", 0], ["Kotoeiho", 2], ["Takayasu", 0], ["Kazuma", 0]],
+    [["Atamifuji", 0], ["Kotoeiho", 2], ["Takayasu", 2], ["Kazuma", 0]],
+    [["Atamifuji", 2], ["Kotoeiho", 2], ["Takayasu", 2], ["Kazuma", 0]],
+    [["Atamifuji", 2], ["Kotoeiho", 2], ["Takayasu", 2], ["Kazuma", 0]],
+    [["Atamifuji", 0], ["Takayasu", 0], ["Kotoeiho", 2], ["Tobizaru", 2]],
+    [["Atamifuji", 2], ["Takayasu", 2], ["Kotoeiho", 2], ["Tobizaru", 0]],
+    [["Atamifuji", 2], ["Takayasu", 2], ["Kotoeiho", 2], ["Asanoyama", 2]],
+    [["Atamifuji", 2], ["Takayasu", 2], ["Kotoeiho", 0], ["Asanoyama", 0]],
+    [["Atamifuji", 2], ["Takayasu", 0], ["Kotoeiho", 0], ["Asanoyama", 0]],
+    [["Atamifuji", 2], ["Takayasu", 0], ["Kotoeiho", 0], ["Asanoyama", 2]],
+    [["Atamifuji", 2], ["Takayasu", 2], ["Kotoeiho", 2], ["Asanoyama", 0]],
+    [["Atamifuji", 5], ["Takayasu", 3], ["Kotoeiho", 3], ["Asanoyama", 0]]
+  ],
+  "Mátyás Fazakas": [
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Roga", 0], ["Kazuma", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Roga", 0], ["Kazuma", 2]],
+    [["Kirishima", 2], ["Hakunofuji", 0], ["Roga", 2], ["Kazuma", 2]],
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Roga", 0], ["Kazuma", 0]],
+    [["Kirishima", 0], ["Hakunofuji", 2], ["Roga", 2], ["Kazuma", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 3], ["Roga", 0], ["Kazuma", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 0], ["Takayasu", 2], ["Daiseizan", 2]],
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Takayasu", 0], ["Daiseizan", 0]],
+    [["Kirishima", 0], ["Hakunofuji", 2], ["Takayasu", 2], ["Daiseizan", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 0], ["Takayasu", 2], ["Daiseizan", 2]],
+    [["Kirishima", 2], ["Hakunofuji", 0], ["Takayasu", 2], ["Daiseizan", 2]],
+    [["Kirishima", 2], ["Hakunofuji", 0], ["Takayasu", 0], ["Daiseizan", 2]],
+    [["Kirishima", 0], ["Hakunofuji", 0], ["Takayasu", 0], ["Daiseizan", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Takayasu", 2], ["Daiseizan", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Takayasu", 3], ["Daiseizan", 0]]
+  ],
+  "Richard Fejes": [
+    [["Fujinokawa", 0], ["Fujiryoga", 2], ["Takerufuji", 2], ["Yoshinofuji", 2]],
+    [["Fujinokawa", 3], ["Fujiryoga", 0], ["Takerufuji", 0], ["Yoshinofuji", 0]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 3], ["Takerufuji", 2], ["Wakanosho", 2]],
+    [["Yoshinofuji", 2], ["Fujinokawa", 0], ["Takerufuji", 2], ["Wakanosho", 2]],
+    [["Yoshinofuji", 2], ["Fujinokawa", 2], ["Takerufuji", 2], ["Wakanosho", 2]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 0], ["Takerufuji", 2], ["Wakanosho", 0]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 0], ["Takerufuji", 2], ["Wakanosho", 0]],
+    [["Yoshinofuji", 2], ["Fujinokawa", 0], ["Takerufuji", 0], ["Kotoeiho", 2]],
+    [["Yoshinofuji", 2], ["Fujinokawa", 2], ["Takerufuji", 2], ["Kotoeiho", 2]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 0], ["Takerufuji", 2], ["Kotoeiho", 2]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 2], ["Takerufuji", 2], ["Kotoeiho", 0]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 2], ["Takerufuji", 2], ["Kotoeiho", 0]],
+    [["Fujinokawa", 0], ["Kotoeiho", 0], ["Takerufuji", 0], ["Asahakuryu", 0]],
+    [["Fujinokawa", 2], ["Kotoeiho", 2], ["Takerufuji", 0], ["Asahakuryu", 2]],
+    [["Fujinokawa", 3], ["Asahakuryu", 2], ["Takerufuji", 0], ["Hakunofuji", 2]]
+  ],
+  "DJ_Pongo_Pongo": [
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 2], ["Nishikifuji", 0]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 2], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 2], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 3], ["Wakanosho", 2], ["Nishikifuji", 2]],
+    [["Kirishima", 0], ["Gonoyama", 0], ["Wakanosho", 2], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 0], ["Nishikifuji", 0]],
+    [["Kirishima", 0], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 0]],
+    [["Kirishima", 2], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 0], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 0], ["Nishikifuji", 0]],
+    [["Kirishima", 0], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 0], ["Nishikifuji", 0]],
+    [["Kirishima", 2], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 2]]
+  ],
+  "Tarján Teréz": [
+    [["Kotoshoho", 2], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 2]],
+    [["Kotoshoho", 2], ["Hakunofuji", 2], ["Wakamotoharu", 2], ["Abi", 2]],
+    [["Kotoshoho", 2], ["Hakunofuji", 0], ["Wakamotoharu", 0], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 2], ["Wakamotoharu", 2], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 2]],
+    [["Kotoshoho", 0], ["Hakunofuji", 3], ["Wakamotoharu", 0], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 0], ["Wakamotoharu", 2], ["Abi", 2]],
+    [["Kotoshoho", 0], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 2]],
+    [["Kotoshoho", 2], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 0], ["Wakamotoharu", 2], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 0], ["Wakamotoharu", 2], ["Abi", 0]],
+    [["Kotoshoho", 2], ["Hakunofuji", 0], ["Wakamotoharu", 2], ["Abi", 0]],
+    [["Kotoshoho", 2], ["Hakunofuji", 0], ["Wakamotoharu", 0], ["Abi", 2]],
+    [["Kotoshoho", 0], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 2]]
+  ],
+  "Csilla Virág": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [["Yoshinofuji", 0], ["Churanoumi", 0], ["Shodai", 2], ["Takerufuji", 2]],
+    [["Yoshinofuji", 0], ["Churanoumi", 0], ["Shodai", 0], ["Takerufuji", 2]],
+    [["Yoshinofuji", 2], ["Churanoumi", 2], ["Shodai", 2], ["Takerufuji", 0]],
+    [["Yoshinofuji", 2], ["Churanoumi", 2], ["Shodai", 0], ["Takerufuji", 2]],
+    [["Yoshinofuji", 0], ["Churanoumi", 0], ["Shodai", 0], ["Takerufuji", 2]],
+    [["Yoshinofuji", 0], ["Churanoumi", 2], ["Shodai", 0], ["Takerufuji", 2]],
+    [["Yoshinofuji", 0], ["Churanoumi", 2], ["Shodai", 0], ["Takerufuji", 2]],
+    [["Yoshinofuji", 2], ["Churanoumi", 2], ["Shodai", 0], ["Takerufuji", 0]],
+    [["Yoshinofuji", 0], ["Churanoumi", 0], ["Shodai", 0], ["Takerufuji", 0]],
+    [["Yoshinofuji", 0], ["Churanoumi", 2], ["Shodai", 2], ["Takerufuji", 0]]
+  ]
+};
+
+// Calculate derived stats
+teams.forEach(t => {
+  t.total = t.daily.reduce((a,b) => a+b, 0);
+  t.cumulative = []; let sum = 0;
+  t.daily.forEach(d => { sum += d; t.cumulative.push(sum); });
+  t.avg = (t.total / 15);
+  t.best = Math.max(...t.daily);
+  t.worst = Math.min(...t.daily);
+  t.bestDay = t.daily.indexOf(t.best) + 1;
+  t.worstDay = t.daily.indexOf(t.worst) + 1;
+  t.stdev = Math.sqrt(t.daily.reduce((a,d) => a + Math.pow(d - t.avg, 2), 0) / 15);
+  // Streaks
+  t.hotStreak = 0; t.coldStreak = 0;
+  let hs = 0, cs = 0;
+  t.daily.forEach(d => {
+    if(d >= t.avg) { hs++; cs = 0; } else { cs++; hs = 0; }
+    t.hotStreak = Math.max(t.hotStreak, hs);
+    t.coldStreak = Math.max(t.coldStreak, cs);
+  });
+  // First half vs second half
+  t.firstHalf = t.daily.slice(0,7).reduce((a,b) => a+b, 0);
+  t.secondHalf = t.daily.slice(7).reduce((a,b) => a+b, 0);
+  t.winDays = 0;
+});
+
+const sorted = [...teams].sort((a,b) => b.total - a.total);
+
+for(let d = 0; d < 15; d++) {
+  const maxD = Math.max(...teams.map(t => t.daily[d]));
+  teams.forEach(t => { if(t.daily[d] === maxD) t.winDays++; });
+}
+
+const dayLabels = ['D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13','D14','D15'];
+
+// Fantasy points by rikishi (raw from Fantasizr Stats page; "wins" counts ×1 per pick per actual win across all rosters)
+const rikishiStats = [
+  {name:"Aonishiki",rank:"S2W",wins:28,kinboshi:0,prizes:1,total:29},
+  {name:"Atamifuji",rank:"S1E",wins:26,kinboshi:0,prizes:1,total:27},
+  {name:"Kirishima",rank:"OE",wins:24,kinboshi:0,prizes:0,total:24},
+  {name:"Kotoeiho",rank:"M7E",wins:22,kinboshi:0,prizes:1,total:23},
+  {name:"Takayasu",rank:"M7W",wins:22,kinboshi:0,prizes:1,total:23},
+  {name:"Daieisho",rank:"M4E",wins:20,kinboshi:0,prizes:0,total:20},
+  {name:"Fujiryoga",rank:"M9E",wins:20,kinboshi:0,prizes:0,total:20},
+  {name:"Nishikifuji",rank:"M13E",wins:20,kinboshi:0,prizes:0,total:20},
+  {name:"Takerufuji",rank:"M13W",wins:20,kinboshi:0,prizes:0,total:20},
+  {name:"Shishi",rank:"M14W",wins:20,kinboshi:0,prizes:0,total:20},
+  {name:"Fujinokawa",rank:"M1E",wins:16,kinboshi:2,prizes:1,total:19},
+  {name:"Hakunofuji",rank:"M3W",wins:18,kinboshi:1,prizes:0,total:19},
+  {name:"Onosato",rank:"YW",wins:18,kinboshi:0,prizes:0,total:18},
+  {name:"Roga",rank:"M8W",wins:18,kinboshi:0,prizes:0,total:18},
+  {name:"Asanoyama",rank:"M10E",wins:18,kinboshi:0,prizes:0,total:18},
+  {name:"Kinbozan",rank:"M14E",wins:18,kinboshi:0,prizes:0,total:18},
+  {name:"Asakoryu",rank:"M16W",wins:18,kinboshi:0,prizes:0,total:18},
+  {name:"Kotozakura",rank:"OW",wins:16,kinboshi:0,prizes:0,total:16},
+  {name:"Gonoyama",rank:"M2E",wins:14,kinboshi:1,prizes:0,total:15},
+  {name:"Hoshoryu",rank:"YE",wins:14,kinboshi:0,prizes:0,total:14},
+  {name:"Churanoumi",rank:"M2W",wins:14,kinboshi:0,prizes:0,total:14},
+  {name:"Oshoma",rank:"M5W",wins:14,kinboshi:0,prizes:0,total:14},
+  {name:"Fujiseiun",rank:"M6W",wins:14,kinboshi:0,prizes:0,total:14},
+  {name:"Asahakuryu",rank:"M12E",wins:14,kinboshi:0,prizes:0,total:14},
+  {name:"Abi",rank:"M12W",wins:14,kinboshi:0,prizes:0,total:14},
+  {name:"Kotoshoho",rank:"S1W",wins:12,kinboshi:0,prizes:0,total:12},
+  {name:"Yoshinofuji",rank:"KE",wins:12,kinboshi:0,prizes:0,total:12},
+  {name:"Takanosho",rank:"M1W",wins:12,kinboshi:0,prizes:0,total:12},
+  {name:"Ichiyamamoto",rank:"M4W",wins:12,kinboshi:0,prizes:0,total:12},
+  {name:"Wakamotoharu",rank:"M8E",wins:12,kinboshi:0,prizes:0,total:12},
+  {name:"Daiseizan",rank:"M16E",wins:12,kinboshi:0,prizes:0,total:12},
+  {name:"Ura",rank:"M5E",wins:10,kinboshi:0,prizes:0,total:10},
+  {name:"Shodai",rank:"M6E",wins:10,kinboshi:0,prizes:0,total:10},
+  {name:"Tobizaru",rank:"M9W",wins:10,kinboshi:0,prizes:0,total:10},
+  {name:"Chiyoshoma",rank:"M10W",wins:10,kinboshi:0,prizes:0,total:10},
+  {name:"Wakanosho",rank:"M11E",wins:10,kinboshi:0,prizes:0,total:10},
+  {name:"Kazuma",rank:"M15W",wins:10,kinboshi:0,prizes:0,total:10},
+  {name:"Hiradoumi",rank:"M3E",wins:8,kinboshi:0,prizes:0,total:8},
+  {name:"Onokatsu",rank:"M15E",wins:8,kinboshi:0,prizes:0,total:8},
+  {name:"Oho",rank:"KW",wins:4,kinboshi:0,prizes:0,total:4},
+  {name:"Mitakeumi",rank:"M11W",wins:4,kinboshi:0,prizes:0,total:4},
+  {name:"Wakatakakage",rank:"S2E",wins:0,kinboshi:0,prizes:0,total:0}
+];
+
+// Total lineup slots filled across the basho (Csilla left 5 days x 4 empty) -> 460
+const pickSlots = [
+  {name:"Takerufuji",slots:55,pts:72,owners:4},
+  {name:"Atamifuji",slots:45,pts:81,owners:3},
+  {name:"Hakunofuji",slots:31,pts:40,owners:3},
+  {name:"Aonishiki",slots:30,pts:58,owners:2},
+  {name:"Kirishima",slots:30,pts:48,owners:2},
+  {name:"Kazuma",slots:25,pts:14,owners:3},
+  {name:"Kotoeiho",slots:22,pts:31,owners:2},
+  {name:"Yoshinofuji",slots:22,pts:16,owners:2},
+  {name:"Takayasu",slots:21,pts:30,owners:2},
+  {name:"Wakanosho",slots:20,pts:16,owners:2},
+  {name:"Fujinokawa",slots:15,pts:19,owners:1},
+  {name:"Gonoyama",slots:15,pts:15,owners:1},
+  {name:"Nishikifuji",slots:15,pts:20,owners:1},
+  {name:"Kotoshoho",slots:15,pts:12,owners:1},
+  {name:"Wakamotoharu",slots:15,pts:12,owners:1},
+  {name:"Abi",slots:15,pts:14,owners:1},
+  {name:"Onokatsu",slots:15,pts:8,owners:1},
+  {name:"Churanoumi",slots:10,pts:12,owners:1},
+  {name:"Shodai",slots:10,pts:6,owners:1},
+  {name:"Daiseizan",slots:9,pts:8,owners:1},
+  {name:"Asanoyama",slots:6,pts:4,owners:1},
+  {name:"Roga",slots:6,pts:4,owners:1},
+  {name:"Mitakeumi",slots:3,pts:0,owners:1},
+  {name:"Ura",slots:3,pts:0,owners:1},
+  {name:"Asahakuryu",slots:3,pts:4,owners:1},
+  {name:"Tobizaru",slots:2,pts:2,owners:1},
+  {name:"Fujiryoga",slots:2,pts:2,owners:1}
+];
+
+// ========== TAB SWITCHING ==========
+function showTab(tab, el) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  el.classList.add('active');
+}
+
+// ========== STANDINGS ==========
+function renderStandings() {
+  let html = '<table class="standings-table"><thead><tr><th>#</th><th>Team</th><th>Owner</th>';
+  for(let i=1;i<=15;i++) html += `<th class="day-cells">D${i}</th>`;
+  html += '<th>Total</th><th>Avg</th><th>σ</th></tr></thead><tbody>';
+  sorted.forEach((t, i) => {
+    const rc = i===0?'rank-1':i<3?'rank-3':'';
+    html += `<tr><td class="rank-cell ${rc}">${i+1}</td><td style="font-weight:600;color:${t.color}">${t.name}</td><td style="color:var(--text-muted)">${t.owner}</td>`;
+    t.daily.forEach((d, di) => {
+      const dayMax = Math.max(...teams.map(t2 => t2.daily[di]));
+      const dayMin = Math.min(...teams.map(t2 => t2.daily[di]));
+      let cls = 'day-cells';
+      if(d === dayMax && d > 0) cls += ' day-best';
+      else if(d === 0) cls += ' day-zero';
+      else if(d === dayMin) cls += ' day-worst';
+      html += `<td class="${cls}">${d}</td>`;
+    });
+    html += `<td style="font-weight:700;font-size:1.1em">${t.total}</td>`;
+    html += `<td>${t.avg.toFixed(1)}</td>`;
+    html += `<td style="color:var(--text-muted)">${t.stdev.toFixed(1)}</td>`;
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById('standings-container').innerHTML = html;
+}
+
+// ========== DAILY CHART ==========
+function renderDailyChart() {
+  new Chart(document.getElementById('dailyChart').getContext('2d'), {
+    type: 'bar',
+    data: { labels: dayLabels, datasets: sorted.slice(0,5).map(t => ({
+      label: t.short, data: t.daily, backgroundColor: t.color + '99', borderColor: t.color, borderWidth: 1
+    }))},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#eee', font: { size: 12 } } },
+        title: { display: true, text: 'Daily Scores - Top 5', color: '#eee', font: { size: 16 } } },
+      scales: { x: { ticks: { color: '#aaa' }, grid: { color: '#2a2a4a' } },
+        y: { ticks: { color: '#aaa' }, grid: { color: '#2a2a4a' }, beginAtZero: true } }
+    }
+  });
+  let html = '<div style="margin-top:20px">';
+  for(let day=0;day<15;day++){
+    const dr=[...teams].sort((a,b)=>b.daily[day]-a.daily[day]);
+    const max=dr[0].daily[day];
+    html+=`<details style="margin:8px 0;background:var(--card);border-radius:8px"><summary style="padding:12px 16px;cursor:pointer;font-weight:600">Day ${day+1} — Winner: ${dr.filter(t=>t.daily[day]===max).map(t=>t.short).join(' & ')} (${max} pts)</summary><div style="padding:0 16px 12px">`;
+    dr.forEach((t,i)=>{
+      const pct=max>0?(t.daily[day]/max*100):0;
+      html+=`<div style="display:flex;align-items:center;gap:10px;padding:4px 0"><span style="width:20px;color:var(--text-muted)">${i+1}.</span><span style="width:180px;color:${t.color};font-weight:600;font-size:0.9em">${t.short}</span><div class="mini-bar" style="width:${pct}%;background:${t.color}"></div><span style="font-weight:700;min-width:30px">${t.daily[day]}</span></div>`;
+    });
+    html+='</div></details>';
+  }
+  html+='</div>';
+  document.getElementById('daily-table-container').innerHTML = html;
+}
+
+// ========== CUMULATIVE ==========
+function renderCumulativeChart() {
+  new Chart(document.getElementById('cumulativeChart').getContext('2d'), {
+    type: 'line',
+    data: { labels: dayLabels, datasets: sorted.map(t => ({
+      label: t.short + ' (' + t.total + ')', data: t.cumulative,
+      borderColor: t.color, backgroundColor: t.color+'22', fill: false,
+      tension: 0.3, borderWidth: 2.5, pointRadius: 4, pointHoverRadius: 7
+    }))},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { labels: { color: '#eee', font: { size: 11 } } },
+        title: { display: true, text: 'Cumulative Points Race', color: '#eee', font: { size: 16 } },
+        tooltip: { callbacks: { afterBody: function(items) {
+          const di = items[0].dataIndex;
+          const ds = sorted.map(t=>({name:t.short,cum:t.cumulative[di]})).sort((a,b)=>b.cum-a.cum);
+          return '\nRankings:\n'+ds.map((s,i)=>`${i+1}. ${s.name}: ${s.cum}`).join('\n');
+        }}}},
+      scales: { x:{ticks:{color:'#aaa'},grid:{color:'#2a2a4a'}}, y:{ticks:{color:'#aaa'},grid:{color:'#2a2a4a'},beginAtZero:true}}
+    }
+  });
+}
+
+// ========== HEAD TO HEAD ==========
+let h2hChart = null;
+function renderH2H() {
+  const s1=document.getElementById('h2h-team1'),s2=document.getElementById('h2h-team2');
+  sorted.forEach((t,i)=>{
+    s1.innerHTML+=`<option value="${i}">${t.name}</option>`;
+    s2.innerHTML+=`<option value="${i}" ${i===1?'selected':''}>${t.name}</option>`;
+  });
+  s1.onchange=s2.onchange=updateH2H;
+  updateH2H();
+}
+function updateH2H() {
+  const t1=sorted[document.getElementById('h2h-team1').value];
+  const t2=sorted[document.getElementById('h2h-team2').value];
+  const ctx=document.getElementById('h2hChart').getContext('2d');
+  if(h2hChart) h2hChart.destroy();
+  h2hChart=new Chart(ctx,{type:'bar',data:{labels:dayLabels,datasets:[
+    {label:t1.short,data:t1.daily,backgroundColor:t1.color+'aa',borderColor:t1.color,borderWidth:1},
+    {label:t2.short,data:t2.daily,backgroundColor:t2.color+'aa',borderColor:t2.color,borderWidth:1}
+  ]},options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{labels:{color:'#eee'}},title:{display:true,text:`${t1.short} vs ${t2.short}`,color:'#eee',font:{size:16}}},
+    scales:{x:{ticks:{color:'#aaa'},grid:{color:'#2a2a4a'}},y:{ticks:{color:'#aaa'},grid:{color:'#2a2a4a'},beginAtZero:true}}}});
+  const diff=t1.daily.map((d,i)=>d-t2.daily[i]);
+  let w1=0,w2=0,ties=0;
+  diff.forEach(d=>{if(d>0)w1++;else if(d<0)w2++;else ties++;});
+  let html=`<div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:15px">`;
+  html+=`<div class="award-card" style="flex:1"><div class="award-title">Day Wins</div><div class="award-body"><span style="color:${t1.color};font-weight:700">${t1.short}: ${w1}</span> | <span style="color:${t2.color};font-weight:700">${t2.short}: ${w2}</span> | Ties: ${ties}</div></div>`;
+  html+=`<div class="award-card" style="flex:1"><div class="award-title">Totals</div><div class="award-body"><span style="color:${t1.color};font-weight:700">${t1.total}</span> vs <span style="color:${t2.color};font-weight:700">${t2.total}</span></div></div>`;
+  html+=`</div>`;
+  document.getElementById('h2h-stats').innerHTML=html;
+}
+
+// ========== MOMENTUM ==========
+function renderMomentum() {
+  let html = '';
+  sorted.forEach(t => {
+    html += `<div style="background:var(--card);border-radius:12px;padding:20px;margin:12px 0">`;
+    html += `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:10px">`;
+    html += `<span style="font-weight:700;color:${t.color}">${t.name}</span>`;
+    html += `<span style="font-size:0.85em;color:var(--text-muted)">Hot streak: <span class="streak-badge streak-hot">${t.hotStreak}d</span> Cold streak: <span class="streak-badge streak-cold">${t.coldStreak}d</span></span>`;
+    html += `</div>`;
+    html += `<div class="momentum-row">`;
+    t.daily.forEach((d,i) => {
+      const isAbove = d >= t.avg;
+      const intensity = d === 0 ? 0 : Math.min(d / 10, 1);
+      const bg = d === 0 ? '#333' : isAbove ?
+        `rgba(78,205,196,${0.3 + intensity * 0.5})` :
+        `rgba(255,107,107,${0.2 + intensity * 0.3})`;
+      html += `<div class="momentum-block" style="background:${bg}" title="Day ${i+1}: ${d} pts (avg: ${t.avg.toFixed(1)})">${d}</div>`;
+    });
+    html += `</div>`;
+    html += `<div style="margin-top:8px;font-size:0.8em;color:var(--text-muted)">`;
+    html += `1st half (D1-7): ${t.firstHalf} pts | 2nd half (D8-15): ${t.secondHalf} pts | `;
+    html += t.secondHalf > t.firstHalf ? `<span style="color:#4ecdc4">↗ Getting stronger (+${t.secondHalf-t.firstHalf})</span>` :
+      t.secondHalf < t.firstHalf ? `<span style="color:#ff6b6b">↘ Fading (${t.secondHalf-t.firstHalf})</span>` :
+      `<span>→ Steady</span>`;
+    html += `</div></div>`;
+  });
+  document.getElementById('momentum-container').innerHTML = html;
+
+  new Chart(document.getElementById('momentumChart').getContext('2d'), {
+    type: 'line',
+    data: { labels: dayLabels.slice(2), datasets: sorted.slice(0,5).map(t => {
+      const ma = [];
+      for(let i=2;i<15;i++) ma.push(((t.daily[i-2]+t.daily[i-1]+t.daily[i])/3).toFixed(1));
+      return { label: t.short, data: ma, borderColor: t.color, borderWidth: 2.5, tension: 0.4, pointRadius: 3, fill: false };
+    })},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#eee' } },
+        title: { display: true, text: '3-Day Moving Average (Top 5)', color: '#eee', font: { size: 16 } } },
+      scales: { x:{ticks:{color:'#aaa'},grid:{color:'#2a2a4a'}}, y:{ticks:{color:'#aaa'},grid:{color:'#2a2a4a'}} }
+    }
+  });
+}
+
+// ========== RIKISHI ==========
+function renderRikishi() {
+  const topR = [...rikishiStats].sort((a,b) => b.total - a.total);
+  const maxT = topR[0].total;
+  let html = '<div class="rikishi-grid">';
+  topR.forEach((r,i) => {
+    const barW = (r.total / maxT * 100);
+    const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
+    const extras = [];
+    if(r.kinboshi > 0) extras.push(`<span style="color:var(--gold);font-size:0.8em">+${r.kinboshi}K</span>`);
+    if(r.prizes > 0) extras.push(`<span style="color:var(--accent2);font-size:0.8em">+${r.prizes}P</span>`);
+    html += `<div class="rikishi-card"><div><div class="name">${medal} ${r.name} ${extras.join(' ')}</div><div class="rank-label">${r.rank} | W:${r.wins} | Total:${r.total}</div>
+      <div style="margin-top:5px;height:6px;background:#333;border-radius:3px;width:120px"><div style="height:100%;width:${barW}%;background:var(--accent2);border-radius:3px"></div></div>
+    </div><div class="total">${r.total}</div></div>`;
+  });
+  html += '</div>';
+
+  // Ownership across the whole basho
+  const byValue = [...pickSlots].filter(p => p.slots >= 10).sort((a,b) => (b.pts/b.slots) - (a.pts/a.slots));
+  html += '<h3 style="margin-top:30px;margin-bottom:6px">Who The League Actually Owned</h3>';
+  html += '<p style="color:var(--text-muted);margin-bottom:15px;font-size:0.9em">All 460 lineup slots filled across 15 days. "Return" is fantasy points per slot — a rikishi who won every day would return 2.00.</p>';
+  html += '<div style="overflow-x:auto"><table class="standings-table"><thead><tr><th>Rikishi</th><th>Slots</th><th>Points</th><th>Return</th><th>Owners</th></tr></thead><tbody>';
+  byValue.forEach(p => {
+    const ret = p.pts / p.slots;
+    const col = ret >= 1.5 ? 'var(--accent2)' : ret >= 1.0 ? 'var(--text)' : '#ff6b6b';
+    html += `<tr><td style="font-weight:600">${p.name}</td><td>${p.slots}</td><td>${p.pts}</td>
+      <td style="color:${col};font-weight:700">${ret.toFixed(2)}</td><td style="color:var(--text-muted)">${p.owners} team${p.owners>1?'s':''}</td></tr>`;
+  });
+  html += '</tbody></table></div>';
+
+  // Senshuraku popularity
+  const pickCounts = {};
+  teams.forEach(t => t.d15picks.forEach(p => { pickCounts[p] = (pickCounts[p] || 0) + 1; }));
+  const mostPicked = Object.entries(pickCounts).sort((a,b) => b[1] - a[1]);
+  html += '<h3 style="margin-top:30px;margin-bottom:15px">Most Popular Rikishi (Day 15)</h3>';
+  html += '<div style="display:flex;gap:10px;flex-wrap:wrap">';
+  mostPicked.forEach(([name, count]) => {
+    html += `<div style="background:var(--card);padding:10px 16px;border-radius:8px;border-left:3px solid var(--accent2)"><strong>${name}</strong> <span style="color:var(--text-muted)">by ${count} team${count>1?'s':''}</span></div>`;
+  });
+  html += '</div>';
+
+  // The yokozuna nobody touched
+  html += `<div style="background:var(--card);border-radius:12px;padding:20px;margin-top:25px;border-left:4px solid #f55">
+    <div style="font-size:1.3em;margin-bottom:8px">🚫 <strong style="color:#f55">The Yokozuna Nobody Touched</strong></div>
+    <div style="color:var(--text-muted)">After a Natsu in which both yokozuna produced <strong>zero</strong>, Nagoya's pair were healthy and productive: <strong style="color:var(--accent3)">Onosato 18 points</strong> (9-6) and <strong style="color:var(--accent3)">Hoshoryu 14</strong> (7-6 before going kyujo after Day 13). Nobody in Dagi Liga picked either of them on <strong>any of the fifteen days</strong> — 32 points sat on top of the banzuke completely unclaimed. The league had been trained out of trusting the top rank, and it stayed trained.</div>
+  </div>`;
+
+  html += `<div style="background:var(--card);border-radius:12px;padding:20px;margin-top:15px;border-left:4px solid var(--gold)">
+    <div style="font-size:1.3em;margin-bottom:8px">🏆 <strong style="color:var(--gold)">Reading Aonishiki's Weird Day 15</strong></div>
+    <div style="color:var(--text-muted)">Aonishiki's <strong style="color:var(--accent3)">29 fantasy points</strong> lead the field, and his senshuraku line looks impossible: <strong>4 win points plus 1 prize point in a single day</strong>, despite <em>losing</em> his regulation bout to Atamifuji. The explanation is the <strong>three-way kettei-sen</strong> — he won two playoff bouts in one afternoon to take the Emperor's Cup. Atamifuji shows the same 5-point line off one playoff win; Kirishima, who lost his first playoff bout, shows a plain 2.</div>
+  </div>`;
+
+  html += `<div style="background:var(--card);border-radius:12px;padding:20px;margin-top:15px;border-left:4px solid var(--accent2)">
+    <div style="font-size:1.3em;margin-bottom:8px">🥷 <strong style="color:var(--accent2)">The Best Rikishi Nobody Owned</strong></div>
+    <div style="color:var(--text-muted)"><strong>Shishi</strong> (M14W, Ukraine) and <strong>Daieisho</strong> (M4E) both scored <strong>20 fantasy points</strong> — joint 6th in the whole division, level with Takerufuji, who filled 55 lineup slots. Shishi and Daieisho filled <strong>zero</strong>. Also unowned all basho: Asakoryu and Kinbozan (18 each), Kotozakura (16), and both yokozuna. Of the 42 men in Makuuchi, <strong>15 were never picked by anyone</strong> — and they were carrying <strong>198 fantasy points</strong> between them, more than twice the winning score.</div>
+  </div>`;
+
+  document.getElementById('rikishi-container').innerHTML = html;
+}
+
+// ========== DAILY LINEUPS ==========
+function renderLineups() {
+  let html = '';
+  sorted.forEach(t => {
+    const days = lineups[t.owner] || [];
+    const filled = days.filter(d => d.length).length;
+    const bonusDays = days.filter(d => d.some(p => p[1] === 3 || p[1] === 5)).length;
+    html += `<div class="lu-team" style="border-left-color:${t.color}">
+      <div class="lu-head">
+        <span class="lu-name" style="color:${t.color}">${t.short} <span style="color:var(--text-muted);font-weight:400">· ${t.owner}</span></span>
+        <span class="lu-meta">${t.total} pts · ${t.swaps} roster change${t.swaps === 1 ? '' : 's'} · ${filled}/15 days filled${bonusDays ? ' · ' + bonusDays + ' bonus day' + (bonusDays > 1 ? 's' : '') : ''}</span>
+      </div>
+      <div class="lu-grid">`;
+
+    days.forEach((picks, i) => {
+      const prev = i > 0 ? days[i-1].map(p => p[0]) : null;
+      const swapped = prev && prev.length && picks.length &&
+        picks.some(p => !prev.includes(p[0]));
+      html += `<div class="lu-day">
+        <div class="lu-day-head"><span>DAY ${i+1}${swapped ? ' <span class="lu-swap">SWAP</span>' : ''}</span><span class="lu-day-pts">${t.daily[i]}</span></div>`;
+      if (!picks.length) {
+        html += `<div class="lu-empty">no lineup registered</div>`;
+      } else {
+        picks.forEach(([name, pts]) => {
+          const cls = (pts > 0 ? 'lu-win' : 'lu-loss') + (pts === 3 || pts === 5 ? ' lu-bonus' : '');
+          const tip = pts === 5 ? 'Two wins (playoff) + prize bonus' : pts === 3 ? 'Win + kinboshi/prize bonus' : pts === 2 ? 'Win' : 'Loss';
+          html += `<div class="lu-pick ${cls}" title="${tip}"><span>${name}</span><span>${pts}</span></div>`;
+        });
+      }
+      html += `</div>`;
+    });
+    html += `</div></div>`;
+  });
+  document.getElementById('lineups-container').innerHTML = html;
+}
+
+// ========== AWARDS ==========
+function renderAwards() {
+  const awards = [];
+
+  // ---- Champion -------------------------------------------------------
+  awards.push({ icon:'🏆', title:'Nagoya Basho 2026 Champion', cls:'gold-border',
+    winner: 'ᠪᠥᠬᠡ — 86 pts',
+    body: `<span class="award-stat">Márk Vrabély</span> takes his first Dagi Liga yusho with <span class="award-stat">86 points</span> — his best score in any basho, and the second-highest of the entire 2026 season behind Márton's 87 in Hatsu. He and DigiDagi walked into senshuraku <strong>dead level on 74</strong>. Márk closed with a basho-best <span class="award-stat">12</span>. Also worth noting: he did it without touching his lineup once.`
+  });
+
+  // ---- The tiebreak ---------------------------------------------------
+  awards.push({ icon:'⚖️', title:'The Basho Was Decided by One Rank, Two Sides', cls:'gold-border',
+    winner: 'Kazuma (M15W) 10 · Onokatsu (M15E) 8',
+    body: `The top two teams fielded <strong>three identical picks</strong> — Aonishiki, Atamifuji and Takerufuji — on <em>all fifteen days</em>. Their entire tournament came down to one slot: Márk took <span class="award-stat">Kazuma, Maegashira 15 West</span>; Sándor took <span class="award-stat">Onokatsu, Maegashira 15 East</span>. Kazuma finished on <strong>10</strong> fantasy points, Onokatsu on <strong>8</strong>. Final margin: <strong>86–84</strong>. The whole basho — and, for now, the season lead — hinged on which side of the banzuke's second-to-last rank you happened to point at in July.`
+  });
+
+  // ---- Runner-up ------------------------------------------------------
+  awards.push({ icon:'🥈', title:'Runner-Up — DigiDagi', cls:'pink-border',
+    winner: 'Sándor Szilágyi (84 pts)',
+    body: `<span class="award-stat">Sándor</span> jumped <span class="award-stat">+14</span> from Natsu, tying for the biggest improvement in the field, and led or co-led the race on eight separate days — <strong>more daily wins than anyone else</strong>. He never trailed by more than 2 points from Day 9 onward. He also never changed a pick. Two points short with a roster he last touched before Day 1.`
+  });
+
+  // ---- Dorka's sansho harvest ----------------------------------------
+  awards.push({ icon:'🎖️', title:'Dorka Bought Three-Fifths of the Sansho', cls:'teal-border',
+    winner: 'Tokások — 11 pts on senshuraku',
+    body: `Five special prizes were handed out in Nagoya. <span class="award-stat">Dorka</span> held <strong>three of the winners</strong> in her four-man Day 15 lineup — Atamifuji, Takayasu and Kotoeiho — for <span class="award-stat">11 points</span>, the second-best single day of the basho. She entered the final weekend <strong>6th</strong> and finished <strong>3rd</strong>. Nobody else had more than two prize-winners on the day.`
+  });
+
+  // ---- Set and forget -------------------------------------------------
+  awards.push({ icon:'🪑', title:'The Set-and-Forget Championship', cls:'teal-border',
+    winner: '4 of 8 teams made zero swaps',
+    body: `Márk, Sándor, DJ_Pongo and Tarján each registered four rikishi before Day 1 and <strong>never changed a single pick</strong>. They finished <strong>1st, 2nd, 6th and 7th</strong>. The two busiest managers — Richard (4 swaps) and Dorka (3) — finished 5th and 3rd. Across the whole league, activity and results correlate at approximately <em>nothing</em>. Do with that what you will.`
+  });
+
+  // ---- Best single day (derived) --------------------------------------
+  let bestDay = {pts:0};
+  teams.forEach(t => t.daily.forEach((d,i) => { if(d > bestDay.pts) bestDay = {team:t.name,day:i+1,pts:d,short:t.short,owner:t.owner}; }));
+  awards.push({ icon:'🔥', title:'Best Single Day', cls:'red-border',
+    winner: `${bestDay.short} — Day ${bestDay.day} (${bestDay.pts} pts)`,
+    body: `<span class="award-stat">${bestDay.owner}</span> hit <span class="award-stat">${bestDay.pts} points</span> on senshuraku: Aonishiki 5, Atamifuji 5, Kazuma 2, Takerufuji 0. Two playoff finalists in one lineup, both carrying prize bonuses. It is the highest single day any Dagi Liga team has posted with a four-man roster all season — and it arrived on exactly the day it was needed.`
+  });
+
+  // ---- Senshuraku economics -------------------------------------------
+  awards.push({ icon:'💰', title:'Senshuraku Paid Rent for the Whole Basho', cls:'gold-border',
+    winner: 'Day 15: 61 league points · Day 13: 26',
+    body: `A typical Nagoya day paid the league about <span class="award-stat">38 points</span>. The final day paid <span class="award-stat">61</span> — more than Days 12 and 13 combined — because playoff bouts counted as extra wins and five sansho bonuses all landed at once. Half the league, including the entire podium, recorded its best day of the basho on Day 15. Fifteen days of management, resolved in one afternoon.`
+  });
+
+  // ---- Most consistent / most volatile (derived) -----------------------
+  const byConsistency = [...teams].filter(t => t.owner !== 'Csilla Virág').sort((a,b) => a.stdev - b.stdev);
+  awards.push({ icon:'🎯', title:'The Rock — Most Consistent', cls:'teal-border',
+    winner: `${byConsistency[0].short} — σ ${byConsistency[0].stdev.toFixed(2)}`,
+    body: `<span class="award-stat">${byConsistency[0].owner}</span> was the steadiest team on the board (σ = <span class="award-stat">${byConsistency[0].stdev.toFixed(2)}</span>), never scoring above ${byConsistency[0].best} or below ${byConsistency[0].worst} on any day. Returning after a basho off — and renamed, without explanation, to <strong>"Boby"</strong> — Tarján opened with 6 and 8 and then never had another day above 4. The tempo was metronomic; it was also slow. ${byConsistency[0].total} points, 7th place. Consistency wins nothing on its own.`
+  });
+  const wildest = byConsistency[byConsistency.length-1];
+  awards.push({ icon:'🎢', title:'The Rollercoaster', cls:'pink-border',
+    winner: `${wildest.short} — σ ${wildest.stdev.toFixed(2)}`,
+    body: `<span class="award-stat">${wildest.owner}</span> swung hardest of the ever-present teams (σ = <span class="award-stat">${wildest.stdev.toFixed(2)}</span>), between ${wildest.worst} and ${wildest.best} on a given day. High-variance rosters are how you finish 6th with two days left and 3rd by dinner.`
+  });
+
+  // ---- The inverted basho ---------------------------------------------
+  awards.push({ icon:'🙃', title:'The Inverted Basho', cls:'red-border',
+    winner: 'Kövér utcai Uszoda — 41 first half, 28 second',
+    body: `<span class="award-stat">DJ_Pongo</span> had the <strong>best first half in the league</strong> (41 points across Days 1-7) and outright led the race after Days 4, 6, 7 and 8 — including a basho-high <span class="award-stat">9-point Day 4</span> off Gonoyama's kinboshi. Then the second half arrived: <strong>28 points</strong>, a −13 collapse, and a finish of <strong>6th</strong>. Nagoya's cruellest arc. Kirishima kept scoring; the other three slots stopped.`
+  });
+
+  // ---- The private stash ----------------------------------------------
+  awards.push({ icon:'🕵️', title:'The Private Stash', cls:'gold-border',
+    winner: 'Fujinokawa — one owner, all 15 days',
+    body: `Maegashira 1 East <span class="award-stat">Fujinokawa</span> took a <strong>kinboshi on Day 2 and another on Day 3</strong> — back-to-back yokozuna scalps — and walked away with the <strong>Shukun-sho</strong> for Outstanding Performance. Total: <span class="award-stat">19 fantasy points</span>. Number of managers who owned him: <strong>one</strong>. Richard held him from Day 1 to senshuraku while seven rivals watched. It is the best contrarian call of the season, and it still only got him 5th.`
+  });
+
+  // ---- Day 12 -----------------------------------------------------------
+  awards.push({ icon:'🤝', title:'Day 12: The Day Everyone Agreed', cls:'teal-border',
+    winner: 'Six of eight teams scored exactly 4',
+    body: `On Thursday, July 23, the league's entire spread was <strong>two points wide</strong> — six teams on 4, two on 2. It is a six-way tie for the daily win and the flattest day of the season. The only thing that changed in the whole standings was Richard nudging past Kövér utcai Uszoda for 5th. A full day of professional sumo; the table barely noticed.`
+  });
+
+  // ---- Day 13 -----------------------------------------------------------
+  awards.push({ icon:'🥚', title:'Black Friday — Day 13', cls:'red-border',
+    winner: 'Töpörtyűk 0 · Tokazachi TKS 0',
+    body: `Friday, July 24 paid the league just <span class="award-stat">26 points</span>, the lowest of the basho — and <strong>two teams blanked completely</strong>. Mátyás went 0-for-4 (Kirishima, Hakunofuji, Takayasu, Daiseizan all beaten) and Richard did the same on the day he debuted his Asahakuryu swap. They were the only goose eggs of the entire tournament outside Csilla's opening week, and both landed on the same afternoon.`
+  });
+
+  // ---- Csilla's ghost --------------------------------------------------
+  awards.push({ icon:'🫥', title:'The Twenty-Point Ghost', cls:'red-border',
+    winner: `Csilla — 36 scored, ${csillaGhost.total} estimated`,
+    body: `<span class="award-stat">Csilla</span> registered no lineup at all until Day 6 and banked <strong>five consecutive zeros</strong> to open the basho. From Day 6 she never changed a pick, so the season table credits her with what that exact roster — <em>${csillaGhost.roster.join(' · ')}</em> — would have scored on the missing days, replayed against the real box scores: <span class="award-stat">${csillaGhost.days.join(' + ')} = ${csillaGhost.total}</span>. Adjusted Nagoya total: <strong>56</strong>. The genuinely annoying part: her ghost roster would have scored ${csillaGhost.total} points in five days, while the real one managed 36 in ten.`
+  });
+
+  // ---- Csilla's day win -------------------------------------------------
+  awards.push({ icon:'🌅', title:'The Best Worst Day in the League', cls:'pink-border',
+    winner: 'Csilla wins Day 8 outright',
+    body: `On Day 8, with a cumulative score of <strong>6 points</strong> and dead last by 26, <span class="award-stat">Csilla</span> posted a 6 and <strong>won the day outright</strong> — the only time all basho that the last-placed team was the sole daily winner. Yoshinofuji, Churanoumi and Shodai all delivered on the same afternoon, which happened exactly once. She then went 2, 4, 4, 4, 0 and the moment passed.`
+  });
+
+  // ---- Win the day (derived) -------------------------------------------
+  const byWinDays = [...teams].sort((a,b) => b.winDays - a.winDays);
+  awards.push({ icon:'📅', title:'"Win The Day" Champion', cls:'teal-border',
+    winner: `${byWinDays[0].short} — ${byWinDays[0].winDays} days`,
+    body: `<span class="award-stat">${byWinDays[0].owner}</span> had the highest or joint-highest daily score on <span class="award-stat">${byWinDays[0].winDays} of 15 days</span> — one more than the eventual champion. Winning small battles adds up right up until the day it doesn't: he lost the war by two points on senshuraku.`
+  });
+
+  // ---- The security blanket ---------------------------------------------
+  awards.push({ icon:'🧸', title:'The League Security Blanket', cls:'teal-border',
+    winner: 'Takerufuji — 55 of 460 lineup slots',
+    body: `Maegashira 13 West <span class="award-stat">Takerufuji</span> filled <strong>12% of every pick made in Nagoya</strong>, across <strong>four different teams</strong>, and there was not a single day of the basho on which nobody owned him. He returned a flat 10-5 and <span class="award-stat">20 points</span> — a return of 1.31 per slot, decent and unspectacular, which is exactly what a comfort blanket is for. Meanwhile <strong>Shishi</strong> scored the same 20 points and was picked by nobody, ever.`
+  });
+
+  // ---- The value table --------------------------------------------------
+  awards.push({ icon:'💸', title:'Best and Worst Money in the League', cls:'gold-border',
+    winner: 'Aonishiki 1.93/slot · Onokatsu 0.53/slot',
+    body: `Per lineup slot, the champion's anchor <span class="award-stat">Aonishiki</span> returned <strong>1.93 points</strong> — near the theoretical ceiling of 2.00 — from 30 slots across two teams. At the other end, <span class="award-stat">Onokatsu</span> (0.53) and <span class="award-stat">Kazuma</span> (0.56) were the two worst regular picks in the league. Sándor owned one, Márk owned the other, and that difference is the entire basho. Sometimes the cheapest slot on your roster is the only one that matters.`
+  });
+
+  // ---- Unowned points ---------------------------------------------------
+  awards.push({ icon:'🕳️', title:'198 Points Nobody Wanted', cls:'red-border',
+    winner: '15 of 42 rikishi were never picked',
+    body: `More than a third of the Makuuchi division went the entire basho without appearing in a single Dagi Liga lineup — and between them they were worth <span class="award-stat">198 fantasy points</span>, more than double the winning score. The list includes <strong>both yokozuna</strong> (Onosato 18, Hoshoryu 14), <strong>Daieisho</strong> and <strong>Shishi</strong> (20 each — joint 6th in the division), Asakoryu and Kinbozan (18), and ozeki Kotozakura (16). A league still flinching from Natsu's empty top of the banzuke left the buffet untouched.`
+  });
+
+  // ---- Three-way playoff ------------------------------------------------
+  awards.push({ icon:'⚔️', title:'The Three-Way Kettei-sen', cls:'gold-border',
+    winner: 'Aonishiki def. Atamifuji & Kirishima',
+    body: `Three men at <span class="award-stat">12-3</span> forced a rare three-way playoff. <strong>Aonishiki</strong> — 22, sekiwake, from Vinnytsia — had just <em>lost</em> the last regulation bout of the day to Atamifuji, then beat him in the playoff for his <strong>first Emperor's Cup</strong> and the Gino-sho. Kirishima, beaten by Kotozakura earlier in the day to fall into the tie, lost his playoff bout and finished with a plain 2-point senshuraku. The fantasy fingerprint is visible in the box score: Aonishiki 4 win-points, Atamifuji 4, Kirishima 2.`
+  });
+
+  // ---- Both top teams owned the champion ---------------------------------
+  awards.push({ icon:'🇺🇦', title:'Everyone Who Mattered Owned Aonishiki', cls:'teal-border',
+    winner: 'Both podium-topping teams, all 15 days',
+    body: `The yusho winner was owned by exactly <strong>two of eight</strong> managers — and they finished <strong>1st and 2nd</strong>. Aonishiki was the top fantasy scorer in the division at <span class="award-stat">29 points</span>, and the gap between owning him and not owning him (58 points delivered across 30 slots) is almost precisely the gap between the top two teams and the rest of the table. Nagoya's lesson in four words: <em>back the young sekiwake.</em>`
+  });
+
+  // ---- Basho comparison table --------------------------------------------
+  const hatsuScores = { "ᠪᠥᠬᠡ": 82, "DigiDagi": 86, "Tokások": 70, "Tokyo Töpörtyűk": 78, "Tokazachi Kövér Sportegyesület (TKS)": 83, "Kövér utcai Uszoda": 70, "Boby": 86, "greatest sumo team ever": 87 };
+  const haruScores  = { "ᠪᠥᠬᠡ": 67, "DigiDagi": 57, "Tokások": 72, "Tokyo Töpörtyűk": 73, "Tokazachi Kövér Sportegyesület (TKS)": 69, "Kövér utcai Uszoda": 69, "Boby": 55, "greatest sumo team ever": 69 };
+  const natsuScores = { "ᠪᠥᠬᠡ": 80, "DigiDagi": 70, "Tokások": 64, "Tokyo Töpörtyűk": 58, "Tokazachi Kövér Sportegyesület (TKS)": 83, "Kövér utcai Uszoda": 70, "greatest sumo team ever": 54 };
+  let quad = '<table style="width:100%;font-size:0.85em;margin-top:8px"><tr><th style="text-align:left;color:var(--text-muted);padding:4px">Team</th><th style="text-align:right;color:var(--text-muted);padding:4px">Hatsu</th><th style="text-align:right;color:var(--text-muted);padding:4px">Haru</th><th style="text-align:right;color:var(--text-muted);padding:4px">Natsu</th><th style="text-align:right;color:var(--text-muted);padding:4px">Nagoya</th><th style="text-align:right;color:var(--text-muted);padding:4px">Δ vs Natsu</th></tr>';
+  sorted.forEach(t => {
+    const h = hatsuScores[t.name] !== undefined ? hatsuScores[t.name] : '—';
+    const r = haruScores[t.name]  !== undefined ? haruScores[t.name]  : '—';
+    const n = natsuScores[t.name] !== undefined ? natsuScores[t.name] : '—';
+    const shown = t.owner === 'Csilla Virág' ? '56*' : t.total;
+    const cmp = t.owner === 'Csilla Virág' ? 56 : t.total;
+    const delta = (typeof n === 'number') ? cmp - n : null;
+    const deltaStr = delta === null ? '' : (delta > 0 ? `<span style="color:#4ecdc4">+${delta}</span>` : delta < 0 ? `<span style="color:#ff6b6b">${delta}</span>` : '—');
+    quad += `<tr><td style="padding:4px;color:${t.color}">${t.short}</td><td style="text-align:right;padding:4px">${h}</td><td style="text-align:right;padding:4px">${r}</td><td style="text-align:right;padding:4px">${n}</td><td style="text-align:right;padding:4px;font-weight:700">${shown}</td><td style="text-align:right;padding:4px">${deltaStr}</td></tr>`;
+  });
+  quad += '</table><div style="margin-top:8px;font-size:0.8em;color:var(--text-muted)">* Csilla\'s Nagoya total as carried into the season table: 36 scored + 20 estimated for the five days she left unfilled.</div>';
+  awards.push({ icon:'🗓️', title:'Four-Basho Tracker', cls:'teal-border',
+    winner: 'Hatsu → Haru → Natsu → Nagoya',
+    body: quad
+  });
+
+  // ---- League scoring ----------------------------------------------------
+  const totalNagoya = teams.reduce((s,t)=>s+t.total,0);
+  const avgNagoya = (totalNagoya / teams.length).toFixed(1);
+  awards.push({ icon:'📊', title:'The League Woke Back Up', cls:'teal-border',
+    winner: `Avg: ${avgNagoya} pts/team`,
+    body: `League average by basho: Hatsu ~78.7 (5-man rosters) → Haru ~66.4 → Natsu ~68.4 → Nagoya <strong>${avgNagoya}</strong> as played, or <strong>71.0</strong> once Csilla's five unfilled days are credited — either way the best 4-man-roster basho yet. The reason is simple: for the first time since January there were healthy stars to pick, with Hoshoryu, Onosato, Kirishima and Kotozakura all scoring where Natsu's entire top three had produced nothing. Strip out Csilla entirely and the other seven teams sit inside <span class="award-stat">29 points</span> of each other.`
+  });
+
+  // ---- Season context ----------------------------------------------------
+  awards.push({ icon:'👑', title:'What It Did to the Season', cls:'gold-border',
+    winner: 'Márk 315 · Richard 306 · Sándor 297',
+    body: `Nagoya took the season lead off <strong>Richard</strong> (who had held it since May) and handed it to <span class="award-stat">Márk — 315 points</span> after four bashos. It also gave Dagi Liga <strong>four different champions in four tournaments</strong>, with still nobody managing to defend. Two bashos remain: <strong>Aki</strong> (Tokyo, September 13) and <strong>Kyushu</strong> (Fukuoka, November 8), worth roughly 140 more points. The top six are covered by 37.`
+  });
+
+  let html = '';
+  awards.forEach(a => {
+    html += `<div class="award-card ${a.cls||''}"><div class="award-icon">${a.icon}</div><div class="award-title">${a.title}</div><div class="award-winner">${a.winner}</div><div class="award-body">${a.body}</div></div>`;
+  });
+  document.getElementById('awards-container').innerHTML = html;
+}
+
+// ========== INIT ==========
+renderStandings();
+renderDailyChart();
+renderCumulativeChart();
+renderH2H();
+renderMomentum();
+renderLineups();
+renderRikishi();
+renderAwards();
+</script>
+</body>
+</html>
