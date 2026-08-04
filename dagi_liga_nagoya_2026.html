@@ -158,6 +158,21 @@
   .h2h-controls span { font-size: 1.2em; font-weight: 700; }
 
   /* Rikishi */
+  /* Daily lineups */
+  .lu-team { background: var(--card); border-radius: 12px; padding: 18px; margin: 14px 0; border-left: 4px solid var(--accent2); }
+  .lu-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .lu-name { font-weight: 700; font-size: 1.05em; }
+  .lu-meta { font-size: 0.82em; color: var(--text-muted); }
+  .lu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+  .lu-day { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 8px 10px; }
+  .lu-day-head { display: flex; justify-content: space-between; font-size: 0.75em; color: var(--text-muted); margin-bottom: 5px; letter-spacing: 0.5px; }
+  .lu-day-pts { font-weight: 800; color: var(--accent3); }
+  .lu-pick { font-size: 0.8em; padding: 2px 5px; border-radius: 4px; margin-bottom: 2px; display: flex; justify-content: space-between; gap: 6px; }
+  .lu-win { background: rgba(78,205,196,0.16); color: #7fe6df; }
+  .lu-loss { background: rgba(255,107,107,0.12); color: #ff9b9b; }
+  .lu-bonus { box-shadow: inset 0 0 0 1px var(--gold); }
+  .lu-empty { font-size: 0.78em; color: #666; font-style: italic; padding: 8px 2px; }
+  .lu-swap { font-size: 0.65em; background: var(--gold); color: #111; border-radius: 3px; padding: 1px 4px; font-weight: 800; letter-spacing: 0.5px; }
   .rikishi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin: 20px 0; }
   .rikishi-card {
     background: var(--card); border-radius: 8px; padding: 15px;
@@ -245,6 +260,7 @@
     <div class="nav-tab" onclick="showTab('cumulative',this)">The Race</div>
     <div class="nav-tab" onclick="showTab('h2h',this)">Head-to-Head</div>
     <div class="nav-tab" onclick="showTab('momentum',this)">Momentum</div>
+    <div class="nav-tab" onclick="showTab('lineups',this)">Daily Lineups</div>
     <div class="nav-tab" onclick="showTab('rikishi',this)">Rikishi Stats</div>
     <div class="nav-tab" onclick="showTab('awards',this)">Awards & Fun Facts</div>
   </div>
@@ -308,6 +324,17 @@
     <div class="chart-container" style="margin-top:25px"><div class="chart-wrapper"><canvas id="momentumChart"></canvas></div></div>
   </div>
 
+  <div id="tab-lineups" class="tab-content">
+    <div class="section-title">Daily Lineups — Who Picked Whom, Every Day</div>
+    <p style="color:var(--text-muted);margin-bottom:20px">
+      The complete pick history of the basho: all four rikishi each team fielded on each of the 15 days.
+      <span class="lu-win">Green</span> = the rikishi won that day, <span class="lu-loss">red</span> = lost.
+      A <span class="lu-bonus">gold outline</span> marks a bonus day — a kinbōshi (yokozuna upset) or a sanshō prize.
+      <strong>Swap</strong> tags show where a manager changed their roster from the previous day.
+    </p>
+    <div id="lineups-container"></div>
+  </div>
+
   <div id="tab-rikishi" class="tab-content">
     <div class="section-title">Rikishi Performance Rankings</div>
     <div id="rikishi-container"></div>
@@ -352,6 +379,148 @@ const teams = [
 
 // What Csilla's eventual (Day 6-15, never changed) roster would have scored on the five days she left empty.
 const csillaGhost = { days: [4,0,6,4,6], total: 20, roster: ["Yoshinofuji","Churanoumi","Shodai","Takerufuji"] };
+
+// Every four-man lineup fielded on every day, straight from the Fantasizr team box scores.
+// Shape: owner -> [day1..day15], each day a list of [rikishi, points]. 0 = lost, 2 = won,
+// 3 = win + kinboshi/prize bonus, 5 = two wins (playoff) + prize. Empty array = no lineup registered.
+const lineups = {
+  "Márk Vrabély": [
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 0], ["Kazuma", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 2]],
+    [["Aonishiki", 0], ["Atamifuji", 0], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 0], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 0], ["Takerufuji", 0], ["Kazuma", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 0], ["Atamifuji", 2], ["Takerufuji", 2], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 0], ["Kazuma", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Takerufuji", 0], ["Kazuma", 2]],
+    [["Aonishiki", 5], ["Atamifuji", 5], ["Takerufuji", 0], ["Kazuma", 2]]
+  ],
+  "Sándor Szilágyi": [
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 0], ["Atamifuji", 0], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 0], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 2], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 0], ["Onokatsu", 0], ["Takerufuji", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 2], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 0], ["Atamifuji", 2], ["Onokatsu", 0], ["Takerufuji", 2]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 2], ["Takerufuji", 0]],
+    [["Aonishiki", 2], ["Atamifuji", 2], ["Onokatsu", 2], ["Takerufuji", 0]],
+    [["Aonishiki", 5], ["Atamifuji", 5], ["Onokatsu", 0], ["Takerufuji", 0]]
+  ],
+  "Dorka FJ": [
+    [["Atamifuji", 2], ["Kotoeiho", 0], ["Mitakeumi", 0], ["Ura", 0]],
+    [["Atamifuji", 2], ["Kotoeiho", 2], ["Mitakeumi", 0], ["Ura", 0]],
+    [["Atamifuji", 2], ["Kotoeiho", 2], ["Mitakeumi", 0], ["Ura", 0]],
+    [["Atamifuji", 0], ["Kotoeiho", 2], ["Takayasu", 0], ["Kazuma", 0]],
+    [["Atamifuji", 0], ["Kotoeiho", 2], ["Takayasu", 2], ["Kazuma", 0]],
+    [["Atamifuji", 2], ["Kotoeiho", 2], ["Takayasu", 2], ["Kazuma", 0]],
+    [["Atamifuji", 2], ["Kotoeiho", 2], ["Takayasu", 2], ["Kazuma", 0]],
+    [["Atamifuji", 0], ["Takayasu", 0], ["Kotoeiho", 2], ["Tobizaru", 2]],
+    [["Atamifuji", 2], ["Takayasu", 2], ["Kotoeiho", 2], ["Tobizaru", 0]],
+    [["Atamifuji", 2], ["Takayasu", 2], ["Kotoeiho", 2], ["Asanoyama", 2]],
+    [["Atamifuji", 2], ["Takayasu", 2], ["Kotoeiho", 0], ["Asanoyama", 0]],
+    [["Atamifuji", 2], ["Takayasu", 0], ["Kotoeiho", 0], ["Asanoyama", 0]],
+    [["Atamifuji", 2], ["Takayasu", 0], ["Kotoeiho", 0], ["Asanoyama", 2]],
+    [["Atamifuji", 2], ["Takayasu", 2], ["Kotoeiho", 2], ["Asanoyama", 0]],
+    [["Atamifuji", 5], ["Takayasu", 3], ["Kotoeiho", 3], ["Asanoyama", 0]]
+  ],
+  "Mátyás Fazakas": [
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Roga", 0], ["Kazuma", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Roga", 0], ["Kazuma", 2]],
+    [["Kirishima", 2], ["Hakunofuji", 0], ["Roga", 2], ["Kazuma", 2]],
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Roga", 0], ["Kazuma", 0]],
+    [["Kirishima", 0], ["Hakunofuji", 2], ["Roga", 2], ["Kazuma", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 3], ["Roga", 0], ["Kazuma", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 0], ["Takayasu", 2], ["Daiseizan", 2]],
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Takayasu", 0], ["Daiseizan", 0]],
+    [["Kirishima", 0], ["Hakunofuji", 2], ["Takayasu", 2], ["Daiseizan", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 0], ["Takayasu", 2], ["Daiseizan", 2]],
+    [["Kirishima", 2], ["Hakunofuji", 0], ["Takayasu", 2], ["Daiseizan", 2]],
+    [["Kirishima", 2], ["Hakunofuji", 0], ["Takayasu", 0], ["Daiseizan", 2]],
+    [["Kirishima", 0], ["Hakunofuji", 0], ["Takayasu", 0], ["Daiseizan", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Takayasu", 2], ["Daiseizan", 0]],
+    [["Kirishima", 2], ["Hakunofuji", 2], ["Takayasu", 3], ["Daiseizan", 0]]
+  ],
+  "Richard Fejes": [
+    [["Fujinokawa", 0], ["Fujiryoga", 2], ["Takerufuji", 2], ["Yoshinofuji", 2]],
+    [["Fujinokawa", 3], ["Fujiryoga", 0], ["Takerufuji", 0], ["Yoshinofuji", 0]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 3], ["Takerufuji", 2], ["Wakanosho", 2]],
+    [["Yoshinofuji", 2], ["Fujinokawa", 0], ["Takerufuji", 2], ["Wakanosho", 2]],
+    [["Yoshinofuji", 2], ["Fujinokawa", 2], ["Takerufuji", 2], ["Wakanosho", 2]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 0], ["Takerufuji", 2], ["Wakanosho", 0]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 0], ["Takerufuji", 2], ["Wakanosho", 0]],
+    [["Yoshinofuji", 2], ["Fujinokawa", 0], ["Takerufuji", 0], ["Kotoeiho", 2]],
+    [["Yoshinofuji", 2], ["Fujinokawa", 2], ["Takerufuji", 2], ["Kotoeiho", 2]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 0], ["Takerufuji", 2], ["Kotoeiho", 2]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 2], ["Takerufuji", 2], ["Kotoeiho", 0]],
+    [["Yoshinofuji", 0], ["Fujinokawa", 2], ["Takerufuji", 2], ["Kotoeiho", 0]],
+    [["Fujinokawa", 0], ["Kotoeiho", 0], ["Takerufuji", 0], ["Asahakuryu", 0]],
+    [["Fujinokawa", 2], ["Kotoeiho", 2], ["Takerufuji", 0], ["Asahakuryu", 2]],
+    [["Fujinokawa", 3], ["Asahakuryu", 2], ["Takerufuji", 0], ["Hakunofuji", 2]]
+  ],
+  "DJ_Pongo_Pongo": [
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 2], ["Nishikifuji", 0]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 2], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 2], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 3], ["Wakanosho", 2], ["Nishikifuji", 2]],
+    [["Kirishima", 0], ["Gonoyama", 0], ["Wakanosho", 2], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 0], ["Nishikifuji", 0]],
+    [["Kirishima", 0], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 0]],
+    [["Kirishima", 2], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 0], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 0], ["Nishikifuji", 0]],
+    [["Kirishima", 0], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 2]],
+    [["Kirishima", 2], ["Gonoyama", 0], ["Wakanosho", 0], ["Nishikifuji", 0]],
+    [["Kirishima", 2], ["Gonoyama", 2], ["Wakanosho", 0], ["Nishikifuji", 2]]
+  ],
+  "Tarján Teréz": [
+    [["Kotoshoho", 2], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 2]],
+    [["Kotoshoho", 2], ["Hakunofuji", 2], ["Wakamotoharu", 2], ["Abi", 2]],
+    [["Kotoshoho", 2], ["Hakunofuji", 0], ["Wakamotoharu", 0], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 2], ["Wakamotoharu", 2], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 2]],
+    [["Kotoshoho", 0], ["Hakunofuji", 3], ["Wakamotoharu", 0], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 0], ["Wakamotoharu", 2], ["Abi", 2]],
+    [["Kotoshoho", 0], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 2]],
+    [["Kotoshoho", 2], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 0], ["Wakamotoharu", 2], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 0], ["Wakamotoharu", 2], ["Abi", 0]],
+    [["Kotoshoho", 2], ["Hakunofuji", 0], ["Wakamotoharu", 2], ["Abi", 0]],
+    [["Kotoshoho", 2], ["Hakunofuji", 0], ["Wakamotoharu", 0], ["Abi", 2]],
+    [["Kotoshoho", 0], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 0]],
+    [["Kotoshoho", 0], ["Hakunofuji", 2], ["Wakamotoharu", 0], ["Abi", 2]]
+  ],
+  "Csilla Virág": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [["Yoshinofuji", 0], ["Churanoumi", 0], ["Shodai", 2], ["Takerufuji", 2]],
+    [["Yoshinofuji", 0], ["Churanoumi", 0], ["Shodai", 0], ["Takerufuji", 2]],
+    [["Yoshinofuji", 2], ["Churanoumi", 2], ["Shodai", 2], ["Takerufuji", 0]],
+    [["Yoshinofuji", 2], ["Churanoumi", 2], ["Shodai", 0], ["Takerufuji", 2]],
+    [["Yoshinofuji", 0], ["Churanoumi", 0], ["Shodai", 0], ["Takerufuji", 2]],
+    [["Yoshinofuji", 0], ["Churanoumi", 2], ["Shodai", 0], ["Takerufuji", 2]],
+    [["Yoshinofuji", 0], ["Churanoumi", 2], ["Shodai", 0], ["Takerufuji", 2]],
+    [["Yoshinofuji", 2], ["Churanoumi", 2], ["Shodai", 0], ["Takerufuji", 0]],
+    [["Yoshinofuji", 0], ["Churanoumi", 0], ["Shodai", 0], ["Takerufuji", 0]],
+    [["Yoshinofuji", 0], ["Churanoumi", 2], ["Shodai", 2], ["Takerufuji", 0]]
+  ]
+};
 
 // Calculate derived stats
 teams.forEach(t => {
@@ -688,6 +857,42 @@ function renderRikishi() {
   document.getElementById('rikishi-container').innerHTML = html;
 }
 
+// ========== DAILY LINEUPS ==========
+function renderLineups() {
+  let html = '';
+  sorted.forEach(t => {
+    const days = lineups[t.owner] || [];
+    const filled = days.filter(d => d.length).length;
+    const bonusDays = days.filter(d => d.some(p => p[1] === 3 || p[1] === 5)).length;
+    html += `<div class="lu-team" style="border-left-color:${t.color}">
+      <div class="lu-head">
+        <span class="lu-name" style="color:${t.color}">${t.short} <span style="color:var(--text-muted);font-weight:400">· ${t.owner}</span></span>
+        <span class="lu-meta">${t.total} pts · ${t.swaps} roster change${t.swaps === 1 ? '' : 's'} · ${filled}/15 days filled${bonusDays ? ' · ' + bonusDays + ' bonus day' + (bonusDays > 1 ? 's' : '') : ''}</span>
+      </div>
+      <div class="lu-grid">`;
+
+    days.forEach((picks, i) => {
+      const prev = i > 0 ? days[i-1].map(p => p[0]) : null;
+      const swapped = prev && prev.length && picks.length &&
+        picks.some(p => !prev.includes(p[0]));
+      html += `<div class="lu-day">
+        <div class="lu-day-head"><span>DAY ${i+1}${swapped ? ' <span class="lu-swap">SWAP</span>' : ''}</span><span class="lu-day-pts">${t.daily[i]}</span></div>`;
+      if (!picks.length) {
+        html += `<div class="lu-empty">no lineup registered</div>`;
+      } else {
+        picks.forEach(([name, pts]) => {
+          const cls = (pts > 0 ? 'lu-win' : 'lu-loss') + (pts === 3 || pts === 5 ? ' lu-bonus' : '');
+          const tip = pts === 5 ? 'Two wins (playoff) + prize bonus' : pts === 3 ? 'Win + kinboshi/prize bonus' : pts === 2 ? 'Win' : 'Loss';
+          html += `<div class="lu-pick ${cls}" title="${tip}"><span>${name}</span><span>${pts}</span></div>`;
+        });
+      }
+      html += `</div>`;
+    });
+    html += `</div></div>`;
+  });
+  document.getElementById('lineups-container').innerHTML = html;
+}
+
 // ========== AWARDS ==========
 function renderAwards() {
   const awards = [];
@@ -869,6 +1074,7 @@ renderDailyChart();
 renderCumulativeChart();
 renderH2H();
 renderMomentum();
+renderLineups();
 renderRikishi();
 renderAwards();
 </script>
