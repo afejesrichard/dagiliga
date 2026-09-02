@@ -93,6 +93,7 @@
   a.badge.active { text-decoration: none; color: var(--text); cursor: pointer; transition: all 0.2s; }
   a.badge.active:hover { background: rgba(78,205,196,0.45); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(78,205,196,0.3); }
   .hero .badge.upcoming { opacity: 0.5; }
+  .hero .badge.current { background: rgba(255,215,0,0.20); border-color: var(--gold); color: #fff; font-weight: 700; opacity: 1; }
   /* Countdown */
   .countdown-wrapper {
     margin: 20px auto 10px;
@@ -1616,10 +1617,10 @@
     <a href="dagi_liga_haru_2026.html" class="badge active">✅ Haru (Osaka, Mar)</a>
     <a href="dagi_liga_natsu_2026.html" class="badge active">✅ Natsu (Tokyo, May)</a>
     <a href="dagi_liga_nagoya_2026.html" class="badge active">✅ Nagoya (Jul)</a>
-    <div class="badge upcoming">⏳ Aki (Tokyo, Sep)</div>
+    <div class="badge current">🟢 Aki (Tokyo, Sep)</div>
     <div class="badge upcoming">⏳ Kyūshū (Fukuoka, Nov)</div>
   </div>
-  <div class="updated">Last updated: August 4, 2026 — <strong>Nagoya basho closed &amp; finalized</strong> · Fantasy yūshō: <strong>Márk Vrabély (ᠪᠥᠬᠡ) — 86 pts</strong>, by 2 over DigiDagi on senshūraku · Makuuchi yūshō: Aonishiki (12–3, three-way playoff) · Season standings after 4 of 6 bashos</div>
+  <div class="updated">Last updated: September 2, 2026 — <strong>秋場所 Aki banzuke is up &amp; Dagi Liga lineups are locking in</strong> · Aonishiki re-promoted to Ōzeki, Fujinokawa debuts at Sekiwake · Opens Sunday, September 13 at Ryōgoku Kokugikan, Tokyo · 5th of 6 bashos — season standings still after 4</div>
 </div>
 
 <div class="container">
@@ -1729,6 +1730,10 @@
         名古屋場所 Nagoya 2026
         <span class="bl-city">Nagoya — July</span>
       </a>
+      <div class="basho-link" style="opacity:0.6;cursor:default">
+        秋場所 Aki 2026
+        <span class="bl-city">Tokyo — Sept 13–27 · live soon</span>
+      </div>
     </div>
   </div>
 
@@ -1818,28 +1823,20 @@
   <!-- DAILY MATCHUPS -->
   <div id="tab-matchups" class="tab-content">
     <div class="banzuke-header">
-      <h2>名古屋場所 Nagoya 2026 — Daily Matchups</h2>
-      <div class="banzuke-sub">Day-by-day Makuuchi torikumi · Click any face to open the rikishi card · Wakatakakage &amp; Wakanosho kyūjo (withdrawn) · <strong>Basho complete</strong> — <a href="dagi_liga_nagoya_2026.html" style="color:var(--accent2)">full Nagoya report →</a></div>
+      <h2>秋場所 Aki 2026 — Daily Matchups</h2>
+      <div class="banzuke-sub">Day-by-day Makuuchi torikumi lands here once the basho opens · Click any face to open the rikishi card · Opens Sunday, September 13, 2026 · Ryōgoku Kokugikan, Tokyo</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection</div>
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection</div>
     </div>
 
-    <!-- YŪSHŌ RESULT -->
-    <div class="yusho-watch yusho-decided">
-      <div class="yw-title">🏆 Yūshō · Nagoya 2026 <span class="yw-day">· Final</span></div>
-      <div class="yw-leader">
-        <span class="yw-crown">🏆</span>
-        <span class="yw-name">Aonishiki</span>
-        <span class="yw-rec">12–3</span>
-        <span class="yw-tag">Sekiwake 2W · maiden top-division yūshō — won the three-way playoff</span>
-      </div>
-      <div class="yw-chasers"><span class="yw-label">Playoff</span> Aonishiki def. <b>Atamifuji</b> &amp; <b>Kirishima</b> — all three tied at 12–3, settled in a three-way kettei-sen.</div>
-      <div class="yw-decider">🎌 Special prizes — <span class="yw-vs">Shukun-shō:</span> Fujinokawa &nbsp;·&nbsp; <span class="yw-vs">Ginō-shō:</span> Aonishiki &nbsp;·&nbsp; <span class="yw-vs">Kantō-shō:</span> Atamifuji, Kotoeiho, Takayasu</div>
+    <!-- AKI — PRE-BASHO SELECTIONS -->
+    <div class="yusho-watch">
+      <div class="yw-title">📋 Day 1 Lineups · Aki 2026 <span class="yw-day">· locked in</span></div>
       <ul class="yw-scenarios">
-        <li class="win" data-ico="🏆"><b>Aonishiki</b> — <span class="hl-gold">champion</span>. Beaten by Atamifuji on senshūraku (12–3), he answered by taking the playoff for his first Emperor's Cup.</li>
-        <li data-ico="🥈"><b>Atamifuji &amp; Kirishima</b> — 12–3, <span class="hl-teal">fell in the playoff</span>. Atamifuji's win over the leader forced it; Kirishima beat Kotozakura to make it three.</li>
+        <li data-ico="🟣"><b>Ricsi</b> — Fujinokawa (S1w), Yoshinofuji (M2w), Takerufuji (M8e), Wakanosho (M16e)</li>
+        <li data-ico="🩷"><b>Dorka</b> — Atamifuji (S1e), Kotoeiho (M1w), Ura (M9e), Toshinofuji (M16w)</li>
       </ul>
-      <div class="yw-note">Fantasy note: <b>Fujinokawa</b> (Ricsi's pick) earned the Outstanding Performance prize, and <b>Atamifuji</b> (Dorka's pick) took a Fighting Spirit prize. Yokozuna Hoshoryu sat out the final two days (kyūjo).</div>
+      <div class="yw-note">Torikumi (daily bout sheets) are posted by the Sumo Association the evening before each day, so the Day 1 card lands the night before September 13. Lineups can still be swapped up to each day's deadline — every pick is highlighted in the banzuke below.</div>
     </div>
 
     <div class="matchup-day-tabs" id="matchup-day-tabs"></div>
@@ -1852,8 +1849,8 @@
   <!-- BANZUKE -->
   <div id="tab-banzuke" class="tab-content">
     <div class="banzuke-header">
-      <h2>名古屋場所 Nagoya 2026 — Makuuchi Banzuke</h2>
-      <div class="banzuke-sub">Official ranking sheet for the Nagoya tournament · Two Yokozuna &amp; a stacked four-man Sekiwake rank up top · Opens Sunday, July 12, 2026 · IG Arena, Nagoya · Source: sumo.or.jp</div>
+      <h2>秋場所 Aki 2026 — Makuuchi Banzuke</h2>
+      <div class="banzuke-sub">Official ranking sheet for the Aki tournament · Three Ōzeki — Aonishiki re-promoted — and Fujinokawa's Sekiwake debut · Announced August 31 · Opens Sunday, September 13, 2026 · Ryōgoku Kokugikan, Tokyo · Source: sumo.or.jp</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection</div>
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection</div>
     </div>
@@ -1862,124 +1859,127 @@
       <thead><tr><th class="east-h">East</th><th class="rank-h">Rank</th><th class="west-h">West</th></tr></thead>
       <tbody>
         <tr class="banzuke-row rank-yokozuna">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170096.jpg" alt="Hoshoryu"></div><span class="rikishi-info"><span class="rikishi-name">Hoshoryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230048.jpg" alt="Onosato"></div><span class="rikishi-info"><span class="rikishi-name">Onosato</span><span class="rikishi-origin">Ishikawa</span></span></span></td>
           <td class="banzuke-cell-rank">横綱 Yokozuna</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230048.jpg" alt="Onosato"></div><span class="rikishi-info"><span class="rikishi-name">Onosato</span><span class="rikishi-origin">Ishikawa</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170096.jpg" alt="Hoshoryu"></div><span class="rikishi-info"><span class="rikishi-name">Hoshoryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
         </tr>
         <tr class="banzuke-row rank-ozeki">
           <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150034.jpg" alt="Kirishima"></div><span class="rikishi-info"><span class="rikishi-name">Kirishima</span><span class="rikishi-origin">Mongolia</span></span></span></td>
           <td class="banzuke-cell-rank">大関 Ōzeki</td>
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150081.jpg" alt="Kotozakura"></div><span class="rikishi-info"><span class="rikishi-name">Kotozakura</span><span class="rikishi-origin">Chiba</span></span></span></td>
         </tr>
+        <tr class="banzuke-row rank-ozeki">
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230052.jpg" alt="Aonishiki"></div><span class="rikishi-info"><span class="rikishi-name">Aonishiki</span><span class="rikishi-origin">Ukraine</span></span></span></td>
+          <td class="banzuke-cell-rank">大関 Ōzeki</td>
+          <td class="banzuke-cell-west" style="text-align:center;color:var(--text-muted)">—</td>
+        </tr>
         <tr class="banzuke-row rank-sekiwake">
           <td class="banzuke-cell-east dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200074.jpg" alt="Atamifuji"></div><span class="rikishi-info"><span class="rikishi-name">Atamifuji</span><span class="rikishi-origin">Shizuoka</span></span></span></td>
           <td class="banzuke-cell-rank">関脇 Sekiwake</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170094.jpg" alt="Kotoshoho"></div><span class="rikishi-info"><span class="rikishi-name">Kotoshoho</span><span class="rikishi-origin">Chiba</span></span></span></td>
-        </tr>
-        <tr class="banzuke-row rank-sekiwake">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170011.jpg" alt="Wakatakakage"></div><span class="rikishi-info"><span class="rikishi-name">Wakatakakage</span><span class="rikishi-origin">Fukushima</span></span></span></td>
-          <td class="banzuke-cell-rank">関脇 Sekiwake</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230052.jpg" alt="Aonishiki"></div><span class="rikishi-info"><span class="rikishi-name">Aonishiki</span><span class="rikishi-origin">Ukraine</span></span></span></td>
+          <td class="banzuke-cell-west ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230008.jpg" alt="Fujinokawa"></div><span class="rikishi-info"><span class="rikishi-name">Fujinokawa</span><span class="rikishi-origin">Kyoto</span></span></span></td>
         </tr>
         <tr class="banzuke-row rank-komusubi">
-          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240045.jpg" alt="Yoshinofuji"></div><span class="rikishi-info"><span class="rikishi-name">Yoshinofuji</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230004.jpg" alt="Hakunofuji"></div><span class="rikishi-info"><span class="rikishi-name">Hakunofuji</span><span class="rikishi-origin">Tottori</span></span></span></td>
           <td class="banzuke-cell-rank">小結 Komusubi</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180002.jpg" alt="Oho"></div><span class="rikishi-info"><span class="rikishi-name">Oho</span><span class="rikishi-origin">Tokyo</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20120003.jpg" alt="Daieisho"></div><span class="rikishi-info"><span class="rikishi-name">Daieisho</span><span class="rikishi-origin">Saitama</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230008.jpg" alt="Fujinokawa"></div><span class="rikishi-info"><span class="rikishi-name">Fujinokawa</span><span class="rikishi-origin">Kyoto</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170094.jpg" alt="Kotoshoho"></div><span class="rikishi-info"><span class="rikishi-name">Kotoshoho</span><span class="rikishi-origin">Chiba</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M1</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20100039.jpg" alt="Takanosho"></div><span class="rikishi-info"><span class="rikishi-name">Takanosho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+          <td class="banzuke-cell-west dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220003.jpg" alt="Kotoeiho"></div><span class="rikishi-info"><span class="rikishi-name">Kotoeiho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20050022.jpg" alt="Takayasu"></div><span class="rikishi-info"><span class="rikishi-name">Takayasu</span><span class="rikishi-origin">Ibaraki</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M2</td>
+          <td class="banzuke-cell-west ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240045.jpg" alt="Yoshinofuji"></div><span class="rikishi-info"><span class="rikishi-name">Yoshinofuji</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
           <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210023.jpg" alt="Gonoyama"></div><span class="rikishi-info"><span class="rikishi-name">Gonoyama</span><span class="rikishi-origin">Osaka</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M2</td>
+          <td class="banzuke-cell-rank">前頭 M3</td>
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160048.jpg" alt="Churanoumi"></div><span class="rikishi-info"><span class="rikishi-name">Churanoumi</span><span class="rikishi-origin">Okinawa</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160042.jpg" alt="Hiradoumi"></div><span class="rikishi-info"><span class="rikishi-name">Hiradoumi</span><span class="rikishi-origin">Nagasaki</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M3</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230004.jpg" alt="Hakunofuji"></div><span class="rikishi-info"><span class="rikishi-name">Hakunofuji</span><span class="rikishi-origin">Tottori</span></span></span></td>
-        </tr>
-        <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20120003.jpg" alt="Daieisho"></div><span class="rikishi-info"><span class="rikishi-name">Daieisho</span><span class="rikishi-origin">Saitama</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20100039.jpg" alt="Takanosho"></div><span class="rikishi-info"><span class="rikishi-name">Takanosho</span><span class="rikishi-origin">Chiba</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M4</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170002.jpg" alt="Ichiyamamoto"></div><span class="rikishi-info"><span class="rikishi-name">Ichiyamamoto</span><span class="rikishi-origin">Hokkaido</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20250038.jpg" alt="Fujiryoga"></div><span class="rikishi-info"><span class="rikishi-name">Fujiryoga</span><span class="rikishi-origin">Aichi</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150028.jpg" alt="Ura"></div><span class="rikishi-info"><span class="rikishi-name">Ura</span><span class="rikishi-origin">Osaka</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180068.jpg" alt="Roga"></div><span class="rikishi-info"><span class="rikishi-name">Roga</span><span class="rikishi-origin">Russia</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M5</td>
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210053.jpg" alt="Oshoma"></div><span class="rikishi-info"><span class="rikishi-name">Oshoma</span><span class="rikishi-origin">Mongolia</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140019.jpg" alt="Shodai"></div><span class="rikishi-info"><span class="rikishi-name">Shodai</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M6</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210037.jpg" alt="Fujiseiun"></div><span class="rikishi-info"><span class="rikishi-name">Fujiseiun</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
-        </tr>
-        <tr class="banzuke-row">
-          <td class="banzuke-cell-east dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220003.jpg" alt="Kotoeiho"></div><span class="rikishi-info"><span class="rikishi-name">Kotoeiho</span><span class="rikishi-origin">Chiba</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M7</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20050022.jpg" alt="Takayasu"></div><span class="rikishi-info"><span class="rikishi-name">Takayasu</span><span class="rikishi-origin">Ibaraki</span></span></span></td>
-        </tr>
-        <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20110065.jpg" alt="Wakamotoharu"></div><span class="rikishi-info"><span class="rikishi-name">Wakamotoharu</span><span class="rikishi-origin">Fukushima</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M8</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180068.jpg" alt="Roga"></div><span class="rikishi-info"><span class="rikishi-name">Roga</span><span class="rikishi-origin">Russia</span></span></span></td>
-        </tr>
-        <tr class="banzuke-row">
-          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20250038.jpg" alt="Fujiryoga"></div><span class="rikishi-info"><span class="rikishi-name">Fujiryoga</span><span class="rikishi-origin">Aichi</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M9</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150005.jpg" alt="Tobizaru"></div><span class="rikishi-info"><span class="rikishi-name">Tobizaru</span><span class="rikishi-origin">Tokyo</span></span></span></td>
-        </tr>
-        <tr class="banzuke-row">
           <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160019.jpg" alt="Asanoyama"></div><span class="rikishi-info"><span class="rikishi-name">Asanoyama</span><span class="rikishi-origin">Toyama</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M10</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20090066.jpg" alt="Chiyoshoma"></div><span class="rikishi-info"><span class="rikishi-name">Chiyoshoma</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M6</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170002.jpg" alt="Ichiyamamoto"></div><span class="rikishi-info"><span class="rikishi-name">Ichiyamamoto</span><span class="rikishi-origin">Hokkaido</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220004.jpg" alt="Wakanosho"></div><span class="rikishi-info"><span class="rikishi-name">Wakanosho</span><span class="rikishi-origin">Tochigi</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M11</td>
-          <td class="banzuke-cell-west dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150032.jpg" alt="Mitakeumi"></div><span class="rikishi-info"><span class="rikishi-name">Mitakeumi</span><span class="rikishi-origin">Nagano</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210037.jpg" alt="Fujiseiun"></div><span class="rikishi-info"><span class="rikishi-name">Fujiseiun</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M7</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160081.jpg" alt="Nishikifuji"></div><span class="rikishi-info"><span class="rikishi-name">Nishikifuji</span><span class="rikishi-origin">Aomori</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220063.jpg" alt="Asahakuryu"></div><span class="rikishi-info"><span class="rikishi-name">Asahakuryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M12</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20130059.jpg" alt="Abi"></div><span class="rikishi-info"><span class="rikishi-name">Abi</span><span class="rikishi-origin">Saitama</span></span></span></td>
+          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220059.jpg" alt="Takerufuji"></div><span class="rikishi-info"><span class="rikishi-name">Takerufuji</span><span class="rikishi-origin">Aomori</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M8</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160042.jpg" alt="Hiradoumi"></div><span class="rikishi-info"><span class="rikishi-name">Hiradoumi</span><span class="rikishi-origin">Nagasaki</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160081.jpg" alt="Nishikifuji"></div><span class="rikishi-info"><span class="rikishi-name">Nishikifuji</span><span class="rikishi-origin">Aomori</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M13</td>
-          <td class="banzuke-cell-west ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220059.jpg" alt="Takerufuji"></div><span class="rikishi-info"><span class="rikishi-name">Takerufuji</span><span class="rikishi-origin">Aomori</span></span></span></td>
-        </tr>
-        <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210057.jpg" alt="Kinbozan"></div><span class="rikishi-info"><span class="rikishi-name">Kinbozan</span><span class="rikishi-origin">Kazakhstan</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M14</td>
+          <td class="banzuke-cell-east dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150028.jpg" alt="Ura"></div><span class="rikishi-info"><span class="rikishi-name">Ura</span><span class="rikishi-origin">Osaka</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M9</td>
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200005.jpg" alt="Shishi"></div><span class="rikishi-info"><span class="rikishi-name">Shishi</span><span class="rikishi-origin">Ukraine</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230053.jpg" alt="Onokatsu"></div><span class="rikishi-info"><span class="rikishi-name">Onokatsu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
-          <td class="banzuke-cell-rank">前頭 M15</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240054.jpg" alt="Kazuma"></div><span class="rikishi-info"><span class="rikishi-name">Kazuma</span><span class="rikishi-origin">Ishikawa</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180002.jpg" alt="Oho"></div><span class="rikishi-info"><span class="rikishi-name">Oho</span><span class="rikishi-origin">Tokyo</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M10</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210057.jpg" alt="Kinbozan"></div><span class="rikishi-info"><span class="rikishi-name">Kinbozan</span><span class="rikishi-origin">Kazakhstan</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210061.jpg" alt="Daiseizan"></div><span class="rikishi-info"><span class="rikishi-name">Daiseizan</span><span class="rikishi-origin">China</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20110065.jpg" alt="Wakamotoharu"></div><span class="rikishi-info"><span class="rikishi-name">Wakamotoharu</span><span class="rikishi-origin">Fukushima</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M11</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140019.jpg" alt="Shodai"></div><span class="rikishi-info"><span class="rikishi-name">Shodai</span><span class="rikishi-origin">Kumamoto</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170011.jpg" alt="Wakatakakage"></div><span class="rikishi-info"><span class="rikishi-name">Wakatakakage</span><span class="rikishi-origin">Fukushima</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M12</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220063.jpg" alt="Asahakuryu"></div><span class="rikishi-info"><span class="rikishi-name">Asahakuryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210046.jpg" alt="Asakoryu"></div><span class="rikishi-info"><span class="rikishi-name">Asakoryu</span><span class="rikishi-origin">Osaka</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M13</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20130059.jpg" alt="Abi"></div><span class="rikishi-info"><span class="rikishi-name">Abi</span><span class="rikishi-origin">Saitama</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150005.jpg" alt="Tobizaru"></div><span class="rikishi-info"><span class="rikishi-name">Tobizaru</span><span class="rikishi-origin">Tokyo</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M14</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20090066.jpg" alt="Chiyoshoma"></div><span class="rikishi-info"><span class="rikishi-name">Chiyoshoma</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240052.jpg" alt="Asasuiryu"></div><span class="rikishi-info"><span class="rikishi-name">Asasuiryu</span><span class="rikishi-origin">Osaka</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M15</td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190020.jpg" alt="Tokihayate"></div><span class="rikishi-info"><span class="rikishi-name">Tokihayate</span><span class="rikishi-origin">Miyagi</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220004.jpg" alt="Wakanosho"></div><span class="rikishi-info"><span class="rikishi-name">Wakanosho</span><span class="rikishi-origin">Tochigi</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M16</td>
-          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210046.jpg" alt="Asakoryu"></div><span class="rikishi-info"><span class="rikishi-name">Asakoryu</span><span class="rikishi-origin">Osaka</span></span></span></td>
+          <td class="banzuke-cell-west dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240007.jpg" alt="Toshinofuji"></div><span class="rikishi-info"><span class="rikishi-name">Toshinofuji</span><span class="rikishi-origin">Mongolia</span></span></span></td>
+        </tr>
+        <tr class="banzuke-row">
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140051.jpg" alt="Shonannoumi"></div><span class="rikishi-info"><span class="rikishi-name">Shonannoumi</span><span class="rikishi-origin">Kanagawa</span></span></span></td>
+          <td class="banzuke-cell-rank">前頭 M17</td>
+          <td class="banzuke-cell-west" style="text-align:center;color:var(--text-muted)">—</td>
         </tr>
       </tbody>
     </table>
     </div>
     <p style="text-align:center;color:var(--text-muted);margin-top:18px;font-size:0.85em;">Data sourced from <a href="https://www.sumo.or.jp/EnHonbashoBanzuke/index/" target="_blank" style="color:var(--accent2);">Japan Sumo Association</a> · Photos © JSA</p>
 
-    <!-- Nagoya basho closed -->
+    <!-- Aki basho preview -->
     <div class="basho-section" style="text-align:center;background:linear-gradient(135deg,#1a1a2e 0%,#2a1a3e 100%);border-radius:14px;padding:32px 20px;margin-top:25px;border:1px solid var(--border)">
-      <div style="font-size:1.4em;font-weight:700;color:var(--gold);margin-bottom:8px">✅ Nagoya Basho Complete — July 12–26, 2026</div>
-      <div style="color:var(--text-muted);max-width:600px;margin:0 auto 18px;line-height:1.6">
-        Fifteen days at IG Arena ended in a three-way kettei-sen, with <strong>Aonishiki</strong> lifting his first Emperor's Cup at 12–3.
-        In Dagi Liga, <strong>Márk Vrabély (ᠪᠥᠬᠡ)</strong> took the fantasy yūshō with <strong>86 points</strong> — two clear of DigiDagi
-        after the two of them went into senshūraku dead level on 74. Next stop: 秋場所 Aki, Tokyo, September 13.
+      <div style="font-size:1.4em;font-weight:700;color:var(--gold);margin-bottom:8px">🟢 Aki Basho — September 13–27, 2026</div>
+      <div style="color:var(--text-muted);max-width:640px;margin:0 auto 18px;line-height:1.6">
+        Fifteen days back at Ryōgoku Kokugikan in Tokyo. Onosato and Hoshoryu head the sheet as Yokozuna, the Ōzeki rank runs three deep after <strong>Aonishiki</strong>'s Nagoya title earned an immediate return, and <strong>Fujinokawa</strong> (Ricsi's pick) debuts at Sekiwake off his Nagoya breakout. It's the 5th of the season's 6 bashos — two left to settle the Dagi Liga.
       </div>
-      <a href="dagi_liga_nagoya_2026.html" style="display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">📊 Full Nagoya report →</a>
+      <a href="https://www.fantasizr.com/league/5301998695481344" target="_blank" style="display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">🏟️ Aki league page →</a>
     </div>
   </div>
 
@@ -2161,19 +2161,19 @@ const portraitMap = {
 };
 Object.entries(portraitMap).forEach(([rid, file]) => { portraitToId[file] = rid; });
 
-// Banzuke movement vs Natsu 2026 (positive = up, 'NEW' = promoted from juryo)
+// Banzuke movement vs Nagoya 2026 (positive = up, 'NEW' = promoted from juryo)
 const banzukeMove = {
-  'Hoshoryu':0,'Onosato':0,'Kirishima':0,'Kotozakura':0,
-  'Atamifuji':0,'Kotoshoho':0,'Wakatakakage':1,'Aonishiki':-1,
-  'Yoshinofuji':2,'Oho':3,'Fujinokawa':0,'Takanosho':0,
-  'Gonoyama':2,'Churanoumi':4,'Hiradoumi':0,'Hakunofuji':7,
-  'Daieisho':0,'Ichiyamamoto':-2,'Ura':6,'Oshoma':3,
-  'Shodai':-1,'Fujiseiun':0,'Kotoeiho':6,'Takayasu':-7,
-  'Wakamotoharu':-3,'Roga':6,'Fujiryoga':8,'Tobizaru':6,
-  'Asanoyama':0,'Chiyoshoma':-3,'Wakanosho':5,'Mitakeumi':3,
-  'Asahakuryu':-4,'Abi':-3,'Nishikifuji':-4,'Kinbozan':-3,
-  'Shishi':-2,'Asakoryu':-9,
-  'Takerufuji':'NEW','Onokatsu':'NEW','Kazuma':'NEW','Daiseizan':'NEW'
+  'Onosato':0,'Hoshoryu':0,'Kirishima':0,'Kotozakura':0,
+  'Aonishiki':1,'Atamifuji':0,'Fujinokawa':2,'Hakunofuji':3,
+  'Daieisho':4,'Kotoshoho':-2,'Kotoeiho':6,'Takayasu':5,
+  'Yoshinofuji':-2,'Gonoyama':-1,'Churanoumi':-1,'Takanosho':-3,
+  'Fujiryoga':5,'Roga':3,'Oshoma':0,'Asanoyama':4,
+  'Ichiyamamoto':-2,'Fujiseiun':-1,'Nishikifuji':6,'Takerufuji':5,
+  'Hiradoumi':-5,'Ura':-4,'Shishi':5,'Oho':-10,
+  'Kinbozan':4,'Wakamotoharu':-3,'Shodai':-5,'Wakatakakage':-13,
+  'Asahakuryu':0,'Asakoryu':3,'Abi':-1,'Tobizaru':-5,
+  'Chiyoshoma':-4,'Wakanosho':-5,
+  'Asasuiryu':'NEW','Tokihayate':'NEW','Toshinofuji':'NEW','Shonannoumi':'NEW'
 };
 // Inject movement badges into banzuke
 document.querySelectorAll('.rikishi-name').forEach(function(el) {
@@ -3283,7 +3283,8 @@ const matchupRikishiImg = {
   'Daiseizan':'20210061','Onosato':'20230048',
   'Aonishiki':'20230052','Onokatsu':'20230053',
   'Kazuma':'20240054','Asasuiryu':'20240052',
-  'Sadanoumi':'20030054','Tomokaze':'20170071'
+  'Sadanoumi':'20030054','Tomokaze':'20170071',
+  'Toshinofuji':'20240007','Shonannoumi':'20140051'
 };
 // Origins for the lightbox header
 const matchupOrigin = {
@@ -3312,21 +3313,15 @@ const matchupOrigin = {
   'Daiseizan':'China','Onosato':'Ishikawa',
   'Aonishiki':'Ukraine','Onokatsu':'Mongolia',
   'Kazuma':'Osaka','Asasuiryu':'Osaka',
-  'Sadanoumi':'Kumamoto','Tomokaze':'Kanagawa'
+  'Sadanoumi':'Kumamoto','Tomokaze':'Kanagawa',
+  'Toshinofuji':'Mongolia','Shonannoumi':'Kanagawa'
 };
-// Purple-highlight set — Richard's (Ricsi) Nagoya selection (Day 3: swapped Fujiryoga → Wakanosho)
-const ricsiPicksDay1to2  = new Set(['Takerufuji','Yoshinofuji','Fujinokawa','Fujiryoga']);
-const ricsiPicksDay3to7  = new Set(['Takerufuji','Yoshinofuji','Fujinokawa','Wakanosho']);
-const ricsiPicksDay8to12 = new Set(['Takerufuji','Yoshinofuji','Fujinokawa','Kotoeiho']); // Wakanosho kyūjo → Kotoeiho
-const ricsiPicksDay13to14 = new Set(['Takerufuji','Asahakuryu','Fujinokawa','Kotoeiho']); // Yoshinofuji → Asahakuryu
-const ricsiPicksDay15plus = new Set(['Takerufuji','Asahakuryu','Fujinokawa','Hakunofuji']); // Kotoeiho → Hakunofuji
-function ricsiPicksFor(day) { return day >= 15 ? ricsiPicksDay15plus : day >= 13 ? ricsiPicksDay13to14 : day >= 8 ? ricsiPicksDay8to12 : day >= 3 ? ricsiPicksDay3to7 : ricsiPicksDay1to2; }
-// Pink-highlight set — Dorka's Nagoya selection (Day 4: swapped Ura & Mitakeumi → Takayasu & Kazuma)
-const dorkaPicksDay1to3 = new Set(['Ura','Atamifuji','Kotoeiho','Mitakeumi']);
-const dorkaPicksDay4to7 = new Set(['Atamifuji','Kotoeiho','Takayasu','Kazuma']);
-const dorkaPicksDay8to10 = new Set(['Atamifuji','Kotoeiho','Takayasu','Tobizaru']); // Kazuma → Tobizaru
-const dorkaPicksDay11plus = new Set(['Atamifuji','Kotoeiho','Takayasu','Asanoyama']); // Tobizaru → Asanoyama
-function dorkaPicksFor(day) { return day >= 11 ? dorkaPicksDay11plus : day >= 8 ? dorkaPicksDay8to10 : day >= 4 ? dorkaPicksDay4to7 : dorkaPicksDay1to3; }
+// Purple-highlight set — Ricsi's Aki selection (Day 1 lineup)
+const ricsiPicksAki = new Set(['Fujinokawa','Yoshinofuji','Takerufuji','Wakanosho']);
+function ricsiPicksFor(day) { return ricsiPicksAki; }
+// Pink-highlight set — Dorka's Aki selection (Day 1 lineup)
+const dorkaPicksAki = new Set(['Atamifuji','Kotoeiho','Ura','Toshinofuji']);
+function dorkaPicksFor(day) { return dorkaPicksAki; }
 // rankClass for the colored left-border accent
 function matchupRankClass(rank) {
   if (/Yokozuna|横綱/.test(rank)) return 'rank-yokozuna';
@@ -3335,361 +3330,10 @@ function matchupRankClass(rank) {
   if (/Komusubi|小結/.test(rank)) return 'rank-komusubi';
   return '';
 }
-// Nagoya 2026 — Day 1 (Jul 12) built; Day 2 (Jul 13) prepared. Records are pre-tournament;
-// h2h is the career head-to-head. Sekiwake Wakatakakage is kyujo (out) — not in the torikumi.
-const nagoyaMatchups = {
-  // Day 1 — July 12, 2026 (results)
-  1: [
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'0-0-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'0-0-0'}, h2h:'10-7', winner:'east' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'0-0-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'0-0-0'}, h2h:'4-0', winner:'east' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'0-0-0'}, west:{name:'Fujinokawa',  rank:'前頭 M1e', record:'0-0-0'}, h2h:'3-0', winner:'east' },
-    { east:{name:'Kotozakura',  rank:'大関 O1w', record:'0-0-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'0-0-0'}, h2h:'12-5', winner:'east' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'0-0-0'}, west:{name:'Gonoyama',    rank:'前頭 M2e', record:'0-0-0'}, h2h:'7-3', winner:'east' },
-    { east:{name:'Kotoshoho',   rank:'関脇 S1w', record:'0-0-0'}, west:{name:'Churanoumi',  rank:'前頭 M2w', record:'0-0-0'}, h2h:'11-5', winner:'east' },
-    { east:{name:'Hiradoumi',   rank:'前頭 M3e', record:'0-0-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'0-0-0'}, h2h:'0-4', winner:'west' },
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'0-0-0'}, west:{name:'Hakunofuji',  rank:'前頭 M3w', record:'0-0-0'}, h2h:'2-1', winner:'west' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'0-0-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'0-0-0'}, h2h:'8-5', winner:'west' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'0-0-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'0-0-0'}, h2h:'2-9', winner:'west' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'0-0-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'0-0-0'}, h2h:'3-4', winner:'west' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'0-0-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'0-0-0'}, h2h:'3-12', winner:'west' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'0-0-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'0-0-0'}, h2h:'1-2', winner:'east' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'0-0-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'0-0-0'}, h2h:'5-2', winner:'east' },
-    { east:{name:'Wakanosho',   rank:'前頭 M11e', record:'0-0-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'0-0-0'}, h2h:'1-0', winner:'east' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'0-0-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'0-0-0'}, h2h:'1-2', winner:'east' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'0-0-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'0-0-0'}, h2h:'2-6', winner:'west' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'0-0-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'0-0-0'}, h2h:'1-2', winner:'west' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'0-0-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'0-0-0'}, h2h:'1-2', winner:'west' },
-    { east:{name:'Daiseizan',   rank:'前頭 M16e', record:'0-0-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'0-0-0'}, h2h:'1-1', winner:'east' },
-    { east:{name:'Asakoryu',    rank:'前頭 M16w', record:'0-0-0'}, west:{name:'Kyokukaiyu',  rank:'十両 J1w', record:'0-0-0'}, h2h:'1-0', winner:'east' }
-  ],
-  // Day 2 — July 13, 2026 (results)
-  2: [
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'0-1-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'0-1-0'}, h2h:'1-0', winner:'east' },
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'1-0-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'0-1-0'}, h2h:'11-3', winner:'east' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'1-0-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'1-0-0'}, h2h:'0-4', winner:'west' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'1-0-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'0-1-0'}, h2h:'8-4', winner:'east' },
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'0-1-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'1-0-0'}, h2h:'4-3', winner:'west' },
-    { east:{name:'Churanoumi',  rank:'前頭 M2w', record:'0-1-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'1-0-0'}, h2h:'2-1', winner:'west' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'1-0-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'0-1-0'}, h2h:'4-11', winner:'east' },
-    { east:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'1-0-0'}, west:{name:'Hakunofuji',  rank:'前頭 M3w', record:'1-0-0'}, h2h:'0-2', winner:'west' },
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'0-1-0'}, west:{name:'Ura',         rank:'前頭 M5e', record:'0-1-0'}, h2h:'18-5', winner:'east' },
-    { east:{name:'Fujiseiun',   rank:'前頭 M6w', record:'1-0-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'1-0-0'}, h2h:'0-2', winner:'east' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'0-1-0'}, west:{name:'Kotoeiho',    rank:'前頭 M7e', record:'0-1-0'}, h2h:'0-1', winner:'west' },
-    { east:{name:'Roga',        rank:'前頭 M8w', record:'0-1-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'1-0-0'}, h2h:'1-3', winner:'west' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'0-1-0'}, west:{name:'Fujiryoga',   rank:'前頭 M9e', record:'1-0-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'0-1-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'0-1-0'}, h2h:'2-12', winner:'west' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'1-0-0'}, west:{name:'Wakanosho',   rank:'前頭 M11e', record:'1-0-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Abi',         rank:'前頭 M12w', record:'1-0-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'0-1-0'}, h2h:'8-11', winner:'east' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'1-0-0'}, west:{name:'Nishikifuji', rank:'前頭 M13e', record:'0-1-0'}, h2h:'3-1', winner:'west' },
-    { east:{name:'Shishi',      rank:'前頭 M14w', record:'1-0-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'1-0-0'}, h2h:'0-2', winner:'east' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'0-1-0'}, west:{name:'Onokatsu',    rank:'前頭 M15e', record:'0-1-0'}, h2h:'2-4', winner:'east' },
-    { east:{name:'Asakoryu',    rank:'前頭 M16w', record:'1-0-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'0-1-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Daiseizan',   rank:'前頭 M16e', record:'1-0-0'}, west:{name:'Asasuiryu',   rank:'十両 J1e', record:'0-0-0'}, h2h:'2-1', winner:'west' }
-  ],
-  // Day 3 — July 14, 2026 (results)
-  3: [
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'2-0-0'}, west:{name:'Fujinokawa',  rank:'前頭 M1e', record:'1-1-0'}, h2h:'0-2', winner:'west' },
-    { east:{name:'Takanosho',   rank:'前頭 M1w', record:'0-2-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'0-2-0'}, h2h:'3-5', winner:'west' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'2-0-0'}, west:{name:'Gonoyama',    rank:'前頭 M2e', record:'0-2-0'}, h2h:'5-5', winner:'east' },
-    { east:{name:'Churanoumi',  rank:'前頭 M2w', record:'0-2-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'2-0-0'}, h2h:'2-5', winner:'east' },
-    { east:{name:'Hakunofuji',  rank:'前頭 M3w', record:'2-0-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'2-0-0'}, h2h:'0-5', winner:'west' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'2-0-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'0-2-0'}, h2h:'3-6', winner:'east' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'1-1-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'2-0-0'}, h2h:'2-2', winner:'west' },
-    { east:{name:'Hiradoumi',   rank:'前頭 M3e', record:'0-2-0'}, west:{name:'Daieisho',    rank:'前頭 M4e', record:'1-1-0'}, h2h:'4-7', winner:'west' },
-    { east:{name:'Oshoma',      rank:'前頭 M5w', record:'1-1-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'1-1-0'}, h2h:'4-5', winner:'west' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'0-2-0'}, west:{name:'Shodai',      rank:'前頭 M6e', record:'0-2-0'}, h2h:'10-8', winner:'west' },
-    { east:{name:'Takayasu',    rank:'前頭 M7w', record:'2-0-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'2-0-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'1-1-0'}, west:{name:'Wakamotoharu', rank:'前頭 M8e', record:'1-1-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Tobizaru',    rank:'前頭 M9w', record:'1-1-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'0-2-0'}, h2h:'4-3', winner:'west' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'1-1-0'}, west:{name:'Asanoyama',   rank:'前頭 M10e', record:'1-1-0'}, h2h:'0-2', winner:'east' },
-    { east:{name:'Mitakeumi',   rank:'前頭 M11w', record:'0-2-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'0-2-0'}, h2h:'2-3', winner:'west' },
-    { east:{name:'Wakanosho',   rank:'前頭 M11e', record:'2-0-0'}, west:{name:'Asahakuryu',  rank:'前頭 M12e', record:'1-1-0'}, h2h:'2-3', winner:'east' },
-    { east:{name:'Takerufuji',  rank:'前頭 M13w', record:'1-1-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'2-0-0'}, h2h:'2-2', winner:'east' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'1-1-0'}, west:{name:'Kinbozan',    rank:'前頭 M14e', record:'1-1-0'}, h2h:'3-5', winner:'east' },
-    { east:{name:'Daiseizan',   rank:'前頭 M16e', record:'1-1-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'2-0-0'}, h2h:'1-0', winner:'west' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'0-2-0'}, west:{name:'Asakoryu',    rank:'前頭 M16w', record:'1-1-0'}, h2h:'3-2', winner:'west' },
-    { east:{name:'Tokihayate',  rank:'十両 J2e', record:'1-1-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'1-1-0'}, h2h:'0-0', winner:'west' }
-  ],
-  // Day 4 — July 15, 2026 (results)
-  4: [
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'0-3-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'1-2-0'}, h2h:'1-6', winner:'east' },
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'2-1-0'}, west:{name:'Churanoumi',  rank:'前頭 M2w', record:'1-2-0'}, h2h:'5-0', winner:'east' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'2-1-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'2-1-0'}, h2h:'1-1', winner:'west' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'3-0-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'0-3-0'}, h2h:'8-17', winner:'east' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'3-0-0'}, west:{name:'Daieisho',    rank:'前頭 M4e', record:'2-1-0'}, h2h:'7-5', winner:'west' },
-    { east:{name:'Oho',         rank:'小結 K1w', record:'0-3-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'3-0-0'}, h2h:'8-7', winner:'east' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'1-2-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'3-0-0'}, h2h:'4-1', winner:'east' },
-    { east:{name:'Hiradoumi',   rank:'前頭 M3e', record:'0-3-0'}, west:{name:'Hakunofuji',  rank:'前頭 M3w', record:'2-1-0'}, h2h:'2-3', winner:'west' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'1-2-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'2-1-0'}, h2h:'1-4', winner:'west' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'0-3-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'1-2-0'}, h2h:'4-2', winner:'east' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'1-2-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'2-1-0'}, h2h:'0-1', winner:'east' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'2-1-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'3-0-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'1-2-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'1-2-0'}, h2h:'2-1', winner:'east' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'2-1-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'1-2-0'}, h2h:'2-0', winner:'east' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'1-2-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'1-2-0'}, h2h:'1-2', winner:'east' },
-    { east:{name:'Wakanosho',   rank:'前頭 M11e', record:'3-0-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'0-3-0'}, h2h:'1-0', winner:'east' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'1-2-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'2-1-0'}, h2h:'1-2', winner:'east' },
-    { east:{name:'Daiseizan',   rank:'前頭 M16e', record:'1-2-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'2-1-0'}, h2h:'3-3', winner:'west' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'2-1-0'}, west:{name:'Asakoryu',    rank:'前頭 M16w', record:'2-1-0'}, h2h:'5-1', winner:'east' },
-    { east:{name:'Kazuma',      rank:'前頭 M15w', record:'2-1-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'3-0-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'0-3-0'}, west:{name:'Sadanoumi',   rank:'十両 J2w', record:'0-3-0'}, h2h:'4-0', winner:'west' }
-  ],
-  // Day 5 — July 16, 2026 (results)
-  5: [
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'3-1-0'}, west:{name:'Gonoyama',    rank:'前頭 M2e', record:'1-3-0'}, h2h:'9-2', winner:'east' },
-    { east:{name:'Churanoumi',  rank:'前頭 M2w', record:'1-3-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'1-3-0'}, h2h:'0-3', winner:'west' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'4-0-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'0-4-0'}, h2h:'7-4', winner:'west' },
-    { east:{name:'Aonishiki',   rank:'関脇 S2w', record:'3-1-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'3-1-0'}, h2h:'6-1', winner:'east' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'2-2-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'3-1-0'}, h2h:'5-0', winner:'east' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'3-1-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'0-4-0'}, h2h:'5-5', winner:'west' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'2-2-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'1-3-0'}, h2h:'3-2', winner:'east' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'1-3-0'}, west:{name:'Hakunofuji',  rank:'前頭 M3w', record:'3-1-0'}, h2h:'3-4', winner:'west' },
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'3-1-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'3-1-0'}, h2h:'6-0', winner:'east' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'3-1-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'1-3-0'}, h2h:'2-0', winner:'east' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'1-3-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'2-2-0'}, h2h:'2-1', winner:'east' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'3-1-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'3-1-0'}, h2h:'0-1', winner:'west' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'2-2-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'1-3-0'}, h2h:'0-1', winner:'west' },
-    { east:{name:'Wakanosho',   rank:'前頭 M11e', record:'4-0-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'1-3-0'}, h2h:'1-1', winner:'east' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'2-2-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'1-3-0'}, h2h:'6-0', winner:'east' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'3-1-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'0-4-0'}, h2h:'4-3', winner:'east' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'2-2-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'2-2-0'}, h2h:'0-2', winner:'west' },
-    { east:{name:'Kazuma',      rank:'前頭 M15w', record:'2-2-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'3-1-0'}, h2h:'2-1', winner:'west' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'2-2-0'}, west:{name:'Asakoryu',    rank:'前頭 M16w', record:'2-2-0'}, h2h:'2-1', winner:'east' },
-    { east:{name:'Ryuden',      rank:'十両 J3e', record:'1-3-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'4-0-0'}, h2h:'4-4', winner:'west' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'0-4-0'}, west:{name:'Daiseizan',   rank:'前頭 M16e', record:'1-3-0'}, h2h:'0-2', winner:'west' }
-  ],
-  // Day 6 — July 17, 2026 (results)
-  6: [
-    { east:{name:'Hiradoumi',   rank:'前頭 M3e', record:'1-4-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'2-3-0'}, h2h:'2-6', winner:'west' },
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'4-1-0'}, west:{name:'Hakunofuji',  rank:'前頭 M3w', record:'4-1-0'}, h2h:'4-1', winner:'west' },
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'1-4-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'3-2-0'}, h2h:'2-9', winner:'east' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'4-1-0'}, west:{name:'Yoshinofuji', rank:'小結 K1e', record:'3-2-0'}, h2h:'3-1', winner:'east' },
-    { east:{name:'Oho',         rank:'小結 K1w', record:'1-4-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'4-1-0'}, h2h:'3-3', winner:'west' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'3-2-0'}, west:{name:'Fujinokawa',  rank:'前頭 M1e', record:'3-2-0'}, h2h:'3-1', winner:'east' },
-    { east:{name:'Takanosho',   rank:'前頭 M1w', record:'1-4-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'3-2-0'}, h2h:'7-8', winner:'east' },
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'4-1-0'}, west:{name:'Churanoumi',  rank:'前頭 M2w', record:'1-4-0'}, h2h:'2-6', winner:'east' },
-    { east:{name:'Fujiseiun',   rank:'前頭 M6w', record:'2-3-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'3-2-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Takayasu',    rank:'前頭 M7w', record:'4-1-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'1-4-0'}, h2h:'1-0', winner:'east' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'1-4-0'}, west:{name:'Kotoeiho',    rank:'前頭 M7e', record:'4-1-0'}, h2h:'1-1', winner:'west' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'2-3-0'}, west:{name:'Wakamotoharu', rank:'前頭 M8e', record:'2-3-0'}, h2h:'7-5', winner:'east' },
-    { east:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'1-4-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'2-3-0'}, h2h:'3-3', winner:'east' },
-    { east:{name:'Mitakeumi',   rank:'前頭 M11w', record:'0-5-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'1-4-0'}, h2h:'5-11', winner:'west' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'3-2-0'}, west:{name:'Wakanosho',   rank:'前頭 M11e', record:'5-0-0'}, h2h:'3-1', winner:'east' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'3-2-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'3-2-0'}, h2h:'10-6', winner:'east' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'2-3-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'4-1-0'}, h2h:'0-1', winner:'west' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'4-1-0'}, west:{name:'Daiseizan',   rank:'前頭 M16e', record:'2-3-0'}, h2h:'2-1', winner:'east' },
-    { east:{name:'Asakoryu',    rank:'前頭 M16w', record:'2-3-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'5-0-0'}, h2h:'6-6', winner:'west' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'3-2-0'}, west:{name:'Dewanoryu',   rank:'十両 J3w', record:'3-2-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'0-5-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'2-3-0'}, h2h:'1-0', winner:'east' }
-  ],
-  // Day 7 — July 18, 2026 (results)
-  7: [
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'4-2-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'1-5-0'}, h2h:'11-1', winner:'east' },
-    { east:{name:'Hakunofuji',  rank:'前頭 M3w', record:'5-1-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'3-3-0'}, h2h:'3-3', winner:'west' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'5-1-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'3-3-0'}, h2h:'3-1', winner:'east' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'4-2-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'3-3-0'}, h2h:'4-8', winner:'east' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'3-3-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'5-1-0'}, h2h:'0-3', winner:'west' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'3-3-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'2-4-0'}, h2h:'2-3', winner:'west' },
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'2-4-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'1-5-0'}, h2h:'5-2', winner:'east' },
-    { east:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'3-3-0'}, west:{name:'Churanoumi',  rank:'前頭 M2w', record:'1-5-0'}, h2h:'10-6', winner:'east' },
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'5-1-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'1-5-0'}, h2h:'2-2', winner:'west' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'1-5-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'3-3-0'}, h2h:'0-1', winner:'west' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'3-3-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'5-1-0'}, h2h:'19-10', winner:'west' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'5-1-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'2-4-0'}, h2h:'2-1', winner:'east' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'2-4-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'2-4-0'}, h2h:'14-9', winner:'east' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'4-2-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'2-4-0'}, h2h:'2-0', winner:'east' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'4-2-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'0-6-0'}, h2h:'9-6', winner:'east' },
-    { east:{name:'Wakanosho',   rank:'前頭 M11e', record:'5-1-0'}, west:{name:'Kinbozan',    rank:'前頭 M14e', record:'4-2-0'}, h2h:'1-1', winner:'west' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'2-4-0'}, west:{name:'Daiseizan',   rank:'前頭 M16e', record:'2-4-0'}, h2h:'1-2', winner:'west' },
-    { east:{name:'Kazuma',      rank:'前頭 M15w', record:'2-4-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'3-3-0'}, h2h:'0-1', winner:'west' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'5-1-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'6-0-0'}, h2h:'3-1', winner:'east' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'1-5-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'5-1-0'}, h2h:'1-5', winner:'west' },
-    { east:{name:'Tomokaze',    rank:'十両 J4e', record:'2-4-0'}, west:{name:'Asakoryu',    rank:'前頭 M16w', record:'2-4-0'}, h2h:'6-4', winner:'west' }
-  ],
-  // Day 8 — July 19, 2026 (results) · Wakanosho kyūjo
-  8: [
-    { east:{name:'Oho',         rank:'小結 K1w', record:'1-6-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'4-3-0'}, h2h:'3-7', winner:'west' },
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'5-2-0'}, west:{name:'Daieisho',    rank:'前頭 M4e', record:'5-2-0'}, h2h:'14-6', winner:'east' },
-    { east:{name:'Hiradoumi',   rank:'前頭 M3e', record:'1-6-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'3-4-0'}, h2h:'3-9', winner:'west' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'6-1-0'}, west:{name:'Atamifuji',   rank:'関脇 S1e', record:'5-2-0'}, h2h:'8-3', winner:'east' },
-    { east:{name:'Hakunofuji',  rank:'前頭 M3w', record:'5-2-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'3-4-0'}, h2h:'2-1', winner:'east' },
-    { east:{name:'Takanosho',   rank:'前頭 M1w', record:'3-4-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'6-1-0'}, h2h:'1-3', winner:'west' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'3-4-0'}, west:{name:'Fujinokawa',  rank:'前頭 M1e', record:'3-4-0'}, h2h:'5-0', winner:'east' },
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'3-4-0'}, west:{name:'Churanoumi',  rank:'前頭 M2w', record:'1-6-0'}, h2h:'2-3', winner:'west' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'6-1-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'4-3-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'3-4-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'2-5-0'}, h2h:'2-3', winner:'west' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'1-6-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'6-1-0'}, h2h:'5-5', winner:'east' },
-    { east:{name:'Roga',        rank:'前頭 M8w', record:'2-5-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'4-3-0'}, h2h:'2-2', winner:'east' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'3-4-0'}, west:{name:'Fujiryoga',   rank:'前頭 M9e', record:'5-2-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'2-5-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'2-5-0'}, h2h:'2-0', winner:'west' },
-    { east:{name:'Abi',         rank:'前頭 M12w', record:'4-3-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'2-5-0'}, h2h:'5-4', winner:'east' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'5-2-0'}, west:{name:'Onokatsu',    rank:'前頭 M15e', record:'1-6-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Takerufuji',  rank:'前頭 M13w', record:'6-1-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'0-7-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'6-1-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'2-5-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'5-2-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'6-1-0'}, h2h:'3-1', winner:'west' },
-    { east:{name:'Daiseizan',   rank:'前頭 M16e', record:'3-4-0'}, west:{name:'Asakoryu',    rank:'前頭 M16w', record:'3-4-0'}, h2h:'0-1', winner:'west' }
-  ],
-  // Day 9 — July 20, 2026 (results)
-  9: [
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'6-2-0'}, west:{name:'Yoshinofuji', rank:'小結 K1e', record:'4-4-0'}, h2h:'2-1', winner:'west' },
-    { east:{name:'Aonishiki',   rank:'関脇 S2w', record:'7-1-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'5-3-0'}, h2h:'0-4', winner:'east' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'7-1-0'}, west:{name:'Churanoumi',  rank:'前頭 M2w', record:'2-6-0'}, h2h:'5-3', winner:'west' },
-    { east:{name:'Hakunofuji',  rank:'前頭 M3w', record:'6-2-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'4-4-0'}, h2h:'1-3', winner:'east' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'5-3-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'4-4-0'}, h2h:'3-3', winner:'east' },
-    { east:{name:'Hiradoumi',   rank:'前頭 M3e', record:'1-7-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'3-5-0'}, h2h:'5-4', winner:'west' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'3-5-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'1-7-0'}, h2h:'1-1', winner:'east' },
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'3-5-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'3-5-0'}, h2h:'6-3', winner:'east' },
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'5-3-0'}, west:{name:'Shodai',      rank:'前頭 M6e', record:'4-4-0'}, h2h:'24-11', winner:'east' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'2-6-0'}, west:{name:'Wakamotoharu', rank:'前頭 M8e', record:'3-5-0'}, h2h:'3-13', winner:'east' },
-    { east:{name:'Roga',        rank:'前頭 M8w', record:'3-5-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'3-5-0'}, h2h:'4-10', winner:'west' },
-    { east:{name:'Tobizaru',    rank:'前頭 M9w', record:'3-5-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'4-4-0'}, h2h:'0-1', winner:'west' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'7-1-0'}, west:{name:'Fujiryoga',   rank:'前頭 M9e', record:'5-3-0'}, h2h:'0-3', winner:'east' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'6-2-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'6-2-0'}, h2h:'2-6', winner:'west' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'6-2-0'}, west:{name:'Daiseizan',   rank:'前頭 M16e', record:'3-5-0'}, h2h:'2-0', winner:'east' },
-    { east:{name:'Kazuma',      rank:'前頭 M15w', record:'3-5-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'2-6-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'1-7-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'1-7-0'}, h2h:'1-0', winner:'east' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'2-6-0'}, west:{name:'Kinbozan',    rank:'前頭 M14e', record:'5-3-0'}, h2h:'1-0', winner:'west' },
-    { east:{name:'Shishi',      rank:'前頭 M14w', record:'7-1-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'5-3-0'}, h2h:'1-2', winner:'east' },
-    { east:{name:'Asakoryu',    rank:'前頭 M16w', record:'4-4-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'6-2-0'}, h2h:'0-3', winner:'west' }
-  ],
-  // Day 10 — July 21, 2026 (results)
-  10: [
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'6-3-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'5-4-0'}, h2h:'1-8', winner:'west' },
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'6-3-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'8-1-0'}, h2h:'1-5', winner:'west' },
-    { east:{name:'Oho',         rank:'小結 K1w', record:'1-8-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'4-5-0'}, h2h:'6-9', winner:'west' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'7-2-0'}, west:{name:'Hakunofuji',  rank:'前頭 M3w', record:'7-2-0'}, h2h:'3-3', winner:'east' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'6-3-0'}, west:{name:'Churanoumi',  rank:'前頭 M2w', record:'3-6-0'}, h2h:'10-3', winner:'east' },
-    { east:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'4-5-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'4-5-0'}, h2h:'9-7', winner:'east' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'5-4-0'}, west:{name:'Gonoyama',    rank:'前頭 M2e', record:'4-5-0'}, h2h:'1-0', winner:'west' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'4-5-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'3-6-0'}, h2h:'2-0', winner:'west' },
-    { east:{name:'Hiradoumi',   rank:'前頭 M3e', record:'1-8-0'}, west:{name:'Ura',         rank:'前頭 M5e', record:'3-6-0'}, h2h:'4-3', winner:'west' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'5-4-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'4-5-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'7-2-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'5-4-0'}, h2h:'3-1', winner:'east' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'4-5-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'3-6-0'}, h2h:'6-0', winner:'west' },
-    { east:{name:'Tobizaru',    rank:'前頭 M9w', record:'3-6-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'7-2-0'}, h2h:'3-7', winner:'west' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'8-1-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'5-4-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'3-6-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'3-6-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Takerufuji',  rank:'前頭 M13w', record:'7-2-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'3-6-0'}, h2h:'3-0', winner:'east' },
-    { east:{name:'Asakoryu',    rank:'前頭 M16w', record:'4-5-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'1-8-0'}, h2h:'1-3', winner:'east' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'2-7-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'8-1-0'}, h2h:'0-2', winner:'east' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'6-3-0'}, west:{name:'Onokatsu',    rank:'前頭 M15e', record:'2-7-0'}, h2h:'1-4', winner:'east' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'6-3-0'}, west:{name:'Daiseizan',   rank:'前頭 M16e', record:'3-6-0'}, h2h:'0-0', winner:'west' }
-  ],
-  // Day 11 — July 22, 2026 (results)
-  11: [
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'6-4-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'4-6-0'}, h2h:'4-4', winner:'east' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'7-3-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'6-4-0'}, h2h:'2-6', winner:'east' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'8-2-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'5-5-0'}, h2h:'6-3', winner:'east' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'4-6-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'5-5-0'}, h2h:'6-8', winner:'west' },
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'5-5-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'9-1-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'5-5-0'}, west:{name:'Churanoumi',  rank:'前頭 M2w', record:'3-7-0'}, h2h:'3-1', winner:'west' },
-    { east:{name:'Takanosho',   rank:'前頭 M1w', record:'4-6-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'1-9-0'}, h2h:'5-7', winner:'east' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'4-6-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'1-9-0'}, h2h:'3-0', winner:'east' },
-    { east:{name:'Takayasu',    rank:'前頭 M7w', record:'8-2-0'}, west:{name:'Hakunofuji',  rank:'前頭 M3w', record:'7-3-0'}, h2h:'2-3', winner:'east' },
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'6-4-0'}, west:{name:'Nishikifuji', rank:'前頭 M13e', record:'7-3-0'}, h2h:'2-0', winner:'west' },
-    { east:{name:'Tobizaru',    rank:'前頭 M9w', record:'3-7-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'4-6-0'}, h2h:'3-0', winner:'west' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'4-6-0'}, west:{name:'Asahakuryu',  rank:'前頭 M12e', record:'3-7-0'}, h2h:'1-2', winner:'west' },
-    { east:{name:'Mitakeumi',   rank:'前頭 M11w', record:'1-9-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'5-5-0'}, h2h:'0-2', winner:'west' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'9-1-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'8-2-0'}, h2h:'2-3', winner:'west' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'4-6-0'}, west:{name:'Kinbozan',    rank:'前頭 M14e', record:'6-4-0'}, h2h:'2-0', winner:'east' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'2-8-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'4-6-0'}, h2h:'2-3', winner:'west' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'6-4-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'3-7-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'8-2-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'8-2-0'}, h2h:'2-0', winner:'west' },
-    { east:{name:'Asakoryu',    rank:'前頭 M16w', record:'5-5-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'3-7-0'}, h2h:'6-3', winner:'east' },
-    { east:{name:'Daiseizan',   rank:'前頭 M16e', record:'4-6-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'5-5-0'}, h2h:'0-0', winner:'east' }
-  ],
-  // Day 12 — July 23, 2026 (results)
-  12: [
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'9-2-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'6-5-0'}, h2h:'0-10', winner:'east' },
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'7-4-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'6-5-0'}, h2h:'16-11', winner:'west' },
-    { east:{name:'Aonishiki',   rank:'関脇 S2w', record:'10-1-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'4-7-0'}, h2h:'1-2', winner:'west' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'8-3-0'}, west:{name:'Kotoeiho',    rank:'前頭 M7e', record:'9-2-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Churanoumi',  rank:'前頭 M2w', record:'4-7-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'1-10-0'}, h2h:'3-5', winner:'east' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'5-6-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'1-10-0'}, h2h:'4-0', winner:'west' },
-    { east:{name:'Hakunofuji',  rank:'前頭 M3w', record:'7-4-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'5-6-0'}, h2h:'1-0', winner:'west' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'5-6-0'}, west:{name:'Gonoyama',    rank:'前頭 M2e', record:'5-6-0'}, h2h:'3-0', winner:'east' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'5-6-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'5-6-0'}, h2h:'10-4', winner:'east' },
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'6-5-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'6-5-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'3-8-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'5-6-0'}, h2h:'1-2', winner:'east' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'4-7-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'5-6-0'}, h2h:'2-0', winner:'west' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'4-7-0'}, west:{name:'Kinbozan',    rank:'前頭 M14e', record:'6-5-0'}, h2h:'5-5', winner:'west' },
-    { east:{name:'Takerufuji',  rank:'前頭 M13w', record:'9-2-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'9-2-0'}, h2h:'0-1', winner:'east' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'2-9-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'3-8-0'}, h2h:'2-1', winner:'west' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'7-4-0'}, west:{name:'Nishikifuji', rank:'前頭 M13e', record:'8-3-0'}, h2h:'0-1', winner:'east' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'8-3-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'9-2-0'}, h2h:'3-0', winner:'west' },
-    { east:{name:'Daiseizan',   rank:'前頭 M16e', record:'5-6-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'1-10-0'}, h2h:'0-2', winner:'east' },
-    { east:{name:'Asakoryu',    rank:'前頭 M16w', record:'6-5-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'5-6-0'}, h2h:'1-1', winner:'east' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'4-7-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'3-8-0'}, h2h:'0-0', winner:'east' }
-  ],
-  // Day 13 — July 24, 2026 (results)
-  13: [
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'7-5-0'}, west:{name:'Atamifuji',   rank:'関脇 S1e', record:'9-3-0'}, h2h:'5-6', winner:'west' },
-    { east:{name:'Takerufuji',  rank:'前頭 M13w', record:'10-2-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'6-6-0'}, h2h:'1-3', winner:'west' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'10-2-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'10-2-0'}, h2h:'1-4', winner:'west' },
-    { east:{name:'Shishi',      rank:'前頭 M14w', record:'10-2-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'7-5-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Takayasu',    rank:'前頭 M7w', record:'9-3-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'5-7-0'}, h2h:'7-3', winner:'west' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'5-7-0'}, west:{name:'Kotoeiho',    rank:'前頭 M7e', record:'9-3-0'}, h2h:'3-0', winner:'east' },
-    { east:{name:'Hiradoumi',   rank:'前頭 M3e', record:'2-10-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'1-11-0'}, h2h:'10-6', winner:'east' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'6-6-0'}, west:{name:'Churanoumi',  rank:'前頭 M2w', record:'5-7-0'}, h2h:'1-2', winner:'west' },
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'7-5-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'6-6-0'}, h2h:'13-10', winner:'east' },
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'5-7-0'}, west:{name:'Hakunofuji',  rank:'前頭 M3w', record:'7-5-0'}, h2h:'4-2', winner:'east' },
-    { east:{name:'Roga',        rank:'前頭 M8w', record:'6-6-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'5-7-0'}, h2h:'4-7', winner:'east' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'4-8-0'}, west:{name:'Fujiryoga',   rank:'前頭 M9e', record:'8-4-0'}, h2h:'1-0', winner:'west' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'8-4-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'5-7-0'}, h2h:'2-0', winner:'east' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'4-8-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'5-7-0'}, h2h:'13-11', winner:'west' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'8-4-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'6-6-0'}, h2h:'5-0', winner:'east' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'6-6-0'}, west:{name:'Asakoryu',    rank:'前頭 M16w', record:'7-5-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Daiseizan',   rank:'前頭 M16e', record:'6-6-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'4-8-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'7-5-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'4-8-0'}, h2h:'2-6', winner:'east' },
-    { east:{name:'Kazuma',      rank:'前頭 M15w', record:'3-9-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'1-11-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Asahakuryu',  rank:'前頭 M12e', record:'5-7-0'}, west:{name:'Onokatsu',    rank:'前頭 M15e', record:'2-10-0'}, h2h:'0-0', winner:'west' }
-  ],
-  // Day 14 — July 25, 2026 (results)
-  14: [
-    { east:{name:'Kotozakura',  rank:'大関 O1w', record:'8-5-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'7-6-0'}, h2h:'5-8', winner:'west' },
-    { east:{name:'Hoshoryu',    rank:'横綱 Y1e', record:'7-6-0'}, west:{name:'Kirishima',   rank:'大関 O1e', record:'10-3-0'}, h2h:'13-12', winner:'west' },
-    { east:{name:'Daieisho',    rank:'前頭 M4e', record:'8-5-0'}, west:{name:'Kotoshoho',   rank:'関脇 S1w', record:'6-7-0'}, h2h:'4-3', winner:'east' },
-    { east:{name:'Takerufuji',  rank:'前頭 M13w', record:'10-3-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'11-2-0'}, h2h:'0-1', winner:'west' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'10-3-0'}, west:{name:'Shishi',      rank:'前頭 M14w', record:'10-3-0'}, h2h:'3-0', winner:'east' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'4-9-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'1-12-0'}, h2h:'3-3', winner:'west' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'6-7-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'9-4-0'}, h2h:'0-4', winner:'west' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'9-4-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'6-7-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'6-7-0'}, west:{name:'Nishikifuji', rank:'前頭 M13e', record:'9-4-0'}, h2h:'0-2', winner:'east' },
-    { east:{name:'Hakunofuji',  rank:'前頭 M3w', record:'7-6-0'}, west:{name:'Churanoumi',  rank:'前頭 M2w', record:'6-7-0'}, h2h:'4-1', winner:'east' },
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'6-7-0'}, west:{name:'Asahakuryu',  rank:'前頭 M12e', record:'5-8-0'}, h2h:'0-1', winner:'west' },
-    { east:{name:'Hiradoumi',   rank:'前頭 M3e', record:'3-10-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'5-8-0'}, h2h:'7-6', winner:'east' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'8-5-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'5-8-0'}, h2h:'3-7', winner:'west' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'4-9-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'2-11-0'}, h2h:'4-9', winner:'east' },
-    { east:{name:'Abi',         rank:'前頭 M12w', record:'6-7-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'6-7-0'}, h2h:'1-0', winner:'west' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'9-4-0'}, west:{name:'Asanoyama',   rank:'前頭 M10e', record:'9-4-0'}, h2h:'1-2', winner:'east' },
-    { east:{name:'Asakoryu',    rank:'前頭 M16w', record:'8-5-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'7-6-0'}, h2h:'2-1', winner:'west' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'6-7-0'}, west:{name:'Onokatsu',    rank:'前頭 M15e', record:'3-10-0'}, h2h:'3-1', winner:'west' },
-    { east:{name:'Kazuma',      rank:'前頭 M15w', record:'3-10-0'}, west:{name:'Tobizaru',    rank:'前頭 M9w', record:'5-8-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Daiseizan',   rank:'前頭 M16e', record:'6-7-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'4-9-0'}, h2h:'0-1', winner:'west' }
-  ],
-  // Day 15 — July 26, 2026 · Senshūraku (results) · Hoshoryu kyūjo
-  15: [
-    { east:{name:'Kotoshoho',   rank:'関脇 S1w', record:'6-8-0'}, west:{name:'Onosato',     rank:'横綱 Y1w', record:'8-6-0'}, h2h:'3-3', winner:'west' },
-    { east:{name:'Kirishima',   rank:'大関 O1e', record:'11-3-0'}, west:{name:'Kotozakura',  rank:'大関 O1w', record:'8-6-0'}, h2h:'16-9', winner:'east' },
-    { east:{name:'Atamifuji',   rank:'関脇 S1e', record:'11-3-0'}, west:{name:'Aonishiki',   rank:'関脇 S2w', record:'12-2-0'}, h2h:'1-4', winner:'east' },
-    { east:{name:'Yoshinofuji', rank:'小結 K1e', record:'6-8-0'}, west:{name:'Daieisho',    rank:'前頭 M4e', record:'9-5-0'}, h2h:'1-2', winner:'west' },
-    { east:{name:'Hakunofuji',  rank:'前頭 M3w', record:'8-6-0'}, west:{name:'Oho',         rank:'小結 K1w', record:'2-12-0'}, h2h:'1-4', winner:'east' },
-    { east:{name:'Fujinokawa',  rank:'前頭 M1e', record:'7-7-0'}, west:{name:'Fujiseiun',   rank:'前頭 M6w', record:'7-7-0'}, h2h:'1-2', winner:'east' },
-    { east:{name:'Churanoumi',  rank:'前頭 M2w', record:'6-8-0'}, west:{name:'Takanosho',   rank:'前頭 M1w', record:'6-8-0'}, h2h:'1-3', winner:'east' },
-    { east:{name:'Gonoyama',    rank:'前頭 M2e', record:'6-8-0'}, west:{name:'Hiradoumi',   rank:'前頭 M3e', record:'4-10-0'}, h2h:'3-7', winner:'east' },
-    { east:{name:'Tobizaru',    rank:'前頭 M9w', record:'5-9-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M4w', record:'5-9-0'}, h2h:'6-3', winner:'west' },
-    { east:{name:'Ura',         rank:'前頭 M5e', record:'5-9-0'}, west:{name:'Abi',         rank:'前頭 M12w', record:'6-8-0'}, h2h:'5-11', winner:'west' },
-    { east:{name:'Onokatsu',    rank:'前頭 M15e', record:'4-10-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'6-8-0'}, h2h:'3-4', winner:'west' },
-    { east:{name:'Shodai',      rank:'前頭 M6e', record:'4-10-0'}, west:{name:'Daiseizan',   rank:'前頭 M16e', record:'6-8-0'}, h2h:'0-0', winner:'east' },
-    { east:{name:'Kotoeiho',    rank:'前頭 M7e', record:'10-4-0'}, west:{name:'Takerufuji',  rank:'前頭 M13w', record:'10-4-0'}, h2h:'0-2', winner:'east' },
-    { east:{name:'Asanoyama',   rank:'前頭 M10e', record:'9-5-0'}, west:{name:'Takayasu',    rank:'前頭 M7w', record:'10-4-0'}, h2h:'2-4', winner:'west' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M8e', record:'6-8-0'}, west:{name:'Asahakuryu',  rank:'前頭 M12e', record:'6-8-0'}, h2h:'0-0', winner:'west' },
-    { east:{name:'Shishi',      rank:'前頭 M14w', record:'10-4-0'}, west:{name:'Roga',        rank:'前頭 M8w', record:'8-6-0'}, h2h:'1-5', winner:'west' },
-    { east:{name:'Fujiryoga',   rank:'前頭 M9e', record:'10-4-0'}, west:{name:'Asakoryu',    rank:'前頭 M16w', record:'8-6-0'}, h2h:'0-1', winner:'west' },
-    { east:{name:'Nishikifuji', rank:'前頭 M13e', record:'9-5-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M10w', record:'5-9-0'}, h2h:'8-6', winner:'east' },
-    { east:{name:'Kinbozan',    rank:'前頭 M14e', record:'8-6-0'}, west:{name:'Mitakeumi',   rank:'前頭 M11w', record:'2-12-0'}, h2h:'6-4', winner:'east' },
-    { east:{name:'Sadanoumi',   rank:'十両 J2w', record:'5-9-0'}, west:{name:'Kazuma',      rank:'前頭 M15w', record:'4-10-0'}, h2h:'0-1', winner:'west' }
-  ]
+// Aki 2026 — Makuuchi torikumi. Daily bout sheets are added here as the Sumo
+// Association posts them (the evening before each day). Empty until Day 1 opens
+// on September 13, 2026.
+const akiMatchups = {
 };
 let activeMatchupDay = 1;
 function renderMatchupDayTabs() {
@@ -3697,7 +3341,7 @@ function renderMatchupDayTabs() {
   if (!wrap) return;
   let html = '';
   for (let d = 1; d <= 15; d++) {
-    const has = !!nagoyaMatchups[d];
+    const has = !!akiMatchups[d];
     const cls = 'matchup-day-tab' + (d === activeMatchupDay ? ' active' : '') + (has ? '' : ' disabled');
     const handler = has ? `onclick="setMatchupDay(${d})"` : '';
     html += `<div class="${cls}" ${handler}>Day ${d}</div>`;
@@ -3732,7 +3376,7 @@ function rikishiBlock(side, r, opts) {
 function renderMatchupList() {
   const wrap = document.getElementById('matchup-list');
   if (!wrap) return;
-  const matches = nagoyaMatchups[activeMatchupDay];
+  const matches = akiMatchups[activeMatchupDay];
   if (!matches) {
     wrap.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:30px;">Torikumi for this day has not been announced yet.</p>';
     return;
@@ -3759,7 +3403,7 @@ function renderMatchupList() {
   wrap.innerHTML = html;
 }
 function setMatchupDay(d) {
-  if (!nagoyaMatchups[d]) return;
+  if (!akiMatchups[d]) return;
   activeMatchupDay = d;
   renderMatchupDayTabs();
   renderMatchupList();
@@ -3769,7 +3413,7 @@ function renderDayJumpGrid() {
   if (!grid) return;
   let html = '';
   for (let d = 1; d <= 15; d++) {
-    const has = !!nagoyaMatchups[d];
+    const has = !!akiMatchups[d];
     const cls = 'day-jump-pill' + (has ? '' : ' disabled');
     const handler = has ? `onclick="jumpToMatchupDay(${d})"` : '';
     html += `<div class="${cls}" ${handler}>Day ${d}</div>`;
@@ -3784,7 +3428,7 @@ function toggleDayJump(btn) {
   if (btn) btn.setAttribute('aria-expanded', String(!open));
 }
 function jumpToMatchupDay(d) {
-  if (!nagoyaMatchups[d]) return;
+  if (!akiMatchups[d]) return;
   // Switch to the Daily Matchups tab and select the requested day
   const tab = document.querySelector('.nav-tab--matchups');
   if (tab) showTab('matchups', tab);
