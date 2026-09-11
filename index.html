@@ -1620,7 +1620,7 @@
     <div class="badge current">🟢 Aki (Tokyo, Sep)</div>
     <div class="badge upcoming">⏳ Kyūshū (Fukuoka, Nov)</div>
   </div>
-  <div class="updated">Last updated: September 2, 2026 — <strong>秋場所 Aki banzuke is up &amp; Dagi Liga lineups are locking in</strong> · Aonishiki re-promoted to Ōzeki, Fujinokawa debuts at Sekiwake · Opens Sunday, September 13 at Ryōgoku Kokugikan, Tokyo · 5th of 6 bashos — season standings still after 4</div>
+  <div class="updated">Last updated: September 11, 2026 — <strong>秋場所 Aki Day 1 torikumi is up</strong> · Onosato opens against Daieisho, Hoshoryu draws Hakunofuji, and Aonishiki starts his Ōzeki return versus Takayasu · Opens Sunday, September 13 at Ryōgoku Kokugikan, Tokyo · 5th of 6 bashos — season standings still after 4</div>
 </div>
 
 <div class="container">
@@ -1824,7 +1824,7 @@
   <div id="tab-matchups" class="tab-content">
     <div class="banzuke-header">
       <h2>秋場所 Aki 2026 — Daily Matchups</h2>
-      <div class="banzuke-sub">Day-by-day Makuuchi torikumi lands here once the basho opens · Click any face to open the rikishi card · Opens Sunday, September 13, 2026 · Ryōgoku Kokugikan, Tokyo</div>
+      <div class="banzuke-sub">Day 1 torikumi is up · Click any face to open the rikishi card · Opens Sunday, September 13, 2026 · Ryōgoku Kokugikan, Tokyo</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection</div>
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection</div>
     </div>
@@ -1836,7 +1836,7 @@
         <li data-ico="🟣"><b>Ricsi</b> — Fujinokawa (S1w), Yoshinofuji (M2w), Takerufuji (M8e), Wakanosho (M16e)</li>
         <li data-ico="🩷"><b>Dorka</b> — Atamifuji (S1e), Kotoeiho (M1w), Ura (M9e), Toshinofuji (M16w)</li>
       </ul>
-      <div class="yw-note">Torikumi (daily bout sheets) are posted by the Sumo Association the evening before each day, so the Day 1 card lands the night before September 13. Lineups can still be swapped up to each day's deadline — every pick is highlighted in the banzuke below.</div>
+      <div class="yw-note">The Day 1 bout sheet is live — open the Daily Matchups card below to see every pairing. Torikumi for later days are posted by the Sumo Association the evening before each day, and lineups can still be swapped up to each day's deadline — every pick is highlighted in the banzuke below.</div>
     </div>
 
     <div class="matchup-day-tabs" id="matchup-day-tabs"></div>
@@ -3254,7 +3254,7 @@ function sidebarNav(tab, el) {
 }
 
 // ============================
-// DAILY MATCHUPS — Natsu 2026
+// DAILY MATCHUPS — Aki 2026
 // ============================
 // Shikona -> JSA image id (reused for face headshots & lightbox)
 const matchupRikishiImg = {
@@ -3331,9 +3331,32 @@ function matchupRankClass(rank) {
   return '';
 }
 // Aki 2026 — Makuuchi torikumi. Daily bout sheets are added here as the Sumo
-// Association posts them (the evening before each day). Empty until Day 1 opens
-// on September 13, 2026.
+// Association posts them (the evening before each day).
 const akiMatchups = {
+  // Day 1 — September 13, 2026 (Aki 2026)
+  1: [
+    { east:{name:'Onosato',      rank:'横綱 Y1e', record:'0-0-0'}, west:{name:'Daieisho',    rank:'小結 K1w', record:'0-0-0'}, h2h:'6-3'  },
+    { east:{name:'Hakunofuji',   rank:'小結 K1e', record:'0-0-0'}, west:{name:'Hoshoryu',    rank:'横綱 Y1w', record:'0-0-0'}, h2h:'0-2'  },
+    { east:{name:'Kirishima',    rank:'大関 O1e', record:'0-0-0'}, west:{name:'Kotoshoho',   rank:'前頭 M1e', record:'0-0-0'}, h2h:'9-4'  },
+    { east:{name:'Kotozakura',   rank:'大関 O1w', record:'0-0-0'}, west:{name:'Kotoeiho',    rank:'前頭 M1w', record:'0-0-0'}, h2h:'1-0'  },
+    { east:{name:'Aonishiki',    rank:'大関 O2e', record:'0-0-0'}, west:{name:'Takayasu',    rank:'前頭 M2e', record:'0-0-0'}, h2h:'2-1'  },
+    { east:{name:'Atamifuji',    rank:'関脇 S1e', record:'0-0-0'}, west:{name:'Yoshinofuji', rank:'前頭 M2w', record:'0-0-0'}, h2h:'1-0'  },
+    { east:{name:'Gonoyama',     rank:'前頭 M3e', record:'0-0-0'}, west:{name:'Fujinokawa',  rank:'関脇 S1w', record:'0-0-0'}, h2h:'1-1'  },
+    { east:{name:'Takanosho',    rank:'前頭 M4e', record:'0-0-0'}, west:{name:'Churanoumi',  rank:'前頭 M3w', record:'0-0-0'}, h2h:'5-2'  },
+    { east:{name:'Roga',         rank:'前頭 M5e', record:'0-0-0'}, west:{name:'Fujiryoga',   rank:'前頭 M4w', record:'0-0-0'}, h2h:'1-0'  },
+    { east:{name:'Asanoyama',    rank:'前頭 M6e', record:'0-0-0'}, west:{name:'Oshoma',      rank:'前頭 M5w', record:'0-0-0'}, h2h:'3-1'  },
+    { east:{name:'Fujiseiun',    rank:'前頭 M7e', record:'0-0-0'}, west:{name:'Ichiyamamoto',rank:'前頭 M6w', record:'0-0-0'}, h2h:'2-3'  },
+    { east:{name:'Takerufuji',   rank:'前頭 M8e', record:'0-0-0'}, west:{name:'Nishikifuji',  rank:'前頭 M7w', record:'0-0-0'}, h2h:'2-1'  },
+    { east:{name:'Ura',          rank:'前頭 M9e', record:'0-0-0'}, west:{name:'Hiradoumi',   rank:'前頭 M8w', record:'0-0-0'}, h2h:'4-5'  },
+    { east:{name:'Oho',          rank:'前頭 M10e',record:'0-0-0'}, west:{name:'Shishi',      rank:'前頭 M9w', record:'0-0-0'}, h2h:'2-2'  },
+    { east:{name:'Wakamotoharu', rank:'前頭 M11e',record:'0-0-0'}, west:{name:'Kinbozan',    rank:'前頭 M10w',record:'0-0-0'}, h2h:'4-2'  },
+    { east:{name:'Wakatakakage', rank:'前頭 M12e',record:'0-0-0'}, west:{name:'Shodai',      rank:'前頭 M11w',record:'0-0-0'}, h2h:'6-5'  },
+    { east:{name:'Asakoryu',     rank:'前頭 M13e',record:'0-0-0'}, west:{name:'Asahakuryu',  rank:'前頭 M12w',record:'0-0-0'}, h2h:'1-1'  },
+    { east:{name:'Tobizaru',     rank:'前頭 M14e',record:'0-0-0'}, west:{name:'Abi',         rank:'前頭 M13w',record:'0-0-0'}, h2h:'6-8'  },
+    { east:{name:'Asasuiryu',    rank:'前頭 M15e',record:'0-0-0'}, west:{name:'Chiyoshoma',  rank:'前頭 M14w',record:'0-0-0'}, h2h:'0-0'  },
+    { east:{name:'Wakanosho',    rank:'前頭 M16e',record:'0-0-0'}, west:{name:'Tokihayate',  rank:'前頭 M15w',record:'0-0-0'}, h2h:'1-0'  },
+    { east:{name:'Shonannoumi',  rank:'前頭 M17e',record:'0-0-0'}, west:{name:'Toshinofuji', rank:'前頭 M16w',record:'0-0-0'}, h2h:'0-1'  }
+  ]
 };
 let activeMatchupDay = 1;
 function renderMatchupDayTabs() {
