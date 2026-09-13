@@ -3343,28 +3343,31 @@ const akiMatchups = {
   // Kyujo from Day 1: Hoshoryu (Y1w), Wakatakakage (M12e), Wakanosho (M16e).
   // 39 active makuuchi is an odd number, so Juryo 1 East Dewanoryu is called
   // up to even the card out: 20 bouts.
-  // h2h is '—' until verified career figures are sourced.
+  // h2h is the career head-to-head as it stood GOING INTO Day 1, sourced from
+  // SumoDB opponent tables. SumoDB's career totals already include the Day 1
+  // bout, so that bout is backed out of each figure to keep this page
+  // results-free. Verified: Onosato-Daieisho 9-1 going in.
   1: [
-    { east:{name:'Onosato',      rank:'横綱 Y1e',   record:'0-0-0'}, west:{name:'Daieisho',     rank:'小結 K1w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Kirishima',    rank:'大関 O1e',   record:'0-0-0'}, west:{name:'Kotoshoho',    rank:'前頭 M1e',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Takayasu',     rank:'前頭 M2e',   record:'0-0-0'}, west:{name:'Kotozakura',   rank:'大関 O1w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Aonishiki',    rank:'大関 O2e',   record:'0-0-0'}, west:{name:'Kotoeiho',     rank:'前頭 M1w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Atamifuji',    rank:'関脇 S1e',   record:'0-0-0'}, west:{name:'Gonoyama',     rank:'前頭 M3e',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Yoshinofuji',  rank:'前頭 M2w',   record:'0-0-0'}, west:{name:'Fujinokawa',   rank:'関脇 S1w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Hakunofuji',   rank:'小結 K1e',   record:'0-0-0'}, west:{name:'Churanoumi',   rank:'前頭 M3w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Takanosho',    rank:'前頭 M4e',   record:'0-0-0'}, west:{name:'Fujiryoga',    rank:'前頭 M4w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Roga',         rank:'前頭 M5e',   record:'0-0-0'}, west:{name:'Oshoma',       rank:'前頭 M5w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Asanoyama',    rank:'前頭 M6e',   record:'0-0-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M6w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Fujiseiun',    rank:'前頭 M7e',   record:'0-0-0'}, west:{name:'Nishikifuji',  rank:'前頭 M7w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Takerufuji',   rank:'前頭 M8e',   record:'0-0-0'}, west:{name:'Hiradoumi',    rank:'前頭 M8w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Ura',          rank:'前頭 M9e',   record:'0-0-0'}, west:{name:'Shishi',       rank:'前頭 M9w',   record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Oho',          rank:'前頭 M10e',  record:'0-0-0'}, west:{name:'Kinbozan',     rank:'前頭 M10w',  record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Wakamotoharu', rank:'前頭 M11e',  record:'0-0-0'}, west:{name:'Shodai',       rank:'前頭 M11w',  record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Asahakuryu',   rank:'前頭 M12w',  record:'0-0-0'}, west:{name:'Abi',          rank:'前頭 M13w',  record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Asakoryu',     rank:'前頭 M13e',  record:'0-0-0'}, west:{name:'Tobizaru',     rank:'前頭 M14e',  record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Asasuiryu',    rank:'前頭 M15e',  record:'0-0-0'}, west:{name:'Chiyoshoma',   rank:'前頭 M14w',  record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Tokihayate',   rank:'前頭 M15w',  record:'0-0-0'}, west:{name:'Toshinofuji',  rank:'前頭 M16w',  record:'0-0-0'}, h2h:'—' },
-    { east:{name:'Shonannoumi',  rank:'前頭 M17e',  record:'0-0-0'}, west:{name:'Dewanoryu',    rank:'十両 J1e',   record:'0-0-0'}, h2h:'—' }
+    { east:{name:'Onosato',      rank:'横綱 Y1e',   record:'0-0-0'}, west:{name:'Daieisho',     rank:'小結 K1w',   record:'0-0-0'}, h2h:'9-1'   },
+    { east:{name:'Kirishima',    rank:'大関 O1e',   record:'0-0-0'}, west:{name:'Kotoshoho',    rank:'前頭 M1e',   record:'0-0-0'}, h2h:'3-1'   },
+    { east:{name:'Takayasu',     rank:'前頭 M2e',   record:'0-0-0'}, west:{name:'Kotozakura',   rank:'大関 O1w',   record:'0-0-0'}, h2h:'9-6'   },
+    { east:{name:'Aonishiki',    rank:'大関 O2e',   record:'0-0-0'}, west:{name:'Kotoeiho',     rank:'前頭 M1w',   record:'0-0-0'}, h2h:'1-1'   },
+    { east:{name:'Atamifuji',    rank:'関脇 S1e',   record:'0-0-0'}, west:{name:'Gonoyama',     rank:'前頭 M3e',   record:'0-0-0'}, h2h:'7-3'   },
+    { east:{name:'Yoshinofuji',  rank:'前頭 M2w',   record:'0-0-0'}, west:{name:'Fujinokawa',   rank:'関脇 S1w',   record:'0-0-0'}, h2h:'6-0'   },
+    { east:{name:'Hakunofuji',   rank:'小結 K1e',   record:'0-0-0'}, west:{name:'Churanoumi',   rank:'前頭 M3w',   record:'0-0-0'}, h2h:'5-1'   },
+    { east:{name:'Takanosho',    rank:'前頭 M4e',   record:'0-0-0'}, west:{name:'Fujiryoga',    rank:'前頭 M4w',   record:'0-0-0'}, h2h:'0-1'   },
+    { east:{name:'Roga',         rank:'前頭 M5e',   record:'0-0-0'}, west:{name:'Oshoma',       rank:'前頭 M5w',   record:'0-0-0'}, h2h:'4-11'  },
+    { east:{name:'Asanoyama',    rank:'前頭 M6e',   record:'0-0-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M6w',   record:'0-0-0'}, h2h:'2-1'   },
+    { east:{name:'Fujiseiun',    rank:'前頭 M7e',   record:'0-0-0'}, west:{name:'Nishikifuji',  rank:'前頭 M7w',   record:'0-0-0'}, h2h:'0-6'   },
+    { east:{name:'Takerufuji',   rank:'前頭 M8e',   record:'0-0-0'}, west:{name:'Hiradoumi',    rank:'前頭 M8w',   record:'0-0-0'}, h2h:'2-1'   },
+    { east:{name:'Ura',          rank:'前頭 M9e',   record:'0-0-0'}, west:{name:'Shishi',       rank:'前頭 M9w',   record:'0-0-0'}, h2h:'1-0'   },
+    { east:{name:'Oho',          rank:'前頭 M10e',  record:'0-0-0'}, west:{name:'Kinbozan',     rank:'前頭 M10w',  record:'0-0-0'}, h2h:'4-1'   },
+    { east:{name:'Wakamotoharu', rank:'前頭 M11e',  record:'0-0-0'}, west:{name:'Shodai',       rank:'前頭 M11w',  record:'0-0-0'}, h2h:'5-8'   },
+    { east:{name:'Asahakuryu',   rank:'前頭 M12w',  record:'0-0-0'}, west:{name:'Abi',          rank:'前頭 M13w',  record:'0-0-0'}, h2h:'0-2'   },
+    { east:{name:'Asakoryu',     rank:'前頭 M13e',  record:'0-0-0'}, west:{name:'Tobizaru',     rank:'前頭 M14e',  record:'0-0-0'}, h2h:'3-1'   },
+    { east:{name:'Asasuiryu',    rank:'前頭 M15e',  record:'0-0-0'}, west:{name:'Chiyoshoma',   rank:'前頭 M14w',  record:'0-0-0'}, h2h:'0-0'   },
+    { east:{name:'Tokihayate',   rank:'前頭 M15w',  record:'0-0-0'}, west:{name:'Toshinofuji',  rank:'前頭 M16w',  record:'0-0-0'}, h2h:'0-1'   },
+    { east:{name:'Shonannoumi',  rank:'前頭 M17e',  record:'0-0-0'}, west:{name:'Dewanoryu',    rank:'十両 J1e',   record:'0-0-0'}, h2h:'3-0'   }
   ]
 };
 let activeMatchupDay = 1;
