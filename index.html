@@ -1620,7 +1620,7 @@
     <div class="badge current">🟢 Aki (Tokyo, Sep)</div>
     <div class="badge upcoming">⏳ Kyūshū (Fukuoka, Nov)</div>
   </div>
-  <div class="updated">Last updated: September 13, 2026 · <strong>秋場所 Aki opens today, Day 1 torikumi is live</strong> · Onosato starts against Daieisho and Aonishiki opens his Ōzeki return versus Kotoeiho · Three withdrawals before the opener: Hoshoryu, Wakatakakage, Wakanosho · Ryōgoku Kokugikan, Tokyo · 5th of 6 bashos, season standings still after 4</div>
+  <div class="updated">Last updated: September 13, 2026 · <strong>秋場所 Aki Day 1 is in the books, Day 2 torikumi is up</strong> · Onosato, Kirishima, Kotozakura, Aonishiki, Atamifuji and Fujinokawa all start 1-0 · Dagi Liga opens level, Ricsi 2 and Dorka 2 · Kyūjō: Hoshoryu, Wakatakakage, Wakanosho · Ryōgoku Kokugikan, Tokyo · 5th of 6 bashos, season standings still after 4</div>
 </div>
 
 <div class="container">
@@ -1824,20 +1824,21 @@
   <div id="tab-matchups" class="tab-content">
     <div class="banzuke-header">
       <h2>秋場所 Aki 2026 — Daily Matchups</h2>
-      <div class="banzuke-sub">Official Day 1 bout sheet, 20 bouts · Click any face to open the rikishi card · Hoshoryu, Wakatakakage and Wakanosho are kyūjō, so Juryo 1 East Dewanoryu is called up · Ryōgoku Kokugikan, Tokyo</div>
+      <div class="banzuke-sub">Day 1 results are in and the Day 2 sheet is posted, 20 bouts each · Use the day tabs below, click any face for the rikishi card · Hoshoryu, Wakatakakage and Wakanosho are kyūjō, so a Juryo rikishi is called up each day · Ryōgoku Kokugikan, Tokyo</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection</div>
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection</div>
     </div>
 
-    <!-- AKI — PRE-BASHO SELECTIONS -->
+    <!-- AKI — DAILY SELECTIONS & RESULTS -->
     <div class="yusho-watch">
-      <div class="yw-title">📋 Day 1 Lineups · Aki 2026 <span class="yw-day">· locked in</span></div>
+      <div class="yw-title">📋 Day 1 Results · Aki 2026 <span class="yw-day">· level at 2-2</span></div>
       <ul class="yw-scenarios">
-        <li data-ico="🟣"><b>Ricsi</b> · Fujinokawa (S1w), Yoshinofuji (M2w), Takerufuji (M8e), <span style="text-decoration:line-through;opacity:0.6">Wakanosho (M16e)</span> <b style="color:#f55">kyūjō</b></li>
-        <li data-ico="🩷"><b>Dorka</b> · Atamifuji (S1e), Kotoeiho (M1w), Ura (M9e), Toshinofuji (M16w)</li>
-        <li data-ico="🩹"><b>Withdrawn before Day 1</b> · Hoshoryu (Y1w), Wakatakakage (M12e), Wakanosho (M16e) — all three out from the opener</li>
+        <li data-ico="🟣"><b>Ricsi · 2 wins</b> · ✅ Fujinokawa, ✅ Takerufuji, ❌ Yoshinofuji, <span style="text-decoration:line-through;opacity:0.6">Wakanosho</span> <b style="color:#f55">kyūjō</b></li>
+        <li data-ico="🩷"><b>Dorka · 2 wins</b> · ✅ Atamifuji, ✅ Ura, ❌ Kotoeiho, ❌ Toshinofuji</li>
+        <li data-ico="⚔️"><b>Ricsi beat himself</b> · Fujinokawa and Yoshinofuji were <em>both</em> his picks and drew each other, so that bout was a guaranteed one win and one loss</li>
+        <li data-ico="🩹"><b>Kyūjō</b> · Hoshoryu (Y1w), Wakatakakage (M12e), Wakanosho (M16e), all out since the opener</li>
       </ul>
-      <div class="yw-note"><b>Ricsi's Wakanosho is kyūjō</b> and has no Day 1 bout, so that roster slot scores nothing unless it is swapped before the deadline. Results are not in yet; this page shows pairings only. Torikumi for later days are posted by the Sumo Association the evening before each day, and every pick is highlighted in the card below and in the banzuke.</div>
+      <div class="yw-note"><b>Day 2 is a direct clash:</b> Dorka's Kotoeiho draws Ricsi's Fujinokawa, so one of them takes a point straight off the other. Ricsi's other two, Yoshinofuji and Takerufuji, face Kotozakura and Shishi; Dorka's Atamifuji, Ura and Toshinofuji face Churanoumi, Hiradoumi and Kyokukaiyu. <b>Wakanosho is out for the basho</b>, so Ricsi is playing a man short every day until that slot is swapped. Day 2 bouts are shown as pairings only until they are fought.</div>
     </div>
 
     <div class="matchup-day-tabs" id="matchup-day-tabs"></div>
@@ -3339,35 +3340,56 @@ function matchupRankClass(rank) {
 // Aki 2026 — Makuuchi torikumi. Daily bout sheets are added here as the Sumo
 // Association posts them (the evening before each day).
 const akiMatchups = {
-  // Day 1 — September 13, 2026 (Aki 2026). Official JSA bout sheet.
-  // Kyujo from Day 1: Hoshoryu (Y1w), Wakatakakage (M12e), Wakanosho (M16e).
-  // 39 active makuuchi is an odd number, so Juryo 1 East Dewanoryu is called
-  // up to even the card out: 20 bouts.
-  // h2h is the career head-to-head as it stood GOING INTO Day 1, sourced from
-  // SumoDB opponent tables. SumoDB's career totals already include the Day 1
-  // bout, so that bout is backed out of each figure to keep this page
-  // results-free. Verified: Onosato-Daieisho 9-1 going in.
+  // Day 1 — September 13, 2026. Official JSA bout sheet, results in.
+  // Kyujo from Day 1: Hoshoryu (Y1w), Wakatakakage (M12e), Wakanosho (M16e),
+  // so Juryo 1 East Dewanoryu was called up: 20 bouts.
+  // Records are as they stood going into the day; h2h likewise, with the day's
+  // own bout backed out of SumoDB's running career total.
   1: [
-    { east:{name:'Onosato',      rank:'横綱 Y1e',   record:'0-0-0'}, west:{name:'Daieisho',     rank:'小結 K1w',   record:'0-0-0'}, h2h:'9-1'   },
-    { east:{name:'Kirishima',    rank:'大関 O1e',   record:'0-0-0'}, west:{name:'Kotoshoho',    rank:'前頭 M1e',   record:'0-0-0'}, h2h:'3-1'   },
-    { east:{name:'Takayasu',     rank:'前頭 M2e',   record:'0-0-0'}, west:{name:'Kotozakura',   rank:'大関 O1w',   record:'0-0-0'}, h2h:'9-6'   },
-    { east:{name:'Aonishiki',    rank:'大関 O2e',   record:'0-0-0'}, west:{name:'Kotoeiho',     rank:'前頭 M1w',   record:'0-0-0'}, h2h:'1-1'   },
-    { east:{name:'Atamifuji',    rank:'関脇 S1e',   record:'0-0-0'}, west:{name:'Gonoyama',     rank:'前頭 M3e',   record:'0-0-0'}, h2h:'7-3'   },
-    { east:{name:'Yoshinofuji',  rank:'前頭 M2w',   record:'0-0-0'}, west:{name:'Fujinokawa',   rank:'関脇 S1w',   record:'0-0-0'}, h2h:'6-0'   },
-    { east:{name:'Hakunofuji',   rank:'小結 K1e',   record:'0-0-0'}, west:{name:'Churanoumi',   rank:'前頭 M3w',   record:'0-0-0'}, h2h:'5-1'   },
-    { east:{name:'Takanosho',    rank:'前頭 M4e',   record:'0-0-0'}, west:{name:'Fujiryoga',    rank:'前頭 M4w',   record:'0-0-0'}, h2h:'0-1'   },
-    { east:{name:'Roga',         rank:'前頭 M5e',   record:'0-0-0'}, west:{name:'Oshoma',       rank:'前頭 M5w',   record:'0-0-0'}, h2h:'4-11'  },
-    { east:{name:'Asanoyama',    rank:'前頭 M6e',   record:'0-0-0'}, west:{name:'Ichiyamamoto', rank:'前頭 M6w',   record:'0-0-0'}, h2h:'2-1'   },
-    { east:{name:'Fujiseiun',    rank:'前頭 M7e',   record:'0-0-0'}, west:{name:'Nishikifuji',  rank:'前頭 M7w',   record:'0-0-0'}, h2h:'0-6'   },
-    { east:{name:'Takerufuji',   rank:'前頭 M8e',   record:'0-0-0'}, west:{name:'Hiradoumi',    rank:'前頭 M8w',   record:'0-0-0'}, h2h:'2-1'   },
-    { east:{name:'Ura',          rank:'前頭 M9e',   record:'0-0-0'}, west:{name:'Shishi',       rank:'前頭 M9w',   record:'0-0-0'}, h2h:'1-0'   },
-    { east:{name:'Oho',          rank:'前頭 M10e',  record:'0-0-0'}, west:{name:'Kinbozan',     rank:'前頭 M10w',  record:'0-0-0'}, h2h:'4-1'   },
-    { east:{name:'Wakamotoharu', rank:'前頭 M11e',  record:'0-0-0'}, west:{name:'Shodai',       rank:'前頭 M11w',  record:'0-0-0'}, h2h:'5-8'   },
-    { east:{name:'Asahakuryu',   rank:'前頭 M12w',  record:'0-0-0'}, west:{name:'Abi',          rank:'前頭 M13w',  record:'0-0-0'}, h2h:'0-2'   },
-    { east:{name:'Asakoryu',     rank:'前頭 M13e',  record:'0-0-0'}, west:{name:'Tobizaru',     rank:'前頭 M14e',  record:'0-0-0'}, h2h:'3-1'   },
-    { east:{name:'Asasuiryu',    rank:'前頭 M15e',  record:'0-0-0'}, west:{name:'Chiyoshoma',   rank:'前頭 M14w',  record:'0-0-0'}, h2h:'0-0'   },
-    { east:{name:'Tokihayate',   rank:'前頭 M15w',  record:'0-0-0'}, west:{name:'Toshinofuji',  rank:'前頭 M16w',  record:'0-0-0'}, h2h:'0-1'   },
-    { east:{name:'Shonannoumi',  rank:'前頭 M17e',  record:'0-0-0'}, west:{name:'Dewanoryu',    rank:'十両 J1e',   record:'0-0-0'}, h2h:'3-0'   }
+    { east:{name:'Onosato',       rank:'横綱 Y1e',       record:'0-0-0'}, west:{name:'Daieisho',      rank:'小結 K1w',       record:'0-0-0'}, h2h:'9-1'  , winner:'east' },
+    { east:{name:'Kirishima',     rank:'大関 O1e',       record:'0-0-0'}, west:{name:'Kotoshoho',     rank:'前頭 M1e',       record:'0-0-0'}, h2h:'3-1'  , winner:'east' },
+    { east:{name:'Takayasu',      rank:'前頭 M2e',       record:'0-0-0'}, west:{name:'Kotozakura',    rank:'大関 O1w',       record:'0-0-0'}, h2h:'9-6'  , winner:'west' },
+    { east:{name:'Aonishiki',     rank:'大関 O2e',       record:'0-0-0'}, west:{name:'Kotoeiho',      rank:'前頭 M1w',       record:'0-0-0'}, h2h:'1-1'  , winner:'east' },
+    { east:{name:'Atamifuji',     rank:'関脇 S1e',       record:'0-0-0'}, west:{name:'Gonoyama',      rank:'前頭 M3e',       record:'0-0-0'}, h2h:'7-3'  , winner:'east' },
+    { east:{name:'Yoshinofuji',   rank:'前頭 M2w',       record:'0-0-0'}, west:{name:'Fujinokawa',    rank:'関脇 S1w',       record:'0-0-0'}, h2h:'6-0'  , winner:'west' },
+    { east:{name:'Hakunofuji',    rank:'小結 K1e',       record:'0-0-0'}, west:{name:'Churanoumi',    rank:'前頭 M3w',       record:'0-0-0'}, h2h:'5-1'  , winner:'west' },
+    { east:{name:'Takanosho',     rank:'前頭 M4e',       record:'0-0-0'}, west:{name:'Fujiryoga',     rank:'前頭 M4w',       record:'0-0-0'}, h2h:'0-1'  , winner:'east' },
+    { east:{name:'Roga',          rank:'前頭 M5e',       record:'0-0-0'}, west:{name:'Oshoma',        rank:'前頭 M5w',       record:'0-0-0'}, h2h:'4-11' , winner:'west' },
+    { east:{name:'Asanoyama',     rank:'前頭 M6e',       record:'0-0-0'}, west:{name:'Ichiyamamoto',  rank:'前頭 M6w',       record:'0-0-0'}, h2h:'2-1'  , winner:'east' },
+    { east:{name:'Fujiseiun',     rank:'前頭 M7e',       record:'0-0-0'}, west:{name:'Nishikifuji',   rank:'前頭 M7w',       record:'0-0-0'}, h2h:'0-6'  , winner:'east' },
+    { east:{name:'Takerufuji',    rank:'前頭 M8e',       record:'0-0-0'}, west:{name:'Hiradoumi',     rank:'前頭 M8w',       record:'0-0-0'}, h2h:'2-1'  , winner:'east' },
+    { east:{name:'Ura',           rank:'前頭 M9e',       record:'0-0-0'}, west:{name:'Shishi',        rank:'前頭 M9w',       record:'0-0-0'}, h2h:'1-0'  , winner:'east' },
+    { east:{name:'Oho',           rank:'前頭 M10e',      record:'0-0-0'}, west:{name:'Kinbozan',      rank:'前頭 M10w',      record:'0-0-0'}, h2h:'4-1'  , winner:'west' },
+    { east:{name:'Wakamotoharu',  rank:'前頭 M11e',      record:'0-0-0'}, west:{name:'Shodai',        rank:'前頭 M11w',      record:'0-0-0'}, h2h:'5-8'  , winner:'east' },
+    { east:{name:'Abi',           rank:'前頭 M13w',      record:'0-0-0'}, west:{name:'Asahakuryu',    rank:'前頭 M12w',      record:'0-0-0'}, h2h:'2-0'  , winner:'west' },
+    { east:{name:'Asakoryu',      rank:'前頭 M13e',      record:'0-0-0'}, west:{name:'Tobizaru',      rank:'前頭 M14e',      record:'0-0-0'}, h2h:'3-1'  , winner:'east' },
+    { east:{name:'Asasuiryu',     rank:'前頭 M15e',      record:'0-0-0'}, west:{name:'Chiyoshoma',    rank:'前頭 M14w',      record:'0-0-0'}, h2h:'0-0'  , winner:'east' },
+    { east:{name:'Toshinofuji',   rank:'前頭 M16w',      record:'0-0-0'}, west:{name:'Tokihayate',    rank:'前頭 M15w',      record:'0-0-0'}, h2h:'1-0'  , winner:'west' },
+    { east:{name:'Shonannoumi',   rank:'前頭 M17e',      record:'0-0-0'}, west:{name:'Dewanoryu',     rank:'十両 J1e',       record:'0-0-0'}, h2h:'3-0'  , winner:'west' }
+  ],
+  // Day 2 — September 14, 2026. Torikumi announced, not yet fought.
+  // Same three kyujo; this time Juryo 1 West Kyokukaiyu is the call-up.
+  2: [
+    { east:{name:'Onosato',       rank:'横綱 Y1e',       record:'1-0-0'}, west:{name:'Kotoshoho',     rank:'前頭 M1e',       record:'0-1-0'}, h2h:'4-2'   },
+    { east:{name:'Yoshinofuji',   rank:'前頭 M2w',       record:'0-1-0'}, west:{name:'Kotozakura',    rank:'大関 O1w',       record:'1-0-0'}, h2h:'0-5'   },
+    { east:{name:'Aonishiki',     rank:'大関 O2e',       record:'1-0-0'}, west:{name:'Takayasu',      rank:'前頭 M2e',       record:'0-1-0'}, h2h:'4-1'   },
+    { east:{name:'Kirishima',     rank:'大関 O1e',       record:'1-0-0'}, west:{name:'Hakunofuji',    rank:'小結 K1e',       record:'0-1-0'}, h2h:'4-3'   },
+    { east:{name:'Kotoeiho',      rank:'前頭 M1w',       record:'0-1-0'}, west:{name:'Fujinokawa',    rank:'関脇 S1w',       record:'1-0-0'}, h2h:'1-5'   },
+    { east:{name:'Atamifuji',     rank:'関脇 S1e',       record:'1-0-0'}, west:{name:'Churanoumi',    rank:'前頭 M3w',       record:'1-0-0'}, h2h:'11-3'  },
+    { east:{name:'Gonoyama',      rank:'前頭 M3e',       record:'0-1-0'}, west:{name:'Daieisho',      rank:'小結 K1w',       record:'0-1-0'}, h2h:'3-7'   },
+    { east:{name:'Roga',          rank:'前頭 M5e',       record:'0-1-0'}, west:{name:'Fujiryoga',     rank:'前頭 M4w',       record:'0-1-0'}, h2h:'2-1'   },
+    { east:{name:'Takanosho',     rank:'前頭 M4e',       record:'1-0-0'}, west:{name:'Oshoma',        rank:'前頭 M5w',       record:'1-0-0'}, h2h:'4-1'   },
+    { east:{name:'Fujiseiun',     rank:'前頭 M7e',       record:'1-0-0'}, west:{name:'Ichiyamamoto',  rank:'前頭 M6w',       record:'0-1-0'}, h2h:'1-0'   },
+    { east:{name:'Asanoyama',     rank:'前頭 M6e',       record:'1-0-0'}, west:{name:'Nishikifuji',   rank:'前頭 M7w',       record:'0-1-0'}, h2h:'2-2'   },
+    { east:{name:'Ura',           rank:'前頭 M9e',       record:'1-0-0'}, west:{name:'Hiradoumi',     rank:'前頭 M8w',       record:'0-1-0'}, h2h:'4-4'   },
+    { east:{name:'Takerufuji',    rank:'前頭 M8e',       record:'1-0-0'}, west:{name:'Shishi',        rank:'前頭 M9w',       record:'0-1-0'}, h2h:'2-1'   },
+    { east:{name:'Wakamotoharu',  rank:'前頭 M11e',      record:'1-0-0'}, west:{name:'Kinbozan',      rank:'前頭 M10w',      record:'1-0-0'}, h2h:'3-0'   },
+    { east:{name:'Oho',           rank:'前頭 M10e',      record:'0-1-0'}, west:{name:'Shodai',        rank:'前頭 M11w',      record:'0-1-0'}, h2h:'4-3'   },
+    { east:{name:'Tobizaru',      rank:'前頭 M14e',      record:'0-1-0'}, west:{name:'Asahakuryu',    rank:'前頭 M12w',      record:'1-0-0'}, h2h:'1-2'   },
+    { east:{name:'Asakoryu',      rank:'前頭 M13e',      record:'1-0-0'}, west:{name:'Abi',           rank:'前頭 M13w',      record:'0-1-0'}, h2h:'2-1'   },
+    { east:{name:'Tokihayate',    rank:'前頭 M15w',      record:'1-0-0'}, west:{name:'Chiyoshoma',    rank:'前頭 M14w',      record:'0-1-0'}, h2h:'3-6'   },
+    { east:{name:'Asasuiryu',     rank:'前頭 M15e',      record:'1-0-0'}, west:{name:'Shonannoumi',   rank:'前頭 M17e',      record:'0-1-0'}, h2h:'1-2'   },
+    { east:{name:'Kyokukaiyu',    rank:'十両 J1w',       record:'0-1-0'}, west:{name:'Toshinofuji',   rank:'前頭 M16w',      record:'0-1-0'}, h2h:'0-3'   }
   ]
 };
 let activeMatchupDay = 1;
