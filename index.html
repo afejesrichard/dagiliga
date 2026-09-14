@@ -1836,9 +1836,10 @@
         <li data-ico="🟣"><b>Ricsi · 2 wins</b> · ✅ Fujinokawa, ✅ Takerufuji, ❌ Yoshinofuji, <span style="text-decoration:line-through;opacity:0.6">Wakanosho</span> <b style="color:#f55">kyūjō</b></li>
         <li data-ico="🩷"><b>Dorka · 2 wins</b> · ✅ Atamifuji, ✅ Ura, ❌ Kotoeiho, ❌ Toshinofuji</li>
         <li data-ico="⚔️"><b>Ricsi beat himself</b> · Fujinokawa and Yoshinofuji were <em>both</em> his picks and drew each other, so that bout was a guaranteed one win and one loss</li>
+        <li data-ico="🔁"><b>Ricsi's Day 2 swap</b> · Wakanosho out, <b>Shonannoumi (M17e)</b> in, which puts him back to a full four. Day 1 above is left as it was actually played.</li>
         <li data-ico="🩹"><b>Kyūjō</b> · Hoshoryu (Y1w), Wakatakakage (M12e), Wakanosho (M16e), all out since the opener</li>
       </ul>
-      <div class="yw-note"><b>Day 2 is a direct clash:</b> Dorka's Kotoeiho draws Ricsi's Fujinokawa, so one of them takes a point straight off the other. Ricsi's other two, Yoshinofuji and Takerufuji, face Kotozakura and Shishi; Dorka's Atamifuji, Ura and Toshinofuji face Churanoumi, Hiradoumi and Kyokukaiyu. <b>Wakanosho is out for the basho</b>, so Ricsi is playing a man short every day until that slot is swapped. Day 2 bouts are shown as pairings only until they are fought.</div>
+      <div class="yw-note"><b>Day 2 is a direct clash:</b> Dorka's Kotoeiho draws Ricsi's Fujinokawa, so one of them takes a point straight off the other. Ricsi's Yoshinofuji, Takerufuji and new pick Shonannoumi face Kotozakura, Shishi and Asasuiryu; Dorka's Atamifuji, Ura and Toshinofuji face Churanoumi, Hiradoumi and Kyokukaiyu. With Wakanosho swapped out, <b>Ricsi fields four again</b> after carrying an empty slot through the opener. Day 2 bouts are shown as pairings only until they are fought.</div>
     </div>
 
     <div class="matchup-day-tabs" id="matchup-day-tabs"></div>
@@ -1961,12 +1962,12 @@
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190020.jpg" alt="Tokihayate"></div><span class="rikishi-info"><span class="rikishi-name">Tokihayate</span><span class="rikishi-origin">Miyagi</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220004.jpg" alt="Wakanosho"></div><span class="rikishi-info"><span class="rikishi-name">Wakanosho</span><span class="rikishi-origin">Tochigi</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220004.jpg" alt="Wakanosho"></div><span class="rikishi-info"><span class="rikishi-name">Wakanosho</span><span class="rikishi-origin">Tochigi</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M16</td>
           <td class="banzuke-cell-west dorka-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240007.jpg" alt="Toshinofuji"></div><span class="rikishi-info"><span class="rikishi-name">Toshinofuji</span><span class="rikishi-origin">Mongolia</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140051.jpg" alt="Shonannoumi"></div><span class="rikishi-info"><span class="rikishi-name">Shonannoumi</span><span class="rikishi-origin">Kanagawa</span></span></span></td>
+          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140051.jpg" alt="Shonannoumi"></div><span class="rikishi-info"><span class="rikishi-name">Shonannoumi</span><span class="rikishi-origin">Kanagawa</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M17</td>
           <td class="banzuke-cell-west" style="text-align:center;color:var(--text-muted)">—</td>
         </tr>
@@ -3324,11 +3325,27 @@ const matchupOrigin = {
   'Toshinofuji':'Mongolia','Shonannoumi':'Kanagawa'
 };
 // Purple-highlight set — Ricsi's Aki selection (Day 1 lineup)
-const ricsiPicksAki = new Set(['Fujinokawa','Yoshinofuji','Takerufuji','Wakanosho']);
-function ricsiPicksFor(day) { return ricsiPicksAki; }
+// Lineups by day. A day inherits the most recent lineup declared before it, so
+// only actual changes need an entry here. Ricsi swapped the kyujo Wakanosho out
+// for Shonannoumi from Day 2.
+const ricsiLineupsAki = {
+  1: ['Fujinokawa','Yoshinofuji','Takerufuji','Wakanosho'],
+  2: ['Fujinokawa','Yoshinofuji','Takerufuji','Shonannoumi']
+};
+const _lineupCache = {};
+function lineupFor(key, lineups, day) {
+  const ck = key + ':' + day;
+  if (_lineupCache[ck]) return _lineupCache[ck];
+  let picks = [];
+  for (let d = day; d >= 1; d--) { if (lineups[d]) { picks = lineups[d]; break; } }
+  return (_lineupCache[ck] = new Set(picks));
+}
+function ricsiPicksFor(day) { return lineupFor('r', ricsiLineupsAki, day); }
 // Pink-highlight set — Dorka's Aki selection (Day 1 lineup)
-const dorkaPicksAki = new Set(['Atamifuji','Kotoeiho','Ura','Toshinofuji']);
-function dorkaPicksFor(day) { return dorkaPicksAki; }
+const dorkaLineupsAki = {
+  1: ['Atamifuji','Kotoeiho','Ura','Toshinofuji']
+};
+function dorkaPicksFor(day) { return lineupFor('d', dorkaLineupsAki, day); }
 // rankClass for the colored left-border accent
 function matchupRankClass(rank) {
   if (/Yokozuna|横綱/.test(rank)) return 'rank-yokozuna';
