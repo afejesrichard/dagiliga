@@ -224,17 +224,17 @@
     0%, 100% { box-shadow: 0 0 4px rgba(78,205,196,0.4); opacity: 1; }
     50% { box-shadow: 0 0 12px rgba(78,205,196,0.8); opacity: 0.7; }
   }
-  .cta-btn--banzuke {
-    background: rgba(255,255,255,0.08);
+  .cta-btn--matchups {
+    background: rgba(78,205,196,0.18);
     backdrop-filter: blur(10px);
     color: var(--text);
-    border-color: rgba(255,215,0,0.35);
+    border-color: var(--accent2);
   }
-  .cta-btn--banzuke:hover {
-    background: rgba(255,215,0,0.15);
-    border-color: var(--gold);
+  .cta-btn--matchups:hover {
+    background: rgba(78,205,196,0.3);
+    border-color: var(--accent2);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255,215,0,0.2);
+    box-shadow: 0 6px 20px rgba(78,205,196,0.28);
   }
   .cta-btn--league {
     background: rgba(255,255,255,0.08);
@@ -1607,8 +1607,8 @@
     <a href="https://www.fantasizr.com/league/5341007886942208" target="_blank" class="cta-btn cta-btn--league">
       🏟️ League Page
     </a>
-    <a href="#" onclick="showTab('banzuke',document.querySelector('.nav-tab--banzuke'));document.querySelector('.nav-tabs').scrollIntoView({behavior:'smooth'});return false;" class="cta-btn cta-btn--banzuke">
-      📜 Banzuke
+    <a href="#" onclick="jumpToMatchups();return false;" class="cta-btn cta-btn--matchups">
+      ⚔️ Daily Matchups
     </a>
   </div>
 
@@ -3500,6 +3500,19 @@ function toggleDayJump(btn) {
   const open = !panel.hidden;
   panel.hidden = open;
   if (btn) btn.setAttribute('aria-expanded', String(!open));
+}
+// Newest day with a torikumi posted, so the hero button always lands on live action
+function latestMatchupDay() {
+  let latest = 1;
+  for (let d = 1; d <= 15; d++) { if (akiMatchups[d]) latest = d; }
+  return latest;
+}
+function jumpToMatchups() {
+  const tab = document.querySelector('.nav-tab--matchups');
+  showTab('matchups', tab);
+  setMatchupDay(latestMatchupDay());
+  const nav = document.querySelector('.nav-tabs');
+  if (nav) nav.scrollIntoView({ behavior: 'smooth' });
 }
 function jumpToMatchupDay(d) {
   if (!akiMatchups[d]) return;
