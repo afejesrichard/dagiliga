@@ -1829,6 +1829,9 @@
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection</div>
     </div>
 
+    <!-- Basho leader packs, derived from the results in akiMatchups -->
+    <div id="yusho-race"></div>
+
     <!-- AKI — DAILY SELECTIONS & RESULTS -->
     <div class="yusho-watch">
       <div class="yw-title">📋 Day 8 Results · Aki 2026 <span class="yw-day">· Dorka leads 20-14</span></div>
@@ -3643,6 +3646,77 @@ function renderMatchupList() {
   html += '</div>';
   wrap.innerHTML = html;
 }
+// ---- Basho leader packs -------------------------------------------------
+// Standings are tallied from the results already stored in akiMatchups rather
+// than written out by hand, so they update themselves as each day is added.
+function latestResultDay() {
+  let last = 0;
+  for (let d = 1; d <= 15; d++) if (akiMatchups[d] && akiMatchups[d].some(b => b.winner)) last = d;
+  return last;
+}
+function makuuchiLeaderPacks() {
+  const rec = {};
+  for (let d = 1; d <= 15; d++) {
+    const day = akiMatchups[d];
+    if (!day) continue;
+    day.forEach(function(b) {
+      if (!b.winner) return;               // an unfought day contributes nothing
+      [['east', b.east], ['west', b.west]].forEach(function(pair) {
+        const side = pair[0], r = pair[1];
+        const e = rec[r.name] || (rec[r.name] = { w: 0, l: 0, rank: r.rank });
+        e.rank = r.rank;
+        if (b.winner === side) e.w++; else e.l++;
+      });
+    });
+  }
+  const rows = Object.keys(rec)
+    // makuuchi only: the daily Juryo call-ups are not in the top-division race
+    .filter(function(n) { return !/十両/.test(rec[n].rank); })
+    .map(function(n) { return { name: n, w: rec[n].w, l: rec[n].l }; })
+    .sort(function(a, b) { return b.w - a.w || a.l - b.l || a.name.localeCompare(b.name); });
+  const packs = [];
+  rows.forEach(function(r) {
+    const last = packs[packs.length - 1];
+    if (last && last.w === r.w && last.l === r.l) last.names.push(r.name);
+    else packs.push({ w: r.w, l: r.l, names: [r.name] });
+  });
+  return packs;
+}
+function renderYushoRace() {
+  const el = document.getElementById('yusho-race');
+  if (!el) return;
+  const through = latestResultDay(), packs = makuuchiLeaderPacks();
+  if (!through || !packs.length) { el.innerHTML = ''; return; }
+  const day = latestMatchupDay();
+  const ricsi = ricsiPicksFor(day), dorka = dorkaPicksFor(day);
+  const list = function(names) {
+    return names.map(function(n) {
+      const mark = (ricsi.has(n) ? ' 🟣' : '') + (dorka.has(n) ? ' 🩷' : '');
+      return mark ? '<b>' + n + '</b>' + mark : n;
+    }).join(' · ');
+  };
+  const top = packs[0];
+  let html = '<div class="yusho-watch">'
+    + '<div class="yw-title">🏆 Yūshō Race · Aki 2026'
+    + '<span class="yw-day">· after Day ' + through + '</span></div>';
+  if (top.names.length <= 2) {
+    html += '<div class="yw-leader"><span class="yw-crown">👑</span>'
+      + '<span class="yw-name">' + list(top.names) + '</span>'
+      + '<span class="yw-rec">' + top.w + '-' + top.l + '</span>'
+      + '<span class="yw-tag">' + (top.names.length === 1 ? 'sole leader' : 'share the lead') + '</span></div>';
+  } else {
+    html += '<div class="yw-leader"><span class="yw-crown">👑</span>'
+      + '<span class="yw-rec">' + top.w + '-' + top.l + '</span>'
+      + '<span class="yw-tag">' + top.names.length + ' share the lead</span></div>'
+      + '<div class="yw-chasers">' + list(top.names) + '</div>';
+  }
+  packs.slice(1, 3).forEach(function(p) {
+    html += '<div class="yw-chasers"><span class="yw-label">' + p.w + '-' + p.l + '</span>'
+      + list(p.names) + '</div>';
+  });
+  el.innerHTML = html + '<div class="yw-note">Top division only, so the daily Juryo call-up is left out. '
+    + 'Bold names with a marker are Dagi Liga picks.</div></div>';
+}
 function setMatchupDay(d) {
   if (!akiMatchups[d]) return;
   activeMatchupDay = d;
@@ -3696,6 +3770,7 @@ function jumpToMatchupDay(d) {
 }
 renderMatchupDayTabs();
 renderMatchupList();
+renderYushoRace();
 renderDayJumpGrid();
 
 // Hide desktop nav-tabs on scroll down, show on scroll up.
