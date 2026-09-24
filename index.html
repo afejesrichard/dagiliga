@@ -788,6 +788,20 @@
     padding: 5px 10px;
     margin: 4px 0 -6px;
   }
+  /* yūshō contenders on the upcoming day's card */
+  .ys-badge {
+    display: inline-block; align-self: inherit; margin-top: 3px;
+    font-size: 0.6em; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 2px 6px; border-radius: 4px; white-space: nowrap;
+  }
+  .ys-badge.ys-lead { background: rgba(255,215,0,0.18); color: var(--gold); border: 1px solid rgba(255,215,0,0.55); }
+  .ys-badge.ys-win { background: rgba(255,230,109,0.12); color: var(--accent3); border: 1px solid rgba(255,230,109,0.45); }
+  .ys-badge.ys-playoff { background: rgba(78,205,196,0.12); color: var(--accent2); border: 1px solid rgba(78,205,196,0.45); }
+  .matchup-side.ys-lead .matchup-name, .matchup-side.ys-win .matchup-name { color: var(--gold); }
+  .matchup-card.ys-bout { box-shadow: inset 0 0 0 1px rgba(255,215,0,0.3); }
+  .matchup-card.ys-clash { box-shadow: 0 0 0 1px var(--gold), 0 0 14px rgba(255,215,0,0.28); }
+  .ys-legend { font-size: 0.8em; color: var(--text-muted); text-align: center; margin: 2px 0 12px; line-height: 1.6; }
+  .ys-legend .ys-badge { font-size: 0.72em; margin: 0 2px; }
   .matchup-card.playoff-card { border: 1px solid var(--gold); box-shadow: 0 0 14px rgba(255,215,0,0.25); }
   /* Ricsi's Selection inside matchup */
   .matchup-side.ricsi-pick {
@@ -1645,7 +1659,7 @@
     <div class="badge current">🟢 Aki (Tokyo, Sep)</div>
     <div class="badge upcoming">⏳ Kyūshū (Fukuoka, Nov)</div>
   </div>
-  <div class="updated">Last updated: September 25, 2026 · <strong>秋場所 Aki Day 12 is resolved</strong> · <b>Onosato 11-1 with three days left</b>: two more wins and the yūshō is his outright, and only three rikishi can still beat him to it · <b>Day 12 split 2-2</b>, so Dorka still leads 26-22, and both players' new picks won on debut · Kyūjō unchanged: Hoshoryu, Wakatakakage, Wakanosho · Ryōgoku Kokugikan, Tokyo · 5th of 6 bashos, season standings still after 4</div>
+  <div class="updated">Last updated: September 25, 2026 · <strong>秋場所 Aki Day 12 is resolved, Day 13 torikumi is up</strong> · <b>Onosato 11-1 with three days left</b>: two more wins and the yūshō is his, and eleven rikishi are still alive, now badged on the Day 13 card · <b>Dorka leads 26-22</b> · Kyūjō: Hoshoryu, Wakatakakage, Wakanosho, and <b>Kotoshoho from Day 12</b> · Ryōgoku Kokugikan, Tokyo · 5th of 6 bashos, season standings still after 4</div>
 </div>
 
 <div class="container">
@@ -1849,7 +1863,7 @@
   <div id="tab-matchups" class="tab-content">
     <div class="banzuke-header">
       <h2>秋場所 Aki 2026 — Daily Matchups</h2>
-      <div class="banzuke-sub">Days 1 to 12 are resolved, 20 bouts each · The yūshō maths at the top shows what is still possible · Use the day tabs below, click any face for the rikishi card · One Day 12 bout, Kotoshoho against Fujiryoga, has no result posted upstream yet and is left open; neither is a pick and both are out of the yūshō · Ryōgoku Kokugikan, Tokyo</div>
+      <div class="banzuke-sub">Days 1 to 12 are resolved and the Day 13 sheet is posted · The yūshō maths at the top shows what is still possible, and every rikishi still in the race is badged on the Day 13 card · <b>Kotoshoho withdrew on Day 12</b>, so Fujiryoga won that bout by fusen; with 38 active there is no Juryo call-up from Day 13, which runs 19 bouts · Click any face for the rikishi card · Ryōgoku Kokugikan, Tokyo</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection</div>
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection</div>
     </div>
@@ -1866,10 +1880,11 @@
         <li data-ico="🔁"><b>Both swaps paid on debut</b> · Ricsi's <b>Wakamotoharu</b> beat Ichiyamamoto and Dorka's <b>Takayasu</b> beat Daieisho. Two changes, two wins, and the gap unmoved at four.</li>
         <li data-ico="😬"><b>The discard bit back</b> · <b>Takerufuji lost to Asasuiryu</b>, the pick Ricsi had dropped for Wakamotoharu the same day. The swap gained him a point in one slot and cost him one in another.</li>
         <li data-ico="👑"><b>Onosato is nearly home</b> · He beat Dorka's Atamifuji to reach <b>11-1</b>. Two more wins and the yūshō is his outright; see the maths at the top of this tab for who can still stop him.</li>
+        <li data-ico="🩹"><b>Kotoshoho withdrew on Day 12</b> · The M1 East forfeited his bout, so <b>Fujiryoga won by fusen</b>, a default win. Neither is a pick and both were already out of the yūshō, so nothing else moves.</li>
         <li data-ico="🎯"><b>Fujinokawa is Ricsi's live one</b> · At <b>9-3</b> he is one of only three rikishi who can still take the yūshō outright. Dorka's best, Atamifuji and Ura on 8-4, can now only reach a playoff.</li>
         <li data-ico="🩹"><b>Kyūjō</b> · Hoshoryu (Y1w), Wakatakakage (M12e), Wakanosho (M16e), all out since the opener and no new withdrawals since. Ricsi replaced Wakanosho with Shonannoumi from Day 2; Day 1 is left as it was actually played.</li>
       </ul>
-      <div class="yw-note"><b>Three days left and the Dagi Liga gap is four.</b> Ricsi has closed nothing since Day 9 despite two swaps that both worked, because Dorka keeps matching him. To win from here he needs to outscore her by more than one a day, and his roster is split: Fujinokawa (9-3) and Wakamotoharu (8-4) are producing, while Tobizaru (4-8) and Takerufuji (7-5) are not. Dorka's four sit 8-4, 8-4, 7-5 and 5-7, which is steadier but has less upside. The Day 13 sheet is not loaded yet; the yūshō maths above updates itself from the results as each day goes in.</div>
+      <div class="yw-note"><b>Day 13 is a knockout round for the chase.</b> Four bouts pit two contenders against each other, framed on the card: <b>Aonishiki vs Kotozakura</b>, <b>Atamifuji vs Asanoyama</b>, <b>Churanoumi vs Fujinokawa</b> and <b>Fujiseiun vs Ura</b>, so at least four live rikishi drop a loss today. Onosato meets Kirishima, whom he leads 10-1. In the Dagi Liga, Ricsi's <b>Fujinokawa (9-3)</b> faces Churanoumi with the yūshō chase on the line, while Dorka's <b>Atamifuji</b> and <b>Ura</b> each meet a fellow contender. No self-inflicted bout and no head-to-head between the lineups. Day 13 is shown as pairings only until it is fought.</div>
     </div>
 
     <div class="matchup-day-tabs" id="matchup-day-tabs"></div>
@@ -3410,7 +3425,9 @@ function matchupRankClass(rank) {
 // Association posts them (the evening before each day).
 const akiMatchups = {
   // Kyujo from Day 1: Hoshoryu (Y1w), Wakatakakage (M12e), Wakanosho (M16e).
-  // 39 active makuuchi is odd, so a Juryo rikishi is called up each day.
+  // Kotoshoho (M1e) withdrew on Day 12, losing that bout by fusen.
+  // Days 1-12: 39 active is odd, so a Juryo rikishi was called up each day.
+  // From Day 13: 38 active is even, so no call-up and 19 bouts.
   // Records and h2h are as they stood GOING INTO each day.
   // Day 1 — Sep 13. Results in. Call-up: Juryo 1 East Dewanoryu.
   1: [
@@ -3665,10 +3682,7 @@ const akiMatchups = {
     { east:{name:'Wakamotoharu',  rank:'前頭 M11e',      record:'6-4-0'}, west:{name:'Tobizaru',      rank:'前頭 M14e',      record:'4-6-0'}, h2h:'14-9' , winner:'east' },
     { east:{name:'Dewanoryu',     rank:'十両 J1e',       record:'6-4-0'}, west:{name:'Chiyoshoma',    rank:'前頭 M14w',      record:'4-6-0'}, h2h:'0-0'  , winner:'east' }
   ],
-  // Day 12 — Sep 24. Results in. Call-up: Juryo 1 West Kyokukaiyu.
-  // Kotoshoho vs Fujiryoga has no result posted upstream yet, so that one bout
-  // is left unresolved. Neither is a pick and both are out of the yusho, so the
-  // league score and the race are unaffected.
+  // Day 12 — Sep 24. Results in. Call-up: Juryo 1 West Kyokukaiyu. Kotoshoho vs Fujiryoga was a fusen.
   12: [
     { east:{name:'Onosato',       rank:'横綱 Y1e',       record:'10-1-0'}, west:{name:'Atamifuji',     rank:'関脇 S1e',       record:'8-3-0'}, h2h:'6-3'  , winner:'east' },
     { east:{name:'Aonishiki',     rank:'大関 O2e',       record:'8-3-0'}, west:{name:'Kinbozan',      rank:'前頭 M10w',      record:'8-3-0'}, h2h:'1-2'  , winner:'east' },
@@ -3677,7 +3691,7 @@ const akiMatchups = {
     { east:{name:'Takayasu',      rank:'前頭 M2e',       record:'4-7-0'}, west:{name:'Daieisho',      rank:'小結 K1w',       record:'4-7-0'}, h2h:'14-12', winner:'east' },
     { east:{name:'Hakunofuji',    rank:'小結 K1e',       record:'3-8-0'}, west:{name:'Gonoyama',      rank:'前頭 M3e',       record:'3-8-0'}, h2h:'2-4'  , winner:'west' },
     { east:{name:'Takanosho',     rank:'前頭 M4e',       record:'4-7-0'}, west:{name:'Kotoeiho',      rank:'前頭 M1w',       record:'2-9-0'}, h2h:'1-0'  , winner:'west' },
-    { east:{name:'Kotoshoho',     rank:'前頭 M1e',       record:'5-6-0'}, west:{name:'Fujiryoga',     rank:'前頭 M4w',       record:'5-6-0'}, h2h:'0-0'   },
+    { east:{name:'Kotoshoho',     rank:'前頭 M1e',       record:'5-6-0'}, west:{name:'Fujiryoga',     rank:'前頭 M4w',       record:'5-6-0'}, h2h:'0-0'  , winner:'west', fusen:true },
     { east:{name:'Roga',          rank:'前頭 M5e',       record:'5-6-0'}, west:{name:'Yoshinofuji',   rank:'前頭 M2w',       record:'5-6-0'}, h2h:'0-2'  , winner:'west' },
     { east:{name:'Asanoyama',     rank:'前頭 M6e',       record:'8-3-0'}, west:{name:'Churanoumi',    rank:'前頭 M3w',       record:'8-3-0'}, h2h:'1-0'  , winner:'east' },
     { east:{name:'Wakamotoharu',  rank:'前頭 M11e',      record:'7-4-0'}, west:{name:'Ichiyamamoto',  rank:'前頭 M6w',       record:'2-9-0'}, h2h:'11-4' , winner:'east' },
@@ -3690,6 +3704,28 @@ const akiMatchups = {
     { east:{name:'Toshinofuji',   rank:'前頭 M16w',      record:'7-4-0'}, west:{name:'Asahakuryu',    rank:'前頭 M12w',      record:'6-5-0'}, h2h:'0-0'  , winner:'west' },
     { east:{name:'Chiyoshoma',    rank:'前頭 M14w',      record:'4-7-0'}, west:{name:'Abi',           rank:'前頭 M13w',      record:'6-5-0'}, h2h:'4-6'  , winner:'west' },
     { east:{name:'Tobizaru',      rank:'前頭 M14e',      record:'4-7-0'}, west:{name:'Kyokukaiyu',    rank:'十両 J1w',       record:'5-6-0'}, h2h:'0-0'  , winner:'west' }
+  ],
+  // Day 13 — Sep 25. Torikumi announced, not yet fought. No call-up.
+  13: [
+    { east:{name:'Onosato',       rank:'横綱 Y1e',       record:'11-1-0'}, west:{name:'Kirishima',     rank:'大関 O1e',       record:'6-6-0'}, h2h:'10-1'  },
+    { east:{name:'Aonishiki',     rank:'大関 O2e',       record:'9-3-0'}, west:{name:'Kotozakura',    rank:'大関 O1w',       record:'8-4-0'}, h2h:'6-1'   },
+    { east:{name:'Atamifuji',     rank:'関脇 S1e',       record:'8-4-0'}, west:{name:'Asanoyama',     rank:'前頭 M6e',       record:'9-3-0'}, h2h:'1-2'   },
+    { east:{name:'Churanoumi',    rank:'前頭 M3w',       record:'8-4-0'}, west:{name:'Fujinokawa',    rank:'関脇 S1w',       record:'9-3-0'}, h2h:'3-1'   },
+    { east:{name:'Hakunofuji',    rank:'小結 K1e',       record:'3-9-0'}, west:{name:'Takanosho',     rank:'前頭 M4e',       record:'4-8-0'}, h2h:'1-1'   },
+    { east:{name:'Fujiryoga',     rank:'前頭 M4w',       record:'6-6-0'}, west:{name:'Daieisho',      rank:'小結 K1w',       record:'4-8-0'}, h2h:'0-0'   },
+    { east:{name:'Roga',          rank:'前頭 M5e',       record:'5-7-0'}, west:{name:'Kotoeiho',      rank:'前頭 M1w',       record:'3-9-0'}, h2h:'1-2'   },
+    { east:{name:'Takayasu',      rank:'前頭 M2e',       record:'5-7-0'}, west:{name:'Gonoyama',      rank:'前頭 M3e',       record:'4-8-0'}, h2h:'5-4'   },
+    { east:{name:'Oshoma',        rank:'前頭 M5w',       record:'6-6-0'}, west:{name:'Yoshinofuji',   rank:'前頭 M2w',       record:'6-6-0'}, h2h:'0-3'   },
+    { east:{name:'Asasuiryu',     rank:'前頭 M15e',      record:'5-7-0'}, west:{name:'Ichiyamamoto',  rank:'前頭 M6w',       record:'2-10-0'}, h2h:'0-0'   },
+    { east:{name:'Fujiseiun',     rank:'前頭 M7e',       record:'8-4-0'}, west:{name:'Ura',           rank:'前頭 M9e',       record:'8-4-0'}, h2h:'1-0'   },
+    { east:{name:'Asakoryu',      rank:'前頭 M13e',      record:'7-5-0'}, west:{name:'Nishikifuji',   rank:'前頭 M7w',       record:'6-6-0'}, h2h:'1-6'   },
+    { east:{name:'Takerufuji',    rank:'前頭 M8e',       record:'7-5-0'}, west:{name:'Kinbozan',      rank:'前頭 M10w',      record:'8-4-0'}, h2h:'2-1'   },
+    { east:{name:'Wakamotoharu',  rank:'前頭 M11e',      record:'8-4-0'}, west:{name:'Hiradoumi',     rank:'前頭 M8w',       record:'7-5-0'}, h2h:'5-6'   },
+    { east:{name:'Chiyoshoma',    rank:'前頭 M14w',      record:'4-8-0'}, west:{name:'Shishi',        rank:'前頭 M9w',       record:'5-7-0'}, h2h:'3-5'   },
+    { east:{name:'Oho',           rank:'前頭 M10e',      record:'4-8-0'}, west:{name:'Tobizaru',      rank:'前頭 M14e',      record:'4-8-0'}, h2h:'5-3'   },
+    { east:{name:'Shonannoumi',   rank:'前頭 M17e',      record:'3-9-0'}, west:{name:'Shodai',        rank:'前頭 M11w',      record:'2-10-0'}, h2h:'4-2'   },
+    { east:{name:'Tokihayate',    rank:'前頭 M15w',      record:'7-5-0'}, west:{name:'Asahakuryu',    rank:'前頭 M12w',      record:'7-5-0'}, h2h:'2-1'   },
+    { east:{name:'Toshinofuji',   rank:'前頭 M16w',      record:'7-5-0'}, west:{name:'Abi',           rank:'前頭 M13w',      record:'7-5-0'}, h2h:'0-0'   }
   ]
 };
 let activeMatchupDay = 1;
@@ -3705,6 +3741,21 @@ function renderMatchupDayTabs() {
   }
   wrap.innerHTML = html;
 }
+// Yūshō status for the card of a day not yet fought, from the maths as it
+// stands after the latest resolved day. Fought days get no badges, since the
+// status would describe the race after that day, not going into it.
+function contenderStatus(day) {
+  const through = latestResultDay();
+  if (!through || day <= through) return null;
+  const m = yushoMath(through);
+  if (!m || m.left <= 0) return null;
+  const st = {};
+  m.playoffOnly.forEach(function(r) { st[r.name] = 'playoff'; });
+  m.outright.forEach(function(r) { st[r.name] = 'win'; });
+  m.leaders.forEach(function(r) { st[r.name] = 'lead'; });
+  return st;
+}
+const YS_BADGE = { lead: '\u{1F451} Leader', win: '\u{1F3C6} Can win', playoff: '\u2696\uFE0F Playoff' };
 function rikishiBlock(side, r, opts) {
   const id = matchupRikishiImg[r.name] || '';
   const origin = matchupOrigin[r.name] || '';
@@ -3716,7 +3767,8 @@ function rikishiBlock(side, r, opts) {
     + (isRicsi ? ' ricsi-pick' : '')
     + (isDorka ? ' dorka-pick' : '')
     + (isWinner ? ' winner' : '')
-    + (isLoser ? ' loser' : '');
+    + (isLoser ? ' loser' : '')
+    + (opts && opts.ys ? ' ys-' + opts.ys : '');
   const sideLabel = side === 'east' ? 'East' : 'West';
   const img = id
     ? `<div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/${id}.jpg" alt="${r.name}" data-name="${r.name}" data-rank="${r.rank}" data-side="${sideLabel}" data-origin="${origin}"></div>`
@@ -3727,6 +3779,7 @@ function rikishiBlock(side, r, opts) {
       <span class="matchup-rank">${r.rank}</span>
       <span class="matchup-name">${r.name}</span>
       <span class="matchup-record">${r.record}</span>
+      ${opts && opts.ys ? '<span class="ys-badge ys-' + opts.ys + '">' + YS_BADGE[opts.ys] + '</span>' : ''}
     </div>
   </div>`;
 }
@@ -3738,22 +3791,35 @@ function renderMatchupList() {
     wrap.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:30px;">Torikumi for this day has not been announced yet.</p>';
     return;
   }
-  let html = '<div class="matchup-list">';
+  const ys = contenderStatus(activeMatchupDay);
+  let html = '';
+  if (ys && Object.keys(ys).length) {
+    html += '<div class="ys-legend">Y\u016bsh\u014d race going into Day ' + activeMatchupDay + ': '
+      + '<span class="ys-badge ys-lead">' + YS_BADGE.lead + '</span>'
+      + '<span class="ys-badge ys-win">' + YS_BADGE.win + ' outright</span>'
+      + '<span class="ys-badge ys-playoff">' + YS_BADGE.playoff + ' is the ceiling</span>'
+      + '<br>Framed bouts involve a contender; a glowing frame means two contenders meet.</div>';
+  }
+  html += '<div class="matchup-list">';
   matches.forEach(m => {
-    const cls = 'matchup-card ' + matchupRankClass(m.east.rank + ' ' + m.west.rank);
+    const eS = ys ? ys[m.east.name] : null, wS = ys ? ys[m.west.name] : null;
+    const cls = 'matchup-card ' + matchupRankClass(m.east.rank + ' ' + m.west.rank)
+      + (eS && wS ? ' ys-clash' : (eS || wS ? ' ys-bout' : ''));
     const h2hClass = (m.h2h === '0-0' || m.h2h === '—') ? 'matchup-h2h h2h-zero' : 'matchup-h2h';
     const cardCls = cls + (m.winner ? ' has-result' : '') + (m.note ? ' playoff-card' : '');
+    // a fusen is a default win after the opponent withdrew, not a fought bout
+    const won = m.fusen ? 'Fusen' : 'Won';
     const vsLabel = m.winner
-      ? `<span class="matchup-vs-label result">${m.winner === 'east' ? '◀ Won' : 'Won ▶'}</span>`
+      ? `<span class="matchup-vs-label result"${m.fusen ? ' title="Won by default: the opponent withdrew"' : ''}>${m.winner === 'east' ? '◀ ' + won : won + ' ▶'}</span>`
       : `<span class="matchup-vs-label">vs</span>`;
     const noteBanner = m.note ? `<div class="matchup-note">${m.note}</div>` : '';
     html += `${noteBanner}<div class="${cardCls}">
-      ${rikishiBlock('east', m.east, { winner: m.winner })}
+      ${rikishiBlock('east', m.east, { winner: m.winner, ys: eS })}
       <div class="matchup-vs">
         ${vsLabel}
         <span class="${h2hClass}" title="${m.h2h === '—' ? 'Career head-to-head not recorded' : 'Career head-to-head'}">${m.h2h}</span>
       </div>
-      ${rikishiBlock('west', m.west, { winner: m.winner })}
+      ${rikishiBlock('west', m.west, { winner: m.winner, ys: wS })}
     </div>`;
   });
   html += '</div>';
