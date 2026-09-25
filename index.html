@@ -1659,7 +1659,7 @@
     <div class="badge current">🟢 Aki (Tokyo, Sep)</div>
     <div class="badge upcoming">⏳ Kyūshū (Fukuoka, Nov)</div>
   </div>
-  <div class="updated">Last updated: September 25, 2026 · <strong>秋場所 Aki Day 12 is resolved, Day 13 torikumi is up</strong> · <b>Onosato 11-1 with three days left</b>: two more wins and the yūshō is his, and eleven rikishi are still alive, now badged on the Day 13 card · <b>Dorka leads 26-22</b> · Kyūjō: Hoshoryu, Wakatakakage, Wakanosho, and <b>Kotoshoho from Day 12</b> · Ryōgoku Kokugikan, Tokyo · 5th of 6 bashos, season standings still after 4</div>
+  <div class="updated">Last updated: September 25, 2026 · <strong>秋場所 Aki Day 13 is resolved, Day 14 torikumi is up</strong> · <b>Onosato 11-2 with two days left</b> after Kirishima beat him: two more wins and the yūshō is his, one guarantees at least a playoff · Aonishiki and Asanoyama sit one back at 10-3, and seven rikishi are still alive, badged on the Day 14 card · <b>Dorka leads 29-24</b> · Kyūjō: Hoshoryu, Wakatakakage, Wakanosho, <b>Kotoshoho from Day 12</b> and <b>Takanosho from Day 13</b> · Ryōgoku Kokugikan, Tokyo · 5th of 6 bashos, season standings still after 4</div>
 </div>
 
 <div class="container">
@@ -1863,7 +1863,7 @@
   <div id="tab-matchups" class="tab-content">
     <div class="banzuke-header">
       <h2>秋場所 Aki 2026 — Daily Matchups</h2>
-      <div class="banzuke-sub">Days 1 to 12 are resolved and the Day 13 sheet is posted · The yūshō maths at the top shows what is still possible, and every rikishi still in the race is badged on the Day 13 card · <b>Kotoshoho withdrew on Day 12</b>, so Fujiryoga won that bout by fusen; with 38 active there is no Juryo call-up from Day 13, which runs 19 bouts · Click any face for the rikishi card · Ryōgoku Kokugikan, Tokyo</div>
+      <div class="banzuke-sub">Days 1 to 13 are resolved and the Day 14 sheet is posted · The yūshō maths at the top is updated for the final two days, and every rikishi still in the race is badged on the Day 14 card · <b>Takanosho withdrew on Day 13</b>, so Hakunofuji won that bout by fusen; with 37 active, Daiseizan comes up from Juryo for Day 14, which runs 19 bouts · Click any face for the rikishi card · Ryōgoku Kokugikan, Tokyo</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection</div>
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection</div>
     </div>
@@ -3409,9 +3409,10 @@ function matchupRankClass(rank) {
 // Association posts them (the evening before each day).
 const akiMatchups = {
   // Kyujo from Day 1: Hoshoryu (Y1w), Wakatakakage (M12e), Wakanosho (M16e).
-  // Kotoshoho (M1e) withdrew on Day 12, losing that bout by fusen.
-  // Days 1-12: 39 active is odd, so a Juryo rikishi was called up each day.
-  // From Day 13: 38 active is even, so no call-up and 19 bouts.
+  // Kotoshoho (M1e) withdrew on Day 12 and Takanosho (M4e) on Day 13, each
+  // losing that day's bout by fusen.
+  // Active count sets the Juryo call-up: 39 (odd, call-up) on Days 1-12,
+  // 38 (even, none) on Day 13, 37 (odd, call-up) from Day 14.
   // Records and h2h are as they stood GOING INTO each day.
   // Day 1 — Sep 13. Results in. Call-up: Juryo 1 East Dewanoryu.
   1: [
@@ -3689,27 +3690,49 @@ const akiMatchups = {
     { east:{name:'Chiyoshoma',    rank:'前頭 M14w',      record:'4-7-0'}, west:{name:'Abi',           rank:'前頭 M13w',      record:'6-5-0'}, h2h:'4-6'  , winner:'west' },
     { east:{name:'Tobizaru',      rank:'前頭 M14e',      record:'4-7-0'}, west:{name:'Kyokukaiyu',    rank:'十両 J1w',       record:'5-6-0'}, h2h:'0-0'  , winner:'west' }
   ],
-  // Day 13 — Sep 25. Torikumi announced, not yet fought. No call-up.
+  // Day 13 — Sep 25. Results in. No call-up. Hakunofuji vs Takanosho was a fusen.
   13: [
-    { east:{name:'Onosato',       rank:'横綱 Y1e',       record:'11-1-0'}, west:{name:'Kirishima',     rank:'大関 O1e',       record:'6-6-0'}, h2h:'10-1'  },
-    { east:{name:'Aonishiki',     rank:'大関 O2e',       record:'9-3-0'}, west:{name:'Kotozakura',    rank:'大関 O1w',       record:'8-4-0'}, h2h:'6-1'   },
-    { east:{name:'Atamifuji',     rank:'関脇 S1e',       record:'8-4-0'}, west:{name:'Asanoyama',     rank:'前頭 M6e',       record:'9-3-0'}, h2h:'1-2'   },
-    { east:{name:'Churanoumi',    rank:'前頭 M3w',       record:'8-4-0'}, west:{name:'Fujinokawa',    rank:'関脇 S1w',       record:'9-3-0'}, h2h:'3-1'   },
-    { east:{name:'Hakunofuji',    rank:'小結 K1e',       record:'3-9-0'}, west:{name:'Takanosho',     rank:'前頭 M4e',       record:'4-8-0'}, h2h:'1-1'   },
-    { east:{name:'Fujiryoga',     rank:'前頭 M4w',       record:'6-6-0'}, west:{name:'Daieisho',      rank:'小結 K1w',       record:'4-8-0'}, h2h:'0-0'   },
-    { east:{name:'Roga',          rank:'前頭 M5e',       record:'5-7-0'}, west:{name:'Kotoeiho',      rank:'前頭 M1w',       record:'3-9-0'}, h2h:'1-2'   },
-    { east:{name:'Takayasu',      rank:'前頭 M2e',       record:'5-7-0'}, west:{name:'Gonoyama',      rank:'前頭 M3e',       record:'4-8-0'}, h2h:'5-4'   },
-    { east:{name:'Oshoma',        rank:'前頭 M5w',       record:'6-6-0'}, west:{name:'Yoshinofuji',   rank:'前頭 M2w',       record:'6-6-0'}, h2h:'0-3'   },
-    { east:{name:'Asasuiryu',     rank:'前頭 M15e',      record:'5-7-0'}, west:{name:'Ichiyamamoto',  rank:'前頭 M6w',       record:'2-10-0'}, h2h:'0-0'   },
-    { east:{name:'Fujiseiun',     rank:'前頭 M7e',       record:'8-4-0'}, west:{name:'Ura',           rank:'前頭 M9e',       record:'8-4-0'}, h2h:'1-0'   },
-    { east:{name:'Asakoryu',      rank:'前頭 M13e',      record:'7-5-0'}, west:{name:'Nishikifuji',   rank:'前頭 M7w',       record:'6-6-0'}, h2h:'1-6'   },
-    { east:{name:'Takerufuji',    rank:'前頭 M8e',       record:'7-5-0'}, west:{name:'Kinbozan',      rank:'前頭 M10w',      record:'8-4-0'}, h2h:'2-1'   },
-    { east:{name:'Wakamotoharu',  rank:'前頭 M11e',      record:'8-4-0'}, west:{name:'Hiradoumi',     rank:'前頭 M8w',       record:'7-5-0'}, h2h:'5-6'   },
-    { east:{name:'Chiyoshoma',    rank:'前頭 M14w',      record:'4-8-0'}, west:{name:'Shishi',        rank:'前頭 M9w',       record:'5-7-0'}, h2h:'3-5'   },
-    { east:{name:'Oho',           rank:'前頭 M10e',      record:'4-8-0'}, west:{name:'Tobizaru',      rank:'前頭 M14e',      record:'4-8-0'}, h2h:'5-3'   },
-    { east:{name:'Shonannoumi',   rank:'前頭 M17e',      record:'3-9-0'}, west:{name:'Shodai',        rank:'前頭 M11w',      record:'2-10-0'}, h2h:'4-2'   },
-    { east:{name:'Tokihayate',    rank:'前頭 M15w',      record:'7-5-0'}, west:{name:'Asahakuryu',    rank:'前頭 M12w',      record:'7-5-0'}, h2h:'2-1'   },
-    { east:{name:'Toshinofuji',   rank:'前頭 M16w',      record:'7-5-0'}, west:{name:'Abi',           rank:'前頭 M13w',      record:'7-5-0'}, h2h:'0-0'   }
+    { east:{name:'Onosato',       rank:'横綱 Y1e',       record:'11-1-0'}, west:{name:'Kirishima',     rank:'大関 O1e',       record:'6-6-0'}, h2h:'10-1' , winner:'west' },
+    { east:{name:'Aonishiki',     rank:'大関 O2e',       record:'9-3-0'}, west:{name:'Kotozakura',    rank:'大関 O1w',       record:'8-4-0'}, h2h:'6-1'  , winner:'east' },
+    { east:{name:'Atamifuji',     rank:'関脇 S1e',       record:'8-4-0'}, west:{name:'Asanoyama',     rank:'前頭 M6e',       record:'9-3-0'}, h2h:'1-2'  , winner:'west' },
+    { east:{name:'Churanoumi',    rank:'前頭 M3w',       record:'8-4-0'}, west:{name:'Fujinokawa',    rank:'関脇 S1w',       record:'9-3-0'}, h2h:'3-1'  , winner:'east' },
+    { east:{name:'Hakunofuji',    rank:'小結 K1e',       record:'3-9-0'}, west:{name:'Takanosho',     rank:'前頭 M4e',       record:'4-8-0'}, h2h:'1-1'  , winner:'east', fusen:true },
+    { east:{name:'Fujiryoga',     rank:'前頭 M4w',       record:'6-6-0'}, west:{name:'Daieisho',      rank:'小結 K1w',       record:'4-8-0'}, h2h:'0-0'  , winner:'east' },
+    { east:{name:'Roga',          rank:'前頭 M5e',       record:'5-7-0'}, west:{name:'Kotoeiho',      rank:'前頭 M1w',       record:'3-9-0'}, h2h:'1-2'  , winner:'west' },
+    { east:{name:'Takayasu',      rank:'前頭 M2e',       record:'5-7-0'}, west:{name:'Gonoyama',      rank:'前頭 M3e',       record:'4-8-0'}, h2h:'5-4'  , winner:'east' },
+    { east:{name:'Oshoma',        rank:'前頭 M5w',       record:'6-6-0'}, west:{name:'Yoshinofuji',   rank:'前頭 M2w',       record:'6-6-0'}, h2h:'0-3'  , winner:'west' },
+    { east:{name:'Asasuiryu',     rank:'前頭 M15e',      record:'5-7-0'}, west:{name:'Ichiyamamoto',  rank:'前頭 M6w',       record:'2-10-0'}, h2h:'0-0'  , winner:'east' },
+    { east:{name:'Fujiseiun',     rank:'前頭 M7e',       record:'8-4-0'}, west:{name:'Ura',           rank:'前頭 M9e',       record:'8-4-0'}, h2h:'1-0'  , winner:'west' },
+    { east:{name:'Asakoryu',      rank:'前頭 M13e',      record:'7-5-0'}, west:{name:'Nishikifuji',   rank:'前頭 M7w',       record:'6-6-0'}, h2h:'1-6'  , winner:'east' },
+    { east:{name:'Takerufuji',    rank:'前頭 M8e',       record:'7-5-0'}, west:{name:'Kinbozan',      rank:'前頭 M10w',      record:'8-4-0'}, h2h:'2-1'  , winner:'east' },
+    { east:{name:'Wakamotoharu',  rank:'前頭 M11e',      record:'8-4-0'}, west:{name:'Hiradoumi',     rank:'前頭 M8w',       record:'7-5-0'}, h2h:'5-6'  , winner:'east' },
+    { east:{name:'Chiyoshoma',    rank:'前頭 M14w',      record:'4-8-0'}, west:{name:'Shishi',        rank:'前頭 M9w',       record:'5-7-0'}, h2h:'3-5'  , winner:'west' },
+    { east:{name:'Oho',           rank:'前頭 M10e',      record:'4-8-0'}, west:{name:'Tobizaru',      rank:'前頭 M14e',      record:'4-8-0'}, h2h:'5-3'  , winner:'east' },
+    { east:{name:'Shonannoumi',   rank:'前頭 M17e',      record:'3-9-0'}, west:{name:'Shodai',        rank:'前頭 M11w',      record:'2-10-0'}, h2h:'4-2'  , winner:'west' },
+    { east:{name:'Tokihayate',    rank:'前頭 M15w',      record:'7-5-0'}, west:{name:'Asahakuryu',    rank:'前頭 M12w',      record:'7-5-0'}, h2h:'2-1'  , winner:'east' },
+    { east:{name:'Toshinofuji',   rank:'前頭 M16w',      record:'7-5-0'}, west:{name:'Abi',           rank:'前頭 M13w',      record:'7-5-0'}, h2h:'0-0'  , winner:'east' }
+  ],
+  // Day 14 — Sep 26. Torikumi announced, not yet fought. Call-up: Juryo 2 East Daiseizan.
+  14: [
+    { east:{name:'Onosato',       rank:'横綱 Y1e',       record:'11-2-0'}, west:{name:'Kotozakura',    rank:'大関 O1w',       record:'8-5-0'}, h2h:'9-5'   },
+    { east:{name:'Kirishima',     rank:'大関 O1e',       record:'7-6-0'}, west:{name:'Aonishiki',     rank:'大関 O2e',       record:'10-3-0'}, h2h:'1-5'   },
+    { east:{name:'Asanoyama',     rank:'前頭 M6e',       record:'10-3-0'}, west:{name:'Fujinokawa',    rank:'関脇 S1w',       record:'9-4-0'}, h2h:'1-0'   },
+    { east:{name:'Atamifuji',     rank:'関脇 S1e',       record:'8-5-0'}, west:{name:'Roga',          rank:'前頭 M5e',       record:'5-8-0'}, h2h:'2-2'   },
+    { east:{name:'Oshoma',        rank:'前頭 M5w',       record:'6-7-0'}, west:{name:'Daieisho',      rank:'小結 K1w',       record:'4-9-0'}, h2h:'2-2'   },
+    { east:{name:'Hakunofuji',    rank:'小結 K1e',       record:'4-9-0'}, west:{name:'Ichiyamamoto',  rank:'前頭 M6w',       record:'2-11-0'}, h2h:'3-0'   },
+    { east:{name:'Nishikifuji',   rank:'前頭 M7w',       record:'6-7-0'}, west:{name:'Kotoeiho',      rank:'前頭 M1w',       record:'4-9-0'}, h2h:'1-2'   },
+    { east:{name:'Fujiryoga',     rank:'前頭 M4w',       record:'7-6-0'}, west:{name:'Yoshinofuji',   rank:'前頭 M2w',       record:'7-6-0'}, h2h:'1-0'   },
+    { east:{name:'Takayasu',      rank:'前頭 M2e',       record:'6-7-0'}, west:{name:'Churanoumi',    rank:'前頭 M3w',       record:'9-4-0'}, h2h:'1-2'   },
+    { east:{name:'Gonoyama',      rank:'前頭 M3e',       record:'4-9-0'}, west:{name:'Shodai',        rank:'前頭 M11w',      record:'3-10-0'}, h2h:'3-5'   },
+    { east:{name:'Fujiseiun',     rank:'前頭 M7e',       record:'8-5-0'}, west:{name:'Asahakuryu',    rank:'前頭 M12w',      record:'7-6-0'}, h2h:'3-0'   },
+    { east:{name:'Tokihayate',    rank:'前頭 M15w',      record:'8-5-0'}, west:{name:'Hiradoumi',     rank:'前頭 M8w',       record:'7-6-0'}, h2h:'1-2'   },
+    { east:{name:'Takerufuji',    rank:'前頭 M8e',       record:'8-5-0'}, west:{name:'Wakamotoharu',  rank:'前頭 M11e',      record:'9-4-0'}, h2h:'2-1'   },
+    { east:{name:'Abi',           rank:'前頭 M13w',      record:'7-6-0'}, west:{name:'Shishi',        rank:'前頭 M9w',       record:'6-7-0'}, h2h:'2-2'   },
+    { east:{name:'Ura',           rank:'前頭 M9e',       record:'9-4-0'}, west:{name:'Asakoryu',      rank:'前頭 M13e',      record:'8-5-0'}, h2h:'0-1'   },
+    { east:{name:'Shonannoumi',   rank:'前頭 M17e',      record:'3-10-0'}, west:{name:'Kinbozan',      rank:'前頭 M10w',      record:'8-5-0'}, h2h:'3-9'   },
+    { east:{name:'Oho',           rank:'前頭 M10e',      record:'5-8-0'}, west:{name:'Chiyoshoma',    rank:'前頭 M14w',      record:'4-9-0'}, h2h:'3-1'   },
+    { east:{name:'Tobizaru',      rank:'前頭 M14e',      record:'4-9-0'}, west:{name:'Toshinofuji',   rank:'前頭 M16w',      record:'8-5-0'}, h2h:'0-0'   },
+    { east:{name:'Asasuiryu',     rank:'前頭 M15e',      record:'6-7-0'}, west:{name:'Daiseizan',     rank:'十両 J2e',       record:'8-5-0'}, h2h:'2-2'   }
   ]
 };
 let activeMatchupDay = 1;
@@ -3874,7 +3897,9 @@ function yushoMath(through) {
   const leaders = rows.filter(function(r) { return r.w === lead; });
   const chasers = rows.filter(function(r) { return r.w < lead; });
   const floor = lead;                       // leader's total if they lose out
-  const bestRivalMax = chasers.length ? chasers[0].w + left : lead;
+  // with co-leaders, a leader's toughest rival is the other leader
+  const bestRivalMax = leaders.length > 1 ? lead + left
+    : (chasers.length ? chasers[0].w + left : lead);
   return {
     left: left, lead: lead, leaders: leaders, floor: floor,
     // wins that make the leader untouchable, and wins that guarantee a share
@@ -3958,22 +3983,47 @@ function renderYushoRace() {
     const lname = m.leaders.map(function(r) { return r.name; }).join(' & ');
     html += '<div class="yw-math"><div class="yw-math-title">\u{1F9EE} What can still happen \u00b7 '
       + m.left + ' day' + (m.left === 1 ? '' : 's') + ' left</div>';
-    html += '<div class="yw-math-row"><span class="yw-k">Clinch</span>'
-      + '<b>' + lname + '</b> takes it outright with <span class="hl">' + m.clinch
-      + ' more win' + (m.clinch === 1 ? '' : 's') + '</span>'
-      + (m.share > 0
-          ? ', and <span class="hl">' + m.share + '</span> guarantees at least a playoff share'
-          : ', and is already guaranteed a share')
-      + '. Losing out leaves ' + (m.leaders.length > 1 ? 'them' : 'him') + ' on <b>' + m.floor + '</b>.</div>';
+    const wins = function(n) { return n + ' more win' + (n === 1 ? '' : 's'); };
+    const loseAll = function(n) {
+      return n === 1 ? 'lose on the final day' : (n === 2 ? 'lose both' : 'lose all ' + n);
+    };
+    const pron = m.leaders.length > 1 ? 'them' : 'him';
+    let clinch;
+    if (m.clinch === 0) {
+      clinch = '<b>' + lname + '</b> has <span class="hl">mathematically clinched</span> the y\u016bsh\u014d';
+    } else if (m.clinch > m.left) {
+      clinch = 'Nobody can clinch it alone yet. ' + (m.leaders.length > 1 ? 'Each of ' : '')
+        + '<b>' + lname + '</b> needs <span class="hl">' + wins(m.share) + '</span> to guarantee at least a playoff';
+    } else {
+      clinch = '<b>' + lname + '</b> takes it outright with <span class="hl">' + wins(m.clinch) + '</span>'
+        + (m.share > 0
+            ? ', and <span class="hl">' + m.share + '</span> guarantees at least a playoff'
+            : ', and is already guaranteed at least a playoff');
+    }
+    html += '<div class="yw-math-row"><span class="yw-k">Clinch</span>' + clinch
+      + '. Losing out leaves ' + pron + ' on <b>' + m.floor + '</b>.</div>';
     html += '<div class="yw-math-row"><span class="yw-k">Can win it</span>'
       + (m.outright.length
-          ? nm(m.outright) + ' \u2014 each must win out <em>and</em> have ' + lname
-            + ' lose all ' + m.left
+          ? (function() {
+              const groups = {};
+              m.outright.forEach(function(r) {
+                const k = r.w + m.left - m.lead - 1;   // leader wins a chaser can afford
+                (groups[k] = groups[k] || []).push(r);
+              });
+              return Object.keys(groups).sort(function(a, b) { return a - b; }).map(function(k) {
+                k = +k;
+                const need = k === 0 ? loseAll(m.left)
+                  : 'win no more than ' + k + ' of the last ' + m.left;
+                return nm(groups[k]) + ': ' + (groups[k].length > 1 ? 'each must' : 'must')
+                  + ' win out <em>and</em> have ' + lname + ' ' + need;
+              }).join('; ')
+                + (m.outright.length > 1 ? ', and even then they can still meet in a playoff' : '');
+            })()
           : 'nobody but ' + lname + '; the chase is mathematically done')
       + '.</div>';
     if (m.playoffOnly.length) {
       html += '<div class="yw-math-row"><span class="yw-k">Playoff only</span>'
-        + nm(m.playoffOnly) + ' \u2014 winning out reaches ' + m.floor
+        + nm(m.playoffOnly) + ': winning out reaches ' + m.floor
         + ', which ties that floor but cannot beat it.</div>';
     }
     html += '<div class="yw-math-row"><span class="yw-k">Still alive</span><b>' + m.alive.length
@@ -3988,7 +4038,7 @@ function renderYushoRace() {
     + (left > 0
         ? 'With ' + left + ' day' + (left === 1 ? '' : 's') + ' left, a chaser is out of it once '
           + 'their best possible total falls below the leader\'s current wins; <b>' + alive
-          + '</b> of the rikishi shown can still reach him.'
+          + '</b> of the rikishi shown can still reach ' + (top.names.length > 1 ? 'them' : 'him') + '.'
         : 'The basho is complete.')
     + '</div></div>';
 }
