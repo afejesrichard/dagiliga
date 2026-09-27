@@ -1659,7 +1659,7 @@
     <a href="dagi_liga_aki_2026.html" class="badge active">✅ Aki (Tokyo, Sep)</a>
     <div class="badge upcoming">⏳ Kyūshū (Fukuoka, Nov)</div>
   </div>
-  <div class="updated">Last updated: September 27, 2026 · <strong>秋場所 Aki basho closed and finalized</strong> · Fantasy yūshō: <strong>Márk Vrabély (сумо), 70 pts</strong>, back-to-back after Nagoya · Makuuchi yūshō: <strong>Onosato</strong> (12-3, his 6th, beat Aonishiki on senshūraku) · Season standings after 5 of 6 bashos: Márk leads by 22 going into Kyūshū, November 8</div>
+  <div class="updated">Last updated: September 27, 2026 · <strong>秋場所 Aki basho closed and finalized</strong> · Fantasy yūshō: <strong>Márk Vrabély (сумо), 70 pts</strong>, back-to-back after Nagoya · Makuuchi yūshō: <strong>Onosato</strong> (12-3, his 6th, beat Aonishiki on senshūraku) · Season standings after 5 of 6 bashos: Márk leads by 22 going into Kyūshū, November 8 · <b>Season yūshō maths</b> is in the Comeback Calculator: Richard must win Kyūshū by 23, and 64 points clinch it for Márk against anything the league has ever scored</div>
 </div>
 
 <div class="container">
@@ -1738,7 +1738,8 @@
   <!-- COMEBACK CALCULATOR -->
   <div id="tab-comeback" class="tab-content">
     <div class="section-title">Comeback Calculator</div>
-    <p style="color:var(--text-muted);margin-bottom:20px">With 1 basho remaining, here's what each player needs to catch the current leader — and some creative ways to think about it.</p>
+    <p style="color:var(--text-muted);margin-bottom:20px">One basho remaining. First the season yūshō maths: who is still alive, what they need in Kyūshū, and the chances on this year's form. Then the usual creative ways to think about it.</p>
+    <div id="season-math"></div>
     <div id="comeback-container"></div>
   </div>
 
@@ -2755,6 +2756,194 @@ function renderProfiles() {
 // ============================
 // COMEBACK CALCULATOR
 // ============================
+// ============================
+// SEASON YUSHO MATHS
+// ============================
+// Who can still win Dagi Liga 2026 with one basho left, what they need, and how
+// likely it is on this season's form. The hard maths uses a per-basho ceiling of
+// about 130 (4 picks x 2 pts x 15 days, plus a few kinboshi and prize points).
+// The chances come from a small simulation that resamples this season's 4-man
+// basho results: each score = the manager's own 4-man average + a shared
+// "basho level" drawn from the four bashos + an individual residual.
+const FOUR_MAN_BASHOS = ['haru', 'natsu', 'nagoya', 'aki'];
+const BASHO_CEILING = 130;
+
+function seasonSim(N, seedInit) {
+  const ids = FOUR_MAN_BASHOS;
+  const active = players.filter(p => ids.some(b => p.scores[b] !== undefined));
+  const avg = {};
+  active.forEach(p => {
+    const v = ids.filter(b => p.scores[b] !== undefined).map(b => p.scores[b]);
+    avg[p.name] = v.reduce((a, b) => a + b, 0) / v.length;
+  });
+  const bashoEff = {}; let all = [];
+  ids.forEach(b => {
+    const v = active.filter(p => p.scores[b] !== undefined).map(p => p.scores[b]);
+    all = all.concat(v);
+    bashoEff[b] = v.reduce((a, c) => a + c, 0) / v.length;
+  });
+  const grand = all.reduce((a, c) => a + c, 0) / all.length;
+  ids.forEach(b => bashoEff[b] -= grand);
+  const resid = [];
+  active.forEach(p => ids.forEach(b => { if (p.scores[b] !== undefined) resid.push(p.scores[b] - avg[p.name] - bashoEff[b]); }));
+  const effs = ids.map(b => bashoEff[b]);
+  // seeded PRNG so the page shows the same numbers on every load
+  let seed = seedInit;
+  const rnd = () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const pick = a => a[Math.floor(rnd() * a.length)];
+  const out = {};
+  players.forEach(p => out[p.name] = { title: 0, podium: 0, sum: 0, pos: new Array(players.length).fill(0) });
+  for (let i = 0; i < N; i++) {
+    const e = pick(effs); const fin = {};
+    players.forEach(p => {
+      // managers with no 4-man basho this year are treated as not entering
+      const s = avg[p.name] === undefined ? 0 : Math.max(0, Math.round(avg[p.name] + e + pick(resid)));
+      fin[p.name] = p.totalPoints + s; out[p.name].sum += fin[p.name];
+    });
+    players.forEach(p => {
+      const above = players.filter(q => fin[q.name] > fin[p.name]).length;
+      out[p.name].pos[above]++;
+      if (above === 0) out[p.name].title++;
+      if (above < 3) out[p.name].podium++;
+    });
+  }
+  return { out, avg, N };
+}
+
+function renderSeasonMath() {
+  const el = document.getElementById('season-math');
+  if (!el || remainingBashos.length !== 1) { if (el) el.innerHTML = ''; return; }
+  const leader = byTotal[0];
+  const nextB = remainingBashos[0];
+  const pct = (n, N) => { const v = 100 * n / N; if (v >= 99.95) return '>99.9%'; if (v < 0.05) return '<0.1%'; return v.toFixed(1) + '%'; };
+  const fn = p => p.name === 'DJ_Pongo_Pongo' ? 'DJ_Pongo' : p.name.split(' ')[0];
+  const fourMin = p => Math.min(...FOUR_MAN_BASHOS.map(b => p.scores[b]).filter(v => v !== undefined));
+  const fourMax = p => Math.max(...FOUR_MAN_BASHOS.map(b => p.scores[b]).filter(v => v !== undefined));
+  const fourManMax = Math.max(...players.flatMap(p => FOUR_MAN_BASHOS.map(b => p.scores[b] || 0)));
+  const fourManMaxOwner = players.find(p => FOUR_MAN_BASHOS.some(b => p.scores[b] === fourManMax));
+  const leaderFour = FOUR_MAN_BASHOS.map(b => leader.scores[b]).filter(v => v !== undefined);
+  const leaderAvg = leaderFour.reduce((a, b) => a + b, 0) / leaderFour.length;
+  const leaderWorst = Math.min(...leaderFour);
+  const sim = seasonSim(20000, 20261108);
+
+  // ---- who is alive, and what they need
+  let rows = '';
+  byTotal.forEach(p => {
+    if (p === leader) return;
+    const gap = leader.totalPoints - p.totalPoints;
+    const need = gap + 1;
+    const margins = completedBashos.filter(b => p.scores[b.id] !== undefined && leader.scores[b.id] !== undefined)
+      .map(b => ({ b, m: p.scores[b.id] - leader.scores[b.id] }));
+    const best = margins.length ? margins.reduce((a, c) => c.m > a.m ? c : a) : null;
+    const recordLine = fourManMax - need;                // leader score above which even a league record does not pass him
+    let verdict, cls;
+    if (gap > BASHO_CEILING) { verdict = 'Mathematically out'; cls = 'impossible'; }
+    else if (need > fourManMax) { verdict = `Needs ${fn(leader)} to skip ${nextB.name}: no 4-man roster has ever scored ${need}`; cls = 'impossible'; }
+    else if (recordLine < leaderWorst) { verdict = `Alive on paper. Passes only if ${fn(leader)} scores ${recordLine} or less <em>and</em> ${fn(p)} sets a league record`; cls = 'hard'; }
+    else { verdict = 'Alive'; cls = 'medium'; }
+    rows += `<tr>
+      <td><strong style="color:${p.color}">${p.name}</strong></td>
+      <td>${p.totalPoints}</td>
+      <td>${gap}</td>
+      <td>${gap > BASHO_CEILING ? '·' : `+${need} <span style="color:var(--text-muted);font-size:0.85em">(+${gap} ties)</span>`}</td>
+      <td>${best ? `${best.m > 0 ? '+' : ''}${best.m} <span style="color:var(--text-muted);font-size:0.85em">(${best.b.name})</span>` : '·'}</td>
+      <td class="${cls}" style="white-space:normal;max-width:300px;font-size:0.88em">${verdict}</td>
+    </tr>`;
+  });
+
+  // ---- simulation table
+  let simRows = '';
+  byTotal.forEach(p => {
+    const o = sim.out[p.name];
+    if (sim.avg[p.name] === undefined || leader.totalPoints - p.totalPoints > BASHO_CEILING) return;
+    const likely = o.pos.indexOf(Math.max(...o.pos)) + 1;
+    simRows += `<tr>
+      <td><strong style="color:${p.color}">${p.name}</strong></td>
+      <td>${sim.avg[p.name].toFixed(1)}</td>
+      <td>${Math.round(o.sum / sim.N)}</td>
+      <td>${pct(o.title, sim.N)}</td>
+      <td>${pct(o.podium, sim.N)}</td>
+      <td>${likely}${['st','nd','rd'][likely - 1] || 'th'} <span style="color:var(--text-muted);font-size:0.85em">(${pct(o.pos[likely - 1], sim.N)})</span></td>
+    </tr>`;
+  });
+
+  const second = byTotal[1], third = byTotal[2];
+  const gap23 = second.totalPoints - third.totalPoints;
+  const h2h23 = completedBashos.filter(b => second.scores[b.id] !== undefined && third.scores[b.id] !== undefined)
+    .map(b => `${b.name} ${third.scores[b.id] - second.scores[b.id] > 0 ? fn(third) + ' +' + (third.scores[b.id] - second.scores[b.id]) : fn(second) + ' +' + (second.scores[b.id] - third.scores[b.id])}`).join(' · ');
+  const h2hM = completedBashos.filter(b => second.scores[b.id] !== undefined && third.scores[b.id] !== undefined).map(b => third.scores[b.id] - second.scores[b.id]);
+  const h2hN = h2hM.length, h2hWins = h2hM.filter(m => m > 0).length, h2hBig = h2hM.filter(m => m >= gap23 + 1).length;
+  const needSecond = leader.totalPoints - second.totalPoints + 1;
+  const recordLineSecond = fourManMax - needSecond;
+  const pile = byTotal.slice(3, 6);
+  const pileSpread = pile[0].totalPoints - pile[pile.length - 1].totalPoints;
+
+  el.innerHTML = `
+  <div class="insight-card" style="margin-bottom:25px;border-left:4px solid var(--gold)">
+    <div class="icon">🏆</div>
+    <div class="title">Season Yūshō Maths · one basho left (${nextB.nameJp} ${nextB.name}, ${nextB.city}, Nov 8–22)</div>
+    <div class="winner">${leader.name} ${leader.totalPoints} · leads ${fn(second)} by ${leader.totalPoints - second.totalPoints}, ${fn(third)} by ${leader.totalPoints - third.totalPoints}</div>
+    <div class="body">
+      A basho is worth at most about <strong>${BASHO_CEILING} points</strong> (60 winning slots plus a handful of bonus points), so anyone more than ${BASHO_CEILING} behind is out. In practice the ceiling is far lower:
+      the best any 4-man roster has scored in this league is <strong>${fourManMax}</strong> (${fn(fourManMaxOwner)}, Nagoya), and nobody has ever outscored ${fn(leader)} by more than
+      <strong>${Math.max(...players.filter(p => p !== leader).flatMap(p => completedBashos.filter(b => p.scores[b.id] !== undefined && leader.scores[b.id] !== undefined).map(b => p.scores[b.id] - leader.scores[b.id])))}</strong> in a single basho.
+    </div>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px"><table class="data-table comeback-table" style="margin:0"><thead><tr>
+      <th>Chaser</th><th>Points</th><th>Behind</th><th>Must outscore ${fn(leader)} by</th><th>Best margin over him this year</th><th>Verdict</th>
+    </tr></thead><tbody>${rows}</tbody></table></div>
+  </div>
+
+  <div class="cards-grid" style="margin-bottom:25px">
+    <div class="insight-card">
+      <div class="ic-border" style="background:var(--gold)"></div>
+      <div class="icon">🔒</div>
+      <div class="title">The Clinch Line</div>
+      <div class="winner">${fn(leader)} clinches with ${recordLineSecond + 1} points</div>
+      <div class="body">${fn(second)} needs to win ${nextB.name} by <strong>${needSecond}</strong>. If ${fn(leader)} scores <strong>${recordLineSecond + 1} or more</strong>, that means ${fn(second)} scoring ${fourManMax + 1}+, one more than any 4-man roster has ever managed here.
+      ${fn(leader)}'s worst 4-man basho this year is <strong>${leaderWorst}</strong>; his average is <strong>${leaderAvg.toFixed(1)}</strong>. On an average day for him, ${fn(second)} would need <strong>${Math.round(leaderAvg) + needSecond}</strong>.
+      The only realistic route to a different champion is ${fn(leader)} not registering a lineup.</div>
+    </div>
+    <div class="insight-card">
+      <div class="ic-border" style="background:var(--accent)"></div>
+      <div class="icon">😴</div>
+      <div class="title">Scenario: The Leader Skips Kyūshū</div>
+      <div class="winner">Then it is wide open down to 6th</div>
+      <div class="body">If ${fn(leader)} banks a zero, ${byTotal.slice(1, 6).map(p => `<strong>${fn(p)}</strong> needs ${leader.totalPoints - p.totalPoints + 1}`).join(', ')}.
+      Every one of those five has cleared that number in every basho they have played this year. ${fn(byTotal[6])} would need ${leader.totalPoints - byTotal[6].totalPoints + 1}, which she has done twice in five.
+      Showing up is the whole strategy.</div>
+    </div>
+    <div class="insight-card">
+      <div class="ic-border" style="background:var(--accent2)"></div>
+      <div class="icon">🥈</div>
+      <div class="title">The Real Race: 2nd Place</div>
+      <div class="winner">${fn(second)} ${second.totalPoints} · ${fn(third)} ${third.totalPoints}</div>
+      <div class="body">${fn(third)} needs to outscore ${fn(second)} by <strong>${gap23 + 1}</strong> (${gap23} ties). Their head-to-head by basho: ${h2h23}.
+      ${h2hWins} of ${h2hN} have gone ${fn(third)}'s way, ${h2hBig} of them by ${gap23 + 1} or more. This one is genuinely open: the simulation gives ${fn(second)} about <strong>${pct(sim.out[second.name].pos[1], sim.N)}</strong> for 2nd and ${fn(third)} about <strong>${pct(sim.out[third.name].pos[1], sim.N)}</strong>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="ic-border" style="background:#9b5de5"></div>
+      <div class="icon">🧩</div>
+      <div class="title">The Pile-Up for 4th</div>
+      <div class="winner">${pile.map(p => `${fn(p)} ${p.totalPoints}`).join(' · ')}</div>
+      <div class="body"><strong>${pileSpread} point${pileSpread === 1 ? '' : 's'}</strong> cover${pileSpread === 1 ? 's' : ''} three teams. Whoever has the best Kyūshū of the three takes 4th, full stop; the other two order themselves by the same score.
+      With 4-man rosters this year: ${pile.map(p => `${fn(p)} ${fourMin(p)} to ${fourMax(p)}`).join(', ')}. Simulation for 4th: ${pile.map(p => `${fn(p)} ${pct(sim.out[p.name].pos[3], sim.N)}`).join(', ')}.</div>
+    </div>
+  </div>
+
+  <div class="insight-card" style="margin-bottom:25px">
+    <div class="ic-border" style="background:var(--accent3)"></div>
+    <div class="icon">🎲</div>
+    <div class="title">Chances on This Season's Form</div>
+    <div class="winner">${fn(leader)} ${pct(sim.out[leader.name].title, sim.N)} for the title · ${fn(second)} ${pct(sim.out[second.name].podium, sim.N)} for a podium</div>
+    <div class="body">${sim.N.toLocaleString()} simulated Kyūshūs. Each manager's score is their own 4-man average this year, plus a league-wide "basho level" drawn from the four 4-man bashos (Nagoya ran about +5, Aki about −6), plus an individual swing resampled from this season's actual deviations.
+    It assumes everyone who played a 4-man basho this year enters and fields a lineup all 15 days; managers with no 4-man basho on record are treated as absent. Treat it as a form guide, not a forecast: it knows nothing about kyūjō, and a manager who leaves days blank breaks it.</div>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px"><table class="data-table comeback-table" style="margin:0"><thead><tr>
+      <th>Manager</th><th>4-man avg</th><th>Expected final</th><th>Title</th><th>Podium</th><th>Most likely finish</th>
+    </tr></thead><tbody>${simRows}</tbody></table></div>
+    <div class="body" style="margin-top:12px;font-size:0.85em">Tiebreak: the league has no written rule for a level season total. If it comes to it, the sensible order is most basho titles (${fn(leader)} has 2, nobody else has more than 1), then head-to-head record across the six bashos. Better to agree it before November 8 than after November 22.</div>
+  </div>`;
+}
+
 function renderComeback() {
   const leader = byTotal[0];
   const remaining = remainingBashos.length;
@@ -3176,6 +3365,7 @@ renderStandings();
 renderPower();
 renderRace();
 renderProfiles();
+renderSeasonMath();
 renderComeback();
 renderInsights();
 
