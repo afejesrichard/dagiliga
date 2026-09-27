@@ -9,66 +9,66 @@ const managers = [
   { owner: 'Márk Vrabély', first: 'Márk', file: 'mark', team: 'сумо', color: '#f8961e', place: '1st', tag: 'Aki champion · back-to-back',
     season: 'Season: 385 pts, leads by 22 with one basho left',
     facts: [
-      'Back-to-back champion. The first manager ever to defend a Dagi Liga title.',
-      'Led or shared the lead after 14 of 15 days. Never dropped below 2nd.',
-      '30 straight days without a single swap across Nagoya and Aki. Two titles.',
-      'His picks beat rivals’ picks 28 times and lost 9, the best record in the league’s civil war.'
+      { icon: '🏆', name: 'Repeat Offender', text: 'Back-to-back champion. The first manager ever to defend a Dagi Liga title.' },
+      { icon: '🛋️', name: 'Rent-Free at the Top', text: 'Led or shared the lead after 14 of 15 days. Never dropped below 2nd.' },
+      { icon: '🔕', name: 'Do Not Disturb', text: '30 straight days without a single swap across Nagoya and Aki. Two titles.' },
+      { icon: '🎯', name: 'Friendly Fire Champion', text: 'His picks beat rivals’ picks 28 times and lost 9, the best record in the league’s civil war.' }
     ] },
   { owner: 'Dorka FJ', first: 'Dorka', file: 'dorka', team: 'Tokások', color: '#9b5de5', place: 'T-2', tag: 'Joint runner-up',
     season: 'Season: 343 pts, tied 4th',
     facts: [
-      'Never outside the top four on any of the fifteen nights. Only Márk can say the same.',
-      'The only manager to take the lead off Márk: a perfect 8 on Day 6. Day 7 answered with 0-for-4.',
-      'Ura’s ten wins came by six different kimarite, including the only sotogake of the basho.',
-      'Kotoeiho went 2-9 for her and 3-1 after she cut him. Takayasu, his replacement, also went 3-1.'
+      { icon: '🏠', name: 'Top-Four Tenant', text: 'Never outside the top four on any of the fifteen nights. Only Márk can say the same.' },
+      { icon: '🎤', name: 'One Night Only', text: 'The only manager to take the lead off Márk: a perfect 8 on Day 6. Day 7 answered with 0-for-4.' },
+      { icon: '🍷', name: 'Kimarite Connoisseur', text: 'Ura’s ten wins came by six different kimarite, including the only sotogake of the basho.' },
+      { icon: '🔄', name: 'The Swap That Changed Nothing', text: 'Kotoeiho went 2-9 for her and 3-1 after she cut him. Takayasu, his replacement, also went 3-1.' }
     ] },
   { owner: 'DJ_Pongo_Pongo', first: 'DJ_Pongo', file: 'dj_pongo', team: 'Kövér utcai Uszoda', color: '#43aa8b', place: 'T-2', tag: 'Joint runner-up',
     season: 'Season: 342 pts, 6th, one point off 4th',
     facts: [
-      'The only owner of the yokozuna. Onosato: 24 points, and the last bout of the day, every day.',
-      'Carried the kyūjō Wakanosho for six days (six zeros) and still finished joint 2nd.',
-      'Joint last after Day 4. One three-man swap on Day 7, then the best second half in the league.',
-      'The final bout of the basho, Onosato over Aonishiki, lifted him from a share of 4th to a share of 2nd.'
+      { icon: '🌙', name: 'Last Bout Standing', text: 'The only owner of the yokozuna. Onosato: 24 points, and the last bout of the day, every day.' },
+      { icon: '🦵', name: 'Three-Man Team', text: 'Carried the kyūjō Wakanosho for six days (six zeros) and still finished joint 2nd.' },
+      { icon: '🚀', name: 'Comeback Kid', text: 'Joint last after Day 4. One three-man swap on Day 7, then the best second half in the league.' },
+      { icon: '📸', name: 'Photo Finish', text: 'The final bout of the basho, Onosato over Aonishiki, lifted him from a share of 4th to a share of 2nd.' }
     ] },
   { owner: 'Sándor Szilágyi', first: 'Sándor', file: 'sandor', team: 'DigiDagi', color: '#577590', place: 'T-4', tag: 'Shared 2nd until the last day',
     season: 'Season: 359 pts, 3rd, four behind Richard',
     facts: [
-      'The barbell roster: Ōzeki, Sekiwake, Maegashira 16 and 17. Zero points from anything in between.',
-      'Level with Márk at the top after Day 10. Still sharing 2nd going into senshūraku.',
-      'Scored exactly 4 on ten of the fifteen days, five of them in a row.',
-      'Day 15: four losses, to DJ’s Onosato, Ricsi’s Fujinokawa, Hiradoumi and a Jūryō call-up. One win would have kept 2nd.'
+      { icon: '🏋️', name: 'The Barbell', text: 'Ōzeki, Sekiwake, Maegashira 16 and 17. Zero points from anything in between.' },
+      { icon: '🤏', name: 'So Close', text: 'Level with Márk at the top after Day 10. Still sharing 2nd going into senshūraku.' },
+      { icon: '4️⃣', name: 'Four, Four, Four, Four, Four', text: 'Scored exactly 4 on ten of the fifteen days, five of them in a row.' },
+      { icon: '🧨', name: 'Senshūraku Sandbagged', text: 'Day 15: four losses, to DJ’s Onosato, Ricsi’s Fujinokawa, Hiradoumi and a Jūryō call-up. One win would have kept 2nd.' }
     ] },
   { owner: 'Mátyás Fazakas', first: 'Mátyás', file: 'matyas', team: 'Tokyo Töpörtyűk', color: '#4ecdc4', place: 'T-4', tag: 'The steadiest team on the board',
     season: 'Season: 343 pts, tied 4th',
     facts: [
-      'Four picks who finished a combined 32-28, every one of them within a single win of .500.',
-      'No perfect day and no zero: nothing above 6, nothing below 2. The steadiest team in the league.',
-      '15 wins over higher-ranked opponents, the most of anyone.',
-      'Two points from a bout nobody fought (Fujiryoga’s fusen, Day 12). Climbed from 6th to T-4 over the last three days.'
+      { icon: '😐', name: 'Aggressively Average', text: 'Four picks who finished a combined 32-28, every one of them within a single win of .500.' },
+      { icon: '📏', name: 'No Highs, No Lows', text: 'No perfect day and no zero: nothing above 6, nothing below 2. The steadiest team in the league.' },
+      { icon: '🗡️', name: 'Giant Slayer', text: '15 wins over higher-ranked opponents, the most of anyone.' },
+      { icon: '🎁', name: 'Free Points Inside', text: 'Two points from a bout nobody fought (Fujiryoga’s fusen, Day 12). Climbed from 6th to T-4 over the last three days.' }
     ] },
   { owner: 'Radish Master 888', first: 'Radish Master 888', file: 'radish', team: 'Abszolút Túlsúly 💪', color: '#90be6d', place: 'T-6', tag: 'Back after three bashos away',
     season: 'Season: 117 pts from two bashos',
     facts: [
-      'Back after eight months off: 59, one point more than his Hatsu.',
-      'Won or shared the daily high score six times, more than anyone. Also two zeros in a row on Days 9 and 10.',
-      'His picks lost 64 points to rival-owned rikishi, the most friendly fire any team absorbed.',
-      'Kotozakura beat Onosato on Day 14 and turned senshūraku into a straight final for the Emperor’s Cup.'
+      { icon: '🚪', name: 'The Prodigal Manager', text: 'Back after eight months off: 59, one point more than his Hatsu.' },
+      { icon: '🎢', name: 'Peaks and Potholes', text: 'Won or shared the daily high score six times, more than anyone. Also two zeros in a row on Days 9 and 10.' },
+      { icon: '🛡️', name: 'Human Shield', text: 'His picks lost 64 points to rival-owned rikishi, the most friendly fire any team absorbed.' },
+      { icon: '😈', name: 'Agent of Chaos', text: 'Kotozakura beat Onosato on Day 14 and turned senshūraku into a straight final for the Emperor’s Cup.' }
     ] },
   { owner: 'Csilla Virág', first: 'Csilla', file: 'csilla', team: 'best sumo team ever (?)', color: '#ff6b6b', place: 'T-6', tag: 'Best single day of the basho',
     season: 'Season: 325 pts, 7th',
     facts: [
-      'The best single day of Aki: 9 points on Day 4, four wins plus the only kinbōshi of the tournament.',
-      '2nd in the league after Day 7 and again after Day 9, one point behind Márk at one stage.',
-      'Day 9: all four of her picks were drawn against each other. Her score was fixed at 4 before a bout was fought.',
-      'The only manager to score more than in Nagoya. As played, 36 to 59: the biggest rise in league history.'
+      { icon: '🐱', name: 'Nine Lives', text: 'The best single day of Aki: 9 points on Day 4, four wins plus the only kinbōshi of the tournament.' },
+      { icon: '👀', name: 'Breathing Down His Neck', text: '2nd in the league after Day 7 and again after Day 9, one point behind Márk at one stage.' },
+      { icon: '⚔️', name: 'Civil War Veteran', text: 'Day 9: all four of her picks were drawn against each other. Her score was fixed at 4 before a bout was fought.' },
+      { icon: '✨', name: 'Biggest Glow-Up', text: 'The only manager to score more than in Nagoya. As played, 36 to 59: the biggest rise in league history.' }
     ] },
   { owner: 'Richard Fejes', first: 'Ricsi', file: 'ricsi', team: 'Tokazachi Kövér Sportegyesület (TKSE)', color: '#f9c74f', place: '8th', tag: 'Still 2nd in the season race',
     season: 'Season: 363 pts, 2nd, 22 behind Márk',
     facts: [
-      '11 rikishi used and 7 pick changes, more than the other seven managers combined.',
-      'Fujinokawa (23 points, Kantō-shō) and Takerufuji gave him 41 of his 57. He owned Fujinokawa alone all basho, for the second tournament running.',
-      'Day 1 ceiling was 4: two of his picks were drawn against each other and Wakanosho was kyūjō. He scored 4.',
-      'Dropped Wakamotoharu before Day 14. Wakamotoharu then beat Takerufuji, Ricsi’s own pick.'
+      { icon: '🔧', name: 'Tinkerer-in-Chief', text: '11 rikishi used and 7 pick changes, more than the other seven managers combined.' },
+      { icon: '🎸', name: 'Two-Man Band', text: 'Fujinokawa (23 points, Kantō-shō) and Takerufuji gave him 41 of his 57. He owned Fujinokawa alone all basho, for the second tournament running.' },
+      { icon: '🪜', name: 'Ceiling Reached', text: 'Day 1 ceiling was 4: two of his picks were drawn against each other and Wakanosho was kyūjō. He scored 4.' },
+      { icon: '🔪', name: 'Revenge of the Benched', text: 'Dropped Wakamotoharu before Day 14. Wakamotoharu then beat Takerufuji, Ricsi’s own pick.' }
     ] }
 ];
 
@@ -117,9 +117,12 @@ function html(m, t) {
   .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
   .chip{padding:10px 16px;border-radius:12px;background:var(--card);border:1px solid var(--border);font-size:24px}
   .chip b{font-weight:800}.chip i{font-style:normal;color:var(--muted);font-size:20px}.chip.muted{color:var(--muted)}
-  .facts{margin-top:30px;margin-bottom:26px;flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:18px}
-  .fact{display:flex;gap:18px;font-size:27px;line-height:1.38}
-  .fact .dot{flex:0 0 14px;height:14px;border-radius:50%;background:var(--c);margin-top:15px}
+  .facts{margin-top:26px;margin-bottom:22px;flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:14px}
+  .fact{display:flex;gap:18px;align-items:flex-start}
+  .fact .badge{flex:0 0 64px;height:64px;border-radius:16px;background:var(--card);border:2px solid var(--c);display:flex;align-items:center;justify-content:center;font-size:32px;font-family:'Noto Color Emoji',sans-serif}
+  .ftxt{display:flex;flex-direction:column;gap:4px}
+  .fname{font-size:27px;font-weight:900;letter-spacing:.3px;color:var(--c)}
+  .fdesc{font-size:23px;line-height:1.32;color:var(--text)}
   .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--border);padding-top:22px;font-size:22px;color:var(--muted)}
   .foot b{color:var(--text);font-weight:700}
   .foot .brand{font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
@@ -132,9 +135,9 @@ function html(m, t) {
   <div class="team">${esc(m.team)}</div>
   <div class="hero"><div class="num">${t.total}</div><div class="lbl"><div class="pts">points</div><div class="tag">${esc(m.tag)}</div></div></div>
   <div class="strip">${tiles}</div>
-  <div class="caption">Day by day · 4 picks · 2 points per win</div>
+  <div class="caption">Day by day · 4 picks · 2 points per win · achievements unlocked below</div>
   <div class="chips">${rosterLine(t)}</div>
-  <div class="facts">${m.facts.map(f => `<div class="fact"><span class="dot"></span><span>${f}</span></div>`).join('')}</div>
+  <div class="facts">${m.facts.map(f => `<div class="fact"><span class="badge">${f.icon}</span><span class="ftxt"><span class="fname">${f.name}</span><span class="fdesc">${f.text}</span></span></div>`).join('')}</div>
   <div class="foot"><span><b>${esc(m.season)}</b></span><span class="brand">Road to Sake</span></div>
 </div></body></html>`;
 }
