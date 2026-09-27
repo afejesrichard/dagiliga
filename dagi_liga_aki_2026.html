@@ -946,135 +946,199 @@ function renderLineups() {
 function renderAwards() {
   const awards = [];
 
-  // ---- Champion -------------------------------------------------------
+  // ================= THE PODIUM =================
   awards.push({ icon:'🏆', title:'Aki Basho 2026 Champion', cls:'gold-border',
     winner: 'сумо · 70 pts',
-    body: `<span class="award-stat">Márk Vrabély</span> wins again, <span class="award-stat">6 points</span> clear, and becomes the <strong>first manager to defend a Dagi Liga title</strong> and the first to win two. He led or shared the lead after <strong>14 of the 15 days</strong>, alone after 12 of them. He never blanked (worst day: 2), his four picks won <span class="award-stat">35 of 60</span> bouts, the best hit rate in the league, and he did it without a single bonus point. Aonishiki, Roga, Takerufuji, Toshinofuji: registered before Day 1, untouched until the end. Across Nagoya and Aki that is <strong>30 days and two titles without a swap</strong>.`
+    body: `<span class="award-stat">Márk Vrabély</span> wins again, <span class="award-stat">6 points</span> clear, and becomes the <strong>first manager to defend a Dagi Liga title</strong> and the first to win two. He led or shared the lead after <strong>14 of the 15 days</strong>, alone after 12 of them, and never dropped below 2nd. He never blanked (worst day: 2), his four picks won <span class="award-stat">35 of 60</span> bouts, the best hit rate in the league, and he did it without a single bonus point. Aonishiki, Roga, Takerufuji, Toshinofuji: registered before Day 1, untouched until the end. Across Nagoya and Aki that is <strong>30 days and two titles without a swap</strong>.`
   });
 
-  // ---- Same spine -----------------------------------------------------
+  awards.push({ icon:'🔬', title:'A Runaway That Never Ran Away', cls:'gold-border',
+    winner: 'Márk’s lead, day by day: 0 2 4 3 2 −2 1 2 3 0 2 2 4 6 6',
+    body: `It reads like a rout and never felt like one. Márk’s margin over 2nd place was <strong>never more than 4 points until Day 14</strong>. He was caught on Day 6 (Dorka), level on Day 10 (Sándor), and one point ahead of Csilla on Day 7. Five different managers sat in 2nd place at some stage: Dorka, Radish, Csilla, Sándor and, on the one night he was overtaken, Márk himself. The 6-point final margin was the biggest lead of the whole basho, and it only appeared on the second-to-last day.`
+  });
+
   awards.push({ icon:'⚖️', title:'Same Spine, Different Tail', cls:'gold-border',
     winner: 'Márk 70 · Sándor 62',
-    body: `For the second basho running, the champion and Sándor shared most of a roster. This time it was <strong>Aonishiki and Toshinofuji</strong>, fielded by both teams on <em>all fifteen days</em>: 30 identical slot-days, 40 identical points. Everything else came from the other two slots. Márk's <span class="award-stat">Takerufuji 18 + Roga 12 = 30</span>. Sándor's <span class="award-stat">Atamifuji 16 + Shonannoumi 6 = 22</span>. The difference is 8, and 8 is the final gap. Nagoya was settled by two points between Maegashira 15 East and West; Aki by a bottom-of-the-banzuke pick who went 3-12.`
+    body: `For the second basho running, the champion and Sándor shared most of a roster. This time it was <strong>Aonishiki and Toshinofuji</strong>, fielded by both teams on <em>all fifteen days</em>: 30 identical slot-days, 40 identical points. Everything else came from the other two slots. Márk’s <span class="award-stat">Takerufuji 18 + Roga 12 = 30</span>. Sándor’s <span class="award-stat">Atamifuji 16 + Shonannoumi 6 = 22</span>. The difference is 8, and 8 is the final gap. Nagoya was settled by two points between Maegashira 15 East and West; Aki by a bottom-of-the-banzuke pick who went 3-12.`
   });
 
-  // ---- Joint runners-up ----------------------------------------------
   awards.push({ icon:'🥈', title:'Joint Runners-Up', cls:'pink-border',
     winner: 'Dorka · DJ_Pongo · 64 pts each',
-    body: `<span class="award-stat">Dorka</span> was the only manager to take the lead off Márk all basho: a perfect 8 on Day 6 put Tokások top on 34. Day 7 answered with a 0-for-4, and she never led again. <span class="award-stat">DJ_Pongo</span> took the scenic route: joint last on 12 after Day 4, then one three-man overhaul on Day 7 and a climb all the way to a share of 2nd, sealed on the final day when his Onosato beat Aonishiki.`
+    body: `<span class="award-stat">Dorka</span> was the only manager to take the lead off Márk all basho: a perfect 8 on Day 6 put Tokások top on 34. Day 7 answered with a 0-for-4, and she never led again. She also never left the top four: <strong>15 nights, never lower than 4th</strong>, the only manager besides Márk who can say that. <span class="award-stat">DJ_Pongo</span> took the scenic route: joint last on 12 after Day 4, 7th after Days 4, 5 and 6, then one three-man overhaul on Day 7 and a climb all the way to a share of 2nd, sealed by the very last bout of the tournament.`
   });
 
-  // ---- DJ's trade -------------------------------------------------------
-  awards.push({ icon:'🔁', title:'Trade of the Basho', cls:'teal-border',
-    winner: 'DJ_Pongo, Day 7: +12',
-    body: `Before Day 7 DJ benched <strong>Gonoyama, Tokihayate and Wakanosho</strong> (the last of whom had not fought at all) and brought in <strong>Kinbozan, Toshinofuji and Ura</strong>. The newcomers scored <span class="award-stat">28 points</span> over the last nine days. The three he dropped scored <span class="award-stat">16</span> in the same span. Days 1-6: 22 points. Days 7-15: 42. His second half (38) beat his first (26) by 12, the biggest improvement in the league, and the exact mirror of his Nagoya, where he went 41 then 28.`
+  awards.push({ icon:'🎬', title:'The Last Bout Decided 2nd Place', cls:'gold-border',
+    winner: 'Onosato v Aonishiki: a four-point swing in Dagi Liga',
+    body: `Going into the musubi-no-ichiban on senshūraku, every other bout was done: Dorka 64, <strong>DJ 62, Sándor 62, Mátyás 62</strong>. DJ owned Onosato. Sándor (and Márk) owned Aonishiki. If Aonishiki wins the Emperor’s Cup, Sándor joins Dorka on 64 and DJ drops into a tie for 4th. Onosato won by tsukidashi, so <span class="award-stat">DJ</span> took the two points and the share of 2nd, and <span class="award-stat">Sándor</span> finished the basho with a 0-for-4 day and a share of 4th. The last bout of the real tournament was also the last bout of the fantasy one.`
   });
 
-  // ---- Atamifuji cliff --------------------------------------------------
+  // ================= EVERY MANAGER =================
+  awards.push({ icon:'⛩️', title:'DJ_Pongo: Fifteen Nights of Waiting', cls:'teal-border',
+    winner: 'Onosato fought the final bout every single day',
+    body: `<span class="award-stat">DJ_Pongo</span> was the only manager with the yokozuna, and the yokozuna closes the show. So for fifteen straight days, DJ did not know his score until the very last bout on the card. Onosato delivered <strong>24 points</strong>, 16 of them in the eight-win streak from Day 5 to Day 12. The rest of the roster was less tidy: <strong>Wakanosho</strong>, kyūjō from Day 1, sat in DJ’s lineup for six days and returned six zeros, which means DJ played a three-man team for the first week and still finished joint 2nd. He also scored <strong>exactly 4 on nine of the fifteen days</strong>, including the last five in a row.`
+  });
+
+  awards.push({ icon:'🌸', title:'Dorka: The Push Team', cls:'pink-border',
+    winner: 'Ura: 10 wins, 6 different kimarite',
+    body: `<span class="award-stat">Dorka</span>’s picks won by oshidashi <strong>12 times</strong> and by yorikiri only 4, the most front-foot roster in the league (Márk’s went the other way: 14 yorikiri, 8 oshidashi). The artist was <strong>Ura</strong>, hers on all fifteen days for 20 points: his ten wins came by okuritaoshi, tottari (twice), sotogake, katasukashi (twice), oshidashi and yorikiri. The only sotogake, the only okuritaoshi and both tottari of the entire basho were his. Her one swap was a wash: Kotoeiho went 2-9 in her lineup and 3-1 after she cut him; Takayasu, his replacement, also went 3-1.`
+  });
+
+  awards.push({ icon:'🏋️', title:'Sándor: The Barbell', cls:'teal-border',
+    winner: 'Ōzeki + Sekiwake + M16 + M17, nothing in between',
+    body: `<span class="award-stat">Sándor</span> picked the top of the banzuke and the bottom of it and skipped the whole middle: <strong>38 points from sanyaku, 24 from Maegashira 16 and 17, zero from anywhere between</strong>. It nearly worked. He was level with Márk at the top after Day 10, 2nd on Days 11 and 12, still sharing 2nd going into senshūraku, and scored exactly 4 on <strong>ten of fifteen days</strong>, five of them in a row. Then Day 15: Aonishiki lost to DJ’s Onosato, Atamifuji lost to Ricsi’s Fujinokawa, Toshinofuji lost to Hiradoumi and Shonannoumi lost to <strong>Kazuma, the Jūryō call-up</strong>. Four losses, two of them to league rivals, one to a man who is not even in the division. One win would have kept the tie for 2nd; two would have made it his alone.`
+  });
+
+  awards.push({ icon:'⚗️', title:'Mátyás: The Most Average Roster Imaginable', cls:'teal-border',
+    winner: 'Atamifuji 8-7 · Fujiryoga 8-7 · Shishi 7-8 · Asakoryu 9-6',
+    body: `<span class="award-stat">Mátyás</span> registered four rikishi who finished a combined <strong>32-28</strong>, every one of them within a single win of .500. The result was the only team in the league with <strong>no perfect day and no zero</strong>: nothing above 6, nothing below 2, σ 1.54, and a climb from 6th after Day 12 to a share of 4th by scoring 6, 4, 2 while the teams around him faded. His picks also pulled off <strong>15 wins over higher-ranked opponents</strong>, the most in the league. And two of his 62 points came from a bout nobody fought: Kotoshoho withdrew on Day 12 and Fujiryoga was handed the win by fusen. Without it, Mátyás is alone in 5th on 60 instead of level with Sándor.`
+  });
+
+  awards.push({ icon:'🥊', title:'Radish: The League’s Punching Bag', cls:'red-border',
+    winner: '64 points lost to other managers’ picks',
+    body: `Welcome back, <span class="award-stat">Radish Master 888</span>, after three bashos away. His picks lost to rikishi owned by <em>other Dagi Liga teams</em> <strong>32 times</strong>, worth 64 points, the most friendly fire absorbed by anyone (Márk took 18). Kotozakura alone lost to Atamifuji (four owners), Aonishiki (two) and Fujinokawa (one). Radish also had the wildest fortnight on the board: two perfect 8s in the first week, <strong>back-to-back zeros on Days 9 and 10</strong>, last place after Day 9, then 6, 6, 4, 6 and a share of 6th. He won or shared the daily high score on <strong>six days</strong>, more than anyone. Peaks are not points.`
+  });
+
+  awards.push({ icon:'🧨', title:'Radish, Part Two: The Spoiler', cls:'red-border',
+    winner: 'Kotozakura over Onosato, Day 14',
+    body: `Radish’s Kotozakura beat Onosato on Day 14, the win that dragged the yokozuna back to 11-3 and turned senshūraku into a straight final. Two points for Radish, and a bout that reshaped the real title race. Kotozakura (9-6, 18 points) was Radish’s best pick, and one of only two ōzeki anyone in the league owned (Aonishiki being the other). The third, Kirishima (8-7), beat Onosato the day before and belonged to nobody.`
+  });
+
+  awards.push({ icon:'🎯', title:'Csilla: Day 9, the Civil War', cls:'pink-border',
+    winner: 'All four of her picks drawn against each other',
+    body: `On Day 9, <span class="award-stat">Csilla</span>’s lineup was Atamifuji v Takayasu and Chiyoshoma v Kinbozan. Two bouts, four of her rikishi, no opponents from outside the team. Her score was <strong>guaranteed to be exactly 4</strong> before a single bout was fought, the only time all basho a manager’s day was fully decided in advance. She had been <strong>2nd in the league after Day 7 and again after Day 9</strong>, one point behind Márk at one stage, and then produced the weakest second half in the league (24 points over eight days). One more thing: her as-played Nagoya was 36. Her Aki was 59. That is a <strong>+23</strong> rise on the field, the largest in Dagi Liga history.`
+  });
+
+  awards.push({ icon:'✂️', title:"Ricsi: Eleven Rikishi, Seven Changes, One Slot Worth Keeping", cls:'red-border',
+    winner: 'Yoshinofuji: 0-3 with Richard, 9-3 without',
+    body: `<span class="award-stat">Richard</span> used <strong>11 different rikishi</strong> (nobody else used more than 7) and made more pick changes than the other seven managers combined. Fujinokawa and Takerufuji, the two he never touched, gave him <span class="award-stat">41 of his 57 points</span>; the other two slots cycled through nine men for 16 points from 30 slot-days. <strong>Yoshinofuji</strong> lost his three days in the lineup and won 9 of his next 12. <strong>Wakamotoharu</strong> went 2-for-2 in Richard’s colours, was cut before Day 14, and in his first bout as a free agent beat <strong>Takerufuji, Richard’s own pick</strong>. Shodai, the replacement, went 0-2. Richard was 8th on nine of the fifteen nights, yet his picks finished with a <em>positive</em> friendly-fire balance (34 dealt, 28 received), he posted the only outright day win on senshūraku, and he banked the only prize point any team collected.`
+  });
+
+  awards.push({ icon:'🧮', title:'Ricsi’s Opening Night Had a Ceiling', cls:'red-border',
+    winner: 'Day 1: maximum possible 4, scored 4',
+    body: `Richard’s Day 1 roster was Fujinokawa, Yoshinofuji, Takerufuji and Wakanosho. Fujinokawa and Yoshinofuji were drawn <em>against each other</em>, so that pair could only ever return 2. Wakanosho was kyūjō and returned 0 by definition. The whole day rested on Takerufuji, who won. <strong>Four points was the most Richard could score, and four is what he scored.</strong> DJ had the same problem on Day 6 (Onosato v Gonoyama, Wakanosho absent): ceiling 4, scored 4. The league’s internal collisions cost 67 of the 297 bouts: in more than one bout in five, at least one Dagi Liga manager was guaranteed to lose points.`
+  });
+
+  // ================= THE CONTENDERS =================
+  awards.push({ icon:'⚔️', title:'Winner Takes All', cls:'gold-border',
+    winner: 'Onosato def. Aonishiki, Day 15',
+    body: `Onosato reached <span class="award-stat">11-1</span> after Day 12, then lost to <strong>Kirishima</strong> (owned by nobody, and only his third win in thirteen meetings with the yokozuna) and <strong>Kotozakura</strong> (owned by Radish, who banked 2 for it). That let <strong>Aonishiki</strong>, on eight straight wins since a Day 6 defeat, catch him at 11-3. Day 15 put them face to face, and Onosato won by tsukidashi for his <strong>sixth Emperor’s Cup</strong>. The fantasy fingerprint: DJ +2, Márk and Sándor +0.`
+  });
+
+  awards.push({ icon:'📒', title:'The Contenders’ Ledger', cls:'gold-border',
+    winner: 'Seven men were alive going into Day 14',
+    body: `<div class="table-scroll"><table style="width:100%;font-size:0.85em;margin-top:6px">
+      <tr><th style="text-align:left;padding:4px;color:var(--text-muted)">Rikishi</th><th style="padding:4px;color:var(--text-muted)">Final</th><th style="text-align:left;padding:4px;color:var(--text-muted)">Owned by</th><th style="text-align:left;padding:4px;color:var(--text-muted)">What he did to the league</th></tr>
+      <tr><td style="padding:4px"><strong>Onosato</strong></td><td style="padding:4px;text-align:center">12-3</td><td style="padding:4px">DJ, all 15 days</td><td style="padding:4px">24 points for DJ; his wins took <strong>22</strong> off league lineups, 8 of them in one bout (Atamifuji, Day 12)</td></tr>
+      <tr><td style="padding:4px"><strong>Aonishiki</strong></td><td style="padding:4px;text-align:center">11-4</td><td style="padding:4px">Márk &amp; Sándor, all 15</td><td style="padding:4px">Lost three straight (Days 4 to 6), two of them to league picks: DJ’s Gonoyama and Ricsi’s Fujinokawa. Then eight wins in a row</td></tr>
+      <tr><td style="padding:4px"><strong>Fujinokawa</strong></td><td style="padding:4px;text-align:center">11-4</td><td style="padding:4px">Ricsi, all 15</td><td style="padding:4px">Kantō-shō at his Sekiwake debut. Beat Aonishiki, Asanoyama and Atamifuji; took <strong>22</strong> off league lineups, including 8 on senshūraku alone</td></tr>
+      <tr><td style="padding:4px"><strong>Churanoumi</strong></td><td style="padding:4px;text-align:center">10-5</td><td style="padding:4px">Nobody</td><td style="padding:4px">Kantō-shō and 21 points that nobody claimed. His playoff hopes ended on Day 14 against Takayasu, owned by three teams</td></tr>
+      <tr><td style="padding:4px"><strong>Asanoyama</strong></td><td style="padding:4px;text-align:center">10-5</td><td style="padding:4px">Nobody</td><td style="padding:4px">10-3 and in the title race on Day 14 morning, then lost to Fujinokawa and Yoshinofuji. 20 unclaimed points</td></tr>
+      <tr><td style="padding:4px"><strong>Ura</strong></td><td style="padding:4px;text-align:center">10-5</td><td style="padding:4px">Dorka, all 15 · DJ from Day 7</td><td style="padding:4px">The nicest man on the sheet: his wins took only <strong>4</strong> points off league rivals. His Day 14 loss to Asakoryu (Mátyás and Radish) ended his playoff chance</td></tr>
+      <tr><td style="padding:4px"><strong>Wakamotoharu</strong></td><td style="padding:4px;text-align:center">10-5</td><td style="padding:4px">Ricsi, Days 12-13 only</td><td style="padding:4px">Won six straight from Day 9. Ricsi caught two of them, dropped him, and watched him beat Takerufuji</td></tr>
+    </table></div>`
+  });
+
+  awards.push({ icon:'🗡️', title:'The Silent Assassin', cls:'red-border',
+    winner: 'Tokihayate: 22 points taken off league lineups',
+    body: `Rank the rikishi by how many fantasy points their wins removed from Dagi Liga rosters, and the top three are Onosato, Fujinokawa and <strong>Tokihayate</strong>, all on 22. A Maegashira 15 who finished 8-7 did as much damage to the league as the yokozuna. He beat Toshinofuji when three teams held him, then Chiyoshoma, Asakoryu and Takerufuji when two teams held each. DJ owned him for six days and dropped him; the assassin kept working. The mirror image is <strong>Gonoyama</strong>: his losses handed league picks <strong>22 points</strong>, more than any other man on the banzuke. The league’s favourite opponent.`
+  });
+
+  // ================= THE LEAGUE =================
+  awards.push({ icon:'💥', title:'Friendly Fire', cls:'teal-border',
+    winner: 'Márk dealt 56, took 18',
+    body: `Sixty-five of the 297 bouts pitted one manager’s pick against another manager’s. Points taken off rivals by your rikishi winning, against points your rikishi lost to theirs:<br>
+    <span class="award-stat">Márk 56 / 18</span> · DJ 56 / 38 · Sándor 46 / 40 · Ricsi 34 / 28 · Dorka 32 / 42 · Mátyás 34 / 44 · Csilla 38 / 54 · <span class="award-stat">Radish 32 / 64</span>.<br>
+    Only four managers came out ahead in the civil war, and they finished 1st, T-2, T-4 and 8th. Winning the league and winning the duels are related, not identical. Márk’s picks beat rival picks <strong>28 times and lost 9</strong>; the single most destructive bout was Roga over Atamifuji on Day 14, +2 for Márk and −2 each for Dorka, Sándor, Mátyás and Csilla.`
+  });
+
   awards.push({ icon:'📉', title:'The Atamifuji Cliff', cls:'red-border',
     winner: '8-2 after Day 10 · 8-7 at the end',
-    body: `Half the league owned <span class="award-stat">Atamifuji</span>: Dorka, Sándor, Mátyás and Csilla, every one of them for all fifteen days. <strong>60 lineup slots</strong>, the most of any rikishi in Aki. He rewarded them with an 8-2 start and then <strong>lost his last five</strong>. That is 20 slot-days from Day 11 onward returning nothing, and four teams losing a quarter of their roster at the same time. Final return: 1.07 per slot.`
+    body: `Half the league owned <span class="award-stat">Atamifuji</span>: Dorka, Sándor, Mátyás and Csilla, every one of them for all fifteen days. <strong>60 lineup slots</strong>, the most of any rikishi in Aki. He rewarded them with an 8-2 start and then <strong>lost his last five</strong>: to Kirishima, Onosato, Asanoyama, Roga and Fujinokawa. In league terms he <strong>produced 64 points and destroyed 56</strong>. Four teams lost a quarter of their roster at the same moment, and three of the men who beat him in that run were owned by their rivals.`
   });
 
-  // ---- Takayasu's kinboshi ------------------------------------------------
   awards.push({ icon:'⭐', title:'The Only Kinbōshi', cls:'gold-border',
     winner: 'Takayasu over Onosato, Day 4',
-    body: `On Day 4 Maegashira 2 <span class="award-stat">Takayasu</span> beat Onosato and picked up the only kinbōshi point of the basho. Two managers owned him that day, Radish Master 888 (7 points) and Csilla (9), and one manager owned the victim: DJ_Pongo, whose whole lineup went 0-for-4. The same bout was a 9-point swing between Csilla and DJ.`
+    body: `On Day 4 Maegashira 2 <span class="award-stat">Takayasu</span> beat Onosato and picked up the only kinbōshi point of the basho. Two managers owned him that day, Radish Master 888 (7 points) and Csilla (9), and one manager owned the victim: DJ_Pongo, whose whole lineup went 0-for-4. The same bout was a 9-point swing between Csilla and DJ. Takayasu’s six losses, meanwhile, handed <strong>20 points</strong> to league-owned rikishi. He gave with one hand and took with the other, and three different managers were holding him by the end.`
   });
 
-  // ---- Best single day (derived) --------------------------------------
-  let bestDay = {pts:0};
-  teams.forEach(t => t.daily.forEach((d,i) => { if(d > bestDay.pts) bestDay = {team:t.name,day:i+1,pts:d,short:t.short,owner:t.owner}; }));
+  awards.push({ icon:'📚', title:'History Said No', cls:'teal-border',
+    winner: 'Kirishima 2-10 v Onosato · won anyway',
+    body: `The biggest head-to-head upsets, by the historical record the winner was staring at: <strong>Kirishima</strong> beat Onosato from 2-10 down (Day 13, nobody owned him, DJ paid). <strong>Chiyoshoma</strong> beat Tobizaru from 3-13 (Day 7, two points each for Radish and Csilla, none for Ricsi). <strong>Ura</strong> beat Wakamotoharu from 5-13 (Day 5, Dorka). <strong>Hakunofuji</strong> beat Aonishiki from 1-6 (Day 4, two points off Márk and two off Sándor). <strong>Kotoeiho</strong> beat Fujinokawa from 2-5 (Day 2, Dorka over Ricsi). Five upsets, and Richard on the wrong end of two of them.`
+  });
+
+  awards.push({ icon:'🤼', title:'How the League Actually Won', cls:'teal-border',
+    winner: 'Oshidashi 142 · Yorikiri 122 · everything else 233',
+    body: `Of the 497 points scored by Dagi Liga lineups, <strong>142 came by oshidashi and 122 by yorikiri</strong>: the two textbook finishes accounted for 53% of the league. The rare ones: the basho’s only hikkake was DJ’s Gonoyama on Day 2, the only watashikomi was Aonishiki on Day 3 (Márk and Sándor), the only shitatedashinage was Onosato dispatching Atamifuji on Day 12 (DJ +2, four rivals −2), and one team, Mátyás, scored two points by <strong>fusen</strong>, a bout with no kimarite at all. Nobody in the league scored a single point by tsuridashi, utchari or any leg technique other than Ura’s sotogake.`
+  });
+
+  awards.push({ icon:'🎲', title:'The Dartboard Test', cls:'red-border',
+    winner: 'Random roster: 55.4 · League average: 62.1',
+    body: `Pick four names blind from the 42-man banzuke and hold them for fifteen days. Given Aki’s 291 makuuchi wins, that roster expects <strong>55.4 points</strong>. The league averaged 62.1, so the eight managers beat the dartboard by about seven points each, roughly three and a half extra wins across sixty slots. Márk beat it by 15. Richard, on 57, beat it by 1.6, which is less than one win. Nobody lost to the dartboard, but one team was within a single bout of doing so.`
+  });
+
   awards.push({ icon:'🔥', title:'Best Single Day', cls:'red-border',
-    winner: `${bestDay.short} · Day ${bestDay.day} (${bestDay.pts} pts)`,
-    body: `<span class="award-stat">${bestDay.owner}</span> hit <span class="award-stat">${bestDay.pts} points</span> on Day 4: Atamifuji 2, Takayasu 3, Kinbozan 2, Chiyoshoma 2. A clean four-for-four with the kinbōshi on top, and the only score above 8 all basho. She was one point off the lead after Day 7. Then came the league's weakest second half (24 points over eight days) and a share of 6th.`
+    winner: 'BSTE (Csilla) · Day 4 (9 pts)',
+    body: `<span class="award-stat">Csilla</span> hit <span class="award-stat">9 points</span> on Day 4: Atamifuji 2, Takayasu 3, Kinbozan 2, Chiyoshoma 2. A clean four-for-four with the kinbōshi on top, and the only score above 8 all basho. Only three team-days in the entire tournament had an odd number on them (Csilla 9, Radish 7, Richard 5), because only three bonus points were awarded to anyone. Fifty-three of the 120 team-days scored exactly 4.`
   });
 
-  // ---- The twins --------------------------------------------------------
   awards.push({ icon:'👯', title:'The Twins', cls:'pink-border',
     winner: 'Radish 59 · Csilla 59',
-    body: `<span class="award-stat">Radish Master 888</span> and <span class="award-stat">Csilla</span> fielded <strong>Takayasu and Chiyoshoma</strong> on all fifteen days: 30 identical slot-days, the same kinbōshi, the same 25 points. The other halves had nothing in common. Radish's Kotozakura and Asakoryu made 34, Csilla's Atamifuji and Kinbozan made 34. Different routes, same total, shared 6th place.`
+    body: `<span class="award-stat">Radish Master 888</span> and <span class="award-stat">Csilla</span> fielded <strong>Takayasu and Chiyoshoma</strong> on all fifteen days: 30 identical slot-days, the same kinbōshi, the same 25 points. The other halves had nothing in common. Radish’s Kotozakura and Asakoryu made 34, Csilla’s Atamifuji and Kinbozan made 34. Different routes, same total, shared 6th place. Three pairs of teams finished level in Aki. No earlier basho this season had more than two.`
   });
 
-  // ---- Tightest table ----------------------------------------------------
   awards.push({ icon:'📏', title:'Thirteen Points, First to Last', cls:'teal-border',
     winner: '70 · 64 · 64 · 62 · 62 · 59 · 59 · 57',
-    body: `Aki produced the <strong>tightest table of the season</strong>: <span class="award-stat">13 points</span> from champion to 8th. Hatsu was spread over 29, Haru 18, Natsu 29, Nagoya 30 (with Csilla's credited days). Three pairs finished level. It is also the <strong>lowest winning score</strong> of 2026 so far: 70, against 87, 73, 83 and 86.`
+    body: `Aki produced the <strong>tightest table of the season</strong>: <span class="award-stat">13 points</span> from champion to 8th. Hatsu was spread over 29, Haru 18, Natsu 29, Nagoya 30 (with Csilla’s credited days). It is also the <strong>lowest winning score</strong> of 2026 so far: 70, against 87, 73, 83 and 86. Put differently: Márk’s 70 would have finished 5th in Nagoya.`
   });
 
-  // ---- Set and forget ---------------------------------------------------
   awards.push({ icon:'🪑', title:'The Set-and-Forget Championship, Part Two', cls:'teal-border',
     winner: '5 of 8 teams made zero swaps',
-    body: `Márk, Sándor, Mátyás, Radish and Csilla picked four rikishi before Day 1 and <strong>never touched them</strong>. They finished 1st, T-4, T-4, T-6 and T-6. The busiest manager, Richard (roster changes on 5 days, 11 different rikishi used), finished 8th. For the second basho in a row, activity bought nothing.`
+    body: `Márk, Sándor, Mátyás, Radish and Csilla picked four rikishi before Day 1 and <strong>never touched them</strong>. They finished 1st, T-4, T-4, T-6 and T-6. The busiest manager, Richard (roster changes on 5 days, 11 different rikishi used), finished 8th. Had Richard kept his Day 1 roster all basho, he would have scored 58 instead of 57. Had DJ kept his, he would have scored 52 instead of 64. Swapping is not the problem. Swapping badly is.`
   });
 
-  // ---- Richard's cutting-room floor ---------------------------------------
-  awards.push({ icon:'✂️', title:"Ricsi's Cutting-Room Floor", cls:'red-border',
-    winner: 'Yoshinofuji: 0-3 with Richard, 9-3 without',
-    body: `<span class="award-stat">Richard</span> kept Fujinokawa and Takerufuji all basho and they gave him <span class="award-stat">41 of his 57 points</span>. The other two slots cycled through nine men and produced 16 from 30 slot-days. The ones that got away hurt more: <strong>Yoshinofuji</strong> lost his three days in the lineup and won 9 of the next 12; <strong>Asasuiryu</strong> went 0-2 in Richard's colours, then won each of his last four bouts to finish 8-7; <strong>Wakamotoharu</strong> went 2-for-2 and was cut anyway. Consolation: the only outright win on senshūraku (5 points) and the only prize point any team collected.`
+  awards.push({ icon:'🔁', title:'Trade of the Basho', cls:'teal-border',
+    winner: 'DJ_Pongo, Day 7: +12',
+    body: `Before Day 7 DJ benched <strong>Gonoyama, Tokihayate and Wakanosho</strong> (the last of whom had not fought at all) and brought in <strong>Kinbozan, Toshinofuji and Ura</strong>. The newcomers scored <span class="award-stat">28 points</span> over the last nine days. The three he dropped scored <span class="award-stat">16</span> in the same span. Days 1-6: 22 points. Days 7-15: 42. His second half (38) beat his first (26) by 12, the biggest improvement in the league, and the exact mirror of his Nagoya, where he went 41 then 28. One footnote: Gonoyama’s two wins in DJ’s colours included Aonishiki on Day 5, which cost Márk and Sándor two points apiece.`
   });
 
-  // ---- Private stashes ---------------------------------------------------
   awards.push({ icon:'🕵️', title:'One Owner Each', cls:'gold-border',
     winner: 'Onosato 24 (DJ) · Fujinokawa 23 (Richard)',
-    body: `The two best fantasy rikishi of the basho had exactly one owner apiece, all fifteen days. <span class="award-stat">Onosato</span> (12-3, yūshō) sat with DJ_Pongo; <span class="award-stat">Fujinokawa</span> (Sekiwake West, 11-4, Kantō-shō) with Richard, whose Day 15 lineup banked his prize point. They returned 1.60 and 1.53 points per slot, the two best of any regular pick. Nobody else went near either.`
+    body: `The two best fantasy rikishi of the basho had exactly one owner apiece, all fifteen days. <span class="award-stat">Onosato</span> (12-3, yūshō) sat with DJ_Pongo; <span class="award-stat">Fujinokawa</span> (Sekiwake West, 11-4, Kantō-shō) with Richard, whose Day 15 lineup banked his prize point. They returned 1.60 and 1.53 points per slot, the two best of any regular pick. Nobody else went near either. It is the second basho in a row that Richard has held Fujinokawa alone from Day 1 to Day 15.`
   });
 
-  // ---- Hindsight ---------------------------------------------------------
   awards.push({ icon:'🔮', title:'The Hindsight Roster', cls:'teal-border',
     winner: '90 pts, set and forget',
-    body: `The best four-man lineup anyone could have registered before Day 1 and never touched: <strong>Onosato 24, Fujinokawa 23, Aonishiki 22, Churanoumi 21</strong>. Total: <span class="award-stat">90</span>, twenty more than the champion. Three of the four were owned by somebody in the league. Nobody owned more than one of them.`
+    body: `The best four-man lineup anyone could have registered before Day 1 and never touched: <strong>Onosato 24, Fujinokawa 23, Aonishiki 22, Churanoumi 21</strong>. Total: <span class="award-stat">90</span>, twenty more than the champion. Three of the four were owned by somebody in the league. Nobody owned more than one of them. The whole pool of makuuchi fantasy points was 585; the eight rosters between them claimed 497 of it, with heavy double-counting on Atamifuji and Toshinofuji.`
   });
 
-  // ---- The Rock (derived) -------------------------------------------------
-  const byConsistency = [...teams].sort((a,b) => a.stdev - b.stdev);
   awards.push({ icon:'🎯', title:'The Rock · Most Consistent', cls:'teal-border',
-    winner: `${byConsistency[0].short} · σ ${byConsistency[0].stdev.toFixed(2)}`,
-    body: `<span class="award-stat">${byConsistency[0].owner}</span> was the steadiest team on the board (σ = <span class="award-stat">${byConsistency[0].stdev.toFixed(2)}</span>), never scoring above ${byConsistency[0].best} or below ${byConsistency[0].worst}. The only team without a perfect four-for-four day, and also without a zero. The second half (36) beat the first (26) by 10, good for a share of 4th.`
+    winner: 'Töpörtyűk · σ 1.54',
+    body: `<span class="award-stat">Mátyás Fazakas</span> was the steadiest team on the board (σ = <span class="award-stat">1.54</span>), never scoring above 6 or below 2. The runner-up in steadiness was, of all people, Richard (σ 1.64), who finished 8th: consistent, just consistently low. Mátyás and DJ between them account for 15 of the league’s 53 four-point days. In a basho where the mode was 4 and the spread was 13, being boring was worth a share of 2nd and a share of 4th.`
   });
 
-  // ---- Rollercoaster (derived) -----------------------------------------------
-  const wildest = byConsistency[byConsistency.length-1];
-  awards.push({ icon:'🎢', title:'The Rollercoaster', cls:'pink-border',
-    winner: `${wildest.short} · σ ${wildest.stdev.toFixed(2)}`,
-    body: `<span class="award-stat">${wildest.owner}</span> swung hardest of anyone (σ = <span class="award-stat">${wildest.stdev.toFixed(2)}</span>): two perfect 8s in the first week, then <strong>back-to-back zeros on Days 9 and 10</strong> that dropped him to last. He answered with 6, 6, 4, 6 and climbed back to a share of 6th. A lively return after eight months away.`
-  });
-
-  // ---- Win the day (derived) -------------------------------------------
-  const byWinDays = [...teams].sort((a,b) => b.winDays - a.winDays);
   awards.push({ icon:'📅', title:'"Win The Day" Champion', cls:'teal-border',
-    winner: `${byWinDays[0].short} · ${byWinDays[0].winDays} days`,
-    body: `<span class="award-stat">${byWinDays[0].owner}</span> had the highest or joint-highest daily score on <span class="award-stat">${byWinDays[0].winDays} of 15 days</span>, three of them outright (Days 3, 7 and 12). Márk topped five days. Radish finished 11 points behind him. The daily table rewards peaks; the real one rewards not having troughs.`
+    winner: 'Abszolút Túlsúly · 6 days',
+    body: `<span class="award-stat">Radish Master 888</span> had the highest or joint-highest daily score on <span class="award-stat">6 of 15 days</span>, three of them outright (Days 3, 7 and 12). Márk topped five days. Radish finished 11 points behind him. The daily table rewards peaks; the real one rewards not having troughs, and Radish had two of the league’s five zero days.`
   });
 
-  // ---- Day 1 --------------------------------------------------------------
   awards.push({ icon:'🤝', title:'Day 1: Perfectly Balanced', cls:'teal-border',
     winner: 'All eight teams scored exactly 4',
     body: `Sunday, September 13: every team in the league went 2-2 and scored <strong>4 points</strong>. An eight-way tie for the day, an eight-way tie for the lead, and the only day of the basho on which the whole table agreed. It lasted 24 hours. Márk won Day 2 outright with an 8 and was top of the table for 13 of the remaining 14 nights.`
   });
 
-  // ---- Senshuraku -----------------------------------------------------------
   awards.push({ icon:'🕯️', title:'Senshūraku Went Quiet', cls:'red-border',
     winner: 'Day 15: 19 league points · Day 8: 44',
-    body: `Nagoya's final day paid the league 61 points. Aki's paid <span class="award-stat">19</span>, the lowest of the basho, with no playoff bouts and only one prize point in any lineup. <strong>Sándor went 0-for-4</strong> and slid from a share of 2nd into a share of 4th; DJ's Onosato win lifted him into the tie for 2nd. The day's top score was Richard's 5. The busiest day of the basho was Day 8, at 44.`
+    body: `Nagoya’s final day paid the league 61 points. Aki’s paid <span class="award-stat">19</span>, the lowest of the basho, with no playoff bouts and only one prize point in any lineup. <strong>Sándor went 0-for-4</strong>; Richard’s 5 was the day’s top score. The busiest day was Day 8, nakabi, a Sunday, at 44: DJ and Sándor both went four-for-four, and it was the only day on which two teams scored 8. DJ, for what it is worth, scored 24 of his 64 points on the five weekend days.`
   });
 
-  // ---- The value table --------------------------------------------------
   awards.push({ icon:'💸', title:'Best and Worst Money in the League', cls:'gold-border',
     winner: 'Onosato 1.60/slot · Shonannoumi 0.35/slot',
-    body: `Among regular picks, <span class="award-stat">Onosato</span> (1.60), <span class="award-stat">Fujinokawa</span> (1.53) and <span class="award-stat">Aonishiki</span> (1.47) were the best value per slot. At the other end sat <span class="award-stat">Shonannoumi</span>, Maegashira 17 West and the lowest-ranked man on the banzuke: 3-12, 6 points from 17 slots, 15 of them Sándor's. <span class="award-stat">Kotoeiho</span> (0.36) was barely better: 2-9 in Dorka's lineup before she swapped him for Takayasu. He then went 3-1. So did Takayasu.`
+    body: `Among regular picks, <span class="award-stat">Onosato</span> (1.60), <span class="award-stat">Fujinokawa</span> (1.53) and <span class="award-stat">Aonishiki</span> (1.47) were the best value per slot. At the other end sat <span class="award-stat">Shonannoumi</span>, Maegashira 17 West and the lowest-ranked man on the banzuke: 3-12, 6 points from 17 slots, 15 of them Sándor’s. <span class="award-stat">Shodai</span> managed three wins all basho, two of them against league-owned rikishi (Ura, Shonannoumi), and lost both bouts once Richard finally picked him.`
   });
 
-  // ---- Unowned points ---------------------------------------------------
   awards.push({ icon:'🕳️', title:'205 Points Nobody Wanted', cls:'red-border',
     winner: '16 of 42 rikishi were never picked',
-    body: `Sixteen members of the division never appeared in a single Dagi Liga lineup, and they were worth <span class="award-stat">205 fantasy points</span>. The list includes Kantō-shō winner <strong>Churanoumi</strong> (21), <strong>Asanoyama</strong> (20), Ōzeki <strong>Kirishima</strong> (16) and <strong>Hakunofuji</strong> (10), who between them had filled 61 slots in Nagoya. The league's Nagoya favourites were dropped wholesale; its Aki favourites were Atamifuji and a Maegashira 16.`
-  });
-
-  // ---- The real title race ------------------------------------------------
-  awards.push({ icon:'⚔️', title:'Winner Takes All', cls:'gold-border',
-    winner: 'Onosato def. Aonishiki, Day 15',
-    body: `Onosato reached <span class="award-stat">11-1</span> after Day 12, then lost to <strong>Kirishima</strong> (owned by nobody) and <strong>Kotozakura</strong> (owned by Radish, who banked 2 for it). That let <strong>Aonishiki</strong>, on eight straight wins since a Day 6 defeat, catch him at 11-3. Day 15 put them face to face, and Onosato won by tsukidashi for his <strong>sixth Emperor's Cup</strong>. The fantasy fingerprint: DJ +2, Márk and Sándor +0.`
+    body: `Sixteen members of the division never appeared in a single Dagi Liga lineup, and they were worth <span class="award-stat">205 fantasy points</span>. The list includes Kantō-shō winner <strong>Churanoumi</strong> (21), <strong>Asanoyama</strong> (20), Ōzeki <strong>Kirishima</strong> (16) and <strong>Hakunofuji</strong> (10), who between them had filled 61 slots in Nagoya. The league’s Nagoya favourites were dropped wholesale; its Aki favourites were Atamifuji and a Maegashira 16. Two of the seven men still alive for the yūshō on Day 14 morning were owned by nobody.`
   });
 
   // ---- Basho comparison table --------------------------------------------
@@ -1111,13 +1175,13 @@ function renderAwards() {
   const avgAki = (totalAki / teams.length).toFixed(1);
   awards.push({ icon:'📊', title:'The Leanest Basho of the Year', cls:'teal-border',
     winner: `Avg: ${avgAki} pts/team`,
-    body: `League average by basho: Hatsu 78.7 (5-man rosters) → Haru 66.4 → Natsu 68.4 → Nagoya 71.0 (with Csilla's credited days) → Aki <strong>${avgAki}</strong>, the lowest of 2026. Every team that played Nagoya scored less in Aki, except Csilla. The reasons are on this page: the one reliable yokozuna sat on a single roster, half the league rode Atamifuji off a cliff, the kinbōshi and prize pool was three points in total, and 205 points were never picked.`
+    body: `League average by basho: Hatsu 78.7 (5-man rosters) → Haru 66.4 → Natsu 68.4 → Nagoya 71.0 (with Csilla’s credited days) → Aki <strong>${avgAki}</strong>, the lowest of 2026. Every team that played Nagoya scored less in Aki, except Csilla. The reasons are on this page: the one reliable yokozuna sat on a single roster, half the league rode Atamifuji off a cliff, the kinbōshi and prize pool was three points in total, and 205 points were never picked.`
   });
 
   // ---- Season context ----------------------------------------------------
   awards.push({ icon:'👑', title:'What It Did to the Season', cls:'gold-border',
     winner: 'Márk 385 · Richard 363 · Sándor 359',
-    body: `Márk arrived in Tokyo <strong>9 points</strong> clear of Richard and leaves it <span class="award-stat">22 points</span> clear, 385 to 363, with Sándor a further 4 back on 359. Behind them Mátyás and Dorka are level on 343 with DJ_Pongo on 342. One basho remains: <strong>Kyūshū</strong>, Fukuoka Kokusai Center, <strong>November 8 to 22</strong>. Twenty-two points is a big gap to close in fifteen days; it is also less than a third of what Márk scored here.`
+    body: `Márk arrived in Tokyo <strong>9 points</strong> clear of Richard and leaves it <span class="award-stat">22 points</span> clear, 385 to 363, with Sándor a further 4 back on 359. Behind them Mátyás and Dorka are level on 343 with DJ_Pongo on 342. One basho remains: <strong>Kyūshū</strong>, Fukuoka Kokusai Center, <strong>November 8 to 22</strong>. Twenty-two points is a big gap to close in fifteen days; it is also exactly what Aonishiki scored for Márk in Aki, and less than a third of what Márk scored here.`
   });
 
   let html = '';
