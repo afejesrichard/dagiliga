@@ -224,6 +224,12 @@
   .nav-tab:hover { background: var(--card-hover); }
   .nav-tab.active { background: var(--accent); border-color: var(--accent); font-weight: 700; }
   .tab-content { display: none; }
+  .share-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+  .share-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .share-card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+  .share-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; }
+  .share-sub { color: var(--text-muted); font-size: 0.82em; margin-top: 2px; }
+  .share-dl { flex: 0 0 auto; background: var(--accent2); color: #08101a; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 8px; font-size: 0.85em; }
   .tab-content.active { display: block; }
 
   .mini-bar {
@@ -289,6 +295,7 @@
     <div class="nav-tab" onclick="showTab('lineups',this)">Daily Lineups</div>
     <div class="nav-tab" onclick="showTab('rikishi',this)">Rikishi Stats</div>
     <div class="nav-tab" onclick="showTab('awards',this)">Awards & Fun Facts</div>
+    <div class="nav-tab" onclick="showTab('cards',this)">Share Cards</div>
   </div>
 
   <div id="tab-overview" class="tab-content active">
@@ -363,6 +370,53 @@
   <div id="tab-rikishi" class="tab-content">
     <div class="section-title">Rikishi Performance Rankings</div>
     <div id="rikishi-container"></div>
+  </div>
+
+  <div id="tab-cards" class="tab-content">
+    <div class="section-title">Share Cards</div>
+    <p style="color:var(--text-muted);margin-bottom:18px;line-height:1.6">One card per manager: final place, the day-by-day strip, the roster with points, and four facts from this report. 1080 × 1350 PNG, sized for Messenger and Facebook. Tap a card to open it full size, or use the download button.</p>
+    <div class="share-grid">
+      <div class="share-card">
+        <a href="cards/aki_2026/aki_2026_mark.png" target="_blank" rel="noopener"><img src="cards/aki_2026/aki_2026_mark.png" alt="Aki 2026 card for Márk Vrabély" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#f8961e">Márk Vrabély</strong><div class="share-sub">сумо · 1st · 70 pts</div></div>
+        <a class="share-dl" href="cards/aki_2026/aki_2026_mark.png" download="dagi_liga_aki_2026_mark.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/aki_2026/aki_2026_dorka.png" target="_blank" rel="noopener"><img src="cards/aki_2026/aki_2026_dorka.png" alt="Aki 2026 card for Dorka FJ" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#9b5de5">Dorka FJ</strong><div class="share-sub">Tokások · T-2 · 64 pts</div></div>
+        <a class="share-dl" href="cards/aki_2026/aki_2026_dorka.png" download="dagi_liga_aki_2026_dorka.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/aki_2026/aki_2026_dj_pongo.png" target="_blank" rel="noopener"><img src="cards/aki_2026/aki_2026_dj_pongo.png" alt="Aki 2026 card for DJ_Pongo_Pongo" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#43aa8b">DJ_Pongo_Pongo</strong><div class="share-sub">Kövér utcai Uszoda · T-2 · 64 pts</div></div>
+        <a class="share-dl" href="cards/aki_2026/aki_2026_dj_pongo.png" download="dagi_liga_aki_2026_dj_pongo.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/aki_2026/aki_2026_sandor.png" target="_blank" rel="noopener"><img src="cards/aki_2026/aki_2026_sandor.png" alt="Aki 2026 card for Sándor Szilágyi" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#577590">Sándor Szilágyi</strong><div class="share-sub">DigiDagi · T-4 · 62 pts</div></div>
+        <a class="share-dl" href="cards/aki_2026/aki_2026_sandor.png" download="dagi_liga_aki_2026_sandor.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/aki_2026/aki_2026_matyas.png" target="_blank" rel="noopener"><img src="cards/aki_2026/aki_2026_matyas.png" alt="Aki 2026 card for Mátyás Fazakas" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#4ecdc4">Mátyás Fazakas</strong><div class="share-sub">Tokyo Töpörtyűk · T-4 · 62 pts</div></div>
+        <a class="share-dl" href="cards/aki_2026/aki_2026_matyas.png" download="dagi_liga_aki_2026_matyas.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/aki_2026/aki_2026_radish.png" target="_blank" rel="noopener"><img src="cards/aki_2026/aki_2026_radish.png" alt="Aki 2026 card for Radish Master 888" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#90be6d">Radish Master 888</strong><div class="share-sub">Abszolút Túlsúly 💪 · T-6 · 59 pts</div></div>
+        <a class="share-dl" href="cards/aki_2026/aki_2026_radish.png" download="dagi_liga_aki_2026_radish.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/aki_2026/aki_2026_csilla.png" target="_blank" rel="noopener"><img src="cards/aki_2026/aki_2026_csilla.png" alt="Aki 2026 card for Csilla Virág" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#ff6b6b">Csilla Virág</strong><div class="share-sub">best sumo team ever (?) · T-6 · 59 pts</div></div>
+        <a class="share-dl" href="cards/aki_2026/aki_2026_csilla.png" download="dagi_liga_aki_2026_csilla.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/aki_2026/aki_2026_ricsi.png" target="_blank" rel="noopener"><img src="cards/aki_2026/aki_2026_ricsi.png" alt="Aki 2026 card for Richard Fejes" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#f9c74f">Richard Fejes</strong><div class="share-sub">Tokazachi Kövér Sportegyesület (TKSE) · 8th · 57 pts</div></div>
+        <a class="share-dl" href="cards/aki_2026/aki_2026_ricsi.png" download="dagi_liga_aki_2026_ricsi.png">⬇ PNG</a></div>
+      </div>
+    </div>
   </div>
 
   <div id="tab-awards" class="tab-content">
