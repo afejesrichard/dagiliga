@@ -1,0 +1,4623 @@
+{
+ "basho": "Aki 2026",
+ "teams": [
+  {
+   "owner": "Márk Vrabély",
+   "fantasizrName": "Márk Vrabély",
+   "team": "сумо",
+   "daily": [
+    4,
+    8,
+    6,
+    6,
+    4,
+    4,
+    4,
+    6,
+    4,
+    2,
+    6,
+    2,
+    6,
+    6,
+    2
+   ],
+   "lineups": [
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Roga",
+      "label": "Maegashira #5 East Roga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ]
+   ],
+   "total": 70
+  },
+  {
+   "owner": "Dorka FJ",
+   "fantasizrName": "Dorka FJ",
+   "team": "Tokások",
+   "daily": [
+    4,
+    6,
+    4,
+    6,
+    6,
+    8,
+    0,
+    6,
+    2,
+    4,
+    2,
+    4,
+    6,
+    4,
+    2
+   ],
+   "lineups": [
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kotoeiho",
+      "label": "Maegashira #1 West Kotoeiho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ]
+   ],
+   "total": 64
+  },
+  {
+   "owner": "DJ_Pongo_Pongo",
+   "fantasizrName": "rhjakab",
+   "team": "Kövér utcai Uszoda",
+   "daily": [
+    4,
+    6,
+    2,
+    0,
+    6,
+    4,
+    4,
+    8,
+    4,
+    6,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "lineups": [
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Gonoyama",
+      "label": "Maegashira #3 East Gonoyama",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Tokihayate",
+      "label": "Maegashira #15 West Tokihayate",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Wakanosho",
+      "label": "Maegashira #16 East Wakanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Gonoyama",
+      "label": "Maegashira #3 East Gonoyama",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Tokihayate",
+      "label": "Maegashira #15 West Tokihayate",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Wakanosho",
+      "label": "Maegashira #16 East Wakanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Gonoyama",
+      "label": "Maegashira #3 East Gonoyama",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Tokihayate",
+      "label": "Maegashira #15 West Tokihayate",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Wakanosho",
+      "label": "Maegashira #16 East Wakanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Gonoyama",
+      "label": "Maegashira #3 East Gonoyama",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Tokihayate",
+      "label": "Maegashira #15 West Tokihayate",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Wakanosho",
+      "label": "Maegashira #16 East Wakanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Gonoyama",
+      "label": "Maegashira #3 East Gonoyama",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Tokihayate",
+      "label": "Maegashira #15 West Tokihayate",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Wakanosho",
+      "label": "Maegashira #16 East Wakanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Gonoyama",
+      "label": "Maegashira #3 East Gonoyama",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Tokihayate",
+      "label": "Maegashira #15 West Tokihayate",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Wakanosho",
+      "label": "Maegashira #16 East Wakanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Onosato",
+      "label": "Yokozuna East Onosato",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Ura",
+      "label": "Maegashira #9 East Ura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ]
+   ],
+   "total": 64
+  },
+  {
+   "owner": "Sándor Szilágyi",
+   "fantasizrName": "Sándor Szilágyi",
+   "team": "DigiDagi",
+   "daily": [
+    4,
+    6,
+    4,
+    4,
+    4,
+    4,
+    4,
+    8,
+    4,
+    6,
+    4,
+    2,
+    4,
+    4,
+    0
+   ],
+   "lineups": [
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Aonishiki",
+      "label": "Ozeki #2 East Aonishiki",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Toshinofuji",
+      "label": "Maegashira #16 West Toshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ]
+   ],
+   "total": 62
+  },
+  {
+   "owner": "Mátyás Fazakas",
+   "fantasizrName": "Mátyás Fazakas",
+   "team": "Tokyo Töpörtyűk",
+   "daily": [
+    4,
+    2,
+    6,
+    2,
+    6,
+    4,
+    2,
+    6,
+    4,
+    4,
+    6,
+    4,
+    6,
+    4,
+    2
+   ],
+   "lineups": [
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Fujiryoga",
+      "label": "Maegashira #4 West Fujiryoga",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shishi",
+      "label": "Maegashira #9 West Shishi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ]
+   ],
+   "total": 62
+  },
+  {
+   "owner": "Radish Master 888",
+   "fantasizrName": "Radish Master 888",
+   "team": "Abszolút Túlsúly 💪",
+   "daily": [
+    4,
+    2,
+    8,
+    7,
+    2,
+    2,
+    8,
+    2,
+    0,
+    0,
+    6,
+    6,
+    4,
+    6,
+    2
+   ],
+   "lineups": [
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 1,
+      "p": 0,
+      "pts": 3
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Kotozakura",
+      "label": "Ozeki #1 West Kotozakura",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asakoryu",
+      "label": "Maegashira #13 East Asakoryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ]
+   ],
+   "total": 59
+  },
+  {
+   "owner": "Csilla Virág",
+   "fantasizrName": "Csilla Virág",
+   "team": "best sumo team ever (?)",
+   "daily": [
+    4,
+    4,
+    4,
+    9,
+    4,
+    4,
+    6,
+    4,
+    4,
+    4,
+    2,
+    2,
+    2,
+    4,
+    2
+   ],
+   "lineups": [
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 1,
+      "p": 0,
+      "pts": 3
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Atamifuji",
+      "label": "Sekiwake East Atamifuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takayasu",
+      "label": "Maegashira #2 East Takayasu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Chiyoshoma",
+      "label": "Maegashira #14 West Chiyoshoma",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ]
+   ],
+   "total": 59
+  },
+  {
+   "owner": "Richard Fejes",
+   "fantasizrName": "Richard Fejes",
+   "team": "Tokazachi Kövér Sportegyesület (TKSE)",
+   "daily": [
+    4,
+    2,
+    2,
+    4,
+    4,
+    6,
+    2,
+    4,
+    8,
+    2,
+    2,
+    4,
+    4,
+    4,
+    5
+   ],
+   "lineups": [
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Yoshinofuji",
+      "label": "Maegashira #2 West Yoshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Wakanosho",
+      "label": "Maegashira #16 East Wakanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Yoshinofuji",
+      "label": "Maegashira #2 West Yoshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Yoshinofuji",
+      "label": "Maegashira #2 West Yoshinofuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shonannoumi",
+      "label": "Maegashira #17 West Shonannoumi",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Tobizaru",
+      "label": "Maegashira #14 East Tobizaru",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takanosho",
+      "label": "Maegashira #4 East Takanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Tobizaru",
+      "label": "Maegashira #14 East Tobizaru",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takanosho",
+      "label": "Maegashira #4 East Takanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Tobizaru",
+      "label": "Maegashira #14 East Tobizaru",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takanosho",
+      "label": "Maegashira #4 East Takanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Tobizaru",
+      "label": "Maegashira #14 East Tobizaru",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takanosho",
+      "label": "Maegashira #4 East Takanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Tobizaru",
+      "label": "Maegashira #14 East Tobizaru",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takanosho",
+      "label": "Maegashira #4 East Takanosho",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Tobizaru",
+      "label": "Maegashira #14 East Tobizaru",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takanosho",
+      "label": "Maegashira #4 East Takanosho",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Tobizaru",
+      "label": "Maegashira #14 East Tobizaru",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asasuiryu",
+      "label": "Maegashira #15 East Asasuiryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Tobizaru",
+      "label": "Maegashira #14 East Tobizaru",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Asasuiryu",
+      "label": "Maegashira #15 East Asasuiryu",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Tobizaru",
+      "label": "Maegashira #14 East Tobizaru",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Wakamotoharu",
+      "label": "Maegashira #11 East Wakamotoharu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Tobizaru",
+      "label": "Maegashira #14 East Tobizaru",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Wakamotoharu",
+      "label": "Maegashira #11 East Wakamotoharu",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Shodai",
+      "label": "Maegashira #11 West Shodai",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ],
+    [
+     {
+      "rikishi": "Fujinokawa",
+      "label": "Sekiwake West Fujinokawa",
+      "w": 2,
+      "k": 0,
+      "p": 1,
+      "pts": 3
+     },
+     {
+      "rikishi": "Takerufuji",
+      "label": "Maegashira #8 East Takerufuji",
+      "w": 2,
+      "k": 0,
+      "p": 0,
+      "pts": 2
+     },
+     {
+      "rikishi": "Kinbozan",
+      "label": "Maegashira #10 West Kinbozan",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     },
+     {
+      "rikishi": "Shodai",
+      "label": "Maegashira #11 West Shodai",
+      "w": 0,
+      "k": 0,
+      "p": 0,
+      "pts": 0
+     }
+    ]
+   ],
+   "total": 57
+  }
+ ],
+ "rikishi": [
+  {
+   "rikishi": "Onosato",
+   "label": "Yokozuna East Onosato",
+   "w": 24,
+   "k": 0,
+   "p": 0,
+   "total": 24
+  },
+  {
+   "rikishi": "Fujinokawa",
+   "label": "Sekiwake West Fujinokawa",
+   "w": 22,
+   "k": 0,
+   "p": 1,
+   "total": 23
+  },
+  {
+   "rikishi": "Aonishiki",
+   "label": "Ozeki #2 East Aonishiki",
+   "w": 22,
+   "k": 0,
+   "p": 0,
+   "total": 22
+  },
+  {
+   "rikishi": "Churanoumi",
+   "label": "Maegashira #3 West Churanoumi",
+   "w": 20,
+   "k": 0,
+   "p": 1,
+   "total": 21
+  },
+  {
+   "rikishi": "Asanoyama",
+   "label": "Maegashira #6 East Asanoyama",
+   "w": 20,
+   "k": 0,
+   "p": 0,
+   "total": 20
+  },
+  {
+   "rikishi": "Ura",
+   "label": "Maegashira #9 East Ura",
+   "w": 20,
+   "k": 0,
+   "p": 0,
+   "total": 20
+  },
+  {
+   "rikishi": "Wakamotoharu",
+   "label": "Maegashira #11 East Wakamotoharu",
+   "w": 20,
+   "k": 0,
+   "p": 0,
+   "total": 20
+  },
+  {
+   "rikishi": "Kotozakura",
+   "label": "Ozeki #1 West Kotozakura",
+   "w": 18,
+   "k": 0,
+   "p": 0,
+   "total": 18
+  },
+  {
+   "rikishi": "Yoshinofuji",
+   "label": "Maegashira #2 West Yoshinofuji",
+   "w": 18,
+   "k": 0,
+   "p": 0,
+   "total": 18
+  },
+  {
+   "rikishi": "Fujiseiun",
+   "label": "Maegashira #7 East Fujiseiun",
+   "w": 18,
+   "k": 0,
+   "p": 0,
+   "total": 18
+  },
+  {
+   "rikishi": "Takerufuji",
+   "label": "Maegashira #8 East Takerufuji",
+   "w": 18,
+   "k": 0,
+   "p": 0,
+   "total": 18
+  },
+  {
+   "rikishi": "Hiradoumi",
+   "label": "Maegashira #8 West Hiradoumi",
+   "w": 18,
+   "k": 0,
+   "p": 0,
+   "total": 18
+  },
+  {
+   "rikishi": "Kinbozan",
+   "label": "Maegashira #10 West Kinbozan",
+   "w": 18,
+   "k": 0,
+   "p": 0,
+   "total": 18
+  },
+  {
+   "rikishi": "Abi",
+   "label": "Maegashira #13 West Abi",
+   "w": 18,
+   "k": 0,
+   "p": 0,
+   "total": 18
+  },
+  {
+   "rikishi": "Toshinofuji",
+   "label": "Maegashira #16 West Toshinofuji",
+   "w": 18,
+   "k": 0,
+   "p": 0,
+   "total": 18
+  },
+  {
+   "rikishi": "Kirishima",
+   "label": "Ozeki #1 East Kirishima",
+   "w": 16,
+   "k": 0,
+   "p": 0,
+   "total": 16
+  },
+  {
+   "rikishi": "Atamifuji",
+   "label": "Sekiwake East Atamifuji",
+   "w": 16,
+   "k": 0,
+   "p": 0,
+   "total": 16
+  },
+  {
+   "rikishi": "Fujiryoga",
+   "label": "Maegashira #4 West Fujiryoga",
+   "w": 16,
+   "k": 0,
+   "p": 0,
+   "total": 16
+  },
+  {
+   "rikishi": "Asahakuryu",
+   "label": "Maegashira #12 West Asahakuryu",
+   "w": 16,
+   "k": 0,
+   "p": 0,
+   "total": 16
+  },
+  {
+   "rikishi": "Asakoryu",
+   "label": "Maegashira #13 East Asakoryu",
+   "w": 16,
+   "k": 0,
+   "p": 0,
+   "total": 16
+  },
+  {
+   "rikishi": "Asasuiryu",
+   "label": "Maegashira #15 East Asasuiryu",
+   "w": 16,
+   "k": 0,
+   "p": 0,
+   "total": 16
+  },
+  {
+   "rikishi": "Tokihayate",
+   "label": "Maegashira #15 West Tokihayate",
+   "w": 16,
+   "k": 0,
+   "p": 0,
+   "total": 16
+  },
+  {
+   "rikishi": "Takayasu",
+   "label": "Maegashira #2 East Takayasu",
+   "w": 14,
+   "k": 1,
+   "p": 0,
+   "total": 15
+  },
+  {
+   "rikishi": "Nishikifuji",
+   "label": "Maegashira #7 West Nishikifuji",
+   "w": 14,
+   "k": 0,
+   "p": 0,
+   "total": 14
+  },
+  {
+   "rikishi": "Shishi",
+   "label": "Maegashira #9 West Shishi",
+   "w": 14,
+   "k": 0,
+   "p": 0,
+   "total": 14
+  },
+  {
+   "rikishi": "Oho",
+   "label": "Maegashira #10 East Oho",
+   "w": 14,
+   "k": 0,
+   "p": 0,
+   "total": 14
+  },
+  {
+   "rikishi": "Gonoyama",
+   "label": "Maegashira #3 East Gonoyama",
+   "w": 12,
+   "k": 0,
+   "p": 0,
+   "total": 12
+  },
+  {
+   "rikishi": "Roga",
+   "label": "Maegashira #5 East Roga",
+   "w": 12,
+   "k": 0,
+   "p": 0,
+   "total": 12
+  },
+  {
+   "rikishi": "Oshoma",
+   "label": "Maegashira #5 West Oshoma",
+   "w": 12,
+   "k": 0,
+   "p": 0,
+   "total": 12
+  },
+  {
+   "rikishi": "Hakunofuji",
+   "label": "Komusubi East Hakunofuji",
+   "w": 10,
+   "k": 0,
+   "p": 0,
+   "total": 10
+  },
+  {
+   "rikishi": "Daieisho",
+   "label": "Komusubi West Daieisho",
+   "w": 10,
+   "k": 0,
+   "p": 0,
+   "total": 10
+  },
+  {
+   "rikishi": "Kotoshoho",
+   "label": "Maegashira #1 East Kotoshoho",
+   "w": 10,
+   "k": 0,
+   "p": 0,
+   "total": 10
+  },
+  {
+   "rikishi": "Kotoeiho",
+   "label": "Maegashira #1 West Kotoeiho",
+   "w": 10,
+   "k": 0,
+   "p": 0,
+   "total": 10
+  },
+  {
+   "rikishi": "Chiyoshoma",
+   "label": "Maegashira #14 West Chiyoshoma",
+   "w": 10,
+   "k": 0,
+   "p": 0,
+   "total": 10
+  },
+  {
+   "rikishi": "Takanosho",
+   "label": "Maegashira #4 East Takanosho",
+   "w": 8,
+   "k": 0,
+   "p": 0,
+   "total": 8
+  },
+  {
+   "rikishi": "Ichiyamamoto",
+   "label": "Maegashira #6 West Ichiyamamoto",
+   "w": 8,
+   "k": 0,
+   "p": 0,
+   "total": 8
+  },
+  {
+   "rikishi": "Tobizaru",
+   "label": "Maegashira #14 East Tobizaru",
+   "w": 8,
+   "k": 0,
+   "p": 0,
+   "total": 8
+  },
+  {
+   "rikishi": "Shodai",
+   "label": "Maegashira #11 West Shodai",
+   "w": 6,
+   "k": 0,
+   "p": 0,
+   "total": 6
+  },
+  {
+   "rikishi": "Shonannoumi",
+   "label": "Maegashira #17 West Shonannoumi",
+   "w": 6,
+   "k": 0,
+   "p": 0,
+   "total": 6
+  },
+  {
+   "rikishi": "Hoshoryu",
+   "label": "Yokozuna West Hoshoryu",
+   "w": 0,
+   "k": 0,
+   "p": 0,
+   "total": 0
+  },
+  {
+   "rikishi": "Wakatakakage",
+   "label": "Maegashira #12 East Wakatakakage",
+   "w": 0,
+   "k": 0,
+   "p": 0,
+   "total": 0
+  },
+  {
+   "rikishi": "Wakanosho",
+   "label": "Maegashira #16 East Wakanosho",
+   "w": 0,
+   "k": 0,
+   "p": 0,
+   "total": 0
+  }
+ ]
+}
