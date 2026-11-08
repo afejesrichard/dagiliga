@@ -1668,7 +1668,7 @@
     <a href="dagi_liga_aki_2026.html" class="badge active">✅ Aki (Tokyo, Sep)</a>
     <div class="badge current">🟢 Kyūshū (Fukuoka, Nov)</div>
   </div>
-  <div class="updated">Last updated: November 8, 2026 · <strong>九州場所 Kyūshū Day 1 is in the books, Day 2 torikumi is up</strong> · Onosato loses to Yoshinofuji, Aonishiki to Asanoyama and Kotozakura to Fujiryoga, while Hoshoryu and Kirishima start 1-0 · Local boy <b>Arashifuji</b> wins his Makuuchi debut · Dagi Liga duel: Dorka 3, Ricsi 2 · The season finale: Márk leads by 22 going in, and the season yūshō maths is in the Comeback Calculator</div>
+  <div class="updated">Updated November 8 · <strong>Kyūshū Day 1 is in, Day 2 torikumi is up</strong> · Onosato, Aonishiki and Kotozakura all lose, Arashifuji wins his debut · Dorka 3, Ricsi 2</div>
 </div>
 
 <div class="container">
@@ -1892,7 +1892,6 @@
         <li data-ico="💥"><b>Rough opener at the top</b> · Yokozuna Onosato fell to Komusubi Yoshinofuji, Ōzeki Aonishiki to Asanoyama, and Ōzeki Kotozakura to Fujiryoga, the man Ricsi swapped out before the deadline</li>
         <li data-ico="🔁"><b>Ricsi's Day 2 swaps</b> · Daieisho and Kotoeiho out, <b>Toshinofuji (M13e)</b> and <b>Ōzeki Aonishiki (O1e)</b> in. That also breaks up the Day 2 bout between two of his own picks (Daieisho vs Takerufuji). Day 1 above is left as it was actually played.</li>
       </ul>
-      <div class="yw-note"><b>Day 2:</b> Ricsi's Aonishiki (0-1) faces Yoshinofuji (1-0), who leads their head-to-head 5-2, and Toshinofuji (0-1) meets Ichiyamamoto (0-1) for the first time. Takerufuji (0-1) takes on Daieisho (1-0, leads 2-0), and Asasuiryu (1-0) faces Dewanoryu (1-0, Asasuiryu leads 3-0). Dorka's <b>Ura and Atamifuji meet each other</b>, so she banks exactly one win there; Asakoryu (1-0) meets Oho (0-1) for the first time and Arashifuji (1-0) faces Daiseizan (0-1, leads 1-0). No Ricsi pick meets a Dorka pick, and nobody on the card is kyūjō. From Day 3 on, torikumi are posted the day before each bout day.</div>
     </div>
 
     <!-- Basho leader packs, derived from the results in kyushuMatchups -->
@@ -3625,10 +3624,14 @@ function renderMatchupDayTabs() {
   }
   wrap.innerHTML = html;
 }
+// Switched off for the early days of Kyushu. Set to true to bring back the
+// Yusho Race box and the leader / can-win badges on unfought bout cards.
+const SHOW_YUSHO_RACE = false;
 // Yūshō status for the card of a day not yet fought, from the maths as it
 // stands after the latest resolved day. Fought days get no badges, since the
 // status would describe the race after that day, not going into it.
 function contenderStatus(day) {
+  if (!SHOW_YUSHO_RACE) return null;
   const through = latestResultDay();
   if (!through || day <= through) return null;
   const m = yushoMath(through);
@@ -3801,6 +3804,7 @@ function yushoMath(through) {
 function renderYushoRace() {
   const el = document.getElementById('yusho-race');
   if (!el) return;
+  if (!SHOW_YUSHO_RACE) { el.innerHTML = ''; return; }
   const through = latestResultDay();
   if (!through) { el.innerHTML = ''; return; }
   const packs = makuuchiLeaderPacks(through);
