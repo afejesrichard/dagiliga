@@ -616,6 +616,12 @@
     color: var(--accent2); margin-bottom: 8px;
   }
   .yw-math-row { font-size: 0.9em; margin-bottom: 6px; line-height: 1.5; }
+  /* long name lists collapse behind "+N others" */
+  .yw-more { display: inline; }
+  .yw-more > summary { display: inline; cursor: pointer; color: var(--text-muted); list-style: none; }
+  .yw-more > summary::-webkit-details-marker { display: none; }
+  .yw-more > summary:hover { color: var(--text); text-decoration: underline; }
+  .yw-more[open] > summary { display: none; }
   .yw-math-row .yw-k {
     display: inline-block; min-width: 108px; color: var(--text-muted);
     text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.82em;
@@ -3779,7 +3785,7 @@ function yushoMath(through) {
   const bestRivalMax = leaders.length > 1 ? lead + left
     : (chasers.length ? chasers[0].w + left : lead);
   return {
-    left: left, lead: lead, leaders: leaders, floor: floor,
+    left: left, lead: lead, leaders: leaders, floor: floor, total: rows.length,
     showdown: clash ? [clash.east.name, clash.west.name] : null,
     // wins that make the leader untouchable, and wins that guarantee a share
     clinch: Math.max(0, bestRivalMax - lead + 1),
@@ -3811,12 +3817,24 @@ function renderYushoRace() {
       return m ? '<b>' + n + '</b>' + m : n;
     }).join(' \u00b7 ');
   };
+  // Long groups (early in the basho a dozen or more can share a record) show
+  // the Dagi Liga picks first and fold everyone else behind "+N others".
+  const BRIEF_MAX = 6;
+  const brief = function(names, fmt) {
+    fmt = fmt || list;
+    if (names.length <= BRIEF_MAX) return fmt(names);
+    const picked = names.filter(function(n) { return mark(typeof n === 'string' ? n : n.name); });
+    const rest = names.filter(function(n) { return picked.indexOf(n) < 0; });
+    const head = picked.length ? fmt(picked) + ' \u00b7 ' : '';
+    return head + '<details class="yw-more"><summary>+' + rest.length
+      + (picked.length ? ' others' : ' rikishi') + '</summary>' + fmt(rest) + '</details>';
+  };
   // struck-through: on course for this pack, but lost on the latest day
   const outList = function(pack) {
     const gone = fellOutOf(pack, prev, cur);
     if (!gone.length) return '';
     return '<span class="yw-out"><span class="yw-out-label">out</span>'
-      + gone.map(function(n) { return '<s>' + n + '</s>' + mark(n); }).join(' \u00b7 ')
+      + brief(gone, function(ns) { return ns.map(function(n) { return '<s>' + n + '</s>' + mark(n); }).join(' \u00b7 '); })
       + '</span>';
   };
   const top = packs[0];
@@ -3840,7 +3858,7 @@ function renderYushoRace() {
     html += '<div class="yw-leader"><span class="yw-crown">\u{1F451}</span>'
       + '<span class="yw-rec">' + top.w + '-' + top.l + '</span>'
       + '<span class="yw-tag">' + top.names.length + ' share the lead</span></div>'
-      + '<div class="yw-chasers">' + list(top.names) + '</div>';
+      + '<div class="yw-chasers">' + brief(top.names) + '</div>';
   }
   const topOut = outList(top);
   if (topOut) html += '<div class="yw-chasers">' + topOut + '</div>';
@@ -3849,7 +3867,7 @@ function renderYushoRace() {
     html += '<div class="yw-chasers' + (gone ? ' yw-dead' : '') + '">'
       + '<span class="yw-label">' + p.w + '-' + p.l + '</span>'
       + '<span class="yw-behind">' + (top.w - p.w) + ' back</span>'
-      + list(p.names) + outList(p)
+      + brief(p.names) + outList(p)
       + (gone ? '<span class="yw-eliminated">out of the y\u016bsh\u014d</span>' : '')
       + '</div>';
   });
@@ -3862,7 +3880,10 @@ function renderYushoRace() {
         return (k ? '<b>' + r.name + '</b>' + k : r.name) + ' <span style="opacity:.65">' + r.w + '-' + r.l + '</span>';
       }).join(' \u00b7 ');
     };
-    const lname = m.leaders.map(function(r) { return r.name; }).join(' & ');
+    const lname = m.leaders.length > 3
+      ? 'the ' + m.leaders.length + ' co-leaders'
+      : m.leaders.map(function(r) { return r.name; }).join(' & ');
+    const nmb = function(rows) { return brief(rows, nm); };
     html += '<div class="yw-math"><div class="yw-math-title">\u{1F9EE} What can still happen \u00b7 '
       + m.left + ' day' + (m.left === 1 ? '' : 's') + ' left</div>';
     const wins = function(n) { return n + ' more win' + (n === 1 ? '' : 's'); };
@@ -3890,6 +3911,15 @@ function renderYushoRace() {
     }
     html += '<div class="yw-math-row"><span class="yw-k">' + (final ? 'Showdown' : 'Clinch') + '</span>' + clinch
       + (final ? '.</div>' : '. Losing out leaves ' + pron + ' on <b>' + m.lead + '</b>.</div>');
+    if (m.alive.length === m.total) {
+      // Too early for an elimination list: nobody is out yet, so say that
+      // plainly rather than spell out conditions for every rikishi.
+      const gap = m.lead - Math.min.apply(null, m.alive.map(function(r) { return r.w; }));
+      html += '<div class="yw-math-row"><span class="yw-k">Can win it</span>Everyone. All <b>'
+        + m.total + '</b> rikishi are within ' + gap + ' win' + (gap === 1 ? '' : 's')
+        + ' of the lead with ' + m.left + ' days to go, so nobody is out yet. The full breakdown appears here once the gap opens.</div>';
+      html += '</div>';
+    } else {
     html += '<div class="yw-math-row"><span class="yw-k">Can win it</span>'
       + (m.outright.length
           ? (function() {
@@ -3902,7 +3932,7 @@ function renderYushoRace() {
                 k = +k;
                 const need = k === 0 ? loseAll(m.left)
                   : 'win no more than ' + k + ' of the last ' + m.left;
-                return nm(groups[k]) + ': ' + (groups[k].length > 1 ? 'each must' : 'must')
+                return nmb(groups[k]) + ': ' + (groups[k].length > 1 ? 'each must' : 'must')
                   + ' win out <em>and</em> have ' + lname + ' ' + need;
               }).join('; ')
                 + (m.outright.length > 1 ? ', and even then they can still meet in a playoff' : '');
@@ -3913,12 +3943,13 @@ function renderYushoRace() {
       + '.</div>';
     if (m.playoffOnly.length) {
       html += '<div class="yw-math-row"><span class="yw-k">Playoff only</span>'
-        + nm(m.playoffOnly) + ': winning out reaches ' + m.floor
+        + nmb(m.playoffOnly) + ': winning out reaches ' + m.floor
         + ', which ties the leader\'s floor but cannot beat it.</div>';
     }
     html += '<div class="yw-math-row"><span class="yw-k">Still alive</span><b>' + m.alive.length
-      + '</b> rikishi, everyone on <b>' + m.cut + ' wins</b> or better. Anyone below that is out.</div>';
+      + '</b> rikishi, everyone on <b>' + Math.max(0, m.cut) + ' win' + (Math.max(0, m.cut) === 1 ? '' : 's') + '</b> or better. Anyone below that is out.</div>';
     html += '</div>';
+    }
   }
   const alive = packs.slice(0, 3).filter(function(p) { return !dead(p); })
     .reduce(function(n, p) { return n + p.names.length; }, 0);
