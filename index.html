@@ -1889,7 +1889,7 @@
         <li data-ico="🟣"><b>Ricsi · 0 wins (24 pts)</b> · ❌ Aonishiki, ❌ Takerufuji, ❌ Kyokukaiyu, ❌ Asasuiryu · a second straight blank</li>
         <li data-ico="🩷"><b>Dorka · 3 wins (35 pts)</b> · ✅ Atamifuji, ✅ Ura, ✅ Ichiyamamoto, ❌ Arashifuji · Ura won the head-to-head with Takerufuji, and new pick Ichiyamamoto delivered first time out</li>
         <li data-ico="🔥"><b>Leaders at 7-1</b> · Onosato, Kirishima, Atamifuji 🩷, Wakamotoharu, Kinbozan</li>
-        <li data-ico="🔁"><b>Day 9 self-clash</b> · Ricsi's Kyokukaiyu and Asasuiryu meet each other, so one win and one loss is guaranteed there. Jūryō 3 West Shodai is the call-up</li>
+        <li data-ico="🔁"><b>Ricsi's Day 9 swap</b> · Asasuiryu out, <b>Takanosho (M11e, 6-2)</b> in, which also clears the Kyokukaiyu vs Asasuiryu bout between two of his own picks. Takanosho meets Kitanowaka for the first time. Jūryō 3 West Shodai is the call-up</li>
       </ul>
     </div>
 
@@ -1991,7 +1991,7 @@
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180002.jpg" alt="Oho"></div><span class="rikishi-info"><span class="rikishi-name">Oho</span><span class="rikishi-origin">Tokyo</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20100039.jpg" alt="Takanosho"></div><span class="rikishi-info"><span class="rikishi-name">Takanosho</span><span class="rikishi-origin">Chiba</span></span></span></td>
+          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20100039.jpg" alt="Takanosho"></div><span class="rikishi-info"><span class="rikishi-name">Takanosho</span><span class="rikishi-origin">Chiba</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M11</td>
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220063.jpg" alt="Asahakuryu"></div><span class="rikishi-info"><span class="rikishi-name">Asahakuryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
         </tr>
@@ -2003,7 +2003,7 @@
         <tr class="banzuke-row">
           <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240007.jpg" alt="Toshinofuji"></div><span class="rikishi-info"><span class="rikishi-name">Toshinofuji</span><span class="rikishi-origin">Mongolia</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M13</td>
-          <td class="banzuke-cell-west ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240052.jpg" alt="Asasuiryu"></div><span class="rikishi-info"><span class="rikishi-name">Asasuiryu</span><span class="rikishi-origin">Osaka</span></span></span></td>
+          <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240052.jpg" alt="Asasuiryu"></div><span class="rikishi-info"><span class="rikishi-name">Asasuiryu</span><span class="rikishi-origin">Osaka</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
           <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190020.jpg" alt="Tokihayate"></div><span class="rikishi-info"><span class="rikishi-name">Tokihayate</span><span class="rikishi-origin">Miyagi</span></span></span></td>
@@ -3540,7 +3540,10 @@ const ricsiLineupsKyushu = {
   // also clears the Day 2 bout between two of his own picks (Daieisho vs Takerufuji)
   2: ['Toshinofuji','Aonishiki','Takerufuji','Asasuiryu'],
   // Day 8: Toshinofuji -> Kyokukaiyu
-  8: ['Kyokukaiyu','Aonishiki','Takerufuji','Asasuiryu']
+  8: ['Kyokukaiyu','Aonishiki','Takerufuji','Asasuiryu'],
+  // Day 9: Asasuiryu -> Takanosho, which also clears the Day 9 bout between
+  // two of his own picks (Kyokukaiyu vs Asasuiryu)
+  9: ['Kyokukaiyu','Aonishiki','Takerufuji','Takanosho']
 };
 const _lineupCache = {};
 function lineupFor(key, lineups, day) {
