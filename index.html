@@ -1889,6 +1889,7 @@
         <li data-ico="🟣"><b>Ricsi · 1 win (38 pts)</b> · ✅ Takanosho, ❌ Aonishiki, ❌ Takerufuji, ❌ Kyokukaiyu · Takanosho reaches kachi-koshi at 8-4</li>
         <li data-ico="🩷"><b>Dorka · 1 win (51 pts)</b> · ✅ Atamifuji, ❌ Ura, ❌ Ichiyamamoto, ❌ Arashifuji · Atamifuji won the head-to-head with Aonishiki</li>
         <li data-ico="🔥"><b>Wakamotoharu leads at 11-1</b> · Onosato, Atamifuji 🩷 and Kinbozan one behind at 10-2. Onosato meets Wakamotoharu on Day 13</li>
+        <li data-ico="🔁"><b>Ricsi's Day 13 swap</b> · Aonishiki out, leader <b>Wakamotoharu (M7e, 11-1)</b> in. His first bout for Ricsi is the title clash with Onosato (Onosato leads 8-3)</li>
         <li data-ico="⚔️"><b>Day 13 head-to-head</b> · Ricsi's Kyokukaiyu meets Dorka's Ichiyamamoto for the first time</li>
       </ul>
     </div>
@@ -1921,7 +1922,7 @@
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170096.jpg" alt="Hoshoryu"></div><span class="rikishi-info"><span class="rikishi-name">Hoshoryu</span><span class="rikishi-origin">Mongolia</span></span></span></td>
         </tr>
         <tr class="banzuke-row rank-ozeki">
-          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230052.jpg" alt="Aonishiki"></div><span class="rikishi-info"><span class="rikishi-name">Aonishiki</span><span class="rikishi-origin">Ukraine</span></span></span></td>
+          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230052.jpg" alt="Aonishiki"></div><span class="rikishi-info"><span class="rikishi-name">Aonishiki</span><span class="rikishi-origin">Ukraine</span></span></span></td>
           <td class="banzuke-cell-rank">大関 Ōzeki</td>
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150081.jpg" alt="Kotozakura"></div><span class="rikishi-info"><span class="rikishi-name">Kotozakura</span><span class="rikishi-origin">Chiba</span></span></span></td>
         </tr>
@@ -1971,7 +1972,7 @@
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220003.jpg" alt="Kotoeiho"></div><span class="rikishi-info"><span class="rikishi-name">Kotoeiho</span><span class="rikishi-origin">Chiba</span></span></span></td>
         </tr>
         <tr class="banzuke-row">
-          <td class="banzuke-cell-east"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20110065.jpg" alt="Wakamotoharu"></div><span class="rikishi-info"><span class="rikishi-name">Wakamotoharu</span><span class="rikishi-origin">Fukushima</span></span></span></td>
+          <td class="banzuke-cell-east ricsi-pick"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20110065.jpg" alt="Wakamotoharu"></div><span class="rikishi-info"><span class="rikishi-name">Wakamotoharu</span><span class="rikishi-origin">Fukushima</span></span></span></td>
           <td class="banzuke-cell-rank">前頭 M7</td>
           <td class="banzuke-cell-west"><span class="rikishi"><div class="rikishi-img-wrap"><img class="rikishi-img" onclick="openLightbox(this)" src="https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210057.jpg" alt="Kinbozan"></div><span class="rikishi-info"><span class="rikishi-name">Kinbozan</span><span class="rikishi-origin">Kazakhstan</span></span></span></td>
         </tr>
@@ -3543,7 +3544,9 @@ const ricsiLineupsKyushu = {
   8: ['Kyokukaiyu','Aonishiki','Takerufuji','Asasuiryu'],
   // Day 9: Asasuiryu -> Takanosho, which also clears the Day 9 bout between
   // two of his own picks (Kyokukaiyu vs Asasuiryu)
-  9: ['Kyokukaiyu','Aonishiki','Takerufuji','Takanosho']
+  9: ['Kyokukaiyu','Aonishiki','Takerufuji','Takanosho'],
+  // Day 13: Aonishiki -> Wakamotoharu, the 11-1 leader
+  13: ['Kyokukaiyu','Wakamotoharu','Takerufuji','Takanosho']
 };
 const _lineupCache = {};
 function lineupFor(key, lineups, day) {
