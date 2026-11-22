@@ -2,6 +2,7 @@
 //   ../kyushu_2026/kyushu_2026_<manager>.png   one per Kyushu team (9)
 //   season_2026_<manager>.png                  one per manager who played this year (11)
 //   season_2026_fact_<n>.png                   three general season cards
+//   season_2026_table.png                      the final league table
 // Run: node cards/season_2026/gen.js
 const fs = require('fs'), path = require('path'), os = require('os');
 const { chromium } = require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright');
@@ -193,6 +194,20 @@ const CSS = c => `
   .bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
   .bar .bv2{font-size:26px;font-weight:900;margin-bottom:6px}
   .bar .bb{width:100%;border-radius:10px 10px 0 0;background:var(--c)}
+  /* final table */
+  .tbl{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;margin:22px 0 18px}
+  .tr{display:grid;grid-template-columns:78px 1fr repeat(6,70px) 100px;align-items:center;gap:6px;padding:0 14px;height:66px;border-radius:14px;background:var(--card);border:1px solid var(--border)}
+  .tr.head{background:none;border:none;height:34px;font-size:16px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+  .tr.champ{border:2px solid var(--gold);background:rgba(255,215,0,.10);height:78px}
+  .tr .pl{font-size:26px;font-weight:900;color:var(--muted)}
+  .tr.champ .pl{font-size:34px}
+  .tr .nm{font-size:25px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tr .sc{font-size:23px;font-weight:700;text-align:center;border-radius:8px;padding:4px 0}
+  .tr .sc.win{background:var(--gold);color:#0b0b14;font-weight:900}
+  .tr .sc.no{color:#4a4a6a}
+  .tr.head .sc{font-size:15px;padding:0}
+  .tr .tt{font-size:32px;font-weight:900;text-align:right}
+  .tr.head .tt{font-size:16px}
   .bar .bl{font-size:19px;font-weight:700;color:var(--muted);margin-top:8px;letter-spacing:1px;text-transform:uppercase}
 `;
 const page = (color, body) => `<!doctype html><html><head><meta charset="utf-8">
@@ -291,6 +306,23 @@ const general = [
       { icon: '🎯', name: 'The Champion Lost to a Dartboard', text: 'In Kyūshū four random rikishi would expect 60.1 points. Márk scored 55 and won the season anyway.' }
     ])}${foot('Dagi Liga 2026 · final')}` }
 ];
+
+// Final league table, built from the same scores as the cards above.
+const tableRows = Object.entries(P).sort((a, b) => b[1].total - a[1].total).map(([key, p]) => {
+  const pl = 1 + Object.values(P).filter(o => o.total > p.total).length;
+  const tied = Object.values(P).filter(o => o.total === p.total).length > 1;
+  return `<div class="tr${pl === 1 ? ' champ' : ''}"><span class="pl">${pl === 1 ? '🍶' : (tied ? 'T-' : '') + pl}</span><span class="nm" style="color:${p.color}">${esc(p.owner === 'DJ_Pongo_Pongo' ? 'DJ_Pongo' : p.owner)}</span>`
+    + p.s.map((v, i) => v === null ? '<span class="sc no">·</span>' : `<span class="sc${bashoRank(key, i) === 1 ? ' win' : ''}">${v}</span>`).join('')
+    + `<span class="tt"${pl === 1 ? ' style="color:var(--gold)"' : ''}>${p.total}</span></div>`;
+}).join('');
+general.push({ file: 'table', color: '#ffd700', body: `${top}
+    <div class="kick">Final standings</div>
+    <h2>Dagi Liga 2026</h2>
+    <div class="lede">Márk Vrabély wins the Sake by 22 points. Gold cells mark each basho’s winner.</div>
+    <div class="tbl">
+      <div class="tr head"><span>#</span><span>Manager</span>${['Hatsu', 'Haru', 'Natsu', 'Nagoya', 'Aki', 'Kyūshū'].map(b => `<span class="sc">${b}</span>`).join('')}<span class="tt">Total</span></div>
+      ${tableRows}
+    </div>${foot('Six bashos · 11 managers · level totals share a place')}` });
 
 (async () => {
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
