@@ -98,6 +98,53 @@
   .hero .badge.upcoming { opacity: 0.5; }
   .hero .badge.current { background: rgba(255,215,0,0.20); border-color: var(--gold); color: #fff; font-weight: 700; opacity: 1; }
   /* Countdown */
+  /* ===== SEASON CHAMPION ===== */
+  .hero { position: relative; }
+  #confetti { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; }
+  .champion-banner {
+    position: relative; z-index: 2; max-width: 760px; margin: 22px auto 6px; padding: 24px 20px 20px;
+    border-radius: 18px; border: 2px solid var(--gold);
+    background: linear-gradient(135deg, rgba(255,215,0,0.20), rgba(184,134,11,0.10) 55%, rgba(255,215,0,0.16));
+    box-shadow: 0 0 40px rgba(255,215,0,0.18);
+  }
+  .cb-kicker { font-size: 0.85em; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  .cb-name { font-size: 2.8em; font-weight: 900; line-height: 1.15; margin: 6px 0 4px; color: #fff; text-shadow: 0 2px 18px rgba(255,215,0,0.45); }
+  .cb-teams { font-size: 0.95em; opacity: 0.85; margin-bottom: 14px; overflow-wrap: anywhere; }
+  .cb-stats { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .cb-stat { background: rgba(0,0,0,0.28); border: 1px solid rgba(255,215,0,0.35); border-radius: 10px; padding: 8px 14px; min-width: 84px; }
+  .cb-stat .num { font-size: 1.6em; font-weight: 800; color: var(--gold); }
+  .cb-stat .unit { font-size: 0.7em; text-transform: uppercase; letter-spacing: 1px; opacity: 0.75; }
+  .cb-line { font-size: 0.95em; opacity: 0.92; line-height: 1.5; }
+  .cb-again { background: none; border: 1px solid rgba(255,215,0,0.5); border-radius: 8px; cursor: pointer; font-size: 1em; padding: 2px 8px; margin-left: 6px; }
+  .cb-again:hover { background: rgba(255,215,0,0.15); }
+  .nav-tab--sake, .sidebar-nav .sidebar-item--sake { color: var(--gold); }
+  .sake-card { text-align: center; border: 2px solid var(--gold); border-radius: 18px; padding: 28px 20px; background: linear-gradient(135deg, rgba(255,215,0,0.14), rgba(26,26,46,0.6)); }
+  .sake-kicker { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 0.85em; font-weight: 700; }
+  .sake-name { font-size: 2.4em; font-weight: 900; margin: 6px 0; }
+  .sake-sub { color: var(--accent3); font-weight: 600; margin-bottom: 18px; }
+  .sake-path, .lead-strip { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .sake-step, .lead-step { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px 6px; min-width: 0; }
+  .sake-step.win { border-color: var(--gold); background: rgba(255,215,0,0.10); }
+  .ss-basho, .ls-basho { font-size: 0.72em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+  .ss-pts, .ls-pts { font-size: 1.5em; font-weight: 800; }
+  .ss-rank { font-size: 0.95em; }
+  .ss-team { font-size: 0.72em; color: var(--text-muted); margin-top: 4px; overflow-wrap: anywhere; }
+  .ls-leader { font-weight: 800; margin-top: 4px; overflow-wrap: anywhere; }
+  .ls-gap { font-size: 0.78em; color: var(--text-muted); }
+  .lead-step { text-align: center; }
+  .sake-note { color: var(--text-muted); margin-top: 16px; line-height: 1.6; font-size: 0.93em; }
+  .margin-bars { display: flex; align-items: flex-end; gap: 6px; background: var(--card); border-radius: 12px; padding: 16px 12px 10px; overflow-x: auto; }
+  .mb-col { flex: 1 0 28px; text-align: center; }
+  .mb-val { font-size: 0.78em; font-weight: 700; margin-bottom: 3px; }
+  .mb-bar { background: linear-gradient(180deg, var(--gold), #b8860b); border-radius: 4px 4px 0 0; }
+  .mb-bar.low { background: linear-gradient(180deg, var(--accent), #a33); }
+  .mb-day { font-size: 0.7em; color: var(--text-muted); margin-top: 4px; }
+  .insight-divider { grid-column: 1 / -1; font-size: 1.25em; font-weight: 800; color: var(--gold); border-bottom: 1px solid var(--border); padding: 10px 2px 8px; margin-top: 6px; }
+  @media (max-width: 700px) {
+    .cb-name { font-size: 2em; }
+    .sake-path, .lead-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .sake-name { font-size: 1.8em; }
+  }
   .countdown-wrapper {
     margin: 20px auto 10px;
     max-width: 600px;
@@ -1641,19 +1688,29 @@
 <div class="hero">
   <h1><span class="gold">Dagi Liga</span> <span class="teal">2026</span></h1>
   <div class="subtitle" style="font-size:1.5em; margin-top:8px; opacity:0.9; font-style:italic; letter-spacing:2px;">Road to Sake</div>
-  <div class="subtitle" style="font-size:1.1em; margin-top:6px;">Fantasy Basho — Cumulative Season Standings</div>
+  <div class="subtitle" style="font-size:1.1em; margin-top:6px;">Fantasy Basho · Final Season Standings</div>
   <div class="jp">大相撲ファンタジーリーグ 2026</div>
-  <div class="countdown-wrapper" id="countdown-wrapper">
-    <div class="countdown-label">Next basho: <span class="basho-name">九州場所 Kyūshū · Fukuoka Kokusai Center</span> · the season finale</div>
-    <div class="countdown-boxes" id="countdown-boxes"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div class="champion-banner">
+    <div class="cb-kicker">🍶 2026 Season Champion · The Sake Goes To</div>
+    <div class="cb-name">Márk Vrabély</div>
+    <div class="cb-teams">Sumo · 相撲 · Σούμο · ᠪᠥᠬᠡ · сумо · はは、相撲ですらないよ</div>
+    <div class="cb-stats">
+      <div class="cb-stat"><div class="num">440</div><div class="unit">Points</div></div>
+      <div class="cb-stat"><div class="num">+22</div><div class="unit">Margin</div></div>
+      <div class="cb-stat"><div class="num">2</div><div class="unit">Basho titles</div></div>
+      <div class="cb-stat"><div class="num">6/6</div><div class="unit">Bashos</div></div>
+    </div>
+    <div class="cb-line">Kanpai, Márk! Champion of Dagi Liga 2026, winner of Nagoya and Aki, leader from July to the final bell.
+      <button type="button" class="cb-again" onclick="celebrate()" aria-label="Play the confetti again">🎉</button></div>
   </div>
 
   <div class="hero-cta">
-    <a href="https://www.fantasizr.com/joinleaguelink?league=5324443036942336&key=FdF3BDeB5A04f3B30389FdB13059cD" target="_blank" class="cta-btn cta-btn--join">
-      <span class="pulse"></span> Join Kyūshū Basho
+    <a href="#" onclick="showTab('comeback', document.querySelector('.nav-tab--sake'));document.getElementById('tab-comeback').scrollIntoView({behavior:'smooth'});return false;" class="cta-btn cta-btn--join">
+      🍶 How the Sake Was Won
     </a>
-    <a href="https://www.fantasizr.com/league/5324443036942336" target="_blank" class="cta-btn cta-btn--league">
-      🏟️ League Page
+    <a href="dagi_liga_kyushu_2026.html" class="cta-btn cta-btn--league">
+      📊 Kyūshū Basho Report
     </a>
     <a href="#" onclick="jumpToMatchups();return false;" class="cta-btn cta-btn--matchups">
       ⚔️ Daily Matchups
@@ -1666,9 +1723,9 @@
     <a href="dagi_liga_natsu_2026.html" class="badge active">✅ Natsu (Tokyo, May)</a>
     <a href="dagi_liga_nagoya_2026.html" class="badge active">✅ Nagoya (Jul)</a>
     <a href="dagi_liga_aki_2026.html" class="badge active">✅ Aki (Tokyo, Sep)</a>
-    <div class="badge current">🟢 Kyūshū (Fukuoka, Nov)</div>
+    <a href="dagi_liga_kyushu_2026.html" class="badge active">✅ Kyūshū (Fukuoka, Nov)</a>
   </div>
-  <div class="updated">Updated November 21 · <strong>Kyūshū Day 14 is in, senshūraku torikumi is up</strong> · Onosato and Wakamotoharu lead at 12-2, Atamifuji 11-3 · Dorka 59, Ricsi 48</div>
+  <div class="updated">Updated November 22 · <strong>Season complete</strong> · Dagi Liga 2026: <strong>Márk Vrabély, 440 pts</strong>, 22 clear of Richard and Sándor (418) · Kyūshū fantasy yūshō: <strong>DJ_Pongo_Pongo, 73 pts</strong> · Makuuchi yūshō: <strong>Onosato</strong>, 13-2, playoff win over Wakamotoharu</div>
 </div>
 
 <div class="container">
@@ -1688,7 +1745,7 @@
     <div class="sidebar-item" onclick="sidebarNav('power',this)">Power Rankings</div>
     <div class="sidebar-item" onclick="sidebarNav('race',this)">The Race</div>
     <div class="sidebar-item" onclick="sidebarNav('profiles',this)">Player Profiles</div>
-    <div class="sidebar-item" onclick="sidebarNav('comeback',this)">Comeback Calculator</div>
+    <div class="sidebar-item sidebar-item--sake" onclick="sidebarNav('comeback',this)">🍶 The Sake</div>
     <div class="sidebar-item" onclick="sidebarNav('insights',this)">Fun Facts & Awards</div>
     <div class="sidebar-item" onclick="sidebarNav('bashos',this)">Individual Bashos</div>
     <div class="sidebar-item sidebar-item--matchups" onclick="sidebarNav('matchups',this)">⚔️ Daily Matchups</div>
@@ -1701,7 +1758,7 @@
     <div class="nav-tab" onclick="showTab('power',this)">Power Rankings</div>
     <div class="nav-tab" onclick="showTab('race',this)">The Race</div>
     <div class="nav-tab" onclick="showTab('profiles',this)">Player Profiles</div>
-    <div class="nav-tab" onclick="showTab('comeback',this)">Comeback Calculator</div>
+    <div class="nav-tab nav-tab--sake" onclick="showTab('comeback',this)">🍶 The Sake</div>
     <div class="nav-tab" onclick="showTab('insights',this)">Fun Facts & Awards</div>
     <div class="nav-tab" onclick="showTab('bashos',this)">Individual Bashos</div>
     <div class="nav-tab nav-tab--matchups" onclick="showTab('matchups',this)">⚔️ Daily Matchups</div>
@@ -1710,8 +1767,8 @@
 
   <!-- STANDINGS -->
   <div id="tab-standings" class="tab-content active">
-    <div class="section-title">2026 Season Standings</div>
-    <p style="color:var(--text-muted);margin-bottom:15px">Raw cumulative points across all bashos played. Players who missed a basho show "—" for that tournament.</p>
+    <div class="section-title">2026 Final Season Standings</div>
+    <p style="color:var(--text-muted);margin-bottom:15px">The season is complete: six bashos, cumulative points. Players who missed a basho show "—" for that tournament. Medals and # show each basho's placing, with level scores sharing a place.</p>
     <div id="standings-table-container"></div>
   </div>
 
@@ -1746,15 +1803,15 @@
 
   <!-- COMEBACK CALCULATOR -->
   <div id="tab-comeback" class="tab-content">
-    <div class="section-title">Comeback Calculator</div>
-    <p style="color:var(--text-muted);margin-bottom:20px">One basho remaining. First the season yūshō maths: who is still alive, what they need in Kyūshū, and the chances on this year's form. Then the usual creative ways to think about it.</p>
-    <div id="season-math"></div>
-    <div id="comeback-container"></div>
+    <div class="section-title">The Sake · Season Finale</div>
+    <p style="color:var(--text-muted);margin-bottom:20px">All six bashos are in. This is how the 2026 Dagi Liga season finished, how the lead changed hands, and how the last basho played out in the title race.</p>
+    <div id="season-final"></div>
   </div>
 
   <!-- FUN FACTS -->
   <div id="tab-insights" class="tab-content">
     <div class="section-title">Fun Facts & Season Awards</div>
+    <p style="color:var(--text-muted);margin-bottom:15px">The whole year first, then the finale. Every number here comes from the Fantasizr scores and the official bout results.</p>
     <div id="insights-container" class="cards-grid"></div>
   </div>
 
@@ -1783,10 +1840,10 @@
         秋場所 Aki 2026
         <span class="bl-city">Tokyo — September</span>
       </a>
-      <div class="basho-link" style="opacity:0.6;cursor:default">
+      <a href="dagi_liga_kyushu_2026.html" class="basho-link">
         九州場所 Kyūshū 2026
-        <span class="bl-city">Fukuoka · Nov 8–22 · live soon</span>
-      </div>
+        <span class="bl-city">Fukuoka — November</span>
+      </a>
     </div>
   </div>
 
@@ -1877,19 +1934,19 @@
   <div id="tab-matchups" class="tab-content">
     <div class="banzuke-header">
       <h2>九州場所 Kyūshū 2026 — Daily Matchups</h2>
-      <div class="banzuke-sub">Results through Day 14, senshūraku sheet posted · Asakoryu and Shishi kyūjō from Day 11 · Use the day tabs below, click any face for the rikishi card · All 42 rikishi active · Fukuoka Kokusai Center</div>
+      <div class="banzuke-sub">All 15 days are resolved · <strong>Basho complete</strong>: Onosato won the yūshō at 13-2 in a playoff over Wakamotoharu · Sanshō to Wakamotoharu, Atamifuji, Kinbozan and Tamawashi · <a href="dagi_liga_kyushu_2026.html" style="color:var(--accent2)">Full Kyūshū report</a> · Use the day tabs below, click any face for the rikishi card · All 42 rikishi active · Fukuoka Kokusai Center</div>
       <div class="ricsi-legend"><span class="ricsi-swatch"></span>Ricsi's Selection</div>
       <div class="dorka-legend"><span class="dorka-swatch"></span>Dorka's Selection</div>
     </div>
 
     <!-- KYUSHU — DAILY SELECTIONS & RESULTS -->
     <div class="yusho-watch" id="kyushu-lineups">
-      <div class="yw-title">📋 Day 14 Results · Kyūshū 2026 <span class="yw-day">· Dorka leads 59-48 on points</span></div>
+      <div class="yw-title">📋 Senshūraku Results · Kyūshū 2026 <span class="yw-day">· final: Dorka 62, Ricsi 55</span></div>
       <ul class="yw-scenarios">
-        <li data-ico="🟣"><b>Ricsi · 3 wins (48 pts)</b> · ✅ Wakamotoharu, ✅ Takerufuji, ✅ Kyokukaiyu, ❌ Takanosho</li>
-        <li data-ico="🩷"><b>Dorka · 2 wins (59 pts)</b> · ✅ Atamifuji, ✅ Ichiyamamoto, ❌ Ura, ❌ Arashifuji</li>
-        <li data-ico="🏆"><b>Senshūraku decides it</b> · Onosato and Wakamotoharu 🟣 at 12-2, Atamifuji 🩷 at 11-3. Ricsi's Wakamotoharu meets Dorka's Atamifuji (Wakamotoharu leads 6-3), Onosato meets Hoshoryu. Both leaders win: playoff Onosato vs Wakamotoharu. Only one wins: he takes the yūshō. Both lose: three-way playoff with Atamifuji at 12-3</li>
-        <li data-ico="⚖️"><b>Kachi-koshi on the last day</b> · Ricsi's Kyokukaiyu (7-7) vs Oshoma, Dorka's Arashifuji (7-7) vs Kotoshoho</li>
+        <li data-ico="🏆"><b>Onosato takes the yūshō in a playoff</b> · he and Wakamotoharu 🟣 both won on the last day to finish 13-2, and the yokozuna won the decider by watashikomi. His seventh Emperor's Cup</li>
+        <li data-ico="🟣"><b>Ricsi · 3 wins + a prize (7 pts, 55 total)</b> · ✅ Wakamotoharu, ✅ Takanosho, ✅ Kyokukaiyu, ❌ Takerufuji · Wakamotoharu beat Dorka's Atamifuji and collected a sanshō; Kyokukaiyu clinched kachi-koshi at 8-7</li>
+        <li data-ico="🩷"><b>Dorka · 1 win + a prize (3 pts, 62 total)</b> · ✅ Ura, ❌ Atamifuji, ❌ Ichiyamamoto, ❌ Arashifuji · Atamifuji lost but took a sanshō; Arashifuji finished his debut 7-8</li>
+        <li data-ico="🍶"><b>Dagi Liga</b> · DJ_Pongo wins Kyūshū on 73, and <b>Márk wins the 2026 season on 440</b>. Full story in the <a href="dagi_liga_kyushu_2026.html" style="color:var(--accent2)">Kyūshū report</a></li>
       </ul>
     </div>
 
@@ -2030,15 +2087,15 @@
     </div>
     <p style="text-align:center;color:var(--text-muted);margin-top:18px;font-size:0.85em;">Data sourced from <a href="https://www.sumo.or.jp/EnHonbashoBanzuke/index/" target="_blank" style="color:var(--accent2);">Japan Sumo Association</a> · Photos © JSA</p>
 
-    <!-- Kyushu basho preview -->
+    <!-- Kyushu basho closed -->
     <div class="basho-section" style="text-align:center;background:linear-gradient(135deg,#1a1a2e 0%,#2a1a3e 100%);border-radius:14px;padding:32px 20px;margin-top:25px;border:1px solid var(--border)">
-      <div style="font-size:1.4em;font-weight:700;color:var(--gold);margin-bottom:8px">🟢 Kyūshū Basho · November 8–22, 2026</div>
+      <div style="font-size:1.4em;font-weight:700;color:var(--gold);margin-bottom:8px">✅ Kyūshū Basho Complete · November 8–22, 2026</div>
       <div style="color:var(--text-muted);max-width:640px;margin:0 auto 18px;line-height:1.6">
-        The final clash. Fifteen days at Fukuoka Kokusai Center close out the season, with Onosato and Hoshoryu still at Yokozuna and <strong>Aonishiki</strong> now first in line among the Ōzeki.
-        Six rikishi come up from Jūryō: <strong>Dewanoryu</strong>, <strong>Kyokukaiyu</strong> and Fukuoka's own <strong>Arashifuji</strong> make their top-division debuts, Jūryō champion <strong>Kitanowaka</strong> and <strong>Daiseizan</strong> return, and <strong>Tamawashi</strong> is back in Makuuchi at 41, turning 42 on Day 9.
-        The 6th and last basho of the Dagi Liga season: Márk carries a 22-point lead into it.
+        Fifteen days in Fukuoka ended in a playoff: <strong>Onosato</strong> and Maegashira 7 <strong>Wakamotoharu</strong> both finished 13-2, and the yokozuna won the decider for his seventh Emperor's Cup.
+        In Dagi Liga, <strong>DJ_Pongo_Pongo (Kövér utcai Uszoda)</strong> took the fantasy yūshō with <strong>73 points</strong>, his first title, and <strong>Márk Vrabély</strong> closed out the 2026 season on 440.
+        That is the year. See you at Hatsu.
       </div>
-      <a href="https://www.fantasizr.com/league/5324443036942336" target="_blank" style="display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">🏟️ Kyūshū league page →</a>
+      <a href="dagi_liga_kyushu_2026.html" style="display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">📊 Full Kyūshū report →</a>
     </div>
   </div>
 
@@ -2434,7 +2491,7 @@ const bashos = [
   { id: 'natsu', name: 'Natsu', nameJp: '夏場所', city: 'Tokyo', month: 'May', completed: true },
   { id: 'nagoya', name: 'Nagoya', nameJp: '名古屋場所', city: 'Nagoya', month: 'Jul', completed: true },
   { id: 'aki', name: 'Aki', nameJp: '秋場所', city: 'Tokyo', month: 'Sep', completed: true },
-  { id: 'kyushu', name: 'Kyūshū', nameJp: '九州場所', city: 'Fukuoka', month: 'Nov', completed: false }
+  { id: 'kyushu', name: 'Kyūshū', nameJp: '九州場所', city: 'Fukuoka', month: 'Nov', completed: true }
 ];
 
 const completedBashos = bashos.filter(b => b.completed);
@@ -2452,8 +2509,8 @@ const players = [
   {
     name: 'Csilla Virág',
     color: '#ff6b6b',
-    teams: { hatsu: 'greatest sumo team ever', haru: 'greatest sumo team ever', natsu: 'best sumo team ever', nagoya: 'greatest sumo team ever', aki: 'best sumo team ever (?)' },
-    scores: { hatsu: 87, haru: 69, natsu: 54, nagoya: 56, aki: 59 },
+    teams: { hatsu: 'greatest sumo team ever', haru: 'greatest sumo team ever', natsu: 'best sumo team ever', nagoya: 'greatest sumo team ever', aki: 'best sumo team ever (?)', kyushu: 'best sumo team ever' },
+    scores: { hatsu: 87, haru: 69, natsu: 54, nagoya: 56, aki: 59, kyushu: 65 },
     adjusted: {
       nagoya: {
         raw: 36, added: 20,
@@ -2467,8 +2524,8 @@ const players = [
   {
     name: 'Sándor Szilágyi',
     color: '#577590',
-    teams: { hatsu: 'DigiDagi', haru: 'DigiDagi', natsu: 'DigiDagi', nagoya: 'DigiDagi', aki: 'DigiDagi' },
-    scores: { hatsu: 86, haru: 57, natsu: 70, nagoya: 84, aki: 62 }
+    teams: { hatsu: 'DigiDagi', haru: 'DigiDagi', natsu: 'DigiDagi', nagoya: 'DigiDagi', aki: 'DigiDagi', kyushu: 'DigiDagi' },
+    scores: { hatsu: 86, haru: 57, natsu: 70, nagoya: 84, aki: 62, kyushu: 59 }
   },
   {
     name: 'Tarján Teréz',
@@ -2479,38 +2536,44 @@ const players = [
   {
     name: 'Richard Fejes',
     color: '#f9c74f',
-    teams: { hatsu: 'Tokazachi KSE', haru: 'Tokazachi KSE', natsu: 'Tokazachi KSE', nagoya: 'Tokazachi Kövér Sportegyesület (TKS)', aki: 'Tokazachi Kövér Sportegyesület (TKSE)' },
-    scores: { hatsu: 83, haru: 69, natsu: 83, nagoya: 71, aki: 57 }
+    teams: { hatsu: 'Tokazachi KSE', haru: 'Tokazachi KSE', natsu: 'Tokazachi KSE', nagoya: 'Tokazachi Kövér Sportegyesület (TKS)', aki: 'Tokazachi Kövér Sportegyesület (TKSE)', kyushu: 'Tokazachi KSE' },
+    scores: { hatsu: 83, haru: 69, natsu: 83, nagoya: 71, aki: 57, kyushu: 55 }
   },
   {
     name: 'Márk Vrabély',
     color: '#f8961e',
-    teams: { hatsu: 'Sumo', haru: '相撲', natsu: 'Σούμο', nagoya: 'ᠪᠥᠬᠡ', aki: 'сумо' },
-    scores: { hatsu: 82, haru: 67, natsu: 80, nagoya: 86, aki: 70 }
+    teams: { hatsu: 'Sumo', haru: '相撲', natsu: 'Σούμο', nagoya: 'ᠪᠥᠬᠡ', aki: 'сумо', kyushu: 'はは、相撲ですらないよ' },
+    scores: { hatsu: 82, haru: 67, natsu: 80, nagoya: 86, aki: 70, kyushu: 55 }
   },
   {
     name: 'Mátyás Fazakas',
     color: '#4ecdc4',
-    teams: { hatsu: 'Tokyo Töpörtyűk', haru: 'Tokyo Töpörtyűk', natsu: 'Tokyo Töpörtyűk', nagoya: 'Tokyo Töpörtyűk', aki: 'Tokyo Töpörtyűk' },
-    scores: { hatsu: 78, haru: 73, natsu: 58, nagoya: 72, aki: 62 }
+    teams: { hatsu: 'Tokyo Töpörtyűk', haru: 'Tokyo Töpörtyűk', natsu: 'Tokyo Töpörtyűk', nagoya: 'Tokyo Töpörtyűk', aki: 'Tokyo Töpörtyűk', kyushu: 'Tokyo Töpörtyűk' },
+    scores: { hatsu: 78, haru: 73, natsu: 58, nagoya: 72, aki: 62, kyushu: 63 }
   },
   {
     name: 'Dorka FJ',
     color: '#9b5de5',
-    teams: { hatsu: 'Tokások', haru: 'Tokások', natsu: 'Tokások', nagoya: 'Tokások', aki: 'Tokások' },
-    scores: { hatsu: 70, haru: 72, natsu: 64, nagoya: 73, aki: 64 }
+    teams: { hatsu: 'Tokások', haru: 'Tokások', natsu: 'Tokások', nagoya: 'Tokások', aki: 'Tokások', kyushu: 'Tokások' },
+    scores: { hatsu: 70, haru: 72, natsu: 64, nagoya: 73, aki: 64, kyushu: 62 }
   },
   {
     name: 'DJ_Pongo_Pongo',
     color: '#43aa8b',
-    teams: { hatsu: 'Kövér utcai Uszoda', haru: 'Kövér utcai Uszoda', natsu: 'Kövér utcai Uszoda (szakvezető: Ferenczy Dzsákomó)', nagoya: 'Kövér utcai Uszoda', aki: 'Kövér utcai Uszoda' },
-    scores: { hatsu: 70, haru: 69, natsu: 70, nagoya: 69, aki: 64 }
+    teams: { hatsu: 'Kövér utcai Uszoda', haru: 'Kövér utcai Uszoda', natsu: 'Kövér utcai Uszoda (szakvezető: Ferenczy Dzsákomó)', nagoya: 'Kövér utcai Uszoda', aki: 'Kövér utcai Uszoda', kyushu: 'Kövér utcai Uszoda' },
+    scores: { hatsu: 70, haru: 69, natsu: 70, nagoya: 69, aki: 64, kyushu: 73 }
   },
   {
     name: 'Radish Master 888',
     color: '#90be6d',
-    teams: { hatsu: 'Kalória defecit Defeaters', aki: 'Abszolút Túlsúly 💪' },
-    scores: { hatsu: 58, aki: 59 }
+    teams: { hatsu: 'Kalória defecit Defeaters', aki: 'Abszolút Túlsúly 💪', kyushu: 'Mass moves Mass' },
+    scores: { hatsu: 58, aki: 59, kyushu: 62 }
+  },
+  {
+    name: 'Riki San',
+    color: '#e07a5f',
+    teams: { kyushu: 'Famichiki Chikos Club' },
+    scores: { kyushu: 59 }
   }
 ];
 
@@ -2561,7 +2624,8 @@ players.forEach(p => {
 completedBashos.forEach(b => {
   const inBasho = players.filter(p => p.scores[b.id] !== undefined)
     .sort((a, c) => c.scores[b.id] - a.scores[b.id]);
-  inBasho.forEach((p, i) => { p.bashoRanks[b.id] = i + 1; });
+  // shared places: rank = 1 + the number of players with strictly more points
+  inBasho.forEach(p => { p.bashoRanks[b.id] = 1 + inBasho.filter(o => o.scores[b.id] > p.scores[b.id]).length; });
 });
 
 // League averages per basho
@@ -2607,9 +2671,9 @@ function renderStandings() {
   html += '</tr></thead><tbody>';
 
   byTotal.forEach((p, i) => {
-    const rc = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
+    const rc = place(p) === 1 ? 'rank-1' : place(p) === 2 ? 'rank-2' : place(p) === 3 ? 'rank-3' : '';
     html += `<tr>`;
-    html += `<td class="rank-cell ${rc}">${i + 1}</td>`;
+    html += `<td class="rank-cell ${rc}">${place(p) === 1 ? '🍶' : placeLabel(p)}</td>`;
     html += `<td><strong style="color:${p.color}">${p.name}</strong></td>`;
     completedBashos.forEach(b => {
       if (p.scores[b.id] !== undefined) {
@@ -2779,307 +2843,95 @@ function renderProfiles() {
 }
 
 // ============================
-// COMEBACK CALCULATOR
+// THE SAKE: SEASON FINALE
 // ============================
-// ============================
-// SEASON YUSHO MATHS
-// ============================
-// Who can still win Dagi Liga 2026 with one basho left, what they need, and how
-// likely it is on this season's form. The hard maths uses a per-basho ceiling of
-// about 130 (4 picks x 2 pts x 15 days, plus a few kinboshi and prize points).
-// The chances come from a small simulation that resamples this season's 4-man
-// basho results: each score = the manager's own 4-man average + a shared
-// "basho level" drawn from the four bashos + an individual residual.
-const FOUR_MAN_BASHOS = ['haru', 'natsu', 'nagoya', 'aki'];
-const BASHO_CEILING = 130;
+// The 2026 season is complete, so this tab replaced the Comeback Calculator:
+// the champion, the final table, how the lead changed hands, and how the
+// last basho played out in the season race.
+const place = p => 1 + players.filter(o => o.totalPoints > p.totalPoints).length;
+const placeTied = p => players.filter(o => o.totalPoints === p.totalPoints).length > 1;
+const placeLabel = p => (placeTied(p) ? 'T-' : '') + place(p);
+const fn = p => p.name === 'DJ_Pongo_Pongo' ? 'DJ_Pongo' : p.name === 'Radish Master 888' ? 'Radish' : p.name === 'Riki San' ? 'Riki San' : p.name.split(' ')[0];
+// Márk's season lead over the best-placed chaser after each day of Kyūshū (from the Fantasizr daily scores).
+const KYUSHU_SEASON_MARGIN = [22, 22, 20, 20, 22, 22, 24, 25, 21, 19, 19, 21, 21, 21, 22];
 
-function seasonSim(N, seedInit) {
-  const ids = FOUR_MAN_BASHOS;
-  const active = players.filter(p => ids.some(b => p.scores[b] !== undefined));
-  const avg = {};
-  active.forEach(p => {
-    const v = ids.filter(b => p.scores[b] !== undefined).map(b => p.scores[b]);
-    avg[p.name] = v.reduce((a, b) => a + b, 0) / v.length;
-  });
-  const bashoEff = {}; let all = [];
-  ids.forEach(b => {
-    const v = active.filter(p => p.scores[b] !== undefined).map(p => p.scores[b]);
-    all = all.concat(v);
-    bashoEff[b] = v.reduce((a, c) => a + c, 0) / v.length;
-  });
-  const grand = all.reduce((a, c) => a + c, 0) / all.length;
-  ids.forEach(b => bashoEff[b] -= grand);
-  const resid = [];
-  active.forEach(p => ids.forEach(b => { if (p.scores[b] !== undefined) resid.push(p.scores[b] - avg[p.name] - bashoEff[b]); }));
-  const effs = ids.map(b => bashoEff[b]);
-  // seeded PRNG so the page shows the same numbers on every load
-  let seed = seedInit;
-  const rnd = () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
-  const pick = a => a[Math.floor(rnd() * a.length)];
-  const out = {};
-  players.forEach(p => out[p.name] = { title: 0, podium: 0, sum: 0, pos: new Array(players.length).fill(0) });
-  for (let i = 0; i < N; i++) {
-    const e = pick(effs); const fin = {};
-    players.forEach(p => {
-      // managers with no 4-man basho this year are treated as not entering
-      const s = avg[p.name] === undefined ? 0 : Math.max(0, Math.round(avg[p.name] + e + pick(resid)));
-      fin[p.name] = p.totalPoints + s; out[p.name].sum += fin[p.name];
-    });
-    players.forEach(p => {
-      const above = players.filter(q => fin[q.name] > fin[p.name]).length;
-      out[p.name].pos[above]++;
-      if (above === 0) out[p.name].title++;
-      if (above < 3) out[p.name].podium++;
-    });
-  }
-  return { out, avg, N };
-}
+function renderSeasonFinal() {
+  const champ = byTotal[0], second = byTotal[1];
+  const margin = champ.totalPoints - second.totalPoints;
+  const ids = completedBashos.map(b => b.id);
+  const titles = p => ids.filter(id => p.scores[id] !== undefined && p.bashoRanks[id] === 1);
+  const bashoName = id => bashos.find(b => b.id === id).name;
 
-function renderSeasonMath() {
-  const el = document.getElementById('season-math');
-  if (!el || remainingBashos.length !== 1) { if (el) el.innerHTML = ''; return; }
-  const leader = byTotal[0];
-  const nextB = remainingBashos[0];
-  const pct = (n, N) => { const v = 100 * n / N; if (v >= 99.95) return '>99.9%'; if (v < 0.05) return '<0.1%'; return v.toFixed(1) + '%'; };
-  const fn = p => p.name === 'DJ_Pongo_Pongo' ? 'DJ_Pongo' : p.name.split(' ')[0];
-  const fourMin = p => Math.min(...FOUR_MAN_BASHOS.map(b => p.scores[b]).filter(v => v !== undefined));
-  const fourMax = p => Math.max(...FOUR_MAN_BASHOS.map(b => p.scores[b]).filter(v => v !== undefined));
-  const fourManMax = Math.max(...players.flatMap(p => FOUR_MAN_BASHOS.map(b => p.scores[b] || 0)));
-  const fourManMaxOwner = players.find(p => FOUR_MAN_BASHOS.some(b => p.scores[b] === fourManMax));
-  const leaderFour = FOUR_MAN_BASHOS.map(b => leader.scores[b]).filter(v => v !== undefined);
-  const leaderAvg = leaderFour.reduce((a, b) => a + b, 0) / leaderFour.length;
-  const leaderWorst = Math.min(...leaderFour);
-  const sim = seasonSim(20000, 20261108);
-
-  // ---- who is alive, and what they need
-  let rows = '';
-  byTotal.forEach(p => {
-    if (p === leader) return;
-    const gap = leader.totalPoints - p.totalPoints;
-    const need = gap + 1;
-    const margins = completedBashos.filter(b => p.scores[b.id] !== undefined && leader.scores[b.id] !== undefined)
-      .map(b => ({ b, m: p.scores[b.id] - leader.scores[b.id] }));
-    const best = margins.length ? margins.reduce((a, c) => c.m > a.m ? c : a) : null;
-    const recordLine = fourManMax - need;                // leader score above which even a league record does not pass him
-    let verdict, cls;
-    if (gap > BASHO_CEILING) { verdict = 'Mathematically out'; cls = 'impossible'; }
-    else if (need > fourManMax) { verdict = `Needs ${fn(leader)} to skip ${nextB.name}: no 4-man roster has ever scored ${need}`; cls = 'impossible'; }
-    else if (recordLine < leaderWorst) { verdict = `Alive on paper. Passes only if ${fn(leader)} scores ${recordLine} or less <em>and</em> ${fn(p)} sets a league record`; cls = 'hard'; }
-    else { verdict = 'Alive'; cls = 'medium'; }
-    rows += `<tr>
-      <td><strong style="color:${p.color}">${p.name}</strong></td>
-      <td>${p.totalPoints}</td>
-      <td>${gap}</td>
-      <td>${gap > BASHO_CEILING ? '·' : `+${need} <span style="color:var(--text-muted);font-size:0.85em">(+${gap} ties)</span>`}</td>
-      <td>${best ? `${best.m > 0 ? '+' : ''}${best.m} <span style="color:var(--text-muted);font-size:0.85em">(${best.b.name})</span>` : '·'}</td>
-      <td class="${cls}" style="white-space:normal;max-width:300px;font-size:0.88em">${verdict}</td>
-    </tr>`;
-  });
-
-  // ---- simulation table
-  let simRows = '';
-  byTotal.forEach(p => {
-    const o = sim.out[p.name];
-    if (sim.avg[p.name] === undefined || leader.totalPoints - p.totalPoints > BASHO_CEILING) return;
-    const likely = o.pos.indexOf(Math.max(...o.pos)) + 1;
-    simRows += `<tr>
-      <td><strong style="color:${p.color}">${p.name}</strong></td>
-      <td>${sim.avg[p.name].toFixed(1)}</td>
-      <td>${Math.round(o.sum / sim.N)}</td>
-      <td>${pct(o.title, sim.N)}</td>
-      <td>${pct(o.podium, sim.N)}</td>
-      <td>${likely}${['st','nd','rd'][likely - 1] || 'th'} <span style="color:var(--text-muted);font-size:0.85em">(${pct(o.pos[likely - 1], sim.N)})</span></td>
-    </tr>`;
-  });
-
-  const second = byTotal[1], third = byTotal[2];
-  const gap23 = second.totalPoints - third.totalPoints;
-  const h2h23 = completedBashos.filter(b => second.scores[b.id] !== undefined && third.scores[b.id] !== undefined)
-    .map(b => `${b.name} ${third.scores[b.id] - second.scores[b.id] > 0 ? fn(third) + ' +' + (third.scores[b.id] - second.scores[b.id]) : fn(second) + ' +' + (second.scores[b.id] - third.scores[b.id])}`).join(' · ');
-  const h2hM = completedBashos.filter(b => second.scores[b.id] !== undefined && third.scores[b.id] !== undefined).map(b => third.scores[b.id] - second.scores[b.id]);
-  const h2hN = h2hM.length, h2hWins = h2hM.filter(m => m > 0).length, h2hBig = h2hM.filter(m => m >= gap23 + 1).length;
-  const needSecond = leader.totalPoints - second.totalPoints + 1;
-  const recordLineSecond = fourManMax - needSecond;
-  const pile = byTotal.slice(3, 6);
-  const pileSpread = pile[0].totalPoints - pile[pile.length - 1].totalPoints;
-
-  el.innerHTML = `
-  <div class="insight-card" style="margin-bottom:25px;border-left:4px solid var(--gold)">
-    <div class="icon">🏆</div>
-    <div class="title">Season Yūshō Maths · one basho left (${nextB.nameJp} ${nextB.name}, ${nextB.city}, Nov 8–22)</div>
-    <div class="winner">${leader.name} ${leader.totalPoints} · leads ${fn(second)} by ${leader.totalPoints - second.totalPoints}, ${fn(third)} by ${leader.totalPoints - third.totalPoints}</div>
-    <div class="body">
-      A basho is worth at most about <strong>${BASHO_CEILING} points</strong> (60 winning slots plus a handful of bonus points), so anyone more than ${BASHO_CEILING} behind is out. In practice the ceiling is far lower:
-      the best any 4-man roster has scored in this league is <strong>${fourManMax}</strong> (${fn(fourManMaxOwner)}, Nagoya), and nobody has ever outscored ${fn(leader)} by more than
-      <strong>${Math.max(...players.filter(p => p !== leader).flatMap(p => completedBashos.filter(b => p.scores[b.id] !== undefined && leader.scores[b.id] !== undefined).map(b => p.scores[b.id] - leader.scores[b.id])))}</strong> in a single basho.
+  let html = `<div class="sake-card">
+    <div class="sake-kicker">🍶 Dagi Liga 2026 · Season Champion</div>
+    <div class="sake-name">${champ.name}</div>
+    <div class="sake-sub">${champ.totalPoints} points · ${margin} clear · ${titles(champ).length} basho titles · the Sake is his</div>
+    <div class="sake-path">
+      ${ids.map(id => `<div class="sake-step${champ.bashoRanks[id] === 1 ? ' win' : ''}"><div class="ss-basho">${bashoName(id)}</div><div class="ss-pts">${champ.scores[id]}</div><div class="ss-rank">${champ.bashoRanks[id] === 1 ? '🥇' : '#' + champ.bashoRanks[id]}</div><div class="ss-team">${champ.teams[id]}</div></div>`).join('')}
     </div>
-    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px"><table class="data-table comeback-table" style="margin:0"><thead><tr>
-      <th>Chaser</th><th>Points</th><th>Behind</th><th>Must outscore ${fn(leader)} by</th><th>Best margin over him this year</th><th>Verdict</th>
-    </tr></thead><tbody>${rows}</tbody></table></div>
-  </div>
-
-  <div class="cards-grid" style="margin-bottom:25px">
-    <div class="insight-card">
-      <div class="ic-border" style="background:var(--gold)"></div>
-      <div class="icon">🔒</div>
-      <div class="title">The Clinch Line</div>
-      <div class="winner">${fn(leader)} clinches with ${recordLineSecond + 1} points</div>
-      <div class="body">${fn(second)} needs to win ${nextB.name} by <strong>${needSecond}</strong>. If ${fn(leader)} scores <strong>${recordLineSecond + 1} or more</strong>, that means ${fn(second)} scoring ${fourManMax + 1}+, one more than any 4-man roster has ever managed here.
-      ${fn(leader)}'s worst 4-man basho this year is <strong>${leaderWorst}</strong>; his average is <strong>${leaderAvg.toFixed(1)}</strong>. On an average day for him, ${fn(second)} would need <strong>${Math.round(leaderAvg) + needSecond}</strong>.
-      The only realistic route to a different champion is ${fn(leader)} not registering a lineup.</div>
-    </div>
-    <div class="insight-card">
-      <div class="ic-border" style="background:var(--accent)"></div>
-      <div class="icon">😴</div>
-      <div class="title">Scenario: The Leader Skips Kyūshū</div>
-      <div class="winner">Then it is wide open down to 6th</div>
-      <div class="body">If ${fn(leader)} banks a zero, ${byTotal.slice(1, 6).map(p => `<strong>${fn(p)}</strong> needs ${leader.totalPoints - p.totalPoints + 1}`).join(', ')}.
-      Every one of those five has cleared that number in every basho they have played this year. ${fn(byTotal[6])} would need ${leader.totalPoints - byTotal[6].totalPoints + 1}, which she has done twice in five.
-      Showing up is the whole strategy.</div>
-    </div>
-    <div class="insight-card">
-      <div class="ic-border" style="background:var(--accent2)"></div>
-      <div class="icon">🥈</div>
-      <div class="title">The Real Race: 2nd Place</div>
-      <div class="winner">${fn(second)} ${second.totalPoints} · ${fn(third)} ${third.totalPoints}</div>
-      <div class="body">${fn(third)} needs to outscore ${fn(second)} by <strong>${gap23 + 1}</strong> (${gap23} ties). Their head-to-head by basho: ${h2h23}.
-      ${h2hWins} of ${h2hN} have gone ${fn(third)}'s way, ${h2hBig} of them by ${gap23 + 1} or more. This one is genuinely open: the simulation gives ${fn(second)} about <strong>${pct(sim.out[second.name].pos[1], sim.N)}</strong> for 2nd and ${fn(third)} about <strong>${pct(sim.out[third.name].pos[1], sim.N)}</strong>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="ic-border" style="background:#9b5de5"></div>
-      <div class="icon">🧩</div>
-      <div class="title">The Pile-Up for 4th</div>
-      <div class="winner">${pile.map(p => `${fn(p)} ${p.totalPoints}`).join(' · ')}</div>
-      <div class="body"><strong>${pileSpread} point${pileSpread === 1 ? '' : 's'}</strong> cover${pileSpread === 1 ? 's' : ''} three teams. Whoever has the best Kyūshū of the three takes 4th, full stop; the other two order themselves by the same score.
-      With 4-man rosters this year: ${pile.map(p => `${fn(p)} ${fourMin(p)} to ${fourMax(p)}`).join(', ')}. Simulation for 4th: ${pile.map(p => `${fn(p)} ${pct(sim.out[p.name].pos[3], sim.N)}`).join(', ')}.</div>
-    </div>
-  </div>
-
-  <div class="insight-card" style="margin-bottom:25px">
-    <div class="ic-border" style="background:var(--accent3)"></div>
-    <div class="icon">🎲</div>
-    <div class="title">Chances on This Season's Form</div>
-    <div class="winner">${fn(leader)} ${pct(sim.out[leader.name].title, sim.N)} for the title · ${fn(second)} ${pct(sim.out[second.name].podium, sim.N)} for a podium</div>
-    <div class="body">${sim.N.toLocaleString()} simulated Kyūshūs. Each manager's score is their own 4-man average this year, plus a league-wide "basho level" drawn from the four 4-man bashos (Nagoya ran about +5, Aki about −6), plus an individual swing resampled from this season's actual deviations.
-    It assumes everyone who played a 4-man basho this year enters and fields a lineup all 15 days; managers with no 4-man basho on record are treated as absent. Treat it as a form guide, not a forecast: it knows nothing about kyūjō, and a manager who leaves days blank breaks it.</div>
-    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px"><table class="data-table comeback-table" style="margin:0"><thead><tr>
-      <th>Manager</th><th>4-man avg</th><th>Expected final</th><th>Title</th><th>Podium</th><th>Most likely finish</th>
-    </tr></thead><tbody>${simRows}</tbody></table></div>
-    <div class="body" style="margin-top:12px;font-size:0.85em">Tiebreak: the league has no written rule for a level season total. If it comes to it, the sensible order is most basho titles (${fn(leader)} has 2, nobody else has more than 1), then head-to-head record across the six bashos. Better to agree it before November 8 than after November 22.</div>
-  </div>`;
-}
-
-function renderComeback() {
-  const leader = byTotal[0];
-  const remaining = remainingBashos.length;
-
-  let html = `<div class="insight-card" style="margin-bottom:25px">
-    <div class="ic-border" style="background:var(--gold)"></div>
-    <div class="icon">🧮</div>
-    <div class="title">The Math</div>
-    <div class="body">
-      Current leader: <strong>${leader.name}</strong> with <strong>${leader.totalPoints} points</strong>.<br>
-      Remaining bashos: <strong>${remaining}</strong> (${remainingBashos.map(b => b.name).join(', ')}).<br>
-      League average score per basho: <strong>${(Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length).toFixed(1)}</strong>.<br>
-      Theoretical max per basho (4 rikishi × 2pts × 15 days + kinboshi + prizes): ~<strong>130 pts</strong> (but realistically ~75-90).
-    </div>
+    <div class="sake-note">Six bashos, six team names in six writing systems, and a finishing line of 6th, 6th, 2nd, 1st, 1st and joint last. He took the season lead after Nagoya and never gave it back.</div>
   </div>`;
 
-  // Table: what each player needs
-  html += `<div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table class="data-table comeback-table"><thead><tr>
-    <th>Player</th><th>Current</th><th>Gap to #1</th><th>Needed Avg/Basho</th><th>Difficulty</th><th>Creative Translation</th>
+  // Final table
+  html += `<div class="section-title" style="margin-top:30px">Final Season Table</div>
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table class="data-table"><thead><tr>
+    <th>#</th><th>Player</th><th>Total</th><th>Behind</th><th>Played</th><th>Best</th><th>Worst</th><th>Basho titles</th><th>Before Kyūshū</th>
   </tr></thead><tbody>`;
-
-  byTotal.forEach((p, i) => {
-    const gap = leader.totalPoints - p.totalPoints;
-    // Assume leader scores their avg in remaining bashos
-    const leaderProjected = leader.totalPoints + leader.avgPerBasho * remaining;
-    const neededTotal = leaderProjected - p.totalPoints;
-    const neededAvg = remaining > 0 ? neededTotal / remaining : 0;
-
-    let difficulty, diffClass, creative;
-    if (gap === 0) {
-      difficulty = 'YOU ARE THE TARGET';
-      diffClass = 'easy';
-      creative = 'Just keep doing your thing. Everyone else is calculating how to beat you.';
-    } else if (neededAvg <= 70) {
-      difficulty = 'Very Doable';
-      diffClass = 'easy';
-      creative = `That's like picking ${Math.ceil(neededAvg/2)} winning rikishi per basho. Easy peasy, pick better wrestlers!`;
-    } else if (neededAvg <= 80) {
-      difficulty = 'Challenging';
-      diffClass = 'medium';
-      creative = `You'd need to score ${neededAvg.toFixed(0)} per basho — top-3 finishes every time. Time to study the banzuke!`;
-    } else if (neededAvg <= 95) {
-      difficulty = 'Hero Mode';
-      diffClass = 'hard';
-      creative = `You need ${neededAvg.toFixed(0)}/basho. That's "predict every upset correctly" territory. Channel your inner Atamifuji!`;
-    } else {
-      difficulty = 'Need a Miracle';
-      diffClass = 'impossible';
-      creative = `${neededAvg.toFixed(0)} per basho? You'd need to pick 4 yūshō contenders every single day. Or pray the leader gets abducted by aliens.`;
-    }
-
-    if (!p.scores.haru && !p.scores.hatsu) {
-      creative = "Step 1: Actually show up to a basho. We believe in you!";
-    } else if (p.bashosPlayed < completedBashos.length && gap > 0) {
-      const missedAvg = (Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length).toFixed(0);
-      creative += ` (Missing a basho cost you ~${missedAvg} points in this race!)`;
-    }
-
+  const before = p => p.totalPoints - (p.scores.kyushu || 0);
+  byTotal.forEach(p => {
+    const pl = place(p);
+    const rc = pl === 1 ? 'rank-1' : pl === 2 ? 'rank-2' : pl === 3 ? 'rank-3' : '';
+    const prevPlace = 1 + players.filter(o => before(o) > before(p)).length;
+    const full = p.bashosPlayed === completedBashos.length;
+    const move = !full ? '' : prevPlace > pl ? ` <span class="trend-up">▲${prevPlace - pl}</span>` : prevPlace < pl ? ` <span class="trend-down">▼${pl - prevPlace}</span>` : ' <span class="trend-same">=</span>';
+    const t = titles(p);
     html += `<tr>
+      <td class="rank-cell ${rc}">${pl === 1 ? '🍶' : placeLabel(p)}</td>
       <td><strong style="color:${p.color}">${p.name}</strong></td>
-      <td>${p.totalPoints}</td>
-      <td>${gap === 0 ? '—' : '-' + gap}</td>
-      <td>${gap === 0 ? '—' : neededAvg.toFixed(1)}</td>
-      <td class="${diffClass}">${difficulty}</td>
-      <td style="max-width:300px;white-space:normal;font-size:0.85em">${creative}</td>
+      <td class="total-cell">${p.totalPoints}</td>
+      <td>${pl === 1 ? '·' : '−' + (champ.totalPoints - p.totalPoints)}</td>
+      <td>${p.bashosPlayed}/${completedBashos.length}</td>
+      <td>${p.bestBasho}</td><td>${p.worstBasho}</td>
+      <td>${t.length ? t.map(bashoName).join(', ') : '<span style="color:var(--text-muted)">none</span>'}</td>
+      <td>${full ? before(p) + ' (#' + prevPlace + ')' + move : '<span style="color:var(--text-muted)">' + (before(p) || '·') + '</span>'}</td>
     </tr>`;
   });
+  html += `</tbody></table></div>
+  <p style="color:var(--text-muted);font-size:0.88em;margin-top:8px">Shared places are marked T-. Richard and Sándor finished level on ${second.totalPoints}; the league has no tiebreak rule, so 2nd is shared. The last column shows each full-season player's total and place going into Kyūshū, and how the finale moved them.</p>`;
 
-  html += '</tbody></table></div>';
+  // Lead after each basho
+  html += `<div class="section-title" style="margin-top:30px">How the Lead Changed Hands</div><div class="lead-strip">`;
+  ids.forEach((id, i) => {
+    const cum = players.map(p => ({ p, v: p.cumulative[i] })).sort((a, b) => b.v - a.v);
+    const top = cum.filter(c => c.v === cum[0].v);
+    const next = cum.find(c => c.v < cum[0].v);
+    html += `<div class="lead-step">
+      <div class="ls-basho">After ${bashoName(id)}</div>
+      <div class="ls-leader" style="color:${top[0].p.color}">${top.map(c => fn(c.p)).join(' & ')}</div>
+      <div class="ls-pts">${cum[0].v} pts</div>
+      <div class="ls-gap">${top.length > 1 ? 'tied at the top' : '+' + (cum[0].v - next.v) + ' on ' + fn(next.p)}</div>
+    </div>`;
+  });
+  html += `</div>
+  <p style="color:var(--text-muted);font-size:0.88em;margin-top:8px">The lead changed hands twice in the first four bashos, from Csilla to Richard to Márk. Márk was 6th after Hatsu, 4th after Haru and 2nd after Natsu before going top for good.</p>`;
 
-  // Fun "what if" scenarios
-  html += `<div class="cards-grid" style="margin-top:30px">`;
+  // Kyushu, day by day, in the season race
+  const mMax = Math.max(...KYUSHU_SEASON_MARGIN);
+  html += `<div class="section-title" style="margin-top:30px">The Finale, Day by Day</div>
+  <p style="color:var(--text-muted);margin-bottom:12px">Márk's season lead over the nearest chaser after each day of Kyūshū. He started 22 clear, finished 22 clear, and the closest anyone came was 19, Sándor after Days 10 and 11.</p>
+  <div class="margin-bars">${KYUSHU_SEASON_MARGIN.map((m, i) => `<div class="mb-col"><div class="mb-val">${m}</div><div class="mb-bar${m === Math.min(...KYUSHU_SEASON_MARGIN) ? ' low' : ''}" style="height:${Math.round(m / mMax * 90)}px"></div><div class="mb-day">D${i + 1}</div></div>`).join('')}</div>`;
 
-  html += `<div class="insight-card">
-    <div class="ic-border" style="background:var(--accent2)"></div>
-    <div class="icon">🎰</div>
-    <div class="title">What If: Perfect Basho?</div>
-    <div class="body">The highest score so far is <strong>${Math.max(...players.map(p => p.bestBasho))}</strong> (Hatsu Basho).
-    If someone scored <strong>90+</strong> in a single basho (insane), they'd gain ~${90 - Math.round(Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length)} points on the average player.
-    One legendary basho could flip the entire standings!</div>
-  </div>`;
+  html += `<div class="cards-grid" style="margin-top:30px">
+    <div class="insight-card"><div class="ic-border" style="background:var(--gold)"></div><div class="icon">🧮</div><div class="title">The Clinch</div><div class="winner">Mathematically safe after Day 14</div>
+      <div class="body">With one day left Márk led Sándor by 21 and Richard by 24. A lineup can add at most 8 from wins on the last day, plus a point for each sanshō, and no kinboshi were on offer. He could have fielded nobody on senshūraku. He fielded Asakoryu, which is nearly the same thing.</div></div>
+    <div class="insight-card"><div class="ic-border" style="background:var(--accent2)"></div><div class="icon">🚪</div><div class="title">The Door That Never Opened</div><div class="winner">Márk in Kyūshū: 55 pts, joint last</div>
+      <div class="body">Márk scored 15 fewer than he did in Aki and 31 fewer than in Nagoya. Richard needed to beat him by 23 to take the season, Sándor by 27. Richard matched him exactly on 55. Sándor beat him by 4. DJ_Pongo beat him by 18 and still finished 25 short. The lead was there to be taken for fifteen days and nobody in the top three managed even an average basho.</div></div>
+    <div class="insight-card"><div class="ic-border" style="background:var(--accent)"></div><div class="icon">📸</div><div class="title">Photo Finish for 2nd</div><div class="winner">Richard 418 · Sándor 418 · DJ_Pongo 415</div>
+      <div class="body">Going into the last day it read Sándor 414, Richard 411, DJ 406. Richard's 7-point senshūraku and Sándor's 4 pulled them dead level, and DJ's closing 9 brought him within 3 of both. Three managers, ninety days of sumo, three points between them.</div></div>
+  </div>
+  <p style="text-align:center;margin-top:22px"><a href="dagi_liga_kyushu_2026.html" style="display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:700">📊 Full Kyūshū basho report →</a></p>`;
 
-  html += `<div class="insight-card">
-    <div class="ic-border" style="background:var(--accent)"></div>
-    <div class="icon">😴</div>
-    <div class="title">What If: Leader Goes AFK?</div>
-    <div class="body">If <strong>${leader.name}</strong> misses ${remainingBashos[0] ? remainingBashos[0].name : 'the next basho'}, everyone playing scores ~${Math.round(Object.values(bashoAvgs).reduce((a,b)=>a+b,0)/completedBashos.length)} free points on him.
-    His lead over ${byTotal[1].name} is ${leader.totalPoints - byTotal[1].totalPoints}, so a no-show would hand the season to whoever finishes strongest behind him. Showing up is the whole strategy now.</div>
-  </div>`;
-
-  html += `<div class="insight-card">
-    <div class="ic-border" style="background:var(--accent3)"></div>
-    <div class="icon">🆕</div>
-    <div class="title">What If: A New Player Joins?</div>
-    <div class="body">A new player joining for ${remainingBashos.map(b => b.name).join(' and ') || 'the next basho'} would need <strong>${(leader.totalPoints / Math.max(remaining, 1)).toFixed(0)}+</strong> points per basho
-    to catch the leader, several times the all-time single-basho record. A newcomer is playing for the basho title, pride and spoiler duty.
-    The Power Rankings would still treat them fairly.</div>
-  </div>`;
-
-  html += `<div class="insight-card">
-    <div class="ic-border" style="background:#9b5de5"></div>
-    <div class="icon">📐</div>
-    <div class="title">The "Márton Equation"</div>
-    <div class="body"><strong>Márton Váradi</strong> still sits at 87 pts from his one Hatsu appearance, a score that would have <em>won</em> both Nagoya and Aki.
-    With ${remaining} basho${remaining === 1 ? '' : 's'} still to play, he'd need <strong>${Math.round((byTotal[0].totalPoints + byTotal[0].avgPerBasho * remaining - 87) / remaining)}</strong> per basho to keep pace with the projected leader,
-    which is comfortably impossible. Every basho he stays away, the power-ranking penalty grows. ${remaining === 1 ? 'One chance' : remaining + ' chances'} left.</div>
-  </div>`;
-
-  html += '</div>';
-
-  document.getElementById('comeback-container').innerHTML = html;
+  document.getElementById('season-final').innerHTML = html;
 }
 
 // ============================
@@ -3087,291 +2939,189 @@ function renderComeback() {
 // ============================
 function renderInsights() {
   const insights = [];
+  const champ = byTotal[0];
+  const sep = t => insights.push({ divider: t });
 
-  // Season leader
+  sep('🍶 The 2026 Season');
+
   insights.push({
-    icon: '👑', title: `Season Leader After ${completedBashos.length} of ${bashos.length}`,
-    border: 'var(--gold)',
-    winner: `${byTotal[0].name} — ${byTotal[0].totalPoints} pts`,
-    body: `With <strong>${byTotal[0].totalPoints} points</strong> after ${completedBashos.length} bashos, <strong>${byTotal[0].name}</strong> leads the season standings
-    by <strong>${byTotal[0].totalPoints - byTotal[1].totalPoints}</strong> over ${byTotal[1].name}. ${remainingBashos.length === 1 ? 'One tournament left, ' + remainingBashos[0].name + ',' : remainingBashos.length + ' tournaments left,'} and roughly ${remainingBashos.length * 70} points still on the table.
-    A single bad basho flips this.`
+    icon: '🍶', title: '2026 Season Champion', border: 'var(--gold)',
+    winner: `${champ.name} · ${champ.totalPoints} pts`,
+    body: `<strong>Márk</strong> wins the Road to Sake by <strong>${champ.totalPoints - byTotal[1].totalPoints} points</strong> over Richard and Sándor. He is the only manager to win two bashos (Nagoya and Aki, back to back),
+    he averaged <strong>${champ.avgPerBasho.toFixed(1)}</strong> a basho, and he led the season from the end of Nagoya to the end of Kyūshū. Kanpai.`
   });
 
-  // Aki fantasy champion
-  const akiWinner = [...players].filter(p => p.scores.aki !== undefined).sort((a,b) => b.scores.aki - a.scores.aki)[0];
   insights.push({
-    icon: '🏆', title: 'Aki Fantasy Yūshō',
-    border: 'var(--gold)',
-    winner: `${akiWinner.name} — ${akiWinner.scores.aki} pts`,
-    body: `Márk, this time as <strong>сумо</strong>, took Aki with <strong>70 points</strong>, leading outright after <strong>12 of the 15 days</strong> and sharing the top after two more (Day 1, and Day 10 with Sándor).
-    The only day he was not in front was Day 6, when Dorka went top alone. Six points clear of Dorka and DJ_Pongo at the end,
-    and done with the lowest winning score of the season, which says as much about a low-scoring Aki as it does about Márk.`
+    icon: '🧗', title: 'A Champion\'s Finishing Line: 6, 6, 2, 1, 1, 8', border: 'var(--gold)',
+    winner: 'Sixth twice, first twice, joint last once',
+    body: `Márk's basho placings read <strong>6th, 6th, 2nd, 1st, 1st, T-8th</strong>. He was outside the top five in half of the tournaments he played and won the season by 22.
+    Three bashos in the middle did all of it: Natsu 80, Nagoya 86, Aki 70. Nobody else put three scores of 70 or better in a row at any point in the year.`
   });
 
-  // The curse is broken
   insights.push({
-    icon: '🔄', title: 'The Dagi Liga Curse Is Broken',
-    border: 'var(--accent3)',
-    winner: 'Márk: Nagoya 86 → Aki 70, back-to-back',
-    body: `<strong>Hatsu</strong> went to Csilla &amp; Márton (tied, 87), <strong>Haru</strong> to Mátyás (73), <strong>Natsu</strong> to Richard (83), <strong>Nagoya</strong> to Márk (86).
-    Until Aki no champion had followed up: Mátyás came 6th after Haru, Richard 5th after Natsu. Márk is the first manager to <strong>defend a basho title</strong>,
-    and he did it without touching his lineup once in either tournament.`
+    icon: '🥊', title: 'He Never Had a Winning Record Against the Runner-Up', border: 'var(--accent)',
+    winner: 'Richard 3 · Márk 2 · level 1',
+    body: `Basho by basho, <strong>Richard outscored Márk in Hatsu, Haru and Natsu</strong>. Márk outscored Richard in Nagoya and Aki. In Kyūshū they tied on 55.
+    So the runner-up won the head-to-head 3-2. The catch is the size of the wins: Richard's three were by 1, 2 and 3 points; Márk's two were by <strong>15 and 13</strong>.`
   });
 
-  // Set and forget, Aki edition
   insights.push({
-    icon: '🪑', title: 'Set-and-Forget Wins Again',
-    border: '#43aa8b',
-    winner: '5 of 8 teams never changed a pick',
-    body: `Márk, Sándor, Mátyás, Csilla and Radish Master 888 all ran their Day 1 roster for fifteen days. The winner came from that group.
-    The busiest manager, <strong>Richard</strong>, made <strong>seven</strong> pick changes across five swap days and finished <strong>8th</strong> on 57.
-    Dorka made one change (Kotoeiho out, Takayasu in, Day 12) and DJ_Pongo three. Two bashos running, the league's evidence says: pick well, then leave it alone.`
+    icon: '📐', title: '22 Before, 22 After', border: 'var(--accent2)',
+    winner: 'Kyūshū moved the title race by zero',
+    body: `Márk led by 22 when Kyūshū opened and by 22 when it closed. In between the margin went 22, 22, 20, 20, 22, 22, 24, 25, 21, <strong>19, 19</strong>, 21, 21, 21, 22.
+    The chaser changed (Richard for a week, then Sándor), the number barely did. And Márk did it while finishing <strong>joint last in the basho</strong>.`
   });
 
-  // Tightest basho
   insights.push({
-    icon: '🤏', title: 'The Tightest Basho of the Year',
-    border: 'var(--accent)',
-    winner: '1st to 8th: 13 points',
-    body: `The gap from first to last per basho has run Hatsu <strong>29</strong>, Haru <strong>18</strong>, Natsu <strong>29</strong>, Nagoya <strong>30</strong>.
-    Aki squeezed all eight teams into <strong>13 points</strong> (70 down to 57), with three pairs finishing dead level: Dorka and DJ_Pongo on 64,
-    Sándor and Mátyás on 62, Csilla and Radish Master 888 on 59.`
+    icon: '🪑', title: 'Forty-Five Days Without Touching Anything', border: 'var(--accent3)',
+    winner: 'Márk: 0 swaps across Nagoya, Aki and Kyūshū',
+    body: `Márk registered four rikishi before Day 1 of Nagoya, Aki and Kyūshū and never changed one of them: <strong>45 consecutive days, 180 lineup slots, zero swaps</strong>. It produced 1st, 1st and joint last.
+    <strong>Aonishiki</strong> was in all three rosters, so he fielded the same man 45 days running: through a yūshō in Nagoya, an 11-4 in Aki and a 7-8 in Kyūshū.`
   });
 
-  // The Onosato monopoly
   insights.push({
-    icon: '⛩️', title: 'One Manager Owned the Yokozuna',
-    border: 'var(--gold)',
-    winner: 'Onosato 24 pts · owned by DJ_Pongo only',
-    body: `<strong>Onosato</strong> won his 6th Emperor's Cup at 12-3, beating Aonishiki head to head on senshūraku, and was Aki's top fantasy scorer with <strong>24 points</strong>.
-    Exactly one Dagi Liga team had him: <strong>DJ_Pongo</strong>, on all fifteen days. After a Nagoya in which nobody picked either yokozuna at all, one manager finally
-    went back to the top of the banzuke, and it carried Kövér utcai Uszoda to a share of 2nd.`
+    icon: '✍️', title: 'Six Bashos, Six Names, Six Scripts', border: 'var(--accent2)',
+    winner: 'Sumo · 相撲 · Σούμο · ᠪᠥᠬᠡ · сумо · はは、相撲ですらないよ',
+    body: `Márk renamed his team for every basho, each time in a different writing system: Latin, kanji, Greek, traditional Mongolian, Cyrillic. For the finale he switched to a full Japanese sentence:
+    <strong>"haha, this isn't even sumo"</strong>. He then finished joint last in the basho and won the league. The name was accurate on both counts.`
   });
 
-  // The crowd favourite
   insights.push({
-    icon: '🧸', title: 'Everybody\'s Sekiwake',
-    border: 'var(--accent2)',
-    winner: 'Atamifuji: 60 of 120 slots, 16 pts',
-    body: `Four teams (Dorka, Sándor, Mátyás, Csilla) held <strong>Atamifuji</strong> from Day 1 to Day 15, so half of all the league's slots on him were spoken for before a bout was fought.
-    He went <strong>8-7</strong>. The rookie <strong>Toshinofuji</strong> (Maegashira 16) was nearly as popular, 54 lineup-days across four teams, and outscored him with 18.`
+    icon: '📸', title: 'A Dead Heat for 2nd After Ninety Days', border: 'var(--accent)',
+    winner: 'Richard 418 · Sándor 418 · DJ_Pongo 415',
+    body: `Six bashos, 360 lineup slots each, and <strong>Richard and Sándor finished on exactly the same total</strong>, with DJ_Pongo three points, one and a half wins, behind them.
+    Sándor outscored Richard in four of the six bashos; Richard has a basho title (Natsu) and Sándor has none. Drop everyone's worst basho and Richard edges it 363 to 361. Call it shared.`
   });
 
-  // Nobody picked them
   insights.push({
-    icon: '🙈', title: '205 Points Nobody Wanted',
-    border: '#888',
-    winner: 'Churanoumi 21 · Asanoyama 20 · unpicked',
-    body: `Sixteen makuuchi rikishi were never in any lineup, and between them they scored <strong>205 fantasy points</strong>.
-    Top of that list: <strong>Churanoumi</strong>, 10-5 with a Kantō-shō (21), and <strong>Asanoyama</strong>, 10-5 and in the yūshō race until Day 14 (20).
-    Either one would have outscored every rikishi on the winning roster except Aonishiki.`
+    icon: '🎰', title: 'Six Bashos, Six Different Winners\' Names', border: 'var(--gold)',
+    winner: 'Csilla & Márton · Mátyás · Richard · Márk ×2 · DJ_Pongo',
+    body: `Hatsu was shared by <strong>Csilla and Márton</strong> (87 each), Haru went to <strong>Mátyás</strong> (73), Natsu to <strong>Richard</strong> (83), Nagoya and Aki to <strong>Márk</strong> (86, 70) and Kyūshū to <strong>DJ_Pongo</strong> (73).
+    Six of the eleven people who played this year won at least one basho. Of the seven who played all six, only <strong>Sándor and Dorka</strong> never did, and they finished T-2nd and 6th.`
   });
 
-  // Senshuraku whimper
   insights.push({
-    icon: '🌙', title: 'Senshūraku Went Quiet',
-    border: 'var(--accent)',
-    winner: 'Day 15: 19 league points',
-    body: `Nagoya's final day paid the league 61 points. Aki's paid <strong>19</strong>, the lowest day of the basho by nine, with Sándor blanking entirely.
-    The only bonus of the afternoon was Fujinokawa's Kantō-shō, worth one point to Richard. The standings had been settled well before it.`
+    icon: '🌗', title: 'A Season of Two Halves', border: 'var(--accent3)',
+    winner: 'First three bashos: Richard · Last three: Márk',
+    body: `Split the year in two. Over <strong>Hatsu, Haru and Natsu</strong> the table read Richard 235, Márk 229, Sándor 213. Over <strong>Nagoya, Aki and Kyūshū</strong> it read Márk 211, DJ_Pongo 206, Sándor 205,
+    with Richard sixth of seven on 183. Richard finished last or joint last in both of the final two bashos and still held on to a share of 2nd, entirely on what he banked before July.`
   });
 
-  // Power ranking leader
-  if (byPower[0].name !== byTotal[0].name) {
-    insights.push({
-      icon: '⚡', title: 'Power Rankings Tell a Different Story!',
-      border: 'var(--accent2)',
-      winner: `${byPower[0].name} — ${byPower[0].powerRating.toFixed(1)} PWR`,
-      body: `While <strong>${byTotal[0].name}</strong> leads on raw points, <strong>${byPower[0].name}</strong> tops the Power Rankings with a rating of
-      <strong>${byPower[0].powerRating.toFixed(1)}</strong>. Higher average, adjusted for participation. The "real" best player?`
-    });
-  }
-
-  // Most improved Nagoya → Aki (uses p.trend which already compares the last two played bashos)
-  const withTrend = players.filter(p => p.scores.nagoya !== undefined && p.scores.aki !== undefined);
-  if (withTrend.length > 0) {
-    const improved = [...withTrend].sort((a, b) => b.trend - a.trend);
-    const declined = [...withTrend].sort((a, b) => a.trend - b.trend);
-    const risers = improved.filter(p => p.trend > 0);
-
-    insights.push({
-      icon: '📈', title: 'Most Improved: Nagoya → Aki',
-      border: '#4ecdc4',
-      winner: `${improved[0].name} (${improved[0].trend > 0 ? '+' : ''}${improved[0].trend})`,
-      body: `<strong>${improved[0].name}</strong> went ${improved[0].scores.nagoya} → ${improved[0].scores.aki}.
-      ${risers.length === 1 ? 'The only manager in the league to score more in Aki than in Nagoya.' : risers.length + ' managers scored more in Aki than in Nagoya.'}
-      Aki was a low-scoring basho across the board, so standing still counted as progress.`
-    });
-
-    insights.push({
-      icon: '📉', title: 'Biggest Drop: Nagoya → Aki',
-      border: '#f55',
-      winner: `${declined[0].name} (${declined[0].trend})`,
-      body: `<strong>${declined[0].name}</strong> dropped <strong>${declined[0].trend} points</strong> from Nagoya to Aki (${declined[0].scores.nagoya} → ${declined[0].scores.aki}),
-      from runner-up to a share of 4th. Same approach both times, no swaps at all; the rikishi just did not repeat.`
-    });
-  }
-
-  // Ghost players
-  const ghosts = players.filter(p => p.bashosPlayed < completedBashos.length);
-  if (ghosts.length > 0) {
-    insights.push({
-      icon: '👻', title: 'The Ghost Players',
-      border: '#888',
-      winner: ghosts.map(g => g.name).join(', '),
-      body: `${ghosts.map(g => `<strong>${g.name}</strong> (${g.bashosPlayed}/${completedBashos.length})`).join(', ')}
-      missed at least one basho. Márton has not returned since his one-and-done 87 in Hatsu. Radish Master 888 came back for Aki after three bashos away and scored 59,
-      one point more than his Hatsu. Tarján, back in Nagoya as "Boby", sat Aki out. Missed bashos are still the single biggest drag in the season race.`
-    });
-  }
-
-  // Race to Kyushu
-  const top5spread = byTotal[0].totalPoints - byTotal[Math.min(4, byTotal.length - 1)].totalPoints;
   insights.push({
-    icon: '🏎️', title: 'One Basho Left',
-    border: 'var(--accent)',
-    winner: `${byTotal[0].name} leads by ${byTotal[0].totalPoints - byTotal[1].totalPoints}`,
-    body: `Going into Kyūshū, <strong>${byTotal[0].name}</strong> is ${byTotal[0].totalPoints - byTotal[1].totalPoints} points clear of ${byTotal[1].name}
-    and ${byTotal[0].totalPoints - byTotal[2].totalPoints} clear of ${byTotal[2].name}; the top 5 are spread over <strong>${top5spread} points</strong>.
-    This season's basho scores have ranged from 54 to 87, so a lead that size can still go in fifteen days, but it needs the leader to have his worst basho of the year
-    and a chaser to have his best.`
+    icon: '🎯', title: 'The Flattest Line in Dagi Liga Finally Spiked', border: 'var(--accent2)',
+    winner: 'DJ_Pongo: 70 · 69 · 70 · 69 · 64 · 73',
+    body: `Five bashos inside a six-point band, then his best score and his first title in the last one. DJ's six results have a standard deviation of <strong>2.7 points</strong>; Márk's is 10.5.
+    Take Hatsu out and DJ is <strong>2nd for the year</strong>. Over the last three bashos he trailed the champion by five points.`
   });
 
-  // Consistency king — across every basho played so far
-  const allPlayed = players.filter(p => completedBashos.every(b => p.scores[b.id] !== undefined));
-  if (allPlayed.length > 0) {
-    const withStd = allPlayed.map(p => {
-      const vals = completedBashos.map(b => p.scores[b.id]);
-      const mean = vals.reduce((a,b)=>a+b,0) / vals.length;
-      const variance = vals.reduce((a,v)=>a + Math.pow(v - mean, 2), 0) / vals.length;
-      return { p, stdev: Math.sqrt(variance), vals };
-    }).sort((a,b) => a.stdev - b.stdev);
-    const c = withStd[0];
-    const wild = withStd[withStd.length - 1];
-    insights.push({
-      icon: '🎯', title: 'The Flattest Line in Dagi Liga',
-      border: 'var(--accent2)',
-      winner: `${c.p.name} — σ ${c.stdev.toFixed(1)}`,
-      body: `<strong>${c.p.name}</strong>: ${c.vals.join(' / ')}. ${c.vals.length} bashos, a total spread of <strong>${Math.max(...c.vals) - Math.min(...c.vals)} points</strong>.
-      DJ_Pongo's metronome finally skipped a beat in Aki (64 after 70, 69, 70, 69) and he is still the steadiest manager in the league.
-      At the other end, <strong>${wild.p.name}</strong> swings by σ ${wild.stdev.toFixed(1)} (${wild.vals.join(' / ')}).`
-    });
-  }
-
-  // League scoring drift across the season
   insights.push({
-    icon: '📊', title: 'Aki Gave It Back',
-    border: 'var(--accent3)',
-    winner: `Avg: ${bashoAvgs.hatsu?.toFixed(1)} → ${bashoAvgs.haru?.toFixed(1)} → ${bashoAvgs.natsu?.toFixed(1)} → ${bashoAvgs.nagoya?.toFixed(1)} → ${bashoAvgs.aki?.toFixed(1)}`,
-    body: `Per-team average dropped when rosters shrank from 5 picks to 4 (Hatsu <strong>${bashoAvgs.hatsu?.toFixed(1)}</strong> → Haru <strong>${bashoAvgs.haru?.toFixed(1)}</strong>),
-    recovered to <strong>${bashoAvgs.nagoya?.toFixed(1)}</strong> in Nagoya, then fell to <strong>${bashoAvgs.aki?.toFixed(1)}</strong> in Aki, the lowest of the season.
-    Hoshoryu missed the whole basho, four more rikishi were kyūjō for all or part of it, and the league's most popular picks (Atamifuji, Toshinofuji) finished 8-7 and 9-6.`
+    icon: '🥈', title: 'The Best Manager Never to Win a Basho', border: 'var(--accent)',
+    winner: 'Dorka: never above 73, never below 62',
+    body: `<strong>Dorka</strong> finished 8th, 2nd, 5th, 3rd, 2nd and 4th. No titles, no disasters, and the second-flattest line in the league.
+    She also won the house derby against Richard in <strong>four of six bashos</strong> (Haru, Nagoya, Aki, Kyūshū) while finishing 13 points behind him overall. Richard's two wins were by 13 and 19.`
   });
 
-  // F1-style points projection
+  insights.push({
+    icon: '📚', title: 'Bookends', border: 'var(--accent3)',
+    winner: 'Csilla: 1st in January, 2nd in November',
+    body: `<strong>Csilla</strong> shared the very first title of the year with 87, the highest score anyone posted all season, and finished 2nd in the very last basho with 65.
+    The four bashos in between went 3rd, 7th, 8th, 6th. If the season had been Hatsu and Kyūshū only, she wins it by seven.`
+  });
+
+  // F1-style points
   const f1Points = { 1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4, 9: 2, 10: 1 };
   const f1Totals = {};
   players.forEach(p => { f1Totals[p.name] = 0; });
   completedBashos.forEach(b => {
-    const ranked = players.filter(p => p.scores[b.id] !== undefined)
-      .sort((a, c) => c.scores[b.id] - a.scores[b.id]);
+    const ranked = players.filter(p => p.scores[b.id] !== undefined).sort((a, c) => c.scores[b.id] - a.scores[b.id]);
     ranked.forEach((p, i) => { f1Totals[p.name] += f1Points[i + 1] || 0; });
   });
   const f1Sorted = Object.entries(f1Totals).sort((a, b) => b[1] - a[1]);
   insights.push({
-    icon: '🏎️', title: 'If We Used F1 Scoring...',
-    border: 'var(--accent2)',
-    winner: `${f1Sorted[0][0]} would lead!`,
-    body: `Using F1-style points (25-18-15-12-10-8-6-4-2-1):<br>
-    ${f1Sorted.slice(0, 5).map((e, i) => `<strong>${i + 1}. ${e[0]}</strong>: ${e[1]} pts`).join(' | ')}<br>
-    ${f1Sorted[0][0] !== byTotal[0].name ? "Different scoring = different champion! Every system tells a different story." : "Same leader either way — they're just that good."}`
+    icon: '🏎️', title: 'If We Had Used F1 Scoring', border: 'var(--accent2)',
+    winner: f1Sorted.slice(0, 3).map(([n, v]) => `${n.split(' ')[0]} ${v}`).join(' · '),
+    body: `Award 25-18-15-12-10-8-6-4-2-1 for each basho's finishing order and Márk still wins, but the podium changes completely: <strong>Dorka 2nd, Mátyás 3rd</strong>.
+    Richard drops to <strong>7th</strong> of the seven full-season players. Points reward his three big scores; placings punish his two last places. Same year, different sport.`
   });
 
-  // "What if everyone had played all bashos?"
-  const projected = players.map(p => ({
-    name: p.name,
-    actual: p.totalPoints,
-    projected: Math.round(p.avgPerBasho * completedBashos.length),
-    missed: completedBashos.length - p.bashosPlayed
-  })).sort((a, b) => b.projected - a.projected);
   insights.push({
-    icon: '🔮', title: 'What If Everyone Played Every Basho?',
-    border: 'var(--accent3)',
-    winner: `${projected[0].name} would lead with ~${projected[0].projected}`,
-    body: `Projecting missed bashos using each player's average:<br>
-    ${projected.slice(0, 5).map((p, i) => `<strong>${i + 1}. ${p.name}</strong>: ~${p.projected}${p.missed > 0 ? ' (+' + (p.projected - p.actual) + ' projected)' : ''}`).join(' | ')}<br>
-    ${projected[0].name !== byTotal[0].name ? "<strong>The standings would shuffle!</strong> Missed bashos matter a lot." : "Same leader — they earned it!"}`
+    icon: '📊', title: 'The League, in Numbers', border: 'var(--gold)',
+    winner: '3,415 points · 50 basho entries · 11 managers',
+    body: `The average entry scored <strong>68.3</strong>. By basho the league average ran 78.7, 66.4, 68.4, 71.0, 62.1 and <strong>61.4</strong>: Kyūshū was the lowest-scoring basho of the year, just under Aki.
+    Highest score: <strong>87</strong> (Csilla and Márton, Hatsu). Lowest: <strong>54</strong> (Csilla, Natsu). Biggest winning margin: 8 (DJ_Pongo, Kyūshū). Smallest: 0 (Hatsu) and 1 (Mátyás over Dorka, Haru).`
   });
 
-  // Csilla's estimated points — explained openly
+  insights.push({
+    icon: '👻', title: 'The Undefeated Ghost', border: 'var(--accent)',
+    winner: 'Márton Váradi: played 1, won 1, average 87',
+    body: `<strong>Márton</strong> entered Hatsu, shared the title with 87 and never played again. That single score would have <strong>won every one of the other five bashos outright</strong> (the best any of them produced was 86).
+    The other part-timers: Tarján Teréz 198 from three bashos, Radish Master 888 a metronomic 58, 59, 62, and Riki San 59 on debut in Kyūshū.`
+  });
+
   const csilla = players.find(p => p.name === 'Csilla Virág');
   if (csilla && csilla.adjusted && csilla.adjusted.nagoya) {
-    const a = csilla.adjusted.nagoya;
     insights.push({
-      icon: '🫥', title: 'The Twenty-Point Ghost',
-      border: '#ff6b6b',
-      winner: `Csilla: ${a.raw} scored + ${a.added} estimated = ${a.raw + a.added}`,
-      body: `<strong>Csilla</strong> didn't register a lineup until Day 6 and banked five consecutive zeros to start Nagoya. From Day 6 on she never changed a pick, so we ran that
-      exact roster — <em>Yoshinofuji · Churanoumi · Shodai · Takerufuji</em> — back through the missing days at the real box scores: <strong>4 + 0 + 6 + 4 + 6 = 20</strong>.
-      Credited as an adjustment (marked <span class="adj-star">*</span> in the standings) so the season race stays a race.
-      The punchline: her ghost roster would have scored <strong>${a.added}</strong> in five days, while her real one managed ${a.raw} in ten.`
+      icon: '🫥', title: 'The Twenty-Point Ghost, Final Audit', border: 'var(--accent3)',
+      winner: `Csilla: ${csilla.totalPoints} with it, ${csilla.totalPoints - csilla.adjusted.nagoya.added} without`,
+      body: `Csilla's Nagoya score still includes the <strong>20 points estimated</strong> for the five days she had no lineup registered. Now that the season is over: it never mattered to anyone's placing.
+      She finishes 7th either way, 15 points behind Dorka with the credit and 35 without.`
     });
   }
 
-  // Dorka's season arc
-  const dorka = players.find(p => p.name === 'Dorka FJ');
-  if (dorka && dorka.scores.aki) {
-    insights.push({
-      icon: '⚔️', title: 'Dorka Keeps Quietly Climbing',
-      border: '#9b5de5',
-      winner: `${dorka.scores.hatsu} → ${dorka.scores.haru} → ${dorka.scores.natsu} → ${dorka.scores.nagoya} → ${dorka.scores.aki}`,
-      body: `<strong>Dorka FJ</strong> has still never won a basho, never finished last and never scored below 64. Aki's 64 was worth a share of <strong>2nd</strong>,
-      matching her Haru runner-up spot as her best finish of the year, and she was the only manager other than Márk to lead the basho outright at any point (after Day 6).
-      She also won the private Ricsi-Dorka duel on the Daily Matchups page, 32 wins to 28. The Tokások sit ${byTotal[0].totalPoints - dorka.totalPoints} points off the season lead.`
-    });
-  }
+  sep('🏯 Kyūshū, the Finale');
 
-  // Richard: the tinkerer
-  const richard = players.find(p => p.name === 'Richard Fejes');
-  if (richard) {
-    insights.push({
-      icon: '🔧', title: 'Seven Changes, Last Place, Still 2nd',
-      border: '#f9c74f',
-      winner: `Richard: Aki 8th (57) · season ${byTotal.indexOf(richard) + 1}${['st','nd','rd'][byTotal.indexOf(richard)] || 'th'}`,
-      body: `<strong>Richard</strong> made more pick changes than the rest of the league combined (seven, against four for everyone else), lost Wakanosho and Takanosho to withdrawals,
-      and finished <strong>8th</strong>. It barely dented him: everyone else ranged 59 to 70, so he held on to <strong>2nd</strong> in the season table.
-      His one constant was <strong>Fujinokawa</strong>, whom he again owned alone for all fifteen days: 11-4, a Kantō-shō and <strong>23 points</strong>, the basho's second-best haul.`
-    });
-  }
-
-  // Team names
   insights.push({
-    icon: '✍️', title: 'The Team-Name Situation, Part V',
-    border: 'var(--accent2)',
-    winner: 'Sumo → 相撲 → Σούμο → ᠪᠥᠬᠡ → сумо',
-    body: `<strong>Márk</strong> has now run his team in Latin, Japanese, Greek, Mongolian script and, for Aki, <strong>Cyrillic</strong>. Two different alphabets, two titles.
-    Elsewhere: Csilla's "best sumo team ever" picked up a cautious <strong>"(?)"</strong>, Richard's club became <em>Tokazachi Kövér Sportegyesület (TKSE)</em>,
-    and Radish Master 888 returned as <strong>"Abszolút Túlsúly 💪"</strong>.`
+    icon: '🏆', title: 'Kyūshū Fantasy Yūshō', border: 'var(--gold)',
+    winner: 'DJ_Pongo_Pongo · 73 pts',
+    body: `<strong>Kövér utcai Uszoda</strong> wins its first basho by <strong>8 points</strong>, the biggest margin of the year. DJ swapped three of his four rikishi before Day 4, took the lead alone on Day 7 and held it for nine straight days,
+    finishing with a 9-point senshūraku. The swap was worth 25 points; he won by 8.`
   });
 
-  // The Power Rankings joke
-  const marton = players.find(p => p.name === 'Márton Váradi');
-  if (marton) {
-    const outranked = byPower.filter(p => p.powerRating < marton.powerRating && p.scores.aki !== undefined);
-    if (outranked.length) insights.push({
-      icon: '🃏', title: 'The Power Rankings\' Cruellest Joke',
-      border: '#888',
-      winner: `Márton (1 basho) still out-rates ${outranked.length} people who played Aki`,
-      body: `<strong>Márton Váradi</strong> has not been seen since January. He has one score on record — <strong>87</strong>, still the highest single basho of 2026 —
-      and even after the participation penalty chews it down to a power rating of <strong>${marton.powerRating.toFixed(1)}</strong>, that is enough to sit above
-      ${outranked.map(p => `<strong>${p.name}</strong>`).join(' and ')}, ${outranked.length === 2 ? 'both of whom' : outranked.length === 1 ? 'who' : 'all of whom'} actually turned up in September.
-      Showing up is important. Showing up <em>well</em>, apparently, is more important.`
-    });
-  }
+  insights.push({
+    icon: '🙃', title: 'The Champion Lost to a Dartboard', border: 'var(--accent)',
+    winner: 'Random four: 60.1 · Márk: 55',
+    body: `Four names drawn blind from the Kyūshū banzuke and held for fifteen days expect <strong>60.1 points</strong>. Márk scored 55. So did Richard. Sándor scored 59.
+    The entire top three of the 2026 season lost to a dartboard in the basho that decided it.`
+  });
+
+  insights.push({
+    icon: '🪦', title: 'One Win, Day One', border: 'var(--accent3)',
+    winner: 'Asakoryu: 29 lineup slots, 8 points',
+    body: `Four teams opened with <strong>Asakoryu</strong>. He won on Day 1, lost ten straight and withdrew. Three owners got out within a week. <strong>Márk held him for all fifteen days</strong>:
+    fourteen scoreless days in a row, in the lineup of the man who won the season.`
+  });
+
+  insights.push({
+    icon: '👻', title: 'The Yokozuna Nobody Trusted', border: 'var(--gold)',
+    winner: 'Onosato: 28 points, 0 of 540 lineup slots',
+    body: `<strong>Onosato</strong> won the yūshō in a playoff and was the top fantasy scorer of the basho. Not one of nine teams fielded him on a single day. The best possible roster
+    (Onosato, Wakamotoharu, Atamifuji, Kinbozan) was worth <strong>101</strong>, and no manager ever had two of those four on the same day.`
+  });
+
+  insights.push({
+    icon: '🔄', title: 'The Lesson, Reversed', border: 'var(--accent2)',
+    winner: 'All five managers who swapped beat their Day 1 lineup',
+    body: `After two bashos won by doing nothing, Kyūshū paid the tinkerers: DJ_Pongo <strong>+25</strong>, Mátyás <strong>+22</strong>, Richard <strong>+13</strong>, Riki San <strong>+12</strong>, Dorka <strong>+10</strong> against their own untouched Day 1 rosters.
+    The four who sat still finished 2nd, T-4th, T-6th and T-8th. One of those four was the season champion.`
+  });
+
+  insights.push({
+    icon: '⭐', title: 'Sold Two Days Too Early', border: 'var(--accent)',
+    winner: 'Riki San cut Ura · DJ_Pongo cut Fujiseiun',
+    body: `Hoshoryu gave up four kinboshi in six days. <strong>Riki San</strong> dropped Ura after Day 2; Ura beat the yokozuna on Day 4. <strong>DJ_Pongo</strong> dropped Fujiseiun after Day 3; Fujiseiun beat the yokozuna on Day 5.
+    And <strong>Richard</strong> picked Fujiryoga, changed his mind before the Day 1 deadline, and watched him take a kinboshi on Day 3.`
+  });
+
+  insights.push({
+    icon: '🩰', title: 'Points by Accident', border: 'var(--accent3)',
+    winner: 'fumidashi · tsukite · hansoku · watashikomi',
+    body: `Dorka's Ura beat Richard's Takerufuji because Takerufuji <strong>stepped out on his own</strong>. Kyokukaiyu featured in both bouts decided by a hand touching down unforced. DJ's Kotoshoho scored by <strong>disqualification</strong>.
+    And the yūshō playoff ended with a watashikomi, a thigh-grab push-down. <a href="dagi_liga_kyushu_2026.html" style="color:var(--accent2)">The Kyūshū report has 24 of these →</a>`
+  });
 
   let html = '';
   insights.forEach(ins => {
+    if (ins.divider) { html += `<div class="insight-divider">${ins.divider}</div>`; return; }
     html += `<div class="insight-card">
       <div class="ic-border" style="background:${ins.border}"></div>
       <div class="icon">${ins.icon}</div>
@@ -3390,39 +3140,44 @@ renderStandings();
 renderPower();
 renderRace();
 renderProfiles();
-renderSeasonMath();
-renderComeback();
+renderSeasonFinal();
 renderInsights();
 
 // ============================
-// COUNTDOWN TIMER
+// CHAMPION CONFETTI
 // ============================
-(function() {
-  const kyushuStart = new Date('2026-11-08T10:00:00+09:00'); // JST opening day, Kyūshū (Nov 8–22)
-  const container = document.getElementById('countdown-boxes');
-  const wrapper = document.getElementById('countdown-wrapper');
-
-  function updateCountdown() {
-    const now = new Date();
-    const diff = kyushuStart - now;
-    if (diff <= 0) {
-      wrapper.querySelector('.countdown-label').innerHTML = '<span class="basho-name">九州場所 Kyūshū is LIVE!</span> 🟢';
-      container.innerHTML = '';
-      return;
-    }
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const mins = Math.floor((diff % 3600000) / 60000);
-    const secs = Math.floor((diff % 60000) / 1000);
-    container.innerHTML =
-      `<div class="countdown-box"><div class="num">${days}</div><div class="unit">Days</div></div>` +
-      `<div class="countdown-box"><div class="num">${String(hours).padStart(2,'0')}</div><div class="unit">Hours</div></div>` +
-      `<div class="countdown-box"><div class="num">${String(mins).padStart(2,'0')}</div><div class="unit">Min</div></div>` +
-      `<div class="countdown-box"><div class="num">${String(secs).padStart(2,'0')}</div><div class="unit">Sec</div></div>`;
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-})();
+// A short burst over the hero when the page loads, and again from the button.
+// Skipped for visitors who ask their device for reduced motion.
+function celebrate() {
+  const cv = document.getElementById('confetti');
+  if (!cv || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  const hero = cv.parentElement, ctx = cv.getContext('2d');
+  const W = cv.width = hero.offsetWidth, H = cv.height = hero.offsetHeight;
+  const colors = ['#ffd700', '#4ecdc4', '#ff6b6b', '#f8961e', '#ffffff', '#9b5de5'];
+  const bits = Array.from({ length: 140 }, () => ({
+    x: Math.random() * W, y: -20 - Math.random() * H * 0.6, r: 4 + Math.random() * 5,
+    vx: -1.5 + Math.random() * 3, vy: 2 + Math.random() * 3.5, rot: Math.random() * 6.28, vr: -0.2 + Math.random() * 0.4,
+    c: colors[Math.floor(Math.random() * colors.length)]
+  }));
+  const t0 = performance.now(), run = ++celebrate.run;
+  (function frame(t) {
+    if (run !== celebrate.run) return;
+    const age = t - t0;
+    ctx.clearRect(0, 0, W, H);
+    if (age > 7000) return;
+    ctx.globalAlpha = age > 5500 ? 1 - (age - 5500) / 1500 : 1;
+    bits.forEach(b => {
+      b.x += b.vx; b.y += b.vy; b.rot += b.vr;
+      if (b.y > H + 20) { b.y = -20; b.x = Math.random() * W; }
+      ctx.save(); ctx.translate(b.x, b.y); ctx.rotate(b.rot);
+      ctx.fillStyle = b.c; ctx.fillRect(-b.r, -b.r / 2, b.r * 2, b.r);
+      ctx.restore();
+    });
+    requestAnimationFrame(frame);
+  })(t0);
+}
+celebrate.run = 0;
+celebrate();
 
 // Sidebar hamburger menu
 function toggleSidebar() {
@@ -3910,30 +3665,33 @@ const kyushuMatchups = {
     { east:{name:'Ichiyamamoto',  rank:'前頭 M12e',       record:'8-5-0' }, west:{name:'Daiseizan',     rank:'前頭 M17e',       record:'3-10-0'}, h2h:'0-0'   , winner:'east' },
     { east:{name:'Toshinofuji',   rank:'前頭 M13e',       record:'7-6-0' }, west:{name:'Dewanoryu',     rank:'前頭 M14w',       record:'8-5-0' }, h2h:'1-2'   , winner:'east' }
   ],
-  // Day 15 — November 22, 2026. Torikumi announced, not yet fought. 40 active.
+  // Day 15 — November 22, 2026. Results in. 40 active. Onosato and Wakamotoharu finished level
+  // at 13-2; Onosato won the playoff by watashikomi (see kyushuPlayoff below).
   15: [
-    { east:{name:'Onosato',       rank:'横綱 Y1e',        record:'12-2-0'}, west:{name:'Hoshoryu',      rank:'横綱 Y1w',        record:'9-5-0' }, h2h:'3-9'   },
-    { east:{name:'Aonishiki',     rank:'大関 O1e',        record:'6-8-0' }, west:{name:'Kotozakura',    rank:'大関 O1w',        record:'8-6-0' }, h2h:'7-1'   },
-    { east:{name:'Kirishima',     rank:'大関 O2e',        record:'9-5-0' }, west:{name:'Fujinokawa',    rank:'関脇 S1e',        record:'7-7-0' }, h2h:'3-1'   },
-    { east:{name:'Wakamotoharu',  rank:'前頭 M7e',        record:'12-2-0'}, west:{name:'Atamifuji',     rank:'関脇 S1w',        record:'11-3-0'}, h2h:'6-3'   },
-    { east:{name:'Churanoumi',    rank:'小結 K1e',        record:'3-11-0'}, west:{name:'Hiradoumi',     rank:'前頭 M5e',        record:'4-10-0'}, h2h:'3-11'  },
-    { east:{name:'Gonoyama',      rank:'前頭 M5w',        record:'7-7-0' }, west:{name:'Yoshinofuji',   rank:'小結 K1w',        record:'7-7-0' }, h2h:'1-2'   },
-    { east:{name:'Asanoyama',     rank:'前頭 M1e',        record:'10-4-0'}, west:{name:'Kinbozan',      rank:'前頭 M7w',        record:'10-4-0'}, h2h:'5-1'   },
-    { east:{name:'Daieisho',      rank:'前頭 M4w',        record:'5-9-0' }, west:{name:'Fujiryoga',     rank:'前頭 M1w',        record:'8-6-0' }, h2h:'0-1'   },
-    { east:{name:'Ura',           rank:'前頭 M2e',        record:'5-9-0' }, west:{name:'Abi',           rank:'前頭 M12w',       record:'6-8-0' }, h2h:'5-12'  },
-    { east:{name:'Takayasu',      rank:'前頭 M3e',        record:'3-11-0'}, west:{name:'Fujiseiun',     rank:'前頭 M2w',        record:'6-8-0' }, h2h:'1-0'   },
-    { east:{name:'Oho',           rank:'前頭 M10w',       record:'8-6-0' }, west:{name:'Hakunofuji',    rank:'前頭 M3w',        record:'5-9-0' }, h2h:'4-2'   },
-    { east:{name:'Takerufuji',    rank:'前頭 M4e',        record:'5-9-0' }, west:{name:'Tokihayate',    rank:'前頭 M14e',       record:'4-10-0'}, h2h:'4-2'   },
-    { east:{name:'Kotoshoho',     rank:'前頭 M6e',        record:'7-7-0' }, west:{name:'Arashifuji',    rank:'前頭 M16e',       record:'7-7-0' }, h2h:'0-0'   },
-    { east:{name:'Daiseizan',     rank:'前頭 M17e',       record:'3-11-0'}, west:{name:'Kotoeiho',      rank:'前頭 M6w',        record:'6-2-0' }, h2h:'2-6'   },
-    { east:{name:'Roga',          rank:'前頭 M8e',        record:'9-5-0' }, west:{name:'Toshinofuji',   rank:'前頭 M13e',       record:'8-6-0' }, h2h:'0-0'   },
-    { east:{name:'Asahakuryu',    rank:'前頭 M11w',       record:'10-4-0'}, west:{name:'Nishikifuji',   rank:'前頭 M8w',        record:'8-6-0' }, h2h:'3-3'   },
-    { east:{name:'Oshoma',        rank:'前頭 M9e',        record:'7-7-0' }, west:{name:'Kyokukaiyu',    rank:'前頭 M16w',       record:'7-7-0' }, h2h:'0-0'   },
-    { east:{name:'Takanosho',     rank:'前頭 M11e',       record:'9-5-0' }, west:{name:'Dewanoryu',     rank:'前頭 M14w',       record:'8-6-0' }, h2h:'0-0'   },
-    { east:{name:'Ichiyamamoto',  rank:'前頭 M12e',       record:'9-5-0' }, west:{name:'Kitanowaka',    rank:'前頭 M15w',       record:'8-6-0' }, h2h:'2-3'   },
-    { east:{name:'Tamawashi',     rank:'前頭 M15e',       record:'9-5-0' }, west:{name:'Asasuiryu',     rank:'前頭 M13w',       record:'4-10-0'}, h2h:'0-1'   }
+    { east:{name:'Onosato',       rank:'横綱 Y1e',        record:'12-2-0'}, west:{name:'Hoshoryu',      rank:'横綱 Y1w',        record:'9-5-0' }, h2h:'3-9'   , winner:'east' },
+    { east:{name:'Aonishiki',     rank:'大関 O1e',        record:'6-8-0' }, west:{name:'Kotozakura',    rank:'大関 O1w',        record:'8-6-0' }, h2h:'7-1'   , winner:'east' },
+    { east:{name:'Kirishima',     rank:'大関 O2e',        record:'9-5-0' }, west:{name:'Fujinokawa',    rank:'関脇 S1e',        record:'7-7-0' }, h2h:'3-1'   , winner:'east' },
+    { east:{name:'Wakamotoharu',  rank:'前頭 M7e',        record:'12-2-0'}, west:{name:'Atamifuji',     rank:'関脇 S1w',        record:'11-3-0'}, h2h:'6-3'   , winner:'east' },
+    { east:{name:'Churanoumi',    rank:'小結 K1e',        record:'3-11-0'}, west:{name:'Hiradoumi',     rank:'前頭 M5e',        record:'4-10-0'}, h2h:'3-11'  , winner:'east' },
+    { east:{name:'Gonoyama',      rank:'前頭 M5w',        record:'7-7-0' }, west:{name:'Yoshinofuji',   rank:'小結 K1w',        record:'7-7-0' }, h2h:'1-2'   , winner:'east' },
+    { east:{name:'Asanoyama',     rank:'前頭 M1e',        record:'10-4-0'}, west:{name:'Kinbozan',      rank:'前頭 M7w',        record:'10-4-0'}, h2h:'5-1'   , winner:'west' },
+    { east:{name:'Daieisho',      rank:'前頭 M4w',        record:'5-9-0' }, west:{name:'Fujiryoga',     rank:'前頭 M1w',        record:'8-6-0' }, h2h:'0-1'   , winner:'west' },
+    { east:{name:'Ura',           rank:'前頭 M2e',        record:'5-9-0' }, west:{name:'Abi',           rank:'前頭 M12w',       record:'6-8-0' }, h2h:'5-12'  , winner:'east' },
+    { east:{name:'Takayasu',      rank:'前頭 M3e',        record:'3-11-0'}, west:{name:'Fujiseiun',     rank:'前頭 M2w',        record:'6-8-0' }, h2h:'1-0'   , winner:'west' },
+    { east:{name:'Oho',           rank:'前頭 M10w',       record:'8-6-0' }, west:{name:'Hakunofuji',    rank:'前頭 M3w',        record:'5-9-0' }, h2h:'4-2'   , winner:'east' },
+    { east:{name:'Takerufuji',    rank:'前頭 M4e',        record:'5-9-0' }, west:{name:'Tokihayate',    rank:'前頭 M14e',       record:'4-10-0'}, h2h:'4-2'   , winner:'west' },
+    { east:{name:'Kotoshoho',     rank:'前頭 M6e',        record:'7-7-0' }, west:{name:'Arashifuji',    rank:'前頭 M16e',       record:'7-7-0' }, h2h:'0-0'   , winner:'east' },
+    { east:{name:'Daiseizan',     rank:'前頭 M17e',       record:'3-11-0'}, west:{name:'Kotoeiho',      rank:'前頭 M6w',        record:'6-2-0' }, h2h:'2-6'   , winner:'west' },
+    { east:{name:'Roga',          rank:'前頭 M8e',        record:'9-5-0' }, west:{name:'Toshinofuji',   rank:'前頭 M13e',       record:'8-6-0' }, h2h:'0-0'   , winner:'east' },
+    { east:{name:'Asahakuryu',    rank:'前頭 M11w',       record:'10-4-0'}, west:{name:'Nishikifuji',   rank:'前頭 M8w',        record:'8-6-0' }, h2h:'3-3'   , winner:'east' },
+    { east:{name:'Oshoma',        rank:'前頭 M9e',        record:'7-7-0' }, west:{name:'Kyokukaiyu',    rank:'前頭 M16w',       record:'7-7-0' }, h2h:'0-0'   , winner:'west' },
+    { east:{name:'Takanosho',     rank:'前頭 M11e',       record:'9-5-0' }, west:{name:'Dewanoryu',     rank:'前頭 M14w',       record:'8-6-0' }, h2h:'0-0'   , winner:'east' },
+    { east:{name:'Ichiyamamoto',  rank:'前頭 M12e',       record:'9-5-0' }, west:{name:'Kitanowaka',    rank:'前頭 M15w',       record:'8-6-0' }, h2h:'2-3'   , winner:'west' },
+    { east:{name:'Tamawashi',     rank:'前頭 M15e',       record:'9-5-0' }, west:{name:'Asasuiryu',     rank:'前頭 M13w',       record:'4-10-0'}, h2h:'0-1'   , winner:'east' }
   ]
 };
+// Yusho playoff after Day 15. Not a regular bout, so it is kept out of the daily records.
+const kyushuPlayoff = { winner: 'Onosato', loser: 'Wakamotoharu', kimarite: 'watashikomi' };
 let activeMatchupDay = 1;
 function renderMatchupDayTabs() {
   const wrap = document.getElementById('matchup-day-tabs');
@@ -4179,7 +3937,10 @@ function renderYushoRace() {
       + '<span class="yw-name">' + list(top.names) + '</span>'
       + '<span class="yw-rec">' + top.w + '-' + top.l + '</span>'
       + '<span class="yw-tag">' + (left === 0
-          ? (top.names.length === 1 ? 'wins the y\u016bsh\u014d' : 'tied, decided in a playoff')
+          ? (top.names.length === 1 ? 'wins the y\u016bsh\u014d'
+              : (typeof kyushuPlayoff !== 'undefined' && kyushuPlayoff
+                  ? 'level after 15 days \u00b7 playoff: ' + kyushuPlayoff.winner + ' beat ' + kyushuPlayoff.loser + ' by ' + kyushuPlayoff.kimarite + ' and takes the y\u016bsh\u014d'
+                  : 'tied, decided in a playoff'))
           : (top.names.length === 1 ? 'sole leader' : 'share the lead')) + '</span></div>';
   } else {
     html += '<div class="yw-leader"><span class="yw-crown">\u{1F451}</span>'
