@@ -98,6 +98,13 @@
   .hero .badge.upcoming { opacity: 0.5; }
   .hero .badge.current { background: rgba(255,215,0,0.20); border-color: var(--gold); color: #fff; font-weight: 700; opacity: 1; }
   /* Countdown */
+  /* ===== SHARE CARDS ===== */
+  .share-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+  .share-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .share-card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+  .share-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; }
+  .share-sub { color: var(--text-muted); font-size: 0.85em; margin-top: 2px; }
+  .share-dl { flex: 0 0 auto; background: var(--accent2); color: #08101a; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 8px; font-size: 0.85em; }
   /* ===== SEASON CHAMPION ===== */
   .hero { position: relative; }
   #confetti { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; }
@@ -1747,6 +1754,7 @@
     <div class="sidebar-item" onclick="sidebarNav('profiles',this)">Player Profiles</div>
     <div class="sidebar-item sidebar-item--sake" onclick="sidebarNav('comeback',this)">🍶 The Sake</div>
     <div class="sidebar-item" onclick="sidebarNav('insights',this)">Fun Facts & Awards</div>
+    <div class="sidebar-item" onclick="sidebarNav('cards',this)">📸 Share Cards</div>
     <div class="sidebar-item" onclick="sidebarNav('bashos',this)">Individual Bashos</div>
     <div class="sidebar-item sidebar-item--matchups" onclick="sidebarNav('matchups',this)">⚔️ Daily Matchups</div>
     <div class="sidebar-item sidebar-item--banzuke" onclick="sidebarNav('banzuke',this)">📜 Banzuke</div>
@@ -1760,6 +1768,7 @@
     <div class="nav-tab" onclick="showTab('profiles',this)">Player Profiles</div>
     <div class="nav-tab nav-tab--sake" onclick="showTab('comeback',this)">🍶 The Sake</div>
     <div class="nav-tab" onclick="showTab('insights',this)">Fun Facts & Awards</div>
+    <div class="nav-tab" onclick="showTab('cards',this)">📸 Share Cards</div>
     <div class="nav-tab" onclick="showTab('bashos',this)">Individual Bashos</div>
     <div class="nav-tab nav-tab--matchups" onclick="showTab('matchups',this)">⚔️ Daily Matchups</div>
     <div class="nav-tab nav-tab--banzuke" onclick="showTab('banzuke',this)">📜 Banzuke</div>
@@ -1813,6 +1822,88 @@
     <div class="section-title">Fun Facts & Season Awards</div>
     <p style="color:var(--text-muted);margin-bottom:15px">The whole year first, then the finale. Every number here comes from the Fantasizr scores and the official bout results.</p>
     <div id="insights-container" class="cards-grid"></div>
+  </div>
+
+  <!-- SHARE CARDS -->
+  <div id="tab-cards" class="tab-content">
+    <div class="section-title">Share Cards</div>
+    <p style="color:var(--text-muted);margin-bottom:18px;line-height:1.6">Ready-made pictures for Messenger and Facebook, 1080 × 1350 PNG. Tap a card to open it full size, or use the button to download it. The nine Kyūshū cards are in the <a href="dagi_liga_kyushu_2026.html" style="color:var(--accent2)">Kyūshū report</a>.</p>
+    <h3 style="margin:8px 0 14px">Season fun facts</h3>
+    <div class="share-grid">
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_fact_1.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_fact_1.png" alt="Seven ways to count the season" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#ffd700">Seven ways to count the season</strong><div class="share-sub">Five different champions</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_fact_1.png" download="dagi_liga_2026_fact_1.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_fact_2.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_fact_2.png" alt="Six bashos, six names on the trophy" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#ffd700">Six bashos, six names on the trophy</strong><div class="share-sub">Every basho winner of 2026</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_fact_2.png" download="dagi_liga_2026_fact_2.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_fact_3.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_fact_3.png" alt="The league in numbers" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#ffd700">The league in numbers</strong><div class="share-sub">3,415 points, 11 managers</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_fact_3.png" download="dagi_liga_2026_fact_3.png">⬇ PNG</a></div>
+      </div>
+    </div>
+    <h3 style="margin:26px 0 14px">One for every manager · the whole season</h3>
+    <div class="share-grid">
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_mark.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_mark.png" alt="Season 2026 card for Márk Vrabély" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#f8961e">Márk Vrabély</strong><div class="share-sub">440 pts · Champion</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_mark.png" download="dagi_liga_2026_mark.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_ricsi.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_ricsi.png" alt="Season 2026 card for Richard Fejes" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#f9c74f">Richard Fejes</strong><div class="share-sub">418 pts · T-2nd</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_ricsi.png" download="dagi_liga_2026_ricsi.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_sandor.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_sandor.png" alt="Season 2026 card for Sándor Szilágyi" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#6f9bbd">Sándor Szilágyi</strong><div class="share-sub">418 pts · T-2nd</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_sandor.png" download="dagi_liga_2026_sandor.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_dj.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_dj.png" alt="Season 2026 card for DJ_Pongo_Pongo" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#43aa8b">DJ_Pongo_Pongo</strong><div class="share-sub">415 pts · 4th</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_dj.png" download="dagi_liga_2026_dj.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_matyas.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_matyas.png" alt="Season 2026 card for Mátyás Fazakas" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#4ecdc4">Mátyás Fazakas</strong><div class="share-sub">406 pts · 5th</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_matyas.png" download="dagi_liga_2026_matyas.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_dorka.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_dorka.png" alt="Season 2026 card for Dorka FJ" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#9b5de5">Dorka FJ</strong><div class="share-sub">405 pts · 6th</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_dorka.png" download="dagi_liga_2026_dorka.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_csilla.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_csilla.png" alt="Season 2026 card for Csilla Virág" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#ff6b6b">Csilla Virág</strong><div class="share-sub">390 pts · 7th</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_csilla.png" download="dagi_liga_2026_csilla.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_terez.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_terez.png" alt="Season 2026 card for Tarján Teréz" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#f15bb5">Tarján Teréz</strong><div class="share-sub">198 pts · 8th</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_terez.png" download="dagi_liga_2026_terez.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_radish.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_radish.png" alt="Season 2026 card for Radish Master 888" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#90be6d">Radish Master 888</strong><div class="share-sub">179 pts · 9th</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_radish.png" download="dagi_liga_2026_radish.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_marton.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_marton.png" alt="Season 2026 card for Márton Váradi" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#e94560">Márton Váradi</strong><div class="share-sub">87 pts · 10th</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_marton.png" download="dagi_liga_2026_marton.png">⬇ PNG</a></div>
+      </div>
+      <div class="share-card">
+        <a href="cards/season_2026/season_2026_riki.png" target="_blank" rel="noopener"><img src="cards/season_2026/season_2026_riki.png" alt="Season 2026 card for Riki San" loading="lazy"></a>
+        <div class="share-meta"><div><strong style="color:#e07a5f">Riki San</strong><div class="share-sub">59 pts · 11th</div></div>
+        <a class="share-dl" href="cards/season_2026/season_2026_riki.png" download="dagi_liga_2026_riki.png">⬇ PNG</a></div>
+      </div>
+    </div>
   </div>
 
   <!-- INDIVIDUAL BASHOS -->
@@ -2650,7 +2741,7 @@ function showTab(tab, el) {
   if (el) el.classList.add('active');
   // Sync sidebar active state
   document.querySelectorAll('.sidebar-item').forEach(function(s) {
-    var tabMap = {'watch':'watch','standings':'standings','power':'power','race':'race','profiles':'profiles','comeback':'comeback','insights':'insights','bashos':'bashos','matchups':'matchups','banzuke':'banzuke'};
+    var tabMap = {'watch':'watch','standings':'standings','power':'power','race':'race','profiles':'profiles','comeback':'comeback','insights':'insights','cards':'cards','bashos':'bashos','matchups':'matchups','banzuke':'banzuke'};
     for (var k in tabMap) {
       if (k === tab && s.getAttribute('onclick') && s.getAttribute('onclick').indexOf("'" + k + "'") !== -1) {
         s.classList.add('active');
